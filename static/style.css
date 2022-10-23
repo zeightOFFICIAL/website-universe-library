@@ -1,18 +1,43 @@
-html,
-body {
-    background-color: black;
+@font-face {
+    font-family: 'solar';
+    src: url('../static/fonts/earthorbiter.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'normal';
+    src: url('../static/fonts/vanadine.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.solar-system {
+html,
+body {
+    background-color: rgb(11, 1, 31);
+    height: 98vh;
+}
+.h2-solar {
+    font-family: 'solar';
+    font-size: 7.5vh;
+    height: 3.5vh;
+    color: rgb(255, 255, 255);
+}
+.p-solar {
+    font-family: 'normal';
+    font-size: 3vh;
+    color: rgb(255, 255, 255);
+}
+
+.star-system {
     position: relative;
     width: auto;
-    height: 780px;
+    height: 95vh;
     margin: auto;
     overflow: hidden;
 }
 
 .orbit {
-    border: 1px dashed #666;
+    border: 1px solid rgb(57, 57, 78);
 }
 
 #sun,
@@ -41,23 +66,21 @@ body {
 }
 
 #sun {
-    height: 100px;
-    width: 100px;
-    background-color: #fae20a;
-    margin-top: -50px;
-    margin-left: -50px;
+    height: 140px;
+    width: 140px;
+    background-color: #ffe600;
+    margin-top: -70px;
+    margin-left: -70px;
     border-radius: 50%;
-    box-shadow: 0 0 84px orange;
+    box-shadow: 0 0 100px rgb(255, 166, 0);
 }
 
 #earth {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
     height: 50px;
     width: 50px;
-    margin-left: -25px;
-    margin-top: -25px;
+    background-color: #3498db;
     border-radius: 50%;
     box-shadow: 0 0 34px #3a4385;
 }
@@ -111,8 +134,7 @@ body {
     margin-left: -13.5px;
     height: 25px;
     width: 25px;
-    background-color: #a65e22;
-    /* box-shadow: 0 0 34px #3a4385; */
+    background-color: #706257;
 }
 
 .mercury-orbit,
@@ -128,8 +150,8 @@ body {
     margin-left: -16px;
     height: 32px;
     width: 32px;
-    background-color: #863222;
-    box-shadow: 0 0 14px #a64232;
+    background-color: #ca391d;
+    box-shadow: 0 0 20px #c04a38;
 }
 
 .mars-orbit,
@@ -139,8 +161,6 @@ body {
     margin-left: -350px;
     margin-top: -350px;
 }
-
-/* Spinning animations */
 
 @keyframes spin-right {
     100% {

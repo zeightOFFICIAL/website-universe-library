@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
     {% load static %}
     <title>Hello, Universe!</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -9,35 +10,56 @@
 
 <body>
 
-    <div class="solar-system">
-        <div id="sun"></div>
-
-        <div class="orbit mercury-orbit"></div>
-        <div class="mercury-spin">
-            <div id="mercury"></div>
-        </div>
-
-        <div class="orbit venus-orbit"></div>
-        <div class="venus-spin">
-            <div id="venus"></div>
-        </div>
-
-        <div class="orbit earth-orbit"></div>
-        <div class="earth-spin">
-            <div class="orbit moon-orbit"></div>
-            <div class="moon-spin">
-                <div id="moon"></div>
-            </div>
-
-            <img id="earth"
-                src="https://raw.githubusercontent.com/everdimension-personal/codepen-assets/master/earth_small_150.jpg" />
-        </div>
-
-        <div class="orbit mars-orbit"></div>
-        <div class="mars-spin">
-            <div id="mars"></div>
-        </div>
+    <div class="welcome-menu">
     </div>
+
+    <table border="0" align="center" height="100%" width="100%">
+        <tr>
+            <td width="10%">
+
+            </td>
+            <td width="35%">
+                <h2 align="center" class="h2-solar">Solar System</h2>
+                <hr align="center" size="1" width="95%">
+                <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun and
+                    the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse of a
+                    giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
+                    with most of the remaining mass contained in the planet Jupiter.</p>
+            </td>
+            <td width="45%">
+                <div class="star-system">
+                    <div id="sun"></div>
+
+                    <div class="orbit mercury-orbit"></div>
+                    <div class="mercury-spin">
+                        <div id="mercury"></div>
+                    </div>
+
+                    <div class="orbit venus-orbit"></div>
+                    <div class="venus-spin">
+                        <div id="venus"></div>
+                    </div>
+
+                    <div class="orbit earth-orbit"></div>
+                    <div class="earth-spin">
+                        <div class="earth"></div>
+                        <div class="orbit moon-orbit"></div>
+                        <div class="moon-spin">
+                            <div id="moon"></div>
+                        </div>
+                    </div>
+
+                    <div class="orbit mars-orbit"></div>
+                    <div class="mars-spin">
+                        <div id="mars"></div>
+                    </div>
+                </div>
+            </td>
+            <td width="10%">
+
+            </td>
+        </tr>
+    </table>
 
 </body>
 
