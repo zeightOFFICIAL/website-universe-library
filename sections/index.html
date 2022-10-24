@@ -10,15 +10,12 @@
 
 <body>
 
-    <div class="welcome-menu">
-    </div>
-
     <table border="0" align="center" height="100%" width="100%">
         <tr>
             <td width="10%">
 
             </td>
-            <td width="35%">
+            <td width="30%" id="leftSideTable">
                 <h2 align="center" class="h2-solar">Solar System</h2>
                 <hr align="center" size="1" width="95%">
                 <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun and
@@ -26,9 +23,9 @@
                     giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
                     with most of the remaining mass contained in the planet Jupiter.</p>
             </td>
-            <td width="45%">
-                <div class="star-system">
-                    <div id="sun"></div>
+            <td width="50%">
+                <div class="star-system" zoom="50%">
+                    <div id="sun" onclick="sunClicked();"></div>
 
                     <div class="orbit mercury-orbit"></div>
                     <div class="mercury-spin">
@@ -36,13 +33,13 @@
                     </div>
 
                     <div class="orbit venus-orbit"></div>
-                    <div class="venus-spin">
+                    <div class="venus-spin" >
                         <div id="venus"></div>
                     </div>
 
                     <div class="orbit earth-orbit"></div>
                     <div class="earth-spin">
-                        <div class="earth"></div>
+                        <div id="earth"></div>
                         <div class="orbit moon-orbit"></div>
                         <div class="moon-spin">
                             <div id="moon"></div>
@@ -52,7 +49,40 @@
                     <div class="orbit mars-orbit"></div>
                     <div class="mars-spin">
                         <div id="mars"></div>
+                        <div class="orbit deimos-orbit"></div>
+                        <div class="deimos-spin">
+                            <div id="deimos"></div>
+                        </div>
+                        <div class="orbit phobos-orbit"></div>
+                        <div class="phobos-spin">
+                            <div id="phobos"></div>
+                        </div>
                     </div>
+
+                    <div class="orbit asteroids-orbit"></div>
+                    <div class="asteroids-spin">
+                    </div>
+
+                    <div class="orbit jupiter-orbit"></div>
+                    <div class="jupiter-spin">
+                        <div id="jupiter"></div>
+                    </div>
+
+                    <div class="orbit saturn-orbit"></div>
+                    <div class="saturn-spin">
+                        <div id="saturn"></div>
+                    </div>
+
+                    <div class="orbit uranus-orbit"></div>
+                    <div class="uranus-spin">
+                        <div id="uranus"></div>
+                    </div>
+
+                    <div class="orbit neptune-orbit"></div>
+                    <div class="neptune-spin">
+                        <div id="neptune"></div>
+                    </div>
+
                 </div>
             </td>
             <td width="10%">
@@ -60,7 +90,7 @@
             </td>
         </tr>
     </table>
-
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>
