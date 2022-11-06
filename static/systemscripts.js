@@ -18,40 +18,60 @@ function onLoadSolar() {
 }
 
 let slideIndex = 1;
-showSlides(slideIndex);
+showSlides(slideIndex, "sunSlide");
+showSlides(slideIndex, "earthSlide");
+showSlides(slideIndex, "marsSlide");
+showSlides(slideIndex, "venusSlide");
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function plusSlides(n, name) {
+    showSlides(slideIndex += n, name);
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function currentSlide(n, name) {
+    showSlides(slideIndex = n, name);
 }
 
-function showSlides(n) {
+function showSlides(n, name) {
     let i;
-    let slides = document.getElementsByClassName("allSlide");
-    let dots = document.getElementsByClassName("demo");
+    let slides = document.getElementsByClassName(name);
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
 }
 
-var leftSide = document.getElementById("leftSide");
-
 function sunClicked() {
-    document.getElementById("systemInfo").style.display = 'none';
+    hideAllInfo();
     document.getElementById("sunInfo").style.display = 'unset';
 }
 
+function earthClicked() {
+    hideAllInfo();
+    document.getElementById("earthInfo").style.display = 'unset';
+}
+
+function marsClicked() {
+    hideAllInfo();
+    document.getElementById("marsInfo").style.display = 'unset';
+}
+
+function venusClicked() {
+    hideAllInfo();
+    document.getElementById("venusInfo").style.display = 'unset';
+}
+
 function closeInfo() {
+    hideAllInfo();
     document.getElementById("systemInfo").style.display = 'unset';
+}
+
+function hideAllInfo() 
+{
+    document.getElementById("systemInfo").style.display = 'none';
+    document.getElementById("earthInfo").style.display = 'none';
     document.getElementById("sunInfo").style.display = 'none';
+    document.getElementById("marsInfo").style.display = 'none';
+    document.getElementById("venusInfo").style.display = 'none';
 }
