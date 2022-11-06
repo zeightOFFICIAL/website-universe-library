@@ -22,6 +22,11 @@ showSlides(slideIndex, "sunSlide");
 showSlides(slideIndex, "earthSlide");
 showSlides(slideIndex, "marsSlide");
 showSlides(slideIndex, "venusSlide");
+showSlides(slideIndex, "mercurySlide");
+showSlides(slideIndex, "saturnSlide");
+showSlides(slideIndex, "jupiterSlide");
+showSlides(slideIndex, "neptuneSlide");
+showSlides(slideIndex, "uranusSlide");
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
@@ -62,6 +67,31 @@ function venusClicked() {
     document.getElementById("venusInfo").style.display = 'unset';
 }
 
+function mercuryClicked() {
+    hideAllInfo();
+    document.getElementById("mercuryInfo").style.display = 'unset';
+}
+
+function saturnClicked() {
+    hideAllInfo();
+    document.getElementById("saturnInfo").style.display = "unset";
+}
+
+function jupiterClicked() {
+    hideAllInfo();
+    document.getElementById("jupiterInfo").style.display = "unset";
+}
+
+function neptuneClicked() {
+    hideAllInfo();
+    document.getElementById("neptuneInfo").style.display = 'unset';
+}
+
+function uranusClicked() {
+    hideAllInfo();
+    document.getElementById("uranusInfo").style.display = 'unset';
+}
+
 function closeInfo() {
     hideAllInfo();
     document.getElementById("systemInfo").style.display = 'unset';
@@ -74,4 +104,9 @@ function hideAllInfo()
     document.getElementById("sunInfo").style.display = 'none';
     document.getElementById("marsInfo").style.display = 'none';
     document.getElementById("venusInfo").style.display = 'none';
+    document.getElementById("mercuryInfo").style.display = 'none';
+    document.getElementById("saturnInfo").style.display = 'none';
+    document.getElementById("jupiterInfo").style.display = 'none';
+    document.getElementById("neptuneInfo").style.display = 'none';
+    document.getElementById("uranusInfo").style.display = 'none';
 }

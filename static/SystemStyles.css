@@ -46,7 +46,12 @@
 .sunSlide,
 .earthSlide,
 .marsSlide,
-.venusSlide {
+.venusSlide,
+.mercurySlide,
+.saturnSlide,
+.jupiterSlide,
+.neptuneSlide,
+.uranusSlide {
     display: none;
 }
 
@@ -213,6 +218,7 @@ body {
 .orbit+div {
     top: 50%;
     left: 50%;
+    
 }
 
 .orbit+div>div {
@@ -234,7 +240,6 @@ body {
     margin-left: -4vh;
     border-radius: 50%;
     box-shadow: 0 0 10vh #ffa600;
-    z-index: 100;
 }
 
 #mercury {
@@ -243,7 +248,6 @@ body {
     height: 2vh;
     width: 2vh;
     background-color: #706257;
-    z-index: 100;
 }
 
 .mercury-orbit,
@@ -252,7 +256,6 @@ body {
     height: 11vh;
     margin-left: -5.5vh;
     margin-top: -5.5vh;
-    z-index: 62;
 }
 
 #venus {
@@ -262,7 +265,6 @@ body {
     width: 4vh;
     background-color: #ffe7a4;
     box-shadow: 0 0 5px #ffee90;
-    z-index: 100;
 }
 
 .venus-orbit,
@@ -271,7 +273,6 @@ body {
     margin-left: -9vh;
     width: 18vh;
     height: 18vh;
-    z-index: 61;
 }
 
 #earth {
@@ -281,7 +282,6 @@ body {
     width: 4vh;
     background-color: #61abff;
     box-shadow: 0 0 5px #d7d9f5;
-    z-index: 100;
 }
 
 .earth-orbit,
@@ -290,7 +290,6 @@ body {
     height: 29vh;
     margin-left: -14.5vh;
     margin-top: -14.5vh;
-    z-index: 60;
 }
 
 #moon {
@@ -299,7 +298,6 @@ body {
     height: 1vh;
     width: 1vh;
     background-color: #aaaaaa;
-    z-index: 100;
 }
 
 .moon-orbit,
@@ -309,7 +307,6 @@ body {
     margin-top: -3vh;
     margin-left: -3vh;
     border-color: rgb(57, 57, 78);
-    z-index: 59;
 }
 
 #mars {
@@ -319,7 +316,6 @@ body {
     width: 3vh;
     background-color: #b43c1e;
     box-shadow: 0 0 5px #be1616;
-    z-index: 100;
 }
 
 .mars-orbit,
@@ -328,7 +324,6 @@ body {
     height: 44vh;
     margin-left: -22vh;
     margin-top: -22vh;
-    z-index: 58;
 }
 
 #deimos {
@@ -337,7 +332,6 @@ body {
     height: 1vh;
     width: 1vh;
     background-color: #aaaaaa;
-    z-index: 100;
 }
 
 .deimos-orbit,
@@ -347,7 +341,6 @@ body {
     margin-top: -2.5vh;
     margin-left: -2.5vh;
     border-color: rgb(57, 57, 78);
-    z-index: 57;
 }
 
 #phobos {
@@ -356,7 +349,6 @@ body {
     height: 1vh;
     width: 1vh;
     background-color: #aaaaaa;
-    z-index: 100;
 }
 
 .phobos-orbit,
@@ -366,7 +358,6 @@ body {
     margin-top: -3.5vh;
     margin-left: -3.5vh;
     border-color: rgb(57, 57, 78);
-    z-index: 56;
 }
 
 .asteroids-orbit,
@@ -379,7 +370,6 @@ body {
     border-width: 0vh;
     box-shadow: 0 0 7vh #4b4b4b;
     border-color: rgb(41, 41, 41);
-    z-index: 55;
 }
 
 #jupiter {
@@ -389,7 +379,6 @@ body {
     width: 7vh;
     background-color: #bb8e63;
     box-shadow: 0 0 15px #c5a572;
-    z-index: 100;
 }
 
 .jupiter-orbit,
@@ -398,7 +387,6 @@ body {
     height: 59vh;
     margin-left: -29.5vh;
     margin-top: -29.5vh;
-    z-index: 54;
 }
 
 #saturn {
@@ -408,7 +396,6 @@ body {
     width: 6vh;
     background-color: #816850;
     box-shadow: 0 0 15px #9c7a48;
-    z-index: 100;
 }
 
 .saturn-orbit,
@@ -417,7 +404,6 @@ body {
     height: 73vh;
     margin-left: -36.5vh;
     margin-top: -36.5vh;
-    z-index: 52;
 }
 
 #uranus {
@@ -427,7 +413,6 @@ body {
     width: 3vh;
     background-color: #cacbff;
     box-shadow: 0 0 15px #a490ff;
-    z-index: 100;
 }
 
 .uranus-orbit,
@@ -436,7 +421,6 @@ body {
     height: 83vh;
     margin-left: -41.5vh;
     margin-top: -41.5vh;
-    z-index: 51;
 }
 
 #neptune {
@@ -446,7 +430,6 @@ body {
     width: 3vh;
     background-color: #585ad6;
     box-shadow: 0 0 15px #2f00ff;
-    z-index: 100;
 }
 
 .neptune-orbit,
@@ -455,7 +438,6 @@ body {
     height: 92vh;
     margin-left: -46vh;
     margin-top: -46vh;
-    z-index: 50;
 }
 
 @keyframes spin-right {
@@ -466,44 +448,55 @@ body {
 
 .earth-spin {
     animation: spin-right 36.5s linear infinite;
+    border-radius: 100%;
 }
 
 .moon-spin {
     animation: spin-right 3s linear infinite;
+    border-radius: 100%;
 }
 
 .venus-spin {
     animation: spin-right 22s linear infinite;
+    border-radius: 100%;
 }
 
 .mercury-spin {
     animation: spin-right 8.8s linear infinite;
+    border-radius: 100%;
 }
 
 .mars-spin {
     animation: spin-right 68.7s linear infinite;
+    border-radius: 100%;
 }
 
 .deimos-spin {
     animation: spin-right 1.12s linear infinite;
+    border-radius: 100%;
 }
 
 .phobos-spin {
     animation: spin-right 0.5s linear infinite;
+    border-radius: 100%;
 }
 
 .saturn-spin {
     animation: spin-right 1075.5s linear infinite;
+    border-radius: 100%;
 }
 
 .jupiter-spin {
     animation: spin-right 433.2s linear infinite;
+    border-radius: 100%;
 }
 
 .uranus-spin {
     animation: spin-right 3068.8s linear infinite;
+    border-radius: 100%;
 }
 
 .neptune-spin {
     animation: spin-right 6000.0s linear infinite;
+    border-radius: 100%;
 }
