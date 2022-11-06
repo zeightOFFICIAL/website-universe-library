@@ -8,13 +8,112 @@
 @font-face {
     font-family: 'normal';
     src: url('../static/fonts/vanadine.ttf');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.allSlide {
+    display: none;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 75%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 12%;
+    left: 92%;
+    width: auto;
+    color: white;
+    font-size: 4vh;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover,
+.close {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html,
 body {
-    background-color: rgb(11, 1, 31);
+    background-color: rgb(3, 0, 8);
     height: 98vh;
 }
 
@@ -29,6 +128,62 @@ body {
     font-size: 3vh;
     color: rgb(255, 255, 255);
 }
+
+.h3-sun {
+    font-family: 'solar';
+    font-size: 6.5vh;
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .star-system {
     position: relative;
@@ -164,14 +319,14 @@ body {
     margin-top: -22vh;
 }
 
-#deimos
-{
+#deimos {
     margin-top: -0.5vh;
     margin-left: -0.5vh;
     height: 1vh;
     width: 1vh;
     background-color: #aaaaaa;
 }
+
 .deimos-orbit,
 .deimos-spin {
     height: 5vh;
@@ -181,14 +336,14 @@ body {
     border-color: rgb(57, 57, 78);
 }
 
-#phobos
-{
+#phobos {
     margin-top: -0.5vh;
     margin-left: -0.5vh;
     height: 1vh;
     width: 1vh;
     background-color: #aaaaaa;
 }
+
 .phobos-orbit,
 .phobos-spin {
     height: 7vh;
@@ -210,8 +365,7 @@ body {
     border-color: rgb(41, 41, 41);
 }
 
-#jupiter
-{
+#jupiter {
     margin-top: -3.5vh;
     margin-left: -3.5vh;
     height: 7vh;
@@ -219,6 +373,7 @@ body {
     background-color: #bb8e63;
     box-shadow: 0 0 15px #c5a572;
 }
+
 .jupiter-orbit,
 .jupiter-spin {
     width: 59vh;
@@ -311,15 +466,19 @@ body {
 .phobos-spin {
     animation: spin-right 0.5s linear infinite;
 }
+
 .saturn-spin {
     animation: spin-right 1075.5s linear infinite;
 }
+
 .jupiter-spin {
     animation: spin-right 433.2s linear infinite;
 }
+
 .uranus-spin {
     animation: spin-right 3068.8s linear infinite;
 }
+
 .neptune-spin {
     animation: spin-right 6000.0s linear infinite;
 }

@@ -4,41 +4,66 @@
 <head>
     <meta charset="utf-8" />
     {% load static %}
-    <title>Hello, Universe!</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Hello, Solar system!</title>
+    <link rel="stylesheet" href="{% static 'SystemStyles.css' %}">
+    <link rel="icon" href="{% static 'SolarIcon.ico' %}">
 </head>
 
-<body>
+<body onload="onLoadSolar();">
 
     <table border="0" align="center" height="100%" width="100%">
         <tr>
             <td width="10%">
+            </td>
 
+            <td width="30%">
+                <div id="systemInfo" style="display:contents; position:relative;">
+                    <h2 align="center" class="h2-solar">Solar System</h2>
+                    <hr align="center" size="1" width="95%">
+                    <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun
+                        and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
+                        of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
+                        with most of the remaining mass contained in the planet Jupiter.</p>
+                </div>
+                <div id="sunInfo" style="display:none; position:relative;">
+                    <h3 align="center" class="h3-sun">Sun</h2>
+                    <a class="close" onclick="closeInfo()">&#9587;</a>
+                    <div class="allSlide">
+                        <img src="../static/jpg/solarsystem/sun1.jpg" style="width: 100%">
+                    </div>
+                    <div class="allSlide">
+                        <img src="../static/jpg/solarsystem/sun2.jpg" style="width: 100%">
+                    </div>
+                    <div class="allSlide">
+                        <img src="../static/jpg/solarsystem/sun3.jpg" style="width: 100%">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <p align="center" class="p-solar">
+                        The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma,
+                        heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this energy mainly as 
+                        light, ultraviolet, and infrared radiation, and is the most important source of energy for life on Earth.
+                    </p>
+                </div>
             </td>
-            <td width="30%" id="leftSideTable">
-                <h2 align="center" class="h2-solar">Solar System</h2>
-                <hr align="center" size="1" width="95%">
-                <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun and
-                    the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse of a
-                    giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
-                    with most of the remaining mass contained in the planet Jupiter.</p>
-            </td>
+
+
             <td width="50%">
                 <div class="star-system" zoom="50%">
                     <div id="sun" onclick="sunClicked();"></div>
 
                     <div class="orbit mercury-orbit"></div>
-                    <div class="mercury-spin">
+                    <div class="mercury-spin" id="mercury-spin">
                         <div id="mercury"></div>
                     </div>
 
                     <div class="orbit venus-orbit"></div>
-                    <div class="venus-spin" >
+                    <div class="venus-spin" id="venus-spin">
                         <div id="venus"></div>
                     </div>
 
                     <div class="orbit earth-orbit"></div>
-                    <div class="earth-spin">
+                    <div class="earth-spin" id="earth-spin">
                         <div id="earth"></div>
                         <div class="orbit moon-orbit"></div>
                         <div class="moon-spin">
@@ -47,7 +72,7 @@
                     </div>
 
                     <div class="orbit mars-orbit"></div>
-                    <div class="mars-spin">
+                    <div class="mars-spin" id="mars-spin">
                         <div id="mars"></div>
                         <div class="orbit deimos-orbit"></div>
                         <div class="deimos-spin">
@@ -64,22 +89,22 @@
                     </div>
 
                     <div class="orbit jupiter-orbit"></div>
-                    <div class="jupiter-spin">
+                    <div class="jupiter-spin" id="jupiter-spin">
                         <div id="jupiter"></div>
                     </div>
 
                     <div class="orbit saturn-orbit"></div>
-                    <div class="saturn-spin">
+                    <div class="saturn-spin" id="saturn-spin">
                         <div id="saturn"></div>
                     </div>
 
                     <div class="orbit uranus-orbit"></div>
-                    <div class="uranus-spin">
+                    <div class="uranus-spin" id="uranus-spin">
                         <div id="uranus"></div>
                     </div>
 
                     <div class="orbit neptune-orbit"></div>
-                    <div class="neptune-spin">
+                    <div class="neptune-spin" id="neptune-spin">
                         <div id="neptune"></div>
                     </div>
 
@@ -90,7 +115,7 @@
             </td>
         </tr>
     </table>
-    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
 
 </html>
