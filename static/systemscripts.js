@@ -27,6 +27,8 @@ showSlides(slideIndex, "saturnSlide");
 showSlides(slideIndex, "jupiterSlide");
 showSlides(slideIndex, "neptuneSlide");
 showSlides(slideIndex, "uranusSlide");
+showSlides(slideIndex, "moonSlide");
+showSlides(slideIndex, "phobosSlide");
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
@@ -49,52 +51,62 @@ function showSlides(n, name) {
 
 function sunClicked() {
     hideAllInfo();
-    document.getElementById("sunInfo").style.display = 'unset';
+    document.getElementById("sunInfo").style.display = 'block';
 }
 
 function earthClicked() {
     hideAllInfo();
-    document.getElementById("earthInfo").style.display = 'unset';
+    document.getElementById("earthInfo").style.display = 'block';
 }
 
 function marsClicked() {
     hideAllInfo();
-    document.getElementById("marsInfo").style.display = 'unset';
+    document.getElementById("marsInfo").style.display = 'block';
 }
 
 function venusClicked() {
     hideAllInfo();
-    document.getElementById("venusInfo").style.display = 'unset';
+    document.getElementById("venusInfo").style.display = 'block';
 }
 
 function mercuryClicked() {
     hideAllInfo();
-    document.getElementById("mercuryInfo").style.display = 'unset';
+    document.getElementById("mercuryInfo").style.display = 'block';
 }
 
 function saturnClicked() {
     hideAllInfo();
-    document.getElementById("saturnInfo").style.display = "unset";
+    document.getElementById("saturnInfo").style.display = "block";
 }
 
 function jupiterClicked() {
     hideAllInfo();
-    document.getElementById("jupiterInfo").style.display = "unset";
+    document.getElementById("jupiterInfo").style.display = "block";
 }
 
 function neptuneClicked() {
     hideAllInfo();
-    document.getElementById("neptuneInfo").style.display = 'unset';
+    document.getElementById("neptuneInfo").style.display = 'block';
 }
 
 function uranusClicked() {
     hideAllInfo();
-    document.getElementById("uranusInfo").style.display = 'unset';
+    document.getElementById("uranusInfo").style.display = 'block';
 }
 
 function closeInfo() {
     hideAllInfo();
-    document.getElementById("systemInfo").style.display = 'unset';
+    document.getElementById("systemInfo").style.display = 'block';
+}
+
+function moonClicked() {
+    hideAllInfo();
+    document.getElementById("moonInfo").style.display = 'block';
+}
+
+function phobosClicked() {
+    hideAllInfo();
+    document.getElementById("phobosInfo").style.display = 'block';
 }
 
 function hideAllInfo() {
@@ -108,11 +120,13 @@ function hideAllInfo() {
     document.getElementById("jupiterInfo").style.display = 'none';
     document.getElementById("neptuneInfo").style.display = 'none';
     document.getElementById("uranusInfo").style.display = 'none';
+    document.getElementById("moonInfo").style.display = 'none';
+    document.getElementById("phobosInfo").style.display = 'none';
 }
 
 function openSidepanel() {
     document.getElementById("leftSideTable").style.width = "20%";
-    document.getElementById("solarSidepanel").style.width = "25vh";
+    document.getElementById("solarSidepanel").style.width = "20%";
 }
 function closeSidepanel() {
     document.getElementById("leftSideTable").style.width = "10%";

@@ -1,3 +1,5 @@
+/* ------------------------------------------- setup */
+
 @font-face {
     font-family: 'solar';
     src: url('../static/fonts/earthorbiter.ttf');
@@ -12,37 +14,55 @@
     font-style: normal;
 }
 
+/* ------------------------------------------- main settings */
+
+html,
+body {
+    background-color: rgb(0, 0, 0);
+    height: 95vmin;
+}
+
+table {
+    height: 95vh;
+    width: 95vw;
+}
+
+.h2-solar {
+    font-family: 'solar';
+    font-size: 7.5vmin;
+    cursor: default;
+    color: white;
+}
+
+.h3-sun {
+    font-family: 'solar';
+    font-size: 6.5vmin;
+    cursor: default;
+    height: 0.5vmin;
+    color: white;    
+}
+
+.h3-side {
+    font-family: 'solar';
+    font-size: 5vh;
+    color: white;
+    cursor: default;
+}
+
+.h3-side:hover {
+    color: wheat;
+    transition: 0.15s;
+}
+
+.p-solar {
+    font-family: 'normal';
+    font-size: 3vmin;
+    cursor: default;
+    color: white;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ------------------------------------------- slider for images */
 
 .prev,
 .next {
@@ -62,11 +82,11 @@
 .close {
     cursor: pointer;
     position: absolute;
-    top: 9%;
-    left: 88%;
+    top: 0;
+    left: 90%;
     width: auto;
     color: white;
-    font-size: 3vh;
+    font-size: 2vh;
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
@@ -83,63 +103,60 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* ------------------------------------------- side panel */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-html,
-body {
-    background-color: rgb(0, 0, 0);
-    height: 98vh;
+.sidepanel {
+    height: 100%;
+    width: 0vh;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #0a042e;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.7s;
 }
 
-.h2-solar {
-    font-family: 'solar';
-    font-size: 7.5vh;
+.sidepanel a {
+    color: grey;
+    display: block;
+    overflow-x: hidden;
+    transition: 0.25s;
+    padding-top: 1vh;
+    padding-left: 5vh;
+    min-width: 35vh;
+}
+
+.sidepanel h3 {
     color: white;
+    padding-left: 6.5vh;
 }
 
-.h3-sun {
-    font-family: 'solar';
-    font-size: 6.5vh;
-    height: 1.5vh;
+.sidepanel .closeButton {
+    font-size: 2vh;
+    cursor: pointer;
+    background-color: #0a042e;
     color: white;
+    padding: 2vh 4vh;
+    border: none;
 }
 
-.h3-side {
-    font-family: 'solar';
-    font-size: 5vh;
-    color: white;
-}
-.h3-side:hover{
-    color:wheat;
+.sidepanel .closeButton:hover {
+    background-color: rgba(80, 80, 80, 0.7);
 }
 
-.p-solar {
-    font-family: 'normal';
-    font-size: 3vh;
+.openButton {
+    font-size: 2vh;
+    cursor: pointer;
+    background-color: #000000;
     color: white;
+    padding: 2vh 4vh;
+    border: none;
+}
+
+.openButton:hover {
+    background-color: rgb(40, 40, 40);
 }
 
 .p-solar-side-sun,
@@ -162,141 +179,64 @@ body {
     cursor: pointer;
 }
 
-.p-solar-side-sun:hover{
+.p-solar-side-sun:hover {
     color: yellow;
 }
-.p-solar-side-earth:hover{
-    color:lightskyblue;
+
+.p-solar-side-earth:hover {
+    color: lightskyblue;
 }
-.p-solar-side-asteroid:hover{
+
+.p-solar-side-asteroid:hover {
     color: white;
 }
-.p-solar-side-jupiter:hover{
+
+.p-solar-side-jupiter:hover {
     color: orange;
 }
-.p-solar-side-mars:hover{
-    color:red;
-}
-.p-solar-side-mercury:hover{
-    color:darksalmon;
-}
-.p-solar-side-neptune:hover{
-    color:blue
-}
-.p-solar-side-uranus:hover{
-    color:lightseagreen;
-}
-.p-solar-side-venus:hover{
-    color:pink;
-}
-.p-solar-side-moon:hover{
-    color:darkslategray;
-}
-.p-solar-side-phobos:hover{
-    color:white;
-}
-.p-solar-side-jovian:hover{
-    color:orangered;
-}
-.p-solar-side-saturn:hover{
-    color:cornsilk;
+
+.p-solar-side-mars:hover {
+    color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.sidepanel {
-    height: 100%;
-    width: 0vh;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:#070224;
-    overflow-x: hidden;
-    transition: 0.5s;
+.p-solar-side-mercury:hover {
+    color: darksalmon;
 }
 
-.sidepanel a {
-    color: #818181;
-    display: block;
-    overflow-x:hidden;
-    transition: 1s;
-    padding-top: 1vh;
-    padding-left: 5vh;
-    min-width: 50vh;
+.p-solar-side-neptune:hover {
+    color: blue;
 }
 
-.sidepanel h3 {
-    padding-top: 2vh;
-    padding-left: 3vh;
+.p-solar-side-uranus:hover {
+    color: lightseagreen;
 }
 
-.sidepanel .closeButton {
-    font-size: 2vh;
-    position: absolute;
-    top: 2vh;
-    left: 25vh;
+.p-solar-side-venus:hover {
+    color: pink;
 }
 
-.openButton {
-    font-size: 2vh;
-    cursor: pointer;
-    background-color: #04001e;
+.p-solar-side-moon:hover {
     color: white;
-    padding: 2% 4%;
-    border: none;
 }
 
-.openButton:hover {
-    background-color: rgb(40, 40, 40);
+.p-solar-side-phobos:hover {
+    color: white;
 }
 
+.p-solar-side-jovian:hover {
+    color: orangered;
+}
 
+.p-solar-side-saturn:hover {
+    color: cornsilk;
+}
 
+/* ------------------------------------------- card slides */
+#sunSlide {
+    transition: 0.7s;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ------------------------------------------- planet and star objects */
 
 .star-system {
     position: relative;
@@ -339,11 +279,12 @@ body {
 #sun {
     height: 8vh;
     width: 8vh;
-    background-color: #ebc20b;
+    background: rgb(251,255,0);
+background: radial-gradient(circle, rgba(251,255,0,1) 39%, rgba(255,0,0,1) 100%);
     margin-top: -4vh;
     margin-left: -4vh;
     border-radius: 50%;
-    box-shadow: 0 0 10vh #ffa600;
+    box-shadow: 0 0 45px #ffa600;
 }
 
 #mercury {
@@ -351,7 +292,8 @@ body {
     margin-left: -1vh;
     height: 2vh;
     width: 2vh;
-    background-color: #706257;
+    background: rgb(150,71,71);
+background: radial-gradient(circle, rgba(150,71,71,1) 0%, rgba(107,72,72,1) 58%);
 }
 
 .mercury-orbit,
@@ -367,7 +309,8 @@ body {
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background-color: #ffe7a4;
+    background: rgb(255,226,176);
+background: radial-gradient(circle, rgba(255,226,176,1) 0%, rgba(255,230,255,1) 100%);
     box-shadow: 0 0 5px #ffee90;
 }
 
@@ -384,7 +327,8 @@ body {
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background-color: #61abff;
+    background: rgb(26,252,255);
+background: radial-gradient(circle, rgba(26,252,255,1) 0%, rgba(122,128,255,1) 100%);
     box-shadow: 0 0 5px #d7d9f5;
 }
 
@@ -418,7 +362,8 @@ body {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background-color: #b43c1e;
+    background: rgb(255,0,0);
+background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(179,73,0,1) 100%);
     box-shadow: 0 0 5px #be1616;
 }
 
@@ -481,8 +426,9 @@ body {
     margin-left: -3.5vh;
     height: 7vh;
     width: 7vh;
-    background-color: #bb8e63;
-    box-shadow: 0 0 15px #c5a572;
+    background: rgb(255,130,0);
+background: radial-gradient(circle, rgba(255,130,0,1) 0%, rgba(99,46,0,1) 100%);
+    box-shadow: 0 0 10px #c5a572;
 }
 
 .jupiter-orbit,
@@ -498,7 +444,8 @@ body {
     margin-left: -3vh;
     height: 6vh;
     width: 6vh;
-    background-color: #816850;
+    background: rgb(182,115,53);
+background: radial-gradient(circle, rgba(182,115,53,1) 0%, rgba(255,185,151,1) 100%);
     box-shadow: 0 0 15px #9c7a48;
 }
 
@@ -515,8 +462,9 @@ body {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background-color: #cacbff;
-    box-shadow: 0 0 15px #a490ff;
+    background: rgb(134,196,255);
+background: radial-gradient(circle, rgba(134,196,255,1) 0%, rgba(213,206,255,1) 100%);
+    box-shadow: 0 0 25px #a490ff;
 }
 
 .uranus-orbit,
@@ -532,8 +480,9 @@ body {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background-color: #585ad6;
-    box-shadow: 0 0 15px #2f00ff;
+    background: rgb(99,179,255);
+background: radial-gradient(circle, rgba(99,179,255,1) 0%, rgba(36,0,255,1) 100%);
+    box-shadow: 0 0 25px #2f00ff;
 }
 
 .neptune-orbit,
