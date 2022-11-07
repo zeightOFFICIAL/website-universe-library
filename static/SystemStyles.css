@@ -8,7 +8,7 @@
 @font-face {
     font-family: 'normal';
     src: url('../static/fonts/vanadine.ttf');
-    font-weight: bold;
+    font-weight: bolder;
     font-style: normal;
 }
 
@@ -43,17 +43,6 @@
 
 
 
-.sunSlide,
-.earthSlide,
-.marsSlide,
-.venusSlide,
-.mercurySlide,
-.saturnSlide,
-.jupiterSlide,
-.neptuneSlide,
-.uranusSlide {
-    display: none;
-}
 
 .prev,
 .next {
@@ -64,7 +53,7 @@
     padding: 3vh;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 3vh;
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
@@ -91,7 +80,7 @@
 .prev:hover,
 .next:hover,
 .close {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 
@@ -121,27 +110,41 @@
 
 html,
 body {
-    background-color: rgb(3, 0, 8);
+    background-color: rgb(0, 0, 0);
     height: 98vh;
 }
 
 .h2-solar {
     font-family: 'solar';
     font-size: 7.5vh;
-    color: rgb(255, 255, 255);
-}
-
-.p-solar {
-    font-family: 'normal';
-    font-size: 3vh;
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
 .h3-sun {
     font-family: 'solar';
     font-size: 6.5vh;
     height: 1.5vh;
-    color: rgb(255, 255, 255);
+    color: white;
+}
+
+.h3-side {
+    font-family: 'solar';
+    font-size: 5vh;
+    color: white;
+}
+
+.p-solar {
+    font-family: 'normal';
+    font-size: 3vh;
+    color: white;
+}
+
+.p-solar-side {
+    font-family: 'normal';
+    font-size: 3vh;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
 }
 
 
@@ -161,6 +164,45 @@ body {
 
 
 
+.sidepanel {
+    height: 100%;
+    width: 0vh;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#090428;
+    overflow-x: hidden;
+    transition: 0.6s;
+}
+
+.sidepanel a {
+    color: #818181;
+    display: block;
+    overflow-x:hidden;
+    transition: 0.1s;
+    padding-top: 1vh;
+    padding-left: 5vh;
+}
+
+.sidepanel .closeButton {
+    position: absolute;
+    top: 2%;
+    right: 10%;
+}
+
+.openButton {
+    font-size: 2vh;
+    cursor: pointer;
+    background-color: #04001e;
+    color: white;
+    padding: 2% 4%;
+    border: none;
+}
+
+.openButton:hover {
+    background-color: rgb(40, 40, 40);
+}
 
 
 
@@ -218,7 +260,7 @@ body {
 .orbit+div {
     top: 50%;
     left: 50%;
-    
+
 }
 
 .orbit+div>div {
