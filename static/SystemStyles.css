@@ -132,6 +132,9 @@ body {
     font-size: 5vh;
     color: white;
 }
+.h3-side:hover{
+    color:wheat;
+}
 
 .p-solar {
     font-family: 'normal';
@@ -139,12 +142,64 @@ body {
     color: white;
 }
 
-.p-solar-side {
+.p-solar-side-sun,
+.p-solar-side-mercury,
+.p-solar-side-venus,
+.p-solar-side-jupiter,
+.p-solar-side-saturn,
+.p-solar-side-jovian,
+.p-solar-side-neptune,
+.p-solar-side-uranus,
+.p-solar-side-asteroid,
+.p-solar-side-moon,
+.p-solar-side-phobos,
+.p-solar-side-mars,
+.p-solar-side-earth {
     font-family: 'normal';
     font-size: 3vh;
     font-weight: bolder;
     color: white;
     cursor: pointer;
+}
+
+.p-solar-side-sun:hover{
+    color: yellow;
+}
+.p-solar-side-earth:hover{
+    color:lightskyblue;
+}
+.p-solar-side-asteroid:hover{
+    color: white;
+}
+.p-solar-side-jupiter:hover{
+    color: orange;
+}
+.p-solar-side-mars:hover{
+    color:red;
+}
+.p-solar-side-mercury:hover{
+    color:darksalmon;
+}
+.p-solar-side-neptune:hover{
+    color:blue
+}
+.p-solar-side-uranus:hover{
+    color:lightseagreen;
+}
+.p-solar-side-venus:hover{
+    color:pink;
+}
+.p-solar-side-moon:hover{
+    color:darkslategray;
+}
+.p-solar-side-phobos:hover{
+    color:white;
+}
+.p-solar-side-jovian:hover{
+    color:orangered;
+}
+.p-solar-side-saturn:hover{
+    color:cornsilk;
 }
 
 
@@ -171,24 +226,31 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:#090428;
+    background-color:#070224;
     overflow-x: hidden;
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .sidepanel a {
     color: #818181;
     display: block;
     overflow-x:hidden;
-    transition: 0.1s;
+    transition: 1s;
     padding-top: 1vh;
     padding-left: 5vh;
+    min-width: 50vh;
+}
+
+.sidepanel h3 {
+    padding-top: 2vh;
+    padding-left: 3vh;
 }
 
 .sidepanel .closeButton {
+    font-size: 2vh;
     position: absolute;
-    top: 2%;
-    right: 10%;
+    top: 2vh;
+    left: 25vh;
 }
 
 .openButton {
