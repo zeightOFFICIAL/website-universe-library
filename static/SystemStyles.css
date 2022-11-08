@@ -19,39 +19,14 @@
 html,
 body {
     background-color: rgb(0, 0, 0);
-    height: 95vmin;
-}
-
-table {
     height: 95vh;
-    width: 95vw;
 }
 
 .h2-solar {
     font-family: 'solar';
-    font-size: 7.5vmin;
+    font-size: 7vmin;
     cursor: default;
     color: white;
-}
-
-.h3-sun {
-    font-family: 'solar';
-    font-size: 6.5vmin;
-    cursor: default;
-    height: 0.5vmin;
-    color: white;    
-}
-
-.h3-side {
-    font-family: 'solar';
-    font-size: 5vh;
-    color: white;
-    cursor: default;
-}
-
-.h3-side:hover {
-    color: wheat;
-    transition: 0.15s;
 }
 
 .p-solar {
@@ -59,6 +34,14 @@ table {
     font-size: 3vmin;
     cursor: default;
     color: white;
+}
+
+.left-panel {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 30%;
+    display: none;
 }
 
 
@@ -231,18 +214,14 @@ table {
     color: cornsilk;
 }
 
-/* ------------------------------------------- card slides */
-#sunSlide {
-    transition: 0.7s;
-}
-
 /* ------------------------------------------- planet and star objects */
 
 .star-system {
-    position: relative;
-    width: auto;
-    height: 95vh;
-    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 41%;
+    width: 59%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -279,8 +258,8 @@ table {
 #sun {
     height: 8vh;
     width: 8vh;
-    background: rgb(251,255,0);
-background: radial-gradient(circle, rgba(251,255,0,1) 39%, rgba(255,0,0,1) 100%);
+    background: rgb(251, 255, 0);
+    background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, rgba(255, 0, 0, 1) 100%);
     margin-top: -4vh;
     margin-left: -4vh;
     border-radius: 50%;
@@ -292,8 +271,8 @@ background: radial-gradient(circle, rgba(251,255,0,1) 39%, rgba(255,0,0,1) 100%)
     margin-left: -1vh;
     height: 2vh;
     width: 2vh;
-    background: rgb(150,71,71);
-background: radial-gradient(circle, rgba(150,71,71,1) 0%, rgba(107,72,72,1) 58%);
+    background: rgb(150, 71, 71);
+    background: radial-gradient(circle, rgba(150, 71, 71, 1) 0%, rgba(107, 72, 72, 1) 58%);
 }
 
 .mercury-orbit,
@@ -309,8 +288,8 @@ background: radial-gradient(circle, rgba(150,71,71,1) 0%, rgba(107,72,72,1) 58%)
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background: rgb(255,226,176);
-background: radial-gradient(circle, rgba(255,226,176,1) 0%, rgba(255,230,255,1) 100%);
+    background: rgb(255, 226, 176);
+    background: radial-gradient(circle, rgba(255, 226, 176, 1) 0%, rgba(255, 230, 255, 1) 100%);
     box-shadow: 0 0 5px #ffee90;
 }
 
@@ -327,8 +306,8 @@ background: radial-gradient(circle, rgba(255,226,176,1) 0%, rgba(255,230,255,1) 
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background: rgb(26,252,255);
-background: radial-gradient(circle, rgba(26,252,255,1) 0%, rgba(122,128,255,1) 100%);
+    background: rgb(26, 252, 255);
+    background: radial-gradient(circle, rgba(26, 252, 255, 1) 0%, rgba(122, 128, 255, 1) 100%);
     box-shadow: 0 0 5px #d7d9f5;
 }
 
@@ -362,8 +341,8 @@ background: radial-gradient(circle, rgba(26,252,255,1) 0%, rgba(122,128,255,1) 1
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(255,0,0);
-background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(179,73,0,1) 100%);
+    background: rgb(255, 0, 0);
+    background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(179, 73, 0, 1) 100%);
     box-shadow: 0 0 5px #be1616;
 }
 
@@ -426,8 +405,8 @@ background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(179,73,0,1) 100%);
     margin-left: -3.5vh;
     height: 7vh;
     width: 7vh;
-    background: rgb(255,130,0);
-background: radial-gradient(circle, rgba(255,130,0,1) 0%, rgba(99,46,0,1) 100%);
+    background: rgb(255, 130, 0);
+    background: radial-gradient(circle, rgba(255, 130, 0, 1) 0%, rgba(99, 46, 0, 1) 100%);
     box-shadow: 0 0 10px #c5a572;
 }
 
@@ -444,8 +423,8 @@ background: radial-gradient(circle, rgba(255,130,0,1) 0%, rgba(99,46,0,1) 100%);
     margin-left: -3vh;
     height: 6vh;
     width: 6vh;
-    background: rgb(182,115,53);
-background: radial-gradient(circle, rgba(182,115,53,1) 0%, rgba(255,185,151,1) 100%);
+    background: rgb(182, 115, 53);
+    background: radial-gradient(circle, rgba(182, 115, 53, 1) 0%, rgba(255, 185, 151, 1) 100%);
     box-shadow: 0 0 15px #9c7a48;
 }
 
@@ -462,8 +441,8 @@ background: radial-gradient(circle, rgba(182,115,53,1) 0%, rgba(255,185,151,1) 1
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(134,196,255);
-background: radial-gradient(circle, rgba(134,196,255,1) 0%, rgba(213,206,255,1) 100%);
+    background: rgb(134, 196, 255);
+    background: radial-gradient(circle, rgba(134, 196, 255, 1) 0%, rgba(213, 206, 255, 1) 100%);
     box-shadow: 0 0 25px #a490ff;
 }
 
@@ -480,8 +459,8 @@ background: radial-gradient(circle, rgba(134,196,255,1) 0%, rgba(213,206,255,1) 
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(99,179,255);
-background: radial-gradient(circle, rgba(99,179,255,1) 0%, rgba(36,0,255,1) 100%);
+    background: rgb(99, 179, 255);
+    background: radial-gradient(circle, rgba(99, 179, 255, 1) 0%, rgba(36, 0, 255, 1) 100%);
     box-shadow: 0 0 25px #2f00ff;
 }
 

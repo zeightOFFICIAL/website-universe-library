@@ -125,10 +125,8 @@ function hideAllInfo() {
 }
 
 function openSidepanel() {
-    document.getElementById("leftSideTable").style.width = "20%";
-    document.getElementById("solarSidepanel").style.width = "20%";
+    document.getElementById("solarSidepanel").style.width = "35vh";
 }
 function closeSidepanel() {
-    document.getElementById("leftSideTable").style.width = "10%";
     document.getElementById("solarSidepanel").style.width = "0";
 }

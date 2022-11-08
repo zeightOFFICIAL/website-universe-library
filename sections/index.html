@@ -28,406 +28,390 @@
         <a class="p-solar-side-uranus" onclick="uranusClicked();closeSidepanel();">Uranus</a>
         <a class="p-solar-side-neptune" onclick="neptuneClicked();closeSidepanel();">Neptune</a>
     </div>
+    
+    <a class="openButton" onclick="openSidepanel();"
+                    style="position:absolute;top:0;left:0;transition: 0.7s;">&#9776;</a>
 
-    <table border="0" align="center">
-        <tr>
+    <div id="systemInfo" class="left-panel" style="display:block;">
+        <h2 align="center" class="h2-solar">Solar System</h2>
+        <hr align="center" size="1" width="100%">
+        <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun
+            and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
+            of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
+            with most of the remaining mass contained in the planet Jupiter.</p>
+    </div>
+    <div id="sunInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Sun</h2>
+            <a class="close" onclick="closeInfo();">&#9587;</a>
+            <div class="sunSlide">
+                <img src="../static/jpg/solarsystem/sun1.jpg"
+                    style="width: 100%; height:35vh; object-fit:cover;">
+            </div>
+            <div class="sunSlide">
+                <img src="../static/jpg/solarsystem/sun2.jpg"
+                    style="width: 100%; height:35vh; object-fit:cover;">
+            </div>
+            <div class="sunSlide">
+                <img src="../static/jpg/solarsystem/sun3.jpg"
+                    style="width: 100%; height:35vh; object-fit:cover;">
+            </div>
+            <div class="sunSlide">
+                <img src="../static/jpg/solarsystem/sun4.jpg"
+                    style="width: 100%; height:35vh; object-fit:cover;">
+            </div>
+            <div class="sunSlide">
+                <img src="../static/jpg/solarsystem/sun5.jpg"
+                    style="width: 100%; height:35vh; object-fit:cover;">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'sunSlide')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'sunSlide')">&#10095;</a>
+            <p align="center" class="p-solar">
+                The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot
+                plasma,
+                heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this
+                energy mainly as
+                light, ultraviolet, and infrared radiation, and is the most important source of energy for
+                life on Earth.
+            </p>
+    </div>
+    <div id="earthInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Earth</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="earthSlide">
+            <img src="../static/jpg/solarsystem/earth1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="earthSlide">
+            <img src="../static/jpg/solarsystem/earth2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="earthSlide">
+            <img src="../static/jpg/solarsystem/earth3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="earthSlide">
+            <img src="../static/jpg/solarsystem/earth4.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="earthSlide">
+            <img src="../static/jpg/solarsystem/earth5.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'earthSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'earthSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Earth is the third planet from the Sun and the only astronomical object known to harbor life.
+            While large
+            volumes of water can be found throughout the Solar System, only Earth sustains liquid surface
+            water. About
+            71% of Earth's surface is made up of the ocean, dwarfing Earth's polar ice, lakes, and rivers.
+            The
+            remaining 29% of Earth's surface is land, consisting of continents and islands.
+        </p>
+    </div>
+    <div id="marsInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Mars</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="marsSlide">
+            <img src="../static/jpg/solarsystem/mars1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="marsSlide">
+            <img src="../static/jpg/solarsystem/mars2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="marsSlide">
+            <img src="../static/jpg/solarsystem/mars3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'marsSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'marsSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being
+            larger than
+            only Mercury. In the English language, Mars is named for the Roman god of war. Mars is a
+            terrestrial planet
+            with a thin atmosphere (less than 1% that of Earth's), and has a crust primarily composed of
+            elements similar
+            to Earth's crust, as well as a core made of iron and nickel.
+        </p>
+    </div>
+    <div id="venusInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Venus</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="venusSlide">
+            <img src="../static/jpg/solarsystem/venus1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="venusSlide">
+            <img src="../static/jpg/solarsystem/venus2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="venusSlide">
+            <img src="../static/jpg/solarsystem/venus3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'venusSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'venusSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Venus is the second planet from the Sun. It is sometimes called Earth's "sister" or "twin"
+            planet as it is almost
+            as large and has a similar composition. As an interior planet to Earth, Venus (like Mercury)
+            appears in Earth's
+            sky never far from the Sun, either as morning star or evening star. Aside from the Sun and Moon,
+            Venus is the
+            brightest natural object in Earth's sky.
+        </p>
+    </div>
+    <div id="mercuryInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Mercury</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="mercurySlide">
+            <img src="../static/jpg/solarsystem/mercury1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="mercurySlide">
+            <img src="../static/jpg/solarsystem/mercury2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="mercurySlide">
+            <img src="../static/jpg/solarsystem/mercury3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'mercurySlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'mercurySlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around
+            the Sun takes
+            87.97 Earth days, the shortest of all the Sun's planets. It is named after the Roman god
+            Mercurius (Mercury),
+            god of commerce, messenger of the gods, and mediator between gods and mortals, corresponding to
+            the Greek
+            god Hermes.
+        </p>
+    </div>
+    <div id="saturnInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Saturn</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="saturnSlide">
+            <img src="../static/jpg/solarsystem/saturn1.png"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="saturnSlide">
+            <img src="../static/jpg/solarsystem/saturn2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="saturnSlide">
+            <img src="../static/jpg/solarsystem/saturn3.png"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'saturnSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'saturnSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after
+            Jupiter. It is a gas
+            giant with an average radius of about nine and a half times that of Earth. It has only
+            one-eighth the
+            average density of Earth; however, with its larger volume, Saturn is over 95 times more massive.
+            Saturn's
+            interior is most likely composed of a core of iron–nickel and rock (silicon and oxygen
+            compounds).
+        </p>
+    </div>
+    <div id="jupiterInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Jupiter</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="jupiterSlide">
+            <img src="../static/jpg/solarsystem/jupiter1.png"
+                style="width: 100%; height:35vmin; object-fit:cover;">
+        </div>
+        <div class="jupiterSlide">
+            <img src="../static/jpg/solarsystem/jupiter2.jpg"
+                style="width: 100%; height:35vmin; object-fit:cover;">
+        </div>
+        <div class="jupiterSlide">
+            <img src="../static/jpg/solarsystem/jupiter3.jpg"
+                style="width: 100%; height:35vmin; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'jupiterSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'jupiterSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant
+            with a mass
+            more than two and a half times that of all the other planets in the Solar System combined, but
+            slightly
+            less than one-thousandth the mass of the Sun. Jupiter is the third brightest natural object in
+            the Earth's
+            night sky after the Moon and Venus, and it has been observed since prehistoric times. It was
+            named after
+            the Roman god Jupiter, the king of the gods.
+        </p>
+    </div>
+    <div id="neptuneInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Neptune</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="neptuneSlide">
+            <img src="../static/jpg/solarsystem/neptune1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="neptuneSlide">
+            <img src="../static/jpg/solarsystem/neptune2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="neptuneSlide">
+            <img src="../static/jpg/solarsystem/neptune3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'neptuneSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'neptuneSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Neptune is the eighth planet from the Sun and the farthest known solar planet. In the Solar
+            System, it is the
+            fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.
+            It is 17
+            times the mass of Earth, and slightly more massive than its near-twin Uranus. Neptune is denser
+            and physically
+            smaller than Uranus because its greater mass causes more gravitational compression of its
+            atmosphere.
+        </p>
+    </div>
+    <div id="uranusInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Uranus</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="uranusSlide">
+            <img src="../static/jpg/solarsystem/uranus1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="uranusSlide">
+            <img src="../static/jpg/solarsystem/uranus2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="uranusSlide">
+            <img src="../static/jpg/solarsystem/uranus3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'uranusSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'uranusSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky,
+            Uranus, who,
+            according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and
+            father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in
+            the
+            Solar System. Uranus is similar in composition to Neptune.
+        </p>
+    </div>
+    <div id="moonInfo" class="left-panel">
+        <h3 align="center" class="h3-sun">Moon</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="moonSlide">
+            <img src="../static/jpg/solarsystem/moon1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="moonSlide">
+            <img src="../static/jpg/solarsystem/moon2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="moonSlide">
+            <img src="../static/jpg/solarsystem/moon3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'moonSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'moonSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            The Moon is Earth's only natural satellite. Its diameter is about one-quarter the diameter of the 
+            Earth. The Moon is the fifth largest satellite in the Solar System. It is larger than any of the 
+            known dwarf planets and is the largest satellite relative to its parent planet. ons of the term. 
+            It lacks any significant atmosphere, hydrosphere, or magnetic field.
+        </p>
+    </div>
+    <div id="phobosInfo" class="left-panel">
+        <h3 align="center" class="h3-sun" style="font-size:3.5vh;">Phobos and Deimos</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="phobosSlide">
+            <img src="../static/jpg/solarsystem/phobos1.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="phobosSlide">
+            <img src="../static/jpg/solarsystem/phobos2.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="phobosSlide">
+            <img src="../static/jpg/solarsystem/phobos3.jpg"
+                style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'phobosSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'phobosSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            Phobos is the innermost and larger of the two natural satellites of Mars, the other being Deimos. 
+            The two moons were discovered in 1877 by American astronomer Asaph Hall. Phobos is named after 
+            the Greek deity Phobos, a son of Ares and twin brother of Deimos. Phobos is a small, 
+            irregularly shaped object with a mean radius of 11 km.
+        </p>
+    </div>
+    <div class="star-system">
+        <div id="sun" onclick="sunClicked();closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
 
-            <td width="10%" id="leftSideTable" style="transition:0.7s;">
-                <button class="openButton" onclick="openSidepanel();"
-                    style="position:absolute;top:0;left:0;transition: 0.7s;">&#9776;</button>
-            </td>
+        <div class="orbit mercury-orbit"></div>
+        <div class="mercury-spin" id="mercury-spin" style="z-index:99;">
+            <div id="mercury" onclick="mercuryClicked();closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-            <td width="30%" id="middleSideTable"> 
-                <div id="systemInfo" style="display:block; position:relative;">
-                    <h2 align="center" class="h2-solar">Solar System</h2>
-                    <hr align="center" size="1" width="95%">
-                    <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun
-                        and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
-                        of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
-                        with most of the remaining mass contained in the planet Jupiter.</p>
-                </div>
-                <div id="sunInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Sun</h2>
-                        <a class="close" onclick="closeInfo();">&#9587;</a>
-                        <div class="sunSlide">
-                            <img src="../static/jpg/solarsystem/sun1.jpg"
-                                style="width: 100%; height:35vh; object-fit:cover;">
-                        </div>
-                        <div class="sunSlide">
-                            <img src="../static/jpg/solarsystem/sun2.jpg"
-                                style="width: 100%; height:35vh; object-fit:cover;">
-                        </div>
-                        <div class="sunSlide">
-                            <img src="../static/jpg/solarsystem/sun3.jpg"
-                                style="width: 100%; height:35vh; object-fit:cover;">
-                        </div>
-                        <div class="sunSlide">
-                            <img src="../static/jpg/solarsystem/sun4.jpg"
-                                style="width: 100%; height:35vh; object-fit:cover;">
-                        </div>
-                        <div class="sunSlide">
-                            <img src="../static/jpg/solarsystem/sun5.jpg"
-                                style="width: 100%; height:35vh; object-fit:cover;">
-                        </div>
-                        <a class="prev" onclick="plusSlides(-1, 'sunSlide')">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1, 'sunSlide')">&#10095;</a>
-                        <p align="center" class="p-solar">
-                            The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot
-                            plasma,
-                            heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this
-                            energy mainly as
-                            light, ultraviolet, and infrared radiation, and is the most important source of energy for
-                            life on Earth.
-                        </p>
-                </div>
-                <div id="earthInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Earth</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="earthSlide">
-                        <img src="../static/jpg/solarsystem/earth1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="earthSlide">
-                        <img src="../static/jpg/solarsystem/earth2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="earthSlide">
-                        <img src="../static/jpg/solarsystem/earth3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="earthSlide">
-                        <img src="../static/jpg/solarsystem/earth4.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="earthSlide">
-                        <img src="../static/jpg/solarsystem/earth5.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'earthSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'earthSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Earth is the third planet from the Sun and the only astronomical object known to harbor life.
-                        While large
-                        volumes of water can be found throughout the Solar System, only Earth sustains liquid surface
-                        water. About
-                        71% of Earth's surface is made up of the ocean, dwarfing Earth's polar ice, lakes, and rivers.
-                        The
-                        remaining 29% of Earth's surface is land, consisting of continents and islands.
-                    </p>
-                </div>
-                <div id="marsInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Mars</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="marsSlide">
-                        <img src="../static/jpg/solarsystem/mars1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="marsSlide">
-                        <img src="../static/jpg/solarsystem/mars2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="marsSlide">
-                        <img src="../static/jpg/solarsystem/mars3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'marsSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'marsSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being
-                        larger than
-                        only Mercury. In the English language, Mars is named for the Roman god of war. Mars is a
-                        terrestrial planet
-                        with a thin atmosphere (less than 1% that of Earth's), and has a crust primarily composed of
-                        elements similar
-                        to Earth's crust, as well as a core made of iron and nickel.
-                    </p>
-                </div>
-                <div id="venusInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Venus</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="venusSlide">
-                        <img src="../static/jpg/solarsystem/venus1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="venusSlide">
-                        <img src="../static/jpg/solarsystem/venus2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="venusSlide">
-                        <img src="../static/jpg/solarsystem/venus3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'venusSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'venusSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Venus is the second planet from the Sun. It is sometimes called Earth's "sister" or "twin"
-                        planet as it is almost
-                        as large and has a similar composition. As an interior planet to Earth, Venus (like Mercury)
-                        appears in Earth's
-                        sky never far from the Sun, either as morning star or evening star. Aside from the Sun and Moon,
-                        Venus is the
-                        brightest natural object in Earth's sky.
-                    </p>
-                </div>
-                <div id="mercuryInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Mercury</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="mercurySlide">
-                        <img src="../static/jpg/solarsystem/mercury1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="mercurySlide">
-                        <img src="../static/jpg/solarsystem/mercury2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="mercurySlide">
-                        <img src="../static/jpg/solarsystem/mercury3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'mercurySlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'mercurySlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around
-                        the Sun takes
-                        87.97 Earth days, the shortest of all the Sun's planets. It is named after the Roman god
-                        Mercurius (Mercury),
-                        god of commerce, messenger of the gods, and mediator between gods and mortals, corresponding to
-                        the Greek
-                        god Hermes.
-                    </p>
-                </div>
-                <div id="saturnInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Saturn</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="saturnSlide">
-                        <img src="../static/jpg/solarsystem/saturn1.png"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="saturnSlide">
-                        <img src="../static/jpg/solarsystem/saturn2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="saturnSlide">
-                        <img src="../static/jpg/solarsystem/saturn3.png"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'saturnSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'saturnSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after
-                        Jupiter. It is a gas
-                        giant with an average radius of about nine and a half times that of Earth. It has only
-                        one-eighth the
-                        average density of Earth; however, with its larger volume, Saturn is over 95 times more massive.
-                        Saturn's
-                        interior is most likely composed of a core of iron–nickel and rock (silicon and oxygen
-                        compounds).
-                    </p>
-                </div>
-                <div id="jupiterInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Jupiter</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="jupiterSlide">
-                        <img src="../static/jpg/solarsystem/jupiter1.png"
-                            style="width: 100%; height:35vmin; object-fit:cover;">
-                    </div>
-                    <div class="jupiterSlide">
-                        <img src="../static/jpg/solarsystem/jupiter2.jpg"
-                            style="width: 100%; height:35vmin; object-fit:cover;">
-                    </div>
-                    <div class="jupiterSlide">
-                        <img src="../static/jpg/solarsystem/jupiter3.jpg"
-                            style="width: 100%; height:35vmin; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'jupiterSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'jupiterSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant
-                        with a mass
-                        more than two and a half times that of all the other planets in the Solar System combined, but
-                        slightly
-                        less than one-thousandth the mass of the Sun. Jupiter is the third brightest natural object in
-                        the Earth's
-                        night sky after the Moon and Venus, and it has been observed since prehistoric times. It was
-                        named after
-                        the Roman god Jupiter, the king of the gods.
-                    </p>
-                </div>
-                <div id="neptuneInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Neptune</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="neptuneSlide">
-                        <img src="../static/jpg/solarsystem/neptune1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="neptuneSlide">
-                        <img src="../static/jpg/solarsystem/neptune2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="neptuneSlide">
-                        <img src="../static/jpg/solarsystem/neptune3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'neptuneSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'neptuneSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Neptune is the eighth planet from the Sun and the farthest known solar planet. In the Solar
-                        System, it is the
-                        fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.
-                        It is 17
-                        times the mass of Earth, and slightly more massive than its near-twin Uranus. Neptune is denser
-                        and physically
-                        smaller than Uranus because its greater mass causes more gravitational compression of its
-                        atmosphere.
-                    </p>
-                </div>
-                <div id="uranusInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Uranus</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="uranusSlide">
-                        <img src="../static/jpg/solarsystem/uranus1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="uranusSlide">
-                        <img src="../static/jpg/solarsystem/uranus2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="uranusSlide">
-                        <img src="../static/jpg/solarsystem/uranus3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'uranusSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'uranusSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky,
-                        Uranus, who,
-                        according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and
-                        father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in
-                        the
-                        Solar System. Uranus is similar in composition to Neptune.
-                    </p>
-                </div>
-                <div id="moonInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun">Moon</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="moonSlide">
-                        <img src="../static/jpg/solarsystem/moon1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="moonSlide">
-                        <img src="../static/jpg/solarsystem/moon2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="moonSlide">
-                        <img src="../static/jpg/solarsystem/moon3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'moonSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'moonSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        The Moon is Earth's only natural satellite. Its diameter is about one-quarter the diameter of the 
-                        Earth. The Moon is the fifth largest satellite in the Solar System. It is larger than any of the 
-                        known dwarf planets and is the largest satellite relative to its parent planet. ons of the term. 
-                        It lacks any significant atmosphere, hydrosphere, or magnetic field.
-                    </p>
-                </div>
-                <div id="phobosInfo" style="display:none; position:relative;">
-                    <h3 align="center" class="h3-sun" style="font-size:3.5vh;">Phobos and Deimos</h3>
-                    <a class="close" onclick="closeInfo()">&#9587;</a>
-                    <div class="phobosSlide">
-                        <img src="../static/jpg/solarsystem/phobos1.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="phobosSlide">
-                        <img src="../static/jpg/solarsystem/phobos2.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <div class="phobosSlide">
-                        <img src="../static/jpg/solarsystem/phobos3.jpg"
-                            style="width: 100%; height:35vh; object-fit:cover;">
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1,'phobosSlide')">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1,'phobosSlide')">&#10095;</a>
-                    <p align="center" class="p-solar">
-                        Phobos is the innermost and larger of the two natural satellites of Mars, the other being Deimos. 
-                        The two moons were discovered in 1877 by American astronomer Asaph Hall. Phobos is named after 
-                        the Greek deity Phobos, a son of Ares and twin brother of Deimos. Phobos is a small, 
-                        irregularly shaped object with a mean radius of 11 km.
-                    </p>
-                </div>
-            </td>
+        <div class="orbit venus-orbit"></div>
+        <div class="venus-spin" id="venus-spin" style="z-index:98;">
+            <div id="venus" onclick="venusClicked();closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-            <td width="50%" id="middlerightSideTable">
-                <div class="star-system" style="width: 100vh;">
-                    <div id="sun" onclick="sunClicked();closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
+        <div class="orbit earth-orbit"></div>
+        <div class="earth-spin" id="earth-spin" style="z-index:97;">
+            <div id="earth" onclick="earthClicked();closeSidepanel();" style="cursor:pointer;z-index:96;">
+            </div>
+            <div class="orbit moon-orbit"></div>
+            <div class="moon-spin" onclick="moonClicked();closeSidepanel();">
+                <div id="moon"></div>
+            </div>
+        </div>
 
-                    <div class="orbit mercury-orbit"></div>
-                    <div class="mercury-spin" id="mercury-spin" style="z-index:99;">
-                        <div id="mercury" onclick="mercuryClicked();closeSidepanel();" style="cursor:pointer;"></div>
-                    </div>
+        <div class="orbit mars-orbit"></div>
+        <div class="mars-spin" id="mars-spin" style="z-index:95;">
+            <div id="mars" onclick="marsClicked();closeSidepanel();" style="cursor:pointer;z-index:95;">
+            </div>
+            <div class="orbit deimos-orbit"></div>
+            <div class="deimos-spin">
+                <div id="deimos"></div>
+            </div>
+            <div class="orbit phobos-orbit"></div>
+            <div class="phobos-spin">
+                <div id="phobos"></div>
+            </div>
+        </div>
 
-                    <div class="orbit venus-orbit"></div>
-                    <div class="venus-spin" id="venus-spin" style="z-index:98;">
-                        <div id="venus" onclick="venusClicked();closeSidepanel();" style="cursor:pointer;"></div>
-                    </div>
+        <div class="orbit asteroids-orbit"></div>
+        <div class="asteroids-spin">
+        </div>
 
-                    <div class="orbit earth-orbit"></div>
-                    <div class="earth-spin" id="earth-spin" style="z-index:97;">
-                        <div id="earth" onclick="earthClicked();closeSidepanel();" style="cursor:pointer;z-index:96;">
-                        </div>
-                        <div class="orbit moon-orbit"></div>
-                        <div class="moon-spin" onclick="moonClicked();closeSidepanel();">
-                            <div id="moon"></div>
-                        </div>
-                    </div>
+        <div class="orbit jupiter-orbit"></div>
+        <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
+            <div id="jupiter" onclick="jupiterClicked();closeSidepanel();"
+                style="cursor:pointer;z-index:94;"></div>
+        </div>
 
-                    <div class="orbit mars-orbit"></div>
-                    <div class="mars-spin" id="mars-spin" style="z-index:95;">
-                        <div id="mars" onclick="marsClicked();closeSidepanel();" style="cursor:pointer;z-index:95;">
-                        </div>
-                        <div class="orbit deimos-orbit"></div>
-                        <div class="deimos-spin">
-                            <div id="deimos"></div>
-                        </div>
-                        <div class="orbit phobos-orbit"></div>
-                        <div class="phobos-spin">
-                            <div id="phobos"></div>
-                        </div>
-                    </div>
+        <div class="orbit saturn-orbit"></div>
+        <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
+            <div id="saturn" onclick="saturnClicked();closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-                    <div class="orbit asteroids-orbit"></div>
-                    <div class="asteroids-spin">
-                    </div>
+        <div class="orbit uranus-orbit"></div>
+        <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
+            <div id="uranus" onclick="uranusClicked();closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-                    <div class="orbit jupiter-orbit"></div>
-                    <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
-                        <div id="jupiter" onclick="jupiterClicked();closeSidepanel();"
-                            style="cursor:pointer;z-index:94;"></div>
-                    </div>
+        <div class="orbit neptune-orbit"></div>
+        <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
+            <div id="neptune" onclick="neptuneClicked();closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-                    <div class="orbit saturn-orbit"></div>
-                    <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
-                        <div id="saturn" onclick="saturnClicked();closeSidepanel();" style="cursor:pointer;"></div>
-                    </div>
-
-                    <div class="orbit uranus-orbit"></div>
-                    <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
-                        <div id="uranus" onclick="uranusClicked();closeSidepanel();" style="cursor:pointer;"></div>
-                    </div>
-
-                    <div class="orbit neptune-orbit"></div>
-                    <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
-                        <div id="neptune" onclick="neptuneClicked();closeSidepanel();" style="cursor:pointer;"></div>
-                    </div>
-
-                </div>
-            </td>
-
-            <td width="10%" id="rightSideTable">
-
-            </td>
-        </tr>
-    </table>
+    </div>
     <script src="{% static 'systemscripts.js' %}"></script>
 </body>
 
