@@ -125,8 +125,14 @@ function hideAllInfo() {
 }
 
 function openSidepanel() {
-    document.getElementById("solarSidepanel").style.width = "35vh";
+    document.getElementById("solarSidepanel").style.width = "17%";
+    document.querySelector(".left-panel").style.left = "18%";
+    document.querySelector(".star-system").style.left = "48%";
+    document.querySelector(".star-system").style.width = "52%";
 }
 function closeSidepanel() {
     document.getElementById("solarSidepanel").style.width = "0";
+    document.querySelector(".left-panel").style.left = "10%";
+    document.querySelector(".star-system").style.left = "41%";
+    document.querySelector(".star-system").style.width = "59%";
 }

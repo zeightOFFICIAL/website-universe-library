@@ -42,8 +42,8 @@ body {
     left: 10%;
     width: 30%;
     display: none;
+    transition: 0.7s;
 }
-
 
 /* ------------------------------------------- slider for images */
 
@@ -90,30 +90,15 @@ body {
 
 .sidepanel {
     height: 100%;
-    width: 0vh;
+    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #0a042e;
+    background-color: #070322;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.7s;
-}
-
-.sidepanel a {
-    color: grey;
-    display: block;
-    overflow-x: hidden;
-    transition: 0.25s;
-    padding-top: 1vh;
-    padding-left: 5vh;
-    min-width: 35vh;
-}
-
-.sidepanel h3 {
-    color: white;
-    padding-left: 6.5vh;
 }
 
 .sidepanel .closeButton {
@@ -142,6 +127,14 @@ body {
     background-color: rgb(40, 40, 40);
 }
 
+.h2-side {
+    font-family: 'solar';
+    font-size: 5vmin;
+    cursor: default;
+    color: white;
+    padding-left: 15%;
+}
+
 .p-solar-side-sun,
 .p-solar-side-mercury,
 .p-solar-side-venus,
@@ -155,11 +148,17 @@ body {
 .p-solar-side-phobos,
 .p-solar-side-mars,
 .p-solar-side-earth {
+    display: block;
     font-family: 'normal';
-    font-size: 3vh;
+    font-size: 3vmin;
     font-weight: bolder;
-    color: white;
+    color: grey;
     cursor: pointer;
+    overflow-x: hidden;
+    transition: 0.25s;
+    padding-top: 2%;
+    padding-left: 15%;
+    min-width: 50vh;
 }
 
 .p-solar-side-sun:hover {
@@ -223,6 +222,7 @@ body {
     width: 59%;
     height: 100vh;
     overflow: hidden;
+    transition: 0.7s;
 }
 
 .orbit {
