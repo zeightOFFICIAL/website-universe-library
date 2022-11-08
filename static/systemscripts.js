@@ -126,13 +126,22 @@ function hideAllInfo() {
 
 function openSidepanel() {
     document.getElementById("solarSidepanel").style.width = "17%";
-    document.querySelector(".left-panel").style.left = "18%";
+    movePanel("18%");
     document.querySelector(".star-system").style.left = "48%";
     document.querySelector(".star-system").style.width = "52%";
 }
 function closeSidepanel() {
     document.getElementById("solarSidepanel").style.width = "0";
-    document.querySelector(".left-panel").style.left = "10%";
+    movePanel("10%");
     document.querySelector(".star-system").style.left = "41%";
     document.querySelector(".star-system").style.width = "59%";
+}
+
+function movePanel(percent) {
+        let panels = document.querySelectorAll(".left-panel")
+        console.log(panels)
+        panels.forEach((item) => {
+            item.style.left = percent;
+            console.log(item);
+        })
 }
