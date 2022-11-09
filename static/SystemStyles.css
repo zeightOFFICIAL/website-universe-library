@@ -29,6 +29,13 @@ body {
     color: white;
 }
 
+.h3-solar {
+    font-family: 'solar';
+    font-size: 6vmin;
+    cursor: default;
+    color: white
+}
+
 .p-solar {
     font-family: 'normal';
     font-size: 3vmin;
@@ -43,6 +50,10 @@ body {
     width: 30%;
     display: none;
     transition: 0.7s;
+}
+
+.sun-slide img{
+    height: 30px;
 }
 
 /* ------------------------------------------- slider for images */
