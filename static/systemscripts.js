@@ -138,10 +138,10 @@ function closeSidepanel() {
 }
 
 function movePanel(percent) {
-        let panels = document.querySelectorAll(".left-panel")
-        console.log(panels)
-        panels.forEach((item) => {
-            item.style.left = percent;
-            console.log(item);
-        })
+    let panels = document.querySelectorAll(".left-panel")
+    console.log(panels)
+    panels.forEach((item) => {
+        item.style.left = percent;
+        console.log(item);
+    })
 }

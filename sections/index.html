@@ -20,10 +20,10 @@
         <a class="p-solar-side-earth" onclick="earthClicked();closeSidepanel();">Earth</a>
         <a class="p-solar-side-moon" onclick="moonClicked();closeSidepanel();">Moon</a>
         <a class="p-solar-side-mars" onclick="marsClicked();closeSidepanel();">Mars</a>
-        <a class="p-solar-side-phobos" onclick="phobosClicked();closeSidepanel();">Phobos and Deimos</a>
-        <a class="p-solar-side-asteroid" onclick="asteroidClicked();closeSidepanel();">Asteroid belt</a>
+        <a class="p-solar-side-phobos" onclick="phobosClicked();closeSidepanel();">Phobos<br>Deimos</a>
+        <a class="p-solar-side-asteroid" onclick="asteroidClicked();closeSidepanel();">Asteroid<br>belt</a>
         <a class="p-solar-side-jupiter" onclick="jupiterClicked();closeSidepanel();">Jupiter</a>
-        <a class="p-solar-side-jovian" onclick="jovianClicked();closeSidepanel();">Jovian moons</a>
+        <a class="p-solar-side-jovian" onclick="jovianClicked();closeSidepanel();">Jovian<br>moons</a>
         <a class="p-solar-side-saturn" onclick="saturnClicked();closeSidepanel();">Saturn</a>
         <a class="p-solar-side-uranus" onclick="uranusClicked();closeSidepanel();">Uranus</a>
         <a class="p-solar-side-neptune" onclick="neptuneClicked();closeSidepanel();">Neptune</a>
@@ -350,7 +350,7 @@
         </p>
     </div>
     <div class="star-system">
-        <div id="sun" onclick="sunClicked();closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
+        <div id="sun" onclick="closeSidepanel();sunClicked();" style="cursor:pointer; z-index:100;"></div>
 
         <div class="orbit mercury-orbit"></div>
         <div class="mercury-spin" id="mercury-spin" style="z-index:99;">
