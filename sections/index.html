@@ -37,7 +37,7 @@
     <a class="openButton" onclick="openSystempanel();" style="top:7.5vmin;left:0;width:1em;">&#9733;</a>
     <div class="accent-bar"></div>
 
-    <div id="systemInfo" class="left-panel" style="display:block;margin-top:20vh;">
+    <div id="systemInfo" class="left-panel" style="text-indent:0;margin-top:20vh;">
         <h2 align="center" class="h2-solar">Solar System</h2>
         <hr align="center" size="1" width="100%">
         <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun
@@ -338,7 +338,7 @@
         </p>
     </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
-        <div id="sun" onclick="closeSidepanel();objClicked('sunInfo');" style="cursor:pointer; z-index:100;"></div>
+        <div id="sun" onclick="objClicked('sunInfo');closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
 
         <div class="orbit mercury-orbit"></div>
         <div class="mercury-spin" id="mercury-spin" style="z-index:99;">

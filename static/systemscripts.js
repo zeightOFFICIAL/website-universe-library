@@ -52,13 +52,13 @@ function showSlides(n, name) {
 
 function objClicked(revealName) {
     hideAllInfo();
-    document.getElementById(revealName).style.display = 'block';
+    document.getElementById(revealName).style.textIndent = '0';
 }
 
 function hideAllInfo() {
     let panels = document.querySelectorAll(".left-panel")
     panels.forEach((item) => {
-        item.style.display = 'none';
+        item.style.textIndent = '-1000em';
     })
 }
 

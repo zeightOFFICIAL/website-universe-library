@@ -63,8 +63,9 @@ body::-webkit-scrollbar {
     top: 0;
     left: 10%;
     width: 30%;
-    display: none;
-    transition: 0.7s;
+    display:block;
+    text-indent: -1000em;
+    transition: left 0.7s;
 }
 
 /* ------------------------------------------- slider for images */
