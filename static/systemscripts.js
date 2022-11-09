@@ -52,6 +52,8 @@ function showSlides(n, name) {
 function sunClicked() {
     hideAllInfo();
     document.getElementById("sunInfo").style.display = 'block';
+    document.getElementById("sunInfo").style.width = '30%';
+    document.getElementById("systemInfo").style.width = '30%';
 }
 
 function earthClicked() {
@@ -122,6 +124,11 @@ function hideAllInfo() {
     document.getElementById("uranusInfo").style.display = 'none';
     document.getElementById("moonInfo").style.display = 'none';
     document.getElementById("phobosInfo").style.display = 'none';
+}
+
+function starInfo() {
+    hideAllInfo();
+    document.getElementById("systemInfo").style.display = 'block';
 }
 
 function openSidepanel() {

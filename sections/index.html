@@ -37,7 +37,7 @@
     <a class="openButton" onclick="openSystempanel();" style="top:7.5vmin;left:0;width:1em;">&#9733;</a>
     <div class="accent-bar"></div>
 
-    <div id="systemInfo" class="left-panel" style="display:block;">
+    <div id="systemInfo" class="left-panel" style="display:block;margin-top:20vh;">
         <h2 align="center" class="h2-solar">Solar System</h2>
         <hr align="center" size="1" width="100%">
         <p align="center" class="p-solar">The Solar System is the gravitationally bound system of the Sun
@@ -45,17 +45,17 @@
             of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
             with most of the remaining mass contained in the planet Jupiter.</p>
     </div>
-    <div id="sunInfo" class="left-panel">
-        <h3 align="center" class="h3-solar">Sun</h2>
+    <div id="sunInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
+        <h3 align="center" class="h3-solar">&#9737; Sun</h2>
             <a class="close" onclick="closeInfo();">&#9587;</a>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun1.jpg" style="height:25%; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun1.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun2.jpg" style="height:25%; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun2.jpg" style="width: 100%; height:35vmin;object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun3.jpg" style="height:35vmin; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun3.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
             </div>
             <div class="sunSlide">
                 <img src="../static/jpg/solarsystem/sun4.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
@@ -74,7 +74,7 @@
                 life on Earth.
             </p>
     </div>
-    <div id="earthInfo" class="left-panel">
+    <div id="earthInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Earth</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="earthSlide">
@@ -104,7 +104,7 @@
             remaining 29% of Earth's surface is land, consisting of continents and islands.
         </p>
     </div>
-    <div id="marsInfo" class="left-panel">
+    <div id="marsInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Mars</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="marsSlide">
@@ -128,7 +128,7 @@
             to Earth's crust, as well as a core made of iron and nickel.
         </p>
     </div>
-    <div id="venusInfo" class="left-panel">
+    <div id="venusInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Venus</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="venusSlide">
@@ -152,7 +152,7 @@
             brightest natural object in Earth's sky.
         </p>
     </div>
-    <div id="mercuryInfo" class="left-panel">
+    <div id="mercuryInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Mercury</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="mercurySlide">
@@ -176,7 +176,7 @@
             god Hermes.
         </p>
     </div>
-    <div id="saturnInfo" class="left-panel">
+    <div id="saturnInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Saturn</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="saturnSlide">
@@ -201,7 +201,7 @@
             compounds).
         </p>
     </div>
-    <div id="jupiterInfo" class="left-panel">
+    <div id="jupiterInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Jupiter</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="jupiterSlide">
@@ -227,7 +227,7 @@
             the Roman god Jupiter, the king of the gods.
         </p>
     </div>
-    <div id="neptuneInfo" class="left-panel">
+    <div id="neptuneInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Neptune</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="neptuneSlide">
@@ -252,7 +252,7 @@
             atmosphere.
         </p>
     </div>
-    <div id="uranusInfo" class="left-panel">
+    <div id="uranusInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Uranus</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="uranusSlide">
@@ -275,7 +275,7 @@
             Solar System. Uranus is similar in composition to Neptune.
         </p>
     </div>
-    <div id="moonInfo" class="left-panel">
+    <div id="moonInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">Moon</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="moonSlide">
@@ -296,7 +296,7 @@
             It lacks any significant atmosphere, hydrosphere, or magnetic field.
         </p>
     </div>
-    <div id="phobosInfo" class="left-panel">
+    <div id="phobosInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar" style="font-size:3.5vh;">Phobos and Deimos</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="phobosSlide">
@@ -317,7 +317,7 @@
             irregularly shaped object with a mean radius of 11 km.
         </p>
     </div>
-    <div class="star-system">
+    <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="sun" onclick="closeSidepanel();sunClicked();" style="cursor:pointer; z-index:100;"></div>
 
         <div class="orbit mercury-orbit"></div>

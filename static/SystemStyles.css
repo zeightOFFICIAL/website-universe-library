@@ -116,6 +116,7 @@ body::-webkit-scrollbar {
     background: rgb(19,9,86);
     background: linear-gradient(180deg, rgba(19,9,86,1) 37%, rgba(0,0,0,1) 100%);
     height:85vmin;
+    transition: 0.7s;
 }
 
 /* ------------------------------------------- side panel */
