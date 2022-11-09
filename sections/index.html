@@ -12,8 +12,8 @@
 <body onload="onLoadSolar();">
 
     <div id="solarSidepanel" class="sidepanel">
-        <button class="closeButton" onclick="closeSidepanel();">&#9776;</button>
-        <h2 class="h2-side">Objects</h2>
+        <button class="closeButton" onclick="closeSidepanel();">&#9776; Obj</button>
+        <p style="font-size:12vmin"></p>
         <a class="p-solar-side-sun" onclick="sunClicked();closeSidepanel();">Sun</a>
         <a class="p-solar-side-mercury" onclick="mercuryClicked();closeSidepanel();">Mercury</a>
         <a class="p-solar-side-venus" onclick="venusClicked();closeSidepanel();">Venus</a>
@@ -28,9 +28,14 @@
         <a class="p-solar-side-uranus" onclick="uranusClicked();closeSidepanel();">Uranus</a>
         <a class="p-solar-side-neptune" onclick="neptuneClicked();closeSidepanel();">Neptune</a>
     </div>
-    
-    <a class="openButton" onclick="openSidepanel();"
-                    style="position:absolute;top:0;left:0;transition: 0.7s;">&#9776;</a>
+    <div id="starSidepanel" class="sidepanel">
+        <button class="closeButton" onclick="closeSystempanel();" style="top:7.5vmin">&#9733; Star</button>
+        <p style="font-size:16vmin"></p>
+        
+    </div>
+    <a class="openButton" onclick="openSidepanel();" style="width:1em;">&#9776;</a>
+    <a class="openButton" onclick="openSystempanel();" style="top:7.5vmin;left:0;width:1em;">&#9733;</a>
+    <div class="accent-bar"></div>
 
     <div id="systemInfo" class="left-panel" style="display:block;">
         <h2 align="center" class="h2-solar">Solar System</h2>
@@ -44,24 +49,19 @@
         <h3 align="center" class="h3-solar">Sun</h2>
             <a class="close" onclick="closeInfo();">&#9587;</a>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun1.jpg"
-                    style="height:25%; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun1.jpg" style="height:25%; object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun2.jpg"
-                    style="height:25%; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun2.jpg" style="height:25%; object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun3.jpg"
-                    style="height:35vmin; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun3.jpg" style="height:35vmin; object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun4.jpg"
-                    style="width: 100%; height:35vmin; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun4.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
             </div>
             <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun5.jpg"
-                    style="width: 100%; height:35vmin; object-fit:cover;">
+                <img src="../static/jpg/solarsystem/sun5.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
             </div>
             <a class="prev" onclick="plusSlides(-1, 'sunSlide')">&#10094;</a>
             <a class="next" onclick="plusSlides(1, 'sunSlide')">&#10095;</a>
@@ -78,24 +78,19 @@
         <h3 align="center" class="h3-solar">Earth</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="earthSlide">
-            <img src="../static/jpg/solarsystem/earth1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/earth1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="earthSlide">
-            <img src="../static/jpg/solarsystem/earth2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/earth2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="earthSlide">
-            <img src="../static/jpg/solarsystem/earth3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/earth3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="earthSlide">
-            <img src="../static/jpg/solarsystem/earth4.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/earth4.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="earthSlide">
-            <img src="../static/jpg/solarsystem/earth5.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/earth5.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'earthSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'earthSlide')">&#10095;</a>
@@ -113,16 +108,13 @@
         <h3 align="center" class="h3-solar">Mars</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="marsSlide">
-            <img src="../static/jpg/solarsystem/mars1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mars1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="marsSlide">
-            <img src="../static/jpg/solarsystem/mars2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mars2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="marsSlide">
-            <img src="../static/jpg/solarsystem/mars3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mars3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'marsSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'marsSlide')">&#10095;</a>
@@ -140,16 +132,13 @@
         <h3 align="center" class="h3-solar">Venus</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="venusSlide">
-            <img src="../static/jpg/solarsystem/venus1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/venus1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="venusSlide">
-            <img src="../static/jpg/solarsystem/venus2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/venus2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="venusSlide">
-            <img src="../static/jpg/solarsystem/venus3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/venus3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'venusSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'venusSlide')">&#10095;</a>
@@ -167,16 +156,13 @@
         <h3 align="center" class="h3-solar">Mercury</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="mercurySlide">
-            <img src="../static/jpg/solarsystem/mercury1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mercury1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="mercurySlide">
-            <img src="../static/jpg/solarsystem/mercury2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mercury2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="mercurySlide">
-            <img src="../static/jpg/solarsystem/mercury3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/mercury3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'mercurySlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'mercurySlide')">&#10095;</a>
@@ -194,16 +180,13 @@
         <h3 align="center" class="h3-solar">Saturn</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="saturnSlide">
-            <img src="../static/jpg/solarsystem/saturn1.png"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/saturn1.png" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="saturnSlide">
-            <img src="../static/jpg/solarsystem/saturn2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/saturn2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="saturnSlide">
-            <img src="../static/jpg/solarsystem/saturn3.png"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/saturn3.png" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'saturnSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'saturnSlide')">&#10095;</a>
@@ -222,16 +205,13 @@
         <h3 align="center" class="h3-solar">Jupiter</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="jupiterSlide">
-            <img src="../static/jpg/solarsystem/jupiter1.png"
-                style="width: 100%; height:35vmin; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/jupiter1.png" style="width: 100%; height:35vmin; object-fit:cover;">
         </div>
         <div class="jupiterSlide">
-            <img src="../static/jpg/solarsystem/jupiter2.jpg"
-                style="width: 100%; height:35vmin; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/jupiter2.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
         </div>
         <div class="jupiterSlide">
-            <img src="../static/jpg/solarsystem/jupiter3.jpg"
-                style="width: 100%; height:35vmin; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/jupiter3.jpg" style="width: 100%; height:35vmin; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'jupiterSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'jupiterSlide')">&#10095;</a>
@@ -251,16 +231,13 @@
         <h3 align="center" class="h3-solar">Neptune</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="neptuneSlide">
-            <img src="../static/jpg/solarsystem/neptune1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/neptune1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="neptuneSlide">
-            <img src="../static/jpg/solarsystem/neptune2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/neptune2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="neptuneSlide">
-            <img src="../static/jpg/solarsystem/neptune3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/neptune3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'neptuneSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'neptuneSlide')">&#10095;</a>
@@ -279,16 +256,13 @@
         <h3 align="center" class="h3-solar">Uranus</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="uranusSlide">
-            <img src="../static/jpg/solarsystem/uranus1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/uranus1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="uranusSlide">
-            <img src="../static/jpg/solarsystem/uranus2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/uranus2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="uranusSlide">
-            <img src="../static/jpg/solarsystem/uranus3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/uranus3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'uranusSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'uranusSlide')">&#10095;</a>
@@ -305,23 +279,20 @@
         <h3 align="center" class="h3-solar">Moon</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="moonSlide">
-            <img src="../static/jpg/solarsystem/moon1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/moon1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="moonSlide">
-            <img src="../static/jpg/solarsystem/moon2.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/moon2.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="moonSlide">
-            <img src="../static/jpg/solarsystem/moon3.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/moon3.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'moonSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'moonSlide')">&#10095;</a>
         <p align="center" class="p-solar">
-            The Moon is Earth's only natural satellite. Its diameter is about one-quarter the diameter of the 
-            Earth. The Moon is the fifth largest satellite in the Solar System. It is larger than any of the 
-            known dwarf planets and is the largest satellite relative to its parent planet. ons of the term. 
+            The Moon is Earth's only natural satellite. Its diameter is about one-quarter the diameter of the
+            Earth. The Moon is the fifth largest satellite in the Solar System. It is larger than any of the
+            known dwarf planets and is the largest satellite relative to its parent planet. ons of the term.
             It lacks any significant atmosphere, hydrosphere, or magnetic field.
         </p>
     </div>
@@ -329,23 +300,20 @@
         <h3 align="center" class="h3-solar" style="font-size:3.5vh;">Phobos and Deimos</h3>
         <a class="close" onclick="closeInfo()">&#9587;</a>
         <div class="phobosSlide">
-            <img src="../static/jpg/solarsystem/phobos1.jpg"
-                style="width: 100%; height:35vh; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/phobos1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
         </div>
         <div class="phobosSlide">
-            <img src="../static/jpg/solarsystem/phobos2.jpg"
-                style="width: 100%; height:25%; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/phobos2.jpg" style="width: 100%; height:25%; object-fit:cover;">
         </div>
         <div class="phobosSlide">
-            <img src="../static/jpg/solarsystem/phobos3.jpg"
-                style="width: 100%; height:25%; object-fit:cover;">
+            <img src="../static/jpg/solarsystem/phobos3.jpg" style="width: 100%; height:25%; object-fit:cover;">
         </div>
         <a class="prev" onclick="plusSlides(-1,'phobosSlide')">&#10094;</a>
         <a class="next" onclick="plusSlides(1,'phobosSlide')">&#10095;</a>
         <p align="center" class="p-solar">
-            Phobos is the innermost and larger of the two natural satellites of Mars, the other being Deimos. 
-            The two moons were discovered in 1877 by American astronomer Asaph Hall. Phobos is named after 
-            the Greek deity Phobos, a son of Ares and twin brother of Deimos. Phobos is a small, 
+            Phobos is the innermost and larger of the two natural satellites of Mars, the other being Deimos.
+            The two moons were discovered in 1877 by American astronomer Asaph Hall. Phobos is named after
+            the Greek deity Phobos, a son of Ares and twin brother of Deimos. Phobos is a small,
             irregularly shaped object with a mean radius of 11 km.
         </p>
     </div>
@@ -392,8 +360,7 @@
 
         <div class="orbit jupiter-orbit"></div>
         <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
-            <div id="jupiter" onclick="jupiterClicked();closeSidepanel();"
-                style="cursor:pointer;z-index:94;"></div>
+            <div id="jupiter" onclick="jupiterClicked();closeSidepanel();" style="cursor:pointer;z-index:94;"></div>
         </div>
 
         <div class="orbit saturn-orbit"></div>

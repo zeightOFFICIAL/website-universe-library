@@ -136,12 +136,22 @@ function closeSidepanel() {
     document.querySelector(".star-system").style.left = "41%";
     document.querySelector(".star-system").style.width = "59%";
 }
+function openSystempanel() {
+    document.getElementById("starSidepanel").style.width = "17%";
+    movePanel("18%");
+    document.querySelector(".star-system").style.left = "48%";
+    document.querySelector(".star-system").style.width = "52%";
+}
+function closeSystempanel() {
+    document.getElementById("starSidepanel").style.width = "0";
+    movePanel("10%");
+    document.querySelector(".star-system").style.left = "41%";
+    document.querySelector(".star-system").style.width = "59%";
+}
 
 function movePanel(percent) {
     let panels = document.querySelectorAll(".left-panel")
-    console.log(panels)
     panels.forEach((item) => {
         item.style.left = percent;
-        console.log(item);
     })
 }
