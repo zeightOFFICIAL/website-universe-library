@@ -14,19 +14,19 @@
     <div id="solarSidepanel" class="sidepanel">
         <button class="closeButton" onclick="closeSidepanel();">&#9776; Obj</button>
         <p style="font-size:12vmin"></p>
-        <a class="p-solar-side-sun" onclick="sunClicked();closeSidepanel();">Sun</a>
-        <a class="p-solar-side-mercury" onclick="mercuryClicked();closeSidepanel();">Mercury</a>
-        <a class="p-solar-side-venus" onclick="venusClicked();closeSidepanel();">Venus</a>
-        <a class="p-solar-side-earth" onclick="earthClicked();closeSidepanel();">Earth</a>
-        <a class="p-solar-side-moon" onclick="moonClicked();closeSidepanel();">Moon</a>
-        <a class="p-solar-side-mars" onclick="marsClicked();closeSidepanel();">Mars</a>
-        <a class="p-solar-side-phobos" onclick="phobosClicked();closeSidepanel();">Phobos<br>Deimos</a>
-        <a class="p-solar-side-asteroid" onclick="asteroidClicked();closeSidepanel();">Asteroid<br>belt</a>
-        <a class="p-solar-side-jupiter" onclick="jupiterClicked();closeSidepanel();">Jupiter</a>
-        <a class="p-solar-side-jovian" onclick="jovianClicked();closeSidepanel();">Jovian<br>moons</a>
-        <a class="p-solar-side-saturn" onclick="saturnClicked();closeSidepanel();">Saturn</a>
-        <a class="p-solar-side-uranus" onclick="uranusClicked();closeSidepanel();">Uranus</a>
-        <a class="p-solar-side-neptune" onclick="neptuneClicked();closeSidepanel();">Neptune</a>
+        <a class="p-solar-side-sun" onclick="objClicked('sunInfo');closeSidepanel();">Sun</a>
+        <a class="p-solar-side-mercury" onclick="objClicked('mercuryInfo');closeSidepanel();">Mercury</a>
+        <a class="p-solar-side-venus" onclick="objClicked('venusInfo');closeSidepanel();">Venus</a>
+        <a class="p-solar-side-earth" onclick="objClicked('earthInfo');closeSidepanel();">Earth</a>
+        <a class="p-solar-side-moon" onclick="objClicked('moonInfo');closeSidepanel();">Moon</a>
+        <a class="p-solar-side-mars" onclick="objClicked('marsInfo');closeSidepanel();">Mars</a>
+        <a class="p-solar-side-phobos" onclick="objClicked('phobosInfo');closeSidepanel();">Phobos<br>Deimos</a>
+        <a class="p-solar-side-asteroid" onclick="objClicked('asteroidInfo');closeSidepanel();">Asteroid<br>belt</a>
+        <a class="p-solar-side-jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();">Jupiter</a>
+        <a class="p-solar-side-jovian" onclick="objClicked('jovianInfo');closeSidepanel();">Jovian<br>moons</a>
+        <a class="p-solar-side-saturn" onclick="objClicked('saturnInfo');closeSidepanel();">Saturn</a>
+        <a class="p-solar-side-uranus" onclick="objClicked('uranusInfo');closeSidepanel();">Uranus</a>
+        <a class="p-solar-side-neptune" onclick="objClicked('neptuneInfo');closeSidepanel();">Neptune</a>
     </div>
     <div id="starSidepanel" class="sidepanel">
         <button class="closeButton" onclick="closeSystempanel();" style="top:7.5vmin">&#9733; Star</button>
@@ -317,32 +317,52 @@
             irregularly shaped object with a mean radius of 11 km.
         </p>
     </div>
+    <div id="asteroidInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
+        <h3 align="center" class="h3-solar" style="font-size:3.5vh;">Asteroid belt</h3>
+        <a class="close" onclick="closeInfo()">&#9587;</a>
+        <div class="asteroidSlide">
+            <img src="../static/jpg/solarsystem/asteroid1.jpg" style="width: 100%; height:35vh; object-fit:cover;">
+        </div>
+        <div class="asteroidSlide">
+            <img src="../static/jpg/solarsystem/asteroid2.jpg" style="width: 100%; height:25%; object-fit:cover;">
+        </div>
+        <div class="asteroidSlide">
+            <img src="../static/jpg/solarsystem/asteroid3.png" style="width: 100%; height:25%; object-fit:cover;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1,'asteroidSlide')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1,'asteroidSlide')">&#10095;</a>
+        <p align="center" class="p-solar">
+            The asteroid belt is a torus-shaped region in the Solar System, located roughly between the orbits of 
+            the planets Jupiter and Mars. It contains a great many solid, irregularly shaped bodies, of many sizes, 
+            but much smaller than planets, called asteroids or minor planets.
+        </p>
+    </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
-        <div id="sun" onclick="closeSidepanel();sunClicked();" style="cursor:pointer; z-index:100;"></div>
+        <div id="sun" onclick="closeSidepanel();objClicked('sunInfo');" style="cursor:pointer; z-index:100;"></div>
 
         <div class="orbit mercury-orbit"></div>
         <div class="mercury-spin" id="mercury-spin" style="z-index:99;">
-            <div id="mercury" onclick="mercuryClicked();closeSidepanel();" style="cursor:pointer;"></div>
+            <div id="mercury" onclick="objClicked('mercuryInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
         <div class="orbit venus-orbit"></div>
         <div class="venus-spin" id="venus-spin" style="z-index:98;">
-            <div id="venus" onclick="venusClicked();closeSidepanel();" style="cursor:pointer;"></div>
+            <div id="venus" onclick="objClicked('venusInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
         <div class="orbit earth-orbit"></div>
         <div class="earth-spin" id="earth-spin" style="z-index:97;">
-            <div id="earth" onclick="earthClicked();closeSidepanel();" style="cursor:pointer;z-index:96;">
+            <div id="earth" onclick="objClicked('earthInfo');closeSidepanel();" style="cursor:pointer;z-index:96;">
             </div>
             <div class="orbit moon-orbit"></div>
-            <div class="moon-spin" onclick="moonClicked();closeSidepanel();">
+            <div class="moon-spin" onclick="objClicked('moonInfo');closeSidepanel();">
                 <div id="moon"></div>
             </div>
         </div>
 
         <div class="orbit mars-orbit"></div>
         <div class="mars-spin" id="mars-spin" style="z-index:95;">
-            <div id="mars" onclick="marsClicked();closeSidepanel();" style="cursor:pointer;z-index:95;">
+            <div id="mars" onclick="objClicked('marsInfo');closeSidepanel();" style="cursor:pointer;z-index:95;">
             </div>
             <div class="orbit deimos-orbit"></div>
             <div class="deimos-spin">
@@ -360,22 +380,22 @@
 
         <div class="orbit jupiter-orbit"></div>
         <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
-            <div id="jupiter" onclick="jupiterClicked();closeSidepanel();" style="cursor:pointer;z-index:94;"></div>
+            <div id="jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();" style="cursor:pointer;z-index:94;"></div>
         </div>
 
         <div class="orbit saturn-orbit"></div>
         <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
-            <div id="saturn" onclick="saturnClicked();closeSidepanel();" style="cursor:pointer;"></div>
+            <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
         <div class="orbit uranus-orbit"></div>
         <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
-            <div id="uranus" onclick="uranusClicked();closeSidepanel();" style="cursor:pointer;"></div>
+            <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
         <div class="orbit neptune-orbit"></div>
         <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
-            <div id="neptune" onclick="neptuneClicked();closeSidepanel();" style="cursor:pointer;"></div>
+            <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
     </div>

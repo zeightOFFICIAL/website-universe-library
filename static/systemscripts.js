@@ -29,6 +29,7 @@ showSlides(slideIndex, "neptuneSlide");
 showSlides(slideIndex, "uranusSlide");
 showSlides(slideIndex, "moonSlide");
 showSlides(slideIndex, "phobosSlide");
+showSlides(slideIndex, "asteroidSlide");
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
@@ -49,86 +50,16 @@ function showSlides(n, name) {
     slides[slideIndex - 1].style.display = "block";
 }
 
-function sunClicked() {
+function objClicked(revealName) {
     hideAllInfo();
-    document.getElementById("sunInfo").style.display = 'block';
-    document.getElementById("sunInfo").style.width = '30%';
-    document.getElementById("systemInfo").style.width = '30%';
-}
-
-function earthClicked() {
-    hideAllInfo();
-    document.getElementById("earthInfo").style.display = 'block';
-}
-
-function marsClicked() {
-    hideAllInfo();
-    document.getElementById("marsInfo").style.display = 'block';
-}
-
-function venusClicked() {
-    hideAllInfo();
-    document.getElementById("venusInfo").style.display = 'block';
-}
-
-function mercuryClicked() {
-    hideAllInfo();
-    document.getElementById("mercuryInfo").style.display = 'block';
-}
-
-function saturnClicked() {
-    hideAllInfo();
-    document.getElementById("saturnInfo").style.display = "block";
-}
-
-function jupiterClicked() {
-    hideAllInfo();
-    document.getElementById("jupiterInfo").style.display = "block";
-}
-
-function neptuneClicked() {
-    hideAllInfo();
-    document.getElementById("neptuneInfo").style.display = 'block';
-}
-
-function uranusClicked() {
-    hideAllInfo();
-    document.getElementById("uranusInfo").style.display = 'block';
-}
-
-function closeInfo() {
-    hideAllInfo();
-    document.getElementById("systemInfo").style.display = 'block';
-}
-
-function moonClicked() {
-    hideAllInfo();
-    document.getElementById("moonInfo").style.display = 'block';
-}
-
-function phobosClicked() {
-    hideAllInfo();
-    document.getElementById("phobosInfo").style.display = 'block';
+    document.getElementById(revealName).style.display = 'block';
 }
 
 function hideAllInfo() {
-    document.getElementById("systemInfo").style.display = 'none';
-    document.getElementById("earthInfo").style.display = 'none';
-    document.getElementById("sunInfo").style.display = 'none';
-    document.getElementById("marsInfo").style.display = 'none';
-    document.getElementById("venusInfo").style.display = 'none';
-    document.getElementById("mercuryInfo").style.display = 'none';
-    document.getElementById("saturnInfo").style.display = 'none';
-    document.getElementById("jupiterInfo").style.display = 'none';
-    document.getElementById("neptuneInfo").style.display = 'none';
-    document.getElementById("uranusInfo").style.display = 'none';
-    document.getElementById("moonInfo").style.display = 'none';
-    document.getElementById("phobosInfo").style.display = 'none';
-}
-
-function starInfo() {
-    hideAllInfo();
-    document.getElementById("systemInfo").style.display = 'block';
+    let panels = document.querySelectorAll(".left-panel")
+    panels.forEach((item) => {
+        item.style.display = 'none';
+    })
 }
 
 function openSidepanel() {
