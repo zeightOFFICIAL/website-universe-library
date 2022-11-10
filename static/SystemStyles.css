@@ -282,7 +282,7 @@ body::-webkit-scrollbar {
 
 .solar-button {
     text-align: center;
-    display: block;
+    display: inline-block;
     font-family: 'solar';
     font-size: 4vmin;
     font-weight: bolder;
@@ -292,15 +292,18 @@ body::-webkit-scrollbar {
     padding-left: 5%;
     transition: 0.35s;
     background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    background-image: linear-gradient(62deg, #FBAB7E 35%, #F7CE68 65%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 3vh;
+    height: 7vmin;
+    overflow: hidden;
 }
 .solar-button:hover {
     padding-left: 0%;
     padding-right: 25%;
+    height: 15vmin;
 }
 
 .alpha-button {
@@ -315,7 +318,7 @@ body::-webkit-scrollbar {
     padding-left: 5%;
     transition: 0.35s;
     background-color: #ffe900;
-    background-image: linear-gradient(62deg, #ffe900 0%, #9a0000 100%);
+    background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -324,6 +327,7 @@ body::-webkit-scrollbar {
 .alpha-button:hover {
     padding-left: 0%;
     padding-right: 25%;
+    height: 15vmin;
 }
 
 .trapp-button {
@@ -338,7 +342,7 @@ body::-webkit-scrollbar {
     padding-left: 5%;
     transition: 0.35s;
     background-color: #31fff4;
-    background-image: linear-gradient(62deg, #31fff4 0%, #3d00ff 100%);
+    background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -347,6 +351,7 @@ body::-webkit-scrollbar {
 .trapp-button:hover {
     padding-left: 0%;
     padding-right: 25%;
+    height: 15vmin;
 }
 .trebi-button {
     text-align: center;
@@ -360,17 +365,22 @@ body::-webkit-scrollbar {
     padding-left: 5%;
     transition: 0.35s;
     background-color: #939037;
-    background-image: linear-gradient(62deg, #939037 0%, #999999 100%);
+    background-image: linear-gradient(62deg, #939037 35%, #999999 65%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 3vh;
+    overflow-wrap: normal;
 }
 .trebi-button:hover {
     padding-left: 0%;
     padding-right: 25%;
+    height: 15vmin;
 }
 
+.short-image {
+    height: 15vmin;
+}
 
 /* ------------------------------------------- planet and star objects */
 
