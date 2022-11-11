@@ -60,7 +60,7 @@ body::-webkit-scrollbar {
     top: 0;
     left: 10%;
     width: 30%;
-    display:block;
+    display: block;
     text-indent: -1000em;
     transition: left 0.7s;
 }
@@ -107,19 +107,19 @@ body::-webkit-scrollbar {
 }
 
 .accent-bar {
-    position:absolute;
-    top:0;
-    left:0;
-    width:10vmin;
-    background: rgb(19,9,86);
-    background: linear-gradient(180deg, rgba(19,9,86,1) 30%, rgba(0,0,0,1) 100%);
-    height:100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10vmin;
+    background: rgb(19, 9, 86);
+    background: linear-gradient(180deg, rgba(19, 9, 86, 1) 30%, rgba(0, 0, 0, 1) 100%);
+    height: 100vh;
     transition: 0.7s;
 }
 
 /* ------------------------------------------- side panel */
 
-.sidepanel  {
+.sidepanel {
     height: 100vh;
     width: 0;
     position: fixed;
@@ -138,35 +138,30 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.closeButton {
-    transition: 0.7s;
+.closeButton,
+.openButton {
     font-family: 'solar';
     font-size: 3vmin;
-    color: white;
     cursor: pointer;
-    width: 100%;
-    background-color: #130956;
-    position: absolute;
-    border: none;
-    overflow: hidden;
+    color: white;
     padding: 2vmin 3.5vmin;
-    min-width: 50vmin;
-    text-align: left;
+    transition: 0.7s;
+    position: absolute;
     top: 0;
     left: 0;
+    border: none;
+}
+
+.closeButton {
+    width: 100%;
+    background-color: #130956;
+    overflow: hidden;
+    min-width: 50vmin;
+    text-align: left;
 }
 
 .openButton {
-    transition: 0.7s;
-    font-size: 3vmin;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0); 
-    color: white;
-    padding: 2vmin 3.5vmin;
-    border: none;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-color: rgba(255, 255, 255, 0);
     z-index: 1;
 }
 
@@ -278,7 +273,10 @@ body::-webkit-scrollbar {
     padding-left: 10%;
 }
 
-.solar-button {
+.solar-button,
+.alpha-button,
+.trebi-button,
+.trapp-button {
     text-align: center;
     display: block;
     font-family: 'solar';
@@ -293,102 +291,67 @@ body::-webkit-scrollbar {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-top: 3.5vmin;
+    padding-top: 3vmin;
+    padding-bottom: 0.5vmin;
     height: 7vmin;
     overflow-y: hidden;
 }
+
 .solar-button:hover {
     padding-left: 0%;
     padding-right: 25%;
     height: 15vmin;
     padding-top: 8.5vmin;
 }
+
 .solar-button:hover .short-image {
     left: 67%;
 }
 
 .alpha-button {
-    text-align: center;
-    display: block;
-    font-family: 'solar';
-    font-size: 4vmin;
-    font-weight: bolder;
-    cursor: pointer;
-    overflow-x: hidden;
-    padding-left: 5%;
-    padding-top: 3.5vmin;
-    transition: 0.5s;
     background-color: #ffe900;
     background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    height: 7vmin;
-    overflow-y: hidden;
 }
+
 .alpha-button:hover {
     padding-left: 0%;
     padding-right: 25%;
     height: 15vmin;
     padding-top: 8.5vmin;
 }
+
 .alpha-button:hover .short-image {
     left: 67%;
 }
 
 .trapp-button {
-    text-align: center;
-    display: block;
-    font-family: 'solar';
-    font-size: 4vmin;
-    font-weight: bolder;
-    cursor: pointer;
-    overflow-x: hidden;
-    padding-left: 5%;
-    transition: 0.5s;
     background-color: #31fff4;
     background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-top: 3.5vmin;
-    height: 7vmin;
-    overflow-y: hidden;
 }
+
 .trapp-button:hover {
     padding-left: 0%;
     padding-right: 25%;
     height: 15vmin;
     padding-top: 8.5vmin;
 }
+
 .trapp-button:hover .short-image {
     left: 67%;
 }
+
 .trebi-button {
-    text-align: center;
-    display: block;
-    font-family: 'solar';
-    font-size: 4vmin;
-    font-weight: bolder;
-    cursor: pointer;
-    overflow-x: hidden;
-    padding-left: 5%;
-    transition: 0.5s;
     background-color: #939037;
     background-image: linear-gradient(62deg, #939037 35%, #999999 65%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-top: 3.5vmin;
-    height: 7vmin;
-    overflow-y: hidden;
 }
+
 .trebi-button:hover {
     padding-left: 0%;
     padding-right: 25%;
     height: 15vmin;
     padding-top: 8.5vmin;
 }
+
 .trebi-button:hover .short-image {
     left: 67%;
 }
