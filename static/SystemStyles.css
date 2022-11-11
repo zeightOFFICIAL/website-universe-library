@@ -38,7 +38,7 @@ body::-webkit-scrollbar {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 3vmin;
+    margin-bottom: 2.5vmin;
 }
 
 .h3-solar {
