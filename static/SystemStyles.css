@@ -92,7 +92,7 @@ body::-webkit-scrollbar {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
+    box-shadow: -2vw 0 2vw -2vw #FBAB7E inset;
 }
 
 .sidepanel::-webkit-scrollbar {
