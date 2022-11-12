@@ -17,39 +17,6 @@ function onLoadSolar() {
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
-let slideIndex = 1;
-showSlides(slideIndex, "sunSlide");
-showSlides(slideIndex, "earthSlide");
-showSlides(slideIndex, "marsSlide");
-showSlides(slideIndex, "venusSlide");
-showSlides(slideIndex, "mercurySlide");
-showSlides(slideIndex, "saturnSlide");
-showSlides(slideIndex, "jupiterSlide");
-showSlides(slideIndex, "neptuneSlide");
-showSlides(slideIndex, "uranusSlide");
-showSlides(slideIndex, "moonSlide");
-showSlides(slideIndex, "phobosSlide");
-showSlides(slideIndex, "asteroidSlide");
-
-function plusSlides(n, name) {
-    showSlides(slideIndex += n, name);
-}
-
-function currentSlide(n, name) {
-    showSlides(slideIndex = n, name);
-}
-
-function showSlides(n, name) {
-    let i;
-    let slides = document.getElementsByClassName(name);
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-}
-
 function objClicked(revealName) {
     hideAllInfo();
     document.getElementById(revealName).style.textIndent = '0';
