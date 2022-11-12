@@ -20,6 +20,7 @@ html,
 body {
     background-color: rgb(0, 0, 0);
     height: 95vh;
+    overflow: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -63,6 +64,13 @@ body::-webkit-scrollbar {
     display: block;
     text-indent: -1000em;
     transition: left 0.7s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.left-panel::-webkit-scrollbar {
+    display: none;
 }
 
 .accent-bar {
@@ -75,6 +83,12 @@ body::-webkit-scrollbar {
     box-shadow: 0 0 3vw #FBAB7E;
     height: 100vh;
     transition: 0.7s;
+}
+
+.normal-border {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
 }
 
 /* ------------------------------------------- side panel */
@@ -92,7 +106,7 @@ body::-webkit-scrollbar {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    box-shadow: -2vw 0 2vw -2vw #FBAB7E inset;
+    box-shadow: 3px 0 3px #FBAB7E;
 }
 
 .sidepanel::-webkit-scrollbar {
