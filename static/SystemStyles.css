@@ -193,18 +193,31 @@ body::-webkit-scrollbar {
     padding-bottom: 1vh;
     padding-left: 15%;
     transition: 0.15s;
+    max-height: 3vmin;
+    overflow-y: hidden;
+}
+.p-solar-side-asteroid {
+    max-height: 7vmin;
+}
+.p-solar-side-jovian {
+    max-height: 7vmin;
+}
+.p-solar-side-phobos {
+    max-height: 7vmin;
 }
 
 .p-solar-side-sun:hover {
     color: yellow;
     text-shadow: 0px 0px 2vh rgb(255, 221, 0);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-earth:hover {
     color: lightskyblue;
     text-shadow: 0px 0px 2vh rgb(0, 153, 255);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-asteroid:hover {
@@ -217,42 +230,49 @@ body::-webkit-scrollbar {
     color: orange;
     text-shadow: 0px 0px 2vh rgb(238, 255, 0);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-mars:hover {
     color: red;
     text-shadow: 0px 0px 2vh rgb(255, 0, 0);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-mercury:hover {
     color: darksalmon;
     text-shadow: 0px 0px 2vh white;
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-neptune:hover {
     color: blue;
     text-shadow: 0px 0px 2vh rgb(4, 0, 255);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-uranus:hover {
     color: lightseagreen;
     text-shadow: 0px 0px 2vh rgb(0, 94, 255);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-venus:hover {
     color: pink;
     text-shadow: 0px 0px 2vh rgb(255, 0, 255);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-moon:hover {
     color: white;
     text-shadow: 0px 0px 2vh white;
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .p-solar-side-phobos:hover {
@@ -271,6 +291,7 @@ body::-webkit-scrollbar {
     color: cornsilk;
     text-shadow: 0px 0px 2vh rgb(255, 72, 0);
     padding-left: 10%;
+    font-size: 4vmin;
 }
 
 .solar-button,
@@ -284,24 +305,26 @@ body::-webkit-scrollbar {
     font-weight: bolder;
     cursor: pointer;
     overflow-x: hidden;
-    padding-left: 5%;
+    padding-left: 4%;
     transition: 0.5s;
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 35%, #F7CE68 65%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-top: 3vmin;
-    padding-bottom: 0.5vmin;
+    padding: 1.5vmin 0;
     height: 7vmin;
     overflow-y: hidden;
 }
 
-.solar-button:hover {
+.solar-button:hover,
+.alpha-button:hover,
+.trapp-button:hover,
+.trebi-button:hover {
+    height: 10vmin;
+    padding-top: 5.25vmin; 
     padding-left: 0%;
-    padding-right: 25%;
-    height: 15vmin;
-    padding-top: 8.5vmin;
+    padding-right: 25%;    
 }
 
 .solar-button:hover .short-image {
@@ -313,13 +336,6 @@ body::-webkit-scrollbar {
     background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%);
 }
 
-.alpha-button:hover {
-    padding-left: 0%;
-    padding-right: 25%;
-    height: 15vmin;
-    padding-top: 8.5vmin;
-}
-
 .alpha-button:hover .short-image {
     left: 67%;
 }
@@ -327,13 +343,6 @@ body::-webkit-scrollbar {
 .trapp-button {
     background-color: #31fff4;
     background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%);
-}
-
-.trapp-button:hover {
-    padding-left: 0%;
-    padding-right: 25%;
-    height: 15vmin;
-    padding-top: 8.5vmin;
 }
 
 .trapp-button:hover .short-image {
@@ -345,13 +354,6 @@ body::-webkit-scrollbar {
     background-image: linear-gradient(62deg, #939037 35%, #999999 65%);
 }
 
-.trebi-button:hover {
-    padding-left: 0%;
-    padding-right: 25%;
-    height: 15vmin;
-    padding-top: 8.5vmin;
-}
-
 .trebi-button:hover .short-image {
     left: 67%;
 }
@@ -360,7 +362,7 @@ body::-webkit-scrollbar {
     position: absolute;
     left: 120%;
     height: 20vmin;
-    transition: 0.35s;
+    transition: 0.5s;
 }
 
 /* ------------------------------------------- planet and star objects */
