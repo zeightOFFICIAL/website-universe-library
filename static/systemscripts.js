@@ -21,12 +21,14 @@ function onLoadSolar() {
 function objClicked(revealName) {
     hideAllInfo();
     document.getElementById(revealName).style.textIndent = '0';
+    document.getElementById(revealName).style.top = '0';
 }
 
 function hideAllInfo() {
     let panels = document.querySelectorAll(".left-panel")
     panels.forEach((item) => {
         item.style.textIndent = '-1000em';
+        item.style.top = '200vh';
     })
 }
 
