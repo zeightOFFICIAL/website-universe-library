@@ -15,6 +15,7 @@ function onLoadSolar() {
     document.getElementById('neptune-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
     randomShift = Math.floor(Math.random() * 100);
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
+    objClicked("systemInfo");
 }
 
 function objClicked(revealName) {
@@ -33,7 +34,7 @@ function openSidepanel() {
     document.getElementById("solarSidepanel").style.width = "16%";
     movePanel("20%");
     document.querySelector(".star-system").style.left = "57%";
-    document.querySelector(".star-system").style.width = "43%";
+    document.querySelector(".star-system").style.width = "40%";
 }
 function closeSidepanel() {
     document.getElementById("solarSidepanel").style.width = "0";
@@ -45,7 +46,7 @@ function openSystempanel() {
     document.getElementById("starSidepanel").style.width = "16%";
     movePanel("20%");
     document.querySelector(".star-system").style.left = "57%";
-    document.querySelector(".star-system").style.width = "43%";
+    document.querySelector(".star-system").style.width = "40%";
 }
 function closeSystempanel() {
     document.getElementById("starSidepanel").style.width = "0";
