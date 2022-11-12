@@ -30,28 +30,28 @@ function hideAllInfo() {
 }
 
 function openSidepanel() {
-    document.getElementById("solarSidepanel").style.width = "17%";
-    movePanel("18%");
-    document.querySelector(".star-system").style.left = "48%";
-    document.querySelector(".star-system").style.width = "52%";
+    document.getElementById("solarSidepanel").style.width = "16%";
+    movePanel("20%");
+    document.querySelector(".star-system").style.left = "57%";
+    document.querySelector(".star-system").style.width = "43%";
 }
 function closeSidepanel() {
     document.getElementById("solarSidepanel").style.width = "0";
     movePanel("10%");
-    document.querySelector(".star-system").style.left = "41%";
-    document.querySelector(".star-system").style.width = "59%";
+    document.querySelector(".star-system").style.left = "46%";
+    document.querySelector(".star-system").style.width = "54%";
 }
 function openSystempanel() {
-    document.getElementById("starSidepanel").style.width = "17%";
-    movePanel("18%");
-    document.querySelector(".star-system").style.left = "48%";
-    document.querySelector(".star-system").style.width = "52%";
+    document.getElementById("starSidepanel").style.width = "16%";
+    movePanel("20%");
+    document.querySelector(".star-system").style.left = "57%";
+    document.querySelector(".star-system").style.width = "43%";
 }
 function closeSystempanel() {
     document.getElementById("starSidepanel").style.width = "0";
     movePanel("10%");
-    document.querySelector(".star-system").style.left = "41%";
-    document.querySelector(".star-system").style.width = "59%";
+    document.querySelector(".star-system").style.left = "46%";
+    document.querySelector(".star-system").style.width = "54%";
 }
 
 function movePanel(percent) {

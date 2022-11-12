@@ -58,9 +58,9 @@ body::-webkit-scrollbar {
 
 .left-panel {
     position: absolute;
-    top: 0;
+    top: 2%;
     left: 10%;
-    width: 30%;
+    width: 35%;
     display: block;
     text-indent: -1000em;
     transition: left 0.7s;
@@ -353,9 +353,9 @@ body::-webkit-scrollbar {
 .star-system {
     position: absolute;
     top: 0;
-    left: 41%;
-    width: 59%;
-    height: 100vh;
+    left: 46%;
+    width: 54%;
+    height: 100%;
     overflow: hidden;
     transition: 0.7s;
 }
