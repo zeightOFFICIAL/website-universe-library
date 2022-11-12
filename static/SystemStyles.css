@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
 
 .p-solar {
     font-family: 'normal';
-    font-size: 2.5vmin;
+    font-size: 3vmin;
     cursor: default;
     color: white;
 }
@@ -67,6 +67,12 @@ body::-webkit-scrollbar {
     text-indent: -1000em;
     transition: left 0.7s;
     top: 200vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+.left-panel::-webkit-scrollbar {
+    display: none;
 }
 
 .accent-bar {
