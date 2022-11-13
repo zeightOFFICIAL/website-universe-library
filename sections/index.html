@@ -63,17 +63,18 @@
         <div class="normal-border"><img src="../static/jpg/solarsystem/solar2.jpg"
                 style="width: 100%; height:35vmin;object-fit:cover;"></div>
         <div class="normal-border" style="overflow:hidden">
-            <div class="solarSlide p-solar text">
+            <div class="solarSlide p-solar">
                 The planets of our solar system – and even some asteroids – hold more than 200 moons in their orbits.
             </div>
-            <div class="solarSlide p-solar text">
+            <div class="solarSlide p-solar">
                 It takes our solar system about 230 million years to complete one orbit around the galactic center.
             </div>
-            <div class="solarSlide p-solar text">
+            <div class="solarSlide p-solar">
                 Our solar system is the only one known to support life. So far, we only know of life on Earth.
             </div>
-            <div class="solarSlide p-solar text">
-                The four giant planets – and at least one asteroid – have rings. None are as spectacular as Saturn's gorgeous rings.
+            <div class="solarSlide p-solar">
+                The four giant planets and at least one asteroid have rings. None are as spectacular as Saturn's
+                gorgeous rings.
             </div>
             <button class="display-prev" onclick="plusSlides(-1.,'solarSlide');">&#10094;</button>
             <button class="display-next" onclick="plusSlides(+1.,'solarSlide');">&#10095;</button>
@@ -81,9 +82,11 @@
 
     </div>
     <div id="sunInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <h3 align="center" class="h3-solar">&#9737; Sun</h2>
-
-            <p align="center" class="p-solar">
+        <button class="closeInfo" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo" href="https://en.wikipedia.org/wiki/Sun" target="_blank" style="text-decoration:none; color:black;">&#9783;</a>
+        <div class="normal-border">
+            <h3 align="center" class="h3-solar">&#9737; Sun</h3>
+            <p align="center" class="p-solar" style="padding: 20px 35px;">
                 The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot
                 plasma,
                 heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this
@@ -91,6 +94,14 @@
                 light, ultraviolet, and infrared radiation, and is the most important source of energy for
                 life on Earth.
             </p>
+        </div>
+        <div class="normal-border">
+            <img src="../static/jpg/solarsystem/sun2.jpg" style="width: 100%; height:35vmin;object-fit:cover;">
+        </div>
+        <div class="normal-border">
+            <img src="../static/jpg/solarsystem/sun1.jpg" style="width: 100%; height:35vmin;object-fit:cover;">
+        </div>
+    </div>
     </div>
     <div id="earthInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">&#9793; Earth</h3>

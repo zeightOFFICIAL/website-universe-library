@@ -21,12 +21,10 @@ function onLoadSolar() {
 let slideIndex = 1;
 showSlides(slideIndex, 'solarSlide');
 
-function plusSlides(n, name)
-{
+function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
 }
-function currentSlide(n, name)
-{
+function currentSlide(n, name) {
     showSlides(n, name);
 }
 
@@ -52,6 +50,7 @@ function hideAllInfo() {
     panels.forEach((item) => {
         item.style.textIndent = '-1000em';
         item.style.top = '200vh';
+        item.scrollTop = '0';
     })
 }
 

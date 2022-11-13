@@ -33,7 +33,6 @@ body::-webkit-scrollbar {
     font-family: 'solar';
     font-size: 7vmin;
     cursor: default;
-    transition: 0.2s;
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     background-clip: text;
@@ -46,7 +45,8 @@ body::-webkit-scrollbar {
     font-family: 'solar';
     font-size: 6vmin;
     cursor: default;
-    color: white
+    color: white;
+    margin-bottom: 2.5vmin;
 }
 
 .p-solar {
@@ -71,6 +71,7 @@ body::-webkit-scrollbar {
     scrollbar-width: none;
     scroll-behavior: smooth;
 }
+
 .left-panel::-webkit-scrollbar {
     display: none;
 }
@@ -88,15 +89,36 @@ body::-webkit-scrollbar {
 }
 
 .normal-border {
-  border-width: 3px;
-  border-style: solid;
-  border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
-  margin: 40px 15px;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
+    margin: 40px 15px;
 }
 
 .normal-filling {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+.closeInfo,
+.moreInfo {
+    position: absolute;
+    top: 30px;
+    padding: 0 15px;
+    text-align: center;
+    border: solid 2px black;
+    font-size: 3vmin;
+    cursor: pointer;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+.closeInfo:hover,
+.moreInfo:hover {
+    background-color: #ffffff;
+    background-image: linear-gradient(62deg, #ffffff 0%, #ffffff 100%);
+}
+.moreInfo {
+    top: 70px;
 }
 
 /* ------------------------------------------- side panel */
@@ -156,6 +178,7 @@ body::-webkit-scrollbar {
     background-color: white;
     transition: 0.75s;
 }
+
 .closeButton:hover {
     color: white;
     transition: 0.75s;
@@ -187,12 +210,15 @@ body::-webkit-scrollbar {
     max-height: 3vmin;
     overflow-y: hidden;
 }
+
 .p-solar-side-asteroid {
     max-height: 7vmin;
 }
+
 .p-solar-side-jovian {
     max-height: 7vmin;
 }
+
 .p-solar-side-phobos {
     max-height: 7vmin;
 }
@@ -313,9 +339,9 @@ body::-webkit-scrollbar {
 .trapp-button:hover,
 .trebi-button:hover {
     height: 10vmin;
-    padding-top: 5.25vmin; 
+    padding-top: 5.25vmin;
     padding-left: 0%;
-    padding-right: 25%;    
+    padding-right: 25%;
 }
 
 .solar-button:hover .short-image {
@@ -359,8 +385,7 @@ body::-webkit-scrollbar {
 /* ------------------------------------------- image sliders */
 
 .display-prev,
-.display-next
-{
+.display-next {
     display: inline;
     color: black;
     transition: 0.5s;
@@ -372,20 +397,23 @@ body::-webkit-scrollbar {
     padding: 0 0;
     overflow: hidden;
 }
+
 .display-next {
     background-color: #F7CE68;
     float: right;
     width: 50%;
 }
+
 .display-prev {
     float: left;
     width: 50%;
 }
 
 .display-next:hover,
-.display-prev:hover{
+.display-prev:hover {
     background-color: rgb(255, 255, 255);
 }
+
 .solarSlide {
     text-align: center;
     padding: 20px 30px;
