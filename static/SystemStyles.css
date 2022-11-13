@@ -94,6 +94,11 @@ body::-webkit-scrollbar {
   margin: 40px 15px;
 }
 
+.normal-filling {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
 /* ------------------------------------------- side panel */
 
 .sidepanel {
@@ -349,6 +354,30 @@ body::-webkit-scrollbar {
     left: 120%;
     height: 20vmin;
     transition: 0.5s;
+}
+
+/* ------------------------------------------- image sliders */
+
+.display-prev,
+.display-next
+{
+    color: black;
+    transition: 0.5s;
+    background: transparent;
+    border: none;
+    font-size: 2vmin;
+}
+
+.display-prev {
+    left: 0%;
+    width: 50%;
+}
+.display-next {
+    width: 49%;
+}
+.display-next:hover,
+.display-prev:hover{
+    background-color: rgb(255, 255, 255);
 }
 
 /* ------------------------------------------- planet and star objects */
