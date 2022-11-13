@@ -1,4 +1,5 @@
 function onLoadSolar() {
+    objClicked("systemInfo");
     randomShift = Math.floor(Math.random() * 100);
     document.getElementById('venus-spin').style.animationDelay = "-" + randomShift + "s";
     randomShift = Math.floor(Math.random() * 100);
@@ -15,11 +16,11 @@ function onLoadSolar() {
     document.getElementById('neptune-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
     randomShift = Math.floor(Math.random() * 100);
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
-    objClicked("systemInfo");
 }
 
 let slideIndex = 1;
 showSlides(slideIndex, 'solarSlide');
+showSlides(slideIndex, 'sunSlide');
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
