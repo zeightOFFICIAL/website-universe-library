@@ -21,6 +21,11 @@ function onLoadSolar() {
 let slideIndex = 1;
 showSlides(slideIndex, 'solarSlide');
 showSlides(slideIndex, 'sunSlide');
+showSlides(slideIndex, 'earthSlide');
+showSlides(slideIndex, 'marsSlide');
+showSlides(slideIndex, 'venusSlide');
+showSlides(slideIndex, 'saturnSlide');
+showSlides(slideIndex, 'phobosSlide');
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
@@ -54,6 +59,8 @@ function hideAllInfo() {
         item.scrollTop = '0';
     })
     document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+    sound.pause();
+    sound.currentTime = 0;
 }
 
 function openSidepanel() {
