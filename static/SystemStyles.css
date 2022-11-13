@@ -388,6 +388,7 @@ body::-webkit-scrollbar {
 .display-next {
     display: inline;
     color: black;
+    cursor: pointer;
     transition: 0.5s;
     background: transparent;
     border: none;

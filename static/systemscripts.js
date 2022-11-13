@@ -43,6 +43,7 @@ function objClicked(revealName) {
     hideAllInfo();
     document.getElementById(revealName).style.textIndent = '0';
     document.getElementById(revealName).style.top = '0';
+    document.getElementById('video').pause();
 }
 
 function hideAllInfo() {
@@ -52,6 +53,7 @@ function hideAllInfo() {
         item.style.top = '200vh';
         item.scrollTop = '0';
     })
+    document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
 }
 
 function openSidepanel() {
