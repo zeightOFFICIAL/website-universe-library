@@ -43,7 +43,6 @@ function objClicked(revealName) {
     hideAllInfo();
     document.getElementById(revealName).style.textIndent = '0';
     document.getElementById(revealName).style.top = '0';
-    document.getElementById('video').pause();
 }
 
 function hideAllInfo() {

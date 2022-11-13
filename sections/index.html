@@ -11,58 +11,60 @@
 
 <body onload="onLoadSolar();">
 
-    <div id="solarSidepanel" class="sidepanel">
-        <button class="closeButton" onclick="closeSidepanel();">&#9776; Obj</button>
-        <p style="font-size:12vmin"></p>
-        <a class="p-solar-side-sun" onclick="objClicked('sunInfo');closeSidepanel();">Sun</a>
-        <a class="p-solar-side-mercury" onclick="objClicked('mercuryInfo');closeSidepanel();">Mercury</a>
-        <a class="p-solar-side-venus" onclick="objClicked('venusInfo');closeSidepanel();">Venus</a>
-        <a class="p-solar-side-earth" onclick="objClicked('earthInfo');closeSidepanel();">Earth</a>
-        <a class="p-solar-side-moon" onclick="objClicked('moonInfo');closeSidepanel();">Moon</a>
-        <a class="p-solar-side-mars" onclick="objClicked('marsInfo');closeSidepanel();">Mars</a>
-        <a class="p-solar-side-phobos" onclick="objClicked('phobosInfo');closeSidepanel();">Phobos<br>Deimos</a>
-        <a class="p-solar-side-asteroid" onclick="objClicked('asteroidInfo');closeSidepanel();">Asteroid<br>belt</a>
-        <a class="p-solar-side-jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();">Jupiter</a>
-        <a class="p-solar-side-jovian" onclick="objClicked('jovianInfo');closeSidepanel();">Jovian<br>moons</a>
-        <a class="p-solar-side-saturn" onclick="objClicked('saturnInfo');closeSidepanel();">Saturn</a>
-        <a class="p-solar-side-uranus" onclick="objClicked('uranusInfo');closeSidepanel();">Uranus</a>
-        <a class="p-solar-side-neptune" onclick="objClicked('neptuneInfo');closeSidepanel();">Neptune</a>
+    <div class="sidepanel solar" id="solarSidepanel">
+        <a class="closeButton solar" onclick="closeSidepanel();">&#9776; Obj</a>
+        <hr>
+        <a class="p-solar-side sun" onclick="objClicked('sunInfo');closeSidepanel();">Sun</a>
+        <a class="p-solar-side mercury" onclick="objClicked('mercuryInfo');closeSidepanel();">Mercury</a>
+        <a class="p-solar-side venus" onclick="objClicked('venusInfo');closeSidepanel();">Venus</a>
+        <a class="p-solar-side earth" onclick="objClicked('earthInfo');closeSidepanel();">Earth</a>
+        <a class="p-solar-side moon" onclick="objClicked('moonInfo');closeSidepanel();">Moon</a>
+        <a class="p-solar-side mars" onclick="objClicked('marsInfo');closeSidepanel();">Mars</a>
+        <a class="p-solar-side phobos" onclick="objClicked('phobosInfo');closeSidepanel();">Phobos<br>Deimos</a>
+        <a class="p-solar-side asteroid" onclick="objClicked('asteroidInfo');closeSidepanel();">Asteroid<br>belt</a>
+        <a class="p-solar-side jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();">Jupiter</a>
+        <a class="p-solar-side jovian" onclick="objClicked('jovianInfo');closeSidepanel();">Jovian<br>moons</a>
+        <a class="p-solar-side saturn" onclick="objClicked('saturnInfo');closeSidepanel();">Saturn</a>
+        <a class="p-solar-side uranus" onclick="objClicked('uranusInfo');closeSidepanel();">Uranus</a>
+        <a class="p-solar-side neptune" onclick="objClicked('neptuneInfo');closeSidepanel();">Neptune</a>
     </div>
-    <div id="starSidepanel" class="sidepanel">
-        <button class="closeButton" onclick="closeSystempanel();" style="top:7.5vmin">&#9733; Sys</button>
-        <p style="font-size:20vmin"></p>
-        <a class="solar-button">Solar<br>system<img class="short-image" style="top:20vmin;"
+
+    <div class="sidepanel solar" id="starSidepanel" >
+        <a class="closeButton firstButton solar" onclick="closeSystempanel();">&#9733; Sys</a>
+        <p></p>
+        <a class="solar-button">Solar<br>system<img class="short-image firstImg"
                 src="../static/jpg/shorts/solarshort.png" alt="sun"></a>
-        <a class="alpha-button">Alpha<br>Centauri<img class="short-image" style="top:30vmin;"
+        <a class="alpha-button">Alpha<br>Centauri<img class="short-image secondImg"
                 src="../static/jpg/shorts/alphashort.png"></a>
-        <a class="trapp-button">Trappist<br>system<img class="short-image" style="top:40vmin;"
+        <a class="trapp-button">Trappist<br>system<img class="short-image thirdImg"
                 src="../static/jpg/shorts/trappistshort.png"></a>
-        <a class="trebi-button">Trebia<br>system<img class="short-image" style="top:50vmin;"
+        <a class="trebi-button">Trebia<br>system<img class="short-image fourthImg"
                 src="../static/jpg/shorts/trebiashort.png"></a>
     </div>
-    <a class="openButton" onclick="openSidepanel();" style="width:1em;">&#9776;</a>
-    <a class="openButton" onclick="openSystempanel();" style="top:7.5vmin;left:0;width:1em;">&#9733;</a>
-    <a class="openButton" style="top:92vh;left:0;width:1em;">&#8634;</a>
-    <div class="accent-bar"></div>
 
-    <div id="systemInfo" class="left-panel" style="text-indent:0;">
-        <div class="normal-border">
-            <h2 align="center" class="h2-solar">Solar System</h2>
+    <a class="openButton" onclick="openSidepanel();">&#9776;</a>
+    <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
+    <a class="openButton secondButton" href="">&#8634;</a>
+    <div class="accent-bar solar"></div>
+
+    <div id="systemInfo" class="left-panel">
+        <div class="normal-border solar">
+            <h2 align="center" class="h2-system solar">Solar System</h2>
             <p align="center" class="p-solar" style="padding: 20px 35px;">The Solar System is the gravitationally bound
                 system of the Sun
                 and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
                 of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
                 with most of the remaining mass contained in the planet Jupiter.</p>
         </div>
-        <div class="normal-border"><img src="../static/jpg/solarsystem/solar1.png"
+        <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar1.png"
                 style="width: 100%; height:35vmin;object-fit:cover;"></div>
-        <div class="normal-border p-solar" style="padding: 20px 30px; text-align:center;">Our solar system is made up of
+        <div class="normal-border solar p-solar">Our solar system is made up of
             a star, eight planets, and countless smaller bodies such as dwarf planets, asteroids, and comets.</div>
-        <div class="normal-border p-solar" style="padding: 20px 30px; text-align:center;">Our solar system orbits the
+        <div class="normal-border solar p-solar">Our solar system orbits the
             center of the Milky Way galaxy at about 828,000 kph. We're in one of the galaxy's four spiral arms.</div>
-        <div class="normal-border"><img src="../static/jpg/solarsystem/solar2.jpg"
+        <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar2.jpg"
                 style="width: 100%; height:35vmin;object-fit:cover;"></div>
-        <div class="normal-border" style="overflow:hidden">
+        <div class="normal-border solar" style="overflow:hidden">
             <div class="solarSlide p-solar">
                 The planets of our solar system – and even some asteroids – hold more than 200 moons in their orbits.
             </div>
@@ -79,14 +81,18 @@
             <button class="display-prev" onclick="plusSlides(-1.,'solarSlide');">&#10094;</button>
             <button class="display-next" onclick="plusSlides(+1.,'solarSlide');">&#10095;</button>
         </div>
-        <div class="normal-border">
-            <iframe id="video" width="100%" height="315" src="https://www.youtube.com/embed/libKVRa01L8?&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="normal-border solar">
+            <iframe id="video" width="100%" height="315" src="https://www.youtube.com/embed/libKVRa01L8?&enablejsapi=1"
+                title="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
     <div id="sunInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <button class="closeInfo" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <a class="moreInfo" href="https://en.wikipedia.org/wiki/Sun" target="_blank" style="text-decoration:none; color:black;">&#9783;</a>
-        <div class="normal-border">
+        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo solar" href="https://en.wikipedia.org/wiki/Sun" target="_blank"
+            style="text-decoration:none; color:black;">&#9783;</a>
+        <div class="normal-border solar">
             <h3 align="center" class="h3-solar">&#9737; Sun</h3>
             <p align="center" class="p-solar" style="padding: 20px 35px;">
                 The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot
@@ -97,13 +103,18 @@
                 life on Earth.
             </p>
         </div>
-        <div class="normal-border">
+        <div class="normal-border solar solar-filling">
             <img src="../static/jpg/solarsystem/sun2.jpg" style="width: 100%; height:35vmin;object-fit:cover;">
         </div>
-        <div class="normal-border">
+        <div class="normal-border solar solar-filling">
             <img src="../static/jpg/solarsystem/sun1.jpg" style="width: 100%; height:35vmin;object-fit:cover;">
         </div>
-    </div>
+        <div class="normal-border solar p-solar">
+            Every second, the Sun's core fuses about 600 million tons of hydrogen into helium, and
+            in the process converts 4 million tons of matter into energy. This energy, which can
+            take between 10,000 and 170,000 years to escape the core, is the source of the Sun's
+            light and heat.
+        </div>
     </div>
     <div id="earthInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <h3 align="center" class="h3-solar">&#9793; Earth</h3>

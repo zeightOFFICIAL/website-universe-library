@@ -20,4 +20,5 @@ from .views import *
 
 urlpatterns = [
     path('', indexPage, name="index"),
+    path('solar', solarPage, name="solar"),
 ]

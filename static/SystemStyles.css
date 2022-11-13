@@ -1,5 +1,4 @@
 /* ------------------------------------------- setup */
-
 @font-face {
     font-family: 'solar';
     src: url('../static/fonts/earthorbiter.ttf');
@@ -15,10 +14,9 @@
 }
 
 /* ------------------------------------------- main settings */
-
 html,
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     height: 100vh;
     overflow: hidden;
     -ms-overflow-style: none;
@@ -29,24 +27,27 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.h2-solar {
+.h2-system {
     font-family: 'solar';
     font-size: 7vmin;
+    margin-bottom: 2.5vmin;
     cursor: default;
+}
+
+.h2-system.solar {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 2.5vmin;
 }
 
 .h3-solar {
     font-family: 'solar';
     font-size: 6vmin;
+    margin-bottom: 2.5vmin;
     cursor: default;
     color: white;
-    margin-bottom: 2.5vmin;
 }
 
 .p-solar {
@@ -81,21 +82,30 @@ body::-webkit-scrollbar {
     top: 0;
     left: 0;
     width: 10vmin;
+    height: 100vh;
+    transition: 0.7s;
+}
+.accent-bar.solar {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     box-shadow: 0 0 3vw #FBAB7E;
-    height: 100vh;
-    transition: 0.7s;
 }
 
 .normal-border {
     border-width: 3px;
     border-style: solid;
-    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
     margin: 40px 15px;
 }
+.normal-border.solar {
+    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
+}
 
-.normal-filling {
+.normal-border+.p-solar {
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.solar-filling {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 }
@@ -109,20 +119,24 @@ body::-webkit-scrollbar {
     border: solid 2px black;
     font-size: 3vmin;
     cursor: pointer;
+}
+.closeInfo.solar,
+.moreInfo.solar {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 }
+
 .closeInfo:hover,
 .moreInfo:hover {
     background-color: #ffffff;
     background-image: linear-gradient(62deg, #ffffff 0%, #ffffff 100%);
 }
+
 .moreInfo {
     top: 70px;
 }
 
 /* ------------------------------------------- side panel */
-
 .sidepanel {
     height: 100vh;
     width: 0;
@@ -130,13 +144,24 @@ body::-webkit-scrollbar {
     z-index: 2;
     top: 0;
     left: 0;
-    background-color: #000000;
+    background-color: black;
     transition: 0.7s;
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+.sidepanel.solar {
     box-shadow: 3px 0 3px #FBAB7E;
+}
+
+.sidepanel hr {
+    height: 12vmin;
+    border: none;
+}
+
+.sidepanel p {
+    font-size: 20vmin;
 }
 
 .sidepanel::-webkit-scrollbar {
@@ -148,6 +173,8 @@ body::-webkit-scrollbar {
     font-family: 'solar';
     font-size: 3vmin;
     font-weight: bolder;
+    text-decoration: none;
+    width: 1em;
     cursor: pointer;
     color: black;
     padding: 2vmin 3.5vmin;
@@ -158,15 +185,27 @@ body::-webkit-scrollbar {
     border: none;
 }
 
+.openButton.firstButton,
+.closeButton.firstButton {
+    top: 7.5vmin;
+}
+
+.openButton.secondButton,
+.closeButton.secondButton {
+    top: 92vh;
+}
+
 .closeButton {
     width: 100%;
     color: black;
-    background-color: #FBAB7E;
-    background-image: linear-gradient(60deg, #FBAB7E 0%, #F7CE68 100%);
-    box-shadow: 0 0 3vw #FBAB7E;
     overflow: hidden;
     min-width: 50vmin;
     text-align: left;
+}
+.closeButton.solar {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(60deg, #FBAB7E 0%, #F7CE68 100%);
+    box-shadow: 0 0 3vw #FBAB7E;
 }
 
 .openButton {
@@ -184,19 +223,7 @@ body::-webkit-scrollbar {
     transition: 0.75s;
 }
 
-.p-solar-side-sun,
-.p-solar-side-mercury,
-.p-solar-side-venus,
-.p-solar-side-jupiter,
-.p-solar-side-saturn,
-.p-solar-side-jovian,
-.p-solar-side-neptune,
-.p-solar-side-uranus,
-.p-solar-side-asteroid,
-.p-solar-side-moon,
-.p-solar-side-phobos,
-.p-solar-side-mars,
-.p-solar-side-earth {
+.p-solar-side {
     display: block;
     font-family: 'normal';
     font-size: 3vmin;
@@ -211,104 +238,89 @@ body::-webkit-scrollbar {
     overflow-y: hidden;
 }
 
-.p-solar-side-asteroid {
+.p-solar-side+.asteroid {
     max-height: 7vmin;
 }
 
-.p-solar-side-jovian {
+.p-solar-side+.jovian {
     max-height: 7vmin;
 }
 
-.p-solar-side-phobos {
+.p-solar-side+.phobos {
     max-height: 7vmin;
 }
 
-.p-solar-side-sun:hover {
+.p-solar-side:hover {
+    padding-left: 10%;
+    font-size: 4vmin;
+}
+
+.p-solar-side:hover.sun:hover {
     color: yellow;
     text-shadow: 0px 0px 2vh rgb(255, 221, 0);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-earth:hover {
+.p-solar-side:hover.earth:hover {
     color: lightskyblue;
     text-shadow: 0px 0px 2vh rgb(0, 153, 255);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-asteroid:hover {
+.p-solar-side:hover.asteroid:hover {
     color: white;
     text-shadow: 0px 0px 2vh white;
-    padding-left: 10%;
+    font-size: 3vmin;
 }
 
-.p-solar-side-jupiter:hover {
+.p-solar-side:hover.jupiter:hover {
     color: orange;
     text-shadow: 0px 0px 2vh rgb(238, 255, 0);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-mars:hover {
+.p-solar-side:hover.mars:hover {
     color: red;
     text-shadow: 0px 0px 2vh rgb(255, 0, 0);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-mercury:hover {
+.p-solar-side:hover.mercury:hover {
     color: darksalmon;
     text-shadow: 0px 0px 2vh white;
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-neptune:hover {
+.p-solar-side:hover.neptune:hover {
     color: blue;
     text-shadow: 0px 0px 2vh rgb(4, 0, 255);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-uranus:hover {
+.p-solar-side:hover.uranus:hover {
     color: lightseagreen;
     text-shadow: 0px 0px 2vh rgb(0, 94, 255);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-venus:hover {
+.p-solar-side:hover.venus:hover {
     color: pink;
     text-shadow: 0px 0px 2vh rgb(255, 0, 255);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-moon:hover {
+.p-solar-side:hover.moon:hover {
     color: white;
     text-shadow: 0px 0px 2vh white;
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
-.p-solar-side-phobos:hover {
+.p-solar-side:hover.phobos:hover {
     color: white;
     text-shadow: 0px 0px 2vh white;
-    padding-left: 10%;
+    font-size: 3vmin;
 }
 
-.p-solar-side-jovian:hover {
+.p-solar-side:hover.jovian:hover {
     color: orangered;
     text-shadow: 0px 0px 2vh rgb(255, 200, 0);
-    padding-left: 10%;
+    font-size: 3vmin;
 }
 
-.p-solar-side-saturn:hover {
+.p-solar-side:hover.saturn:hover {
     color: cornsilk;
     text-shadow: 0px 0px 2vh rgb(255, 72, 0);
-    padding-left: 10%;
-    font-size: 4vmin;
 }
 
 .solar-button,
@@ -382,8 +394,23 @@ body::-webkit-scrollbar {
     transition: 0.5s;
 }
 
-/* ------------------------------------------- image sliders */
+.short-image.firstImg {
+    top: 20vmin;
+}
 
+.short-image.secondImg {
+    top: 30vmin;
+}
+
+.short-image.thirdImg {
+    top: 40vmin;
+}
+
+.short-image.fourthImg {
+    top: 50vmin;
+}
+
+/* ------------------------------------------- image sliders */
 .display-prev,
 .display-next {
     display: inline;
@@ -420,9 +447,7 @@ body::-webkit-scrollbar {
     padding: 20px 30px;
 }
 
-
 /* ------------------------------------------- planet and star objects */
-
 .star-system {
     position: absolute;
     top: 0;
@@ -449,7 +474,6 @@ body::-webkit-scrollbar {
 .orbit+div {
     top: 50%;
     left: 50%;
-
 }
 
 .orbit+div>div {
