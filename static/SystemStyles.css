@@ -361,24 +361,36 @@ body::-webkit-scrollbar {
 .display-prev,
 .display-next
 {
+    display: inline;
     color: black;
     transition: 0.5s;
     background: transparent;
     border: none;
     font-size: 2vmin;
-}
-
-.display-prev {
-    left: 0%;
-    width: 50%;
+    background-color: #FBAB7E;
+    margin: 0 0;
+    padding: 0 0;
+    overflow: hidden;
 }
 .display-next {
-    width: 49%;
+    background-color: #F7CE68;
+    float: right;
+    width: 50%;
 }
+.display-prev {
+    float: left;
+    width: 50%;
+}
+
 .display-next:hover,
 .display-prev:hover{
     background-color: rgb(255, 255, 255);
 }
+.solarSlide {
+    text-align: center;
+    padding: 20px 30px;
+}
+
 
 /* ------------------------------------------- planet and star objects */
 
