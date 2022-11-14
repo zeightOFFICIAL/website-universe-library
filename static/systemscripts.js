@@ -26,6 +26,10 @@ function onLoadSolar() {
     randomShift = Math.floor(Math.random() * 100);
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
 }
+function onLoadAlpha()
+{
+    
+}
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);

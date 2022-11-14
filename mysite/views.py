@@ -5,3 +5,12 @@ def indexPage(request):
 
 def solarPage(request):
     return render(request, "systems/solar.html")
+
+def alphaPage(request):
+    return render(request, "systems/alpha.html")
+
+def trappPage(request):
+    return render(request, "systems/trapp.html")
+
+def trebiaPage(request):
+    return render(request, "systems/trebia.html")
