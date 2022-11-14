@@ -16,7 +16,7 @@
         <hr>
         <a class="p-solar-side alphaalpha" onclick="objClicked('alphaInfo');closeSidepanel();">Alpha</a>
         <a class="p-solar-side alphabeta" onclick="objClicked('betaInfo');closeSidepanel();">Beta</a>
-        <a class="p-solar-side alphaprox" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima</a>
+        <a class="p-solar-side alphaprox" onclick="objClicked('proximaInfo');closeSidepanel();">Proxima</a>
         <a class="p-solar-side alphaproxb" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima B</a>
         <a class="p-solar-side alphaproxc" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima C</a>
         <a class="p-solar-side alphaproxd" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima D</a>
@@ -41,86 +41,137 @@
     <div class="accent-bar alpha"></div>
 
     <div id="systemInfo" class="left-panel">
-        <div class="normal-border solar">
-            <h2 class="h2-system solar">Solar System</h2>
-            <p class="p-solar">The Solar System is the gravitationally bound
-                system of the Sun
-                and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
-                of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
-                with most of the remaining mass contained in the planet Jupiter.</p>
+        <div class="normal-border alpha">
+            <h2 class="h2-system alpha">Alpha Centauri</h2>
+            <p class="p-solar">Alpha Centauri (Latinized from a Centauri and often abbreviated Alpha Cen or a Cen) is a
+                triple star system in the constellation of Centaurus. It consists of 3 stars: Alpha Centauri A
+                (officially Rigil Kentaurus), Alpha Centauri B (officially Toliman) and Alpha Centauri C
+                (officially Proxima Centauri). Proxima Centauri is also the closest star to the Sun at 4.2465
+                light-years (1.3020 pc).</p>
         </div>
-        <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar1.png"></div>
-        <div class="normal-border solar p-solar">Our solar system is made up of
-            a star, eight planets, and countless smaller bodies such as dwarf planets, asteroids, and comets.</div>
-        <div class="normal-border solar p-solar">Our solar system orbits the
-            center of the Milky Way galaxy at about 828,000 kph. We're in one of the galaxy's four spiral arms.</div>
-        <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar2.jpg"></div>
-        <div class="normal-border solar hidden">
-            <div class="solarSlide p-solar">
-                The planets of our solar system – and even some asteroids – hold more than 200 moons in their orbits.
-            </div>
-            <div class="solarSlide p-solar">
-                It takes our solar system about 230 million years to complete one orbit around the galactic center.
-            </div>
-            <div class="solarSlide p-solar">
-                Our solar system is the only one known to support life. So far, we only know of life on Earth.
-            </div>
-            <div class="solarSlide p-solar">
-                The four giant planets and at least one asteroid have rings. None are as spectacular as Saturn's
-                gorgeous rings.
-            </div>
-            <button class="display-prev" onclick="plusSlides(-1.,'solarSlide');">&#10094;</button>
-            <button class="display-next" onclick="plusSlides(+1.,'solarSlide');">&#10095;</button>
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/alphasystem1.jpg">
         </div>
-        <div class="normal-border solar">
-            <iframe id="video" width="100%" height="315" src="https://www.youtube.com/embed/libKVRa01L8?&enablejsapi=1"
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/alphasystem2.jpg">
+        </div>
+        <div class="normal-border alpha hidden">
+            <div class="alphaSlide p-solar">
+                To the naked eye, Alpha Centauri AB appears to be a single star, the brightest in the southern
+                constellation of Centaurus. Their apparent angular separation varies over about 80 years between 2
+                and 22 arcsec (the naked eye has a resolution of 60 arcsec), but through much of the orbit, both are
+                easily resolved in binoculars or small telescopes. Alpha Centauri is a first-magnitude star.
+            </div>
+            <div class="alphaSlide p-solar">
+                Alpha Centauri is a triple star system, with its two main stars, Alpha Centauri A and Alpha Centauri B,
+                together comprising a binary component. The AB designation, or older AxB, denotes the mass centre of a
+                main binary system relative to companion star(s) in a multiple star system. AB-C refers to the
+                component of Proxima Centauri in relation to the central binary.
+            </div>
+            <button class="display-prev alpha" onclick="plusSlides(-1.,'alphaSlide');">&#10094;</button>
+            <button class="display-next alpha" onclick="plusSlides(+1.,'alphaSlide');">&#10095;</button>
+        </div>
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/alphasystem3.jpg">
+        </div>
+        <div class="normal-border alpha">
+            <iframe id='video' width="100%" height="315" src="https://www.youtube.com/embed/XKbQuNF0zPo?&enablejsapi=1"
                 title="" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
     </div>
-    <div id="sunInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <a class="moreInfo solar" href="https://en.wikipedia.org/wiki/Sun" target="_blank">&#9783;</a>
-        <a class="moreInfo second solar" href="https://solarsystem.nasa.gov/solar-system/sun/overview/"
-            target="_blank">&#9783;</a>
-        <div class="normal-border solar">
-            <h3 class="h3-solar">&#9737; Sun</h3>
+    <div id="alphaInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo alpha" href="https://en.wikipedia.org/wiki/Alpha_Centauri" target="_blank">&#9783;</a>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Alpha</h3>
             <p class="p-solar">
-                The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot
-                plasma,
-                heated to incandescence by nuclear fusion reactions in its core. The Sun radiates this
-                energy mainly as
-                light, ultraviolet, and infrared radiation, and is the most important source of energy for
-                life on Earth.
+                Alpha Centauri A, also known as Rigil Kentaurus, is the principal member, or primary, of the binary
+                system. It is a solar-like main-sequence star with a similar yellowish colour, whose stellar
+                classification is spectral type G2-V; it is about 10% more massive than the Sun, with a radius
+                about 22% larger. When considered among the individual brightest stars in the night sky, it is the
+                fourth-brightest at an apparent magnitude of +0.01, being slightly fainter than Arcturus at an
+                apparent magnitude of -0.05.
             </p>
         </div>
-        <div class="normal-border solar solar-filling">
-            <img src="../static/jpg/solarsystem/sun2.jpg">
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/alpha1.jpg">
         </div>
-        <div class="normal-border solar solar-filling">
-            <img src="../static/jpg/solarsystem/sun1.jpg">
+        <div class="normal-border alpha">
+            <p class="p-solar">
+                The type of magnetic activity on Alpha Centauri A is comparable to that of the Sun, showing coronal
+                variability due to star spots, as modulated by the rotation of the star. However, since 2005 the
+                activity level has fallen into a deep minimum that might be similar to the Sun's historical Maunder
+                Minimum. Alternatively, it may have a very long stellar activity cycle and is slowly recovering from a
+                minimum phase.
+            </p>
         </div>
-        <div class="normal-border solar p-solar">
-            Every second, the Sun's core fuses about 600 million tons of hydrogen into helium, and
-            in the process converts 4 million tons of matter into energy. This energy, which can
-            take between 10,000 and 170,000 years to escape the core, is the source of the Sun's
-            light and heat.
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/alpha2.gif">
         </div>
-        <div class="normal-border solar solar-filling hidden">
-            <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun3.jpg">
-            </div>
-            <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun4.png">
-            </div>
-            <div class="sunSlide">
-                <img src="../static/jpg/solarsystem/sun5.jpg">
-            </div>
-            <button class="display-prev" onclick="plusSlides(-1.,'sunSlide');">&#10094;</button>
-            <button class="display-next" onclick="plusSlides(+1.,'sunSlide');">&#10095;</button>
+
+    </div>
+    <div id="betaInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Beta</h3>
+            <p class="p-solar">
+                Alpha Centauri B, also known as Toliman, is the secondary star of the binary system. It is a
+                main-sequence star of spectral type K1-V, making it more an orange colour than Alpha Centauri A; it
+                has around 90% of the mass of the Sun and a 14% smaller diameter. Although it has a lower luminosity
+                than A, Alpha Centauri B emits more energy in the X-ray band. Its light curve varies on a short time
+                scale, and there has been at least one observed flare. It is more magnetically active than Alpha
+                Centauri A, showing a cycle of 8.2±0.2 yr compared to 11 years for the Sun, and has about half the
+                minimum-to-peak variation in coronal luminosity of the Sun. Alpha Centauri B has an apparent
+                magnitude of +1.35, slightly dimmer than Mimosa.
+            </p>
+        </div>
+        <div class="normal-border alpha alpha-filling">
+            <img src="../static/jpg/alphasystem/beta1.jpg">
         </div>
     </div>
+    <div id="proximaInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo alpha" href="https://en.wikipedia.org/wiki/Proxima_Centauri" target="_blank">&#9783;</a>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Proxima</h3>
+            <p class="p-solar">
+                Alpha Centauri C, better known as Proxima Centauri, is a small main-sequence red dwarf of spectral class
+                M6-Ve. It has an absolute magnitude of +15.60, over 20,000 times fainter than the Sun. Its mass is
+                calculated to be 0.1221 M of sol. It is the closest star to the Sun but is too faint to be visible to
+                the
+                naked eye.
+            </p>
+        </div>
+        <div class="normal-border alpha alpha-filling hidden">
+            <div class="proxSlide">
+                <img src="../static/jpg/alphasystem/prox1.jpg">
+            </div>
+            <div class="proxSlide">
+                <img src="../static/jpg/alphasystem/prox2.jpg">
+            </div>
+            <div class="proxSlide">
+                <img src="../static/jpg/alphasystem/prox3.jpg">
+            </div>
+            <button class="display-prev alpha" onclick="plusSlides(-1.,'proxSlide');">&#10094;</button>
+            <button class="display-next alpha" onclick="plusSlides(+1.,'proxSlide');">&#10095;</button>
+        </div>
+        <div class="normal-border alpha p-solar">
+            Proxima Centauri has two known exoplanets and one candidate exoplanet: Proxima Centauri b, Proxima Centauri
+            d and the disputed Proxima Centauri c. Proxima Centauri b orbits the star at a distance of roughly
+            0.05 AU (7.5 million km) with an orbital period of approximately 11.2 Earth days. Its estimated mass is at
+            least 1.17 times that of Earth. Proxima b orbits within Proxima Centauri's habitable zone-the range
+            where temperatures are right for liquid water to exist on its surface-but, because Proxima Centauri is a red
+            dwarf and a flare star, the planet's habitability is highly uncertain.
+        </div>
+        <div class="normal-border alpha p-solar">
+            Proxima Centauri is a red dwarf, because it belongs to the main sequence on the Hertzsprung–Russell diagram
+            and is of spectral class M5.5. The M5.5 class means that it falls in the low-mass end of M-type dwarf
+            stars, with its hue shifted toward red-yellow by an effective temperature of ~3,000 K.
+        </div>
+    </div>
+
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="sun" onclick="objClicked('sunInfo');closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
 
@@ -184,7 +235,7 @@
         </div>
 
     </div>
-    <script src="{% static 'systemscripts.js' %}"></script>
+    <script src="{% static 'alphascripts.js' %}"></script>
 </body>
 
 </html>

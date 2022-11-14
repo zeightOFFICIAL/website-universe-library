@@ -1,34 +1,9 @@
 let slideIndex = 1;
-showSlides(slideIndex, 'solarSlide');
-showSlides(slideIndex, 'sunSlide');
-showSlides(slideIndex, 'earthSlide');
-showSlides(slideIndex, 'marsSlide');
-showSlides(slideIndex, 'venusSlide');
-showSlides(slideIndex, 'saturnSlide');
-showSlides(slideIndex, 'phobosSlide');
+showSlides(slideIndex, 'alphaSlide');
+showSlides(slideIndex, 'proxSlide');
 
-function onLoadSolar() {
+function onLoadAlpha() {
     objClicked("systemInfo");
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('venus-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('mercury-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('earth-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('saturn-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('jupiter-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('uranus-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('neptune-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
-    document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
-}
-function onLoadAlpha()
-{
-    
 }
 
 function plusSlides(n, name) {
@@ -63,8 +38,6 @@ function hideAllInfo() {
         item.scrollTop = '0';
     })
     document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-    sound.pause();
-    sound.currentTime = 0;
 }
 
 function openSidepanel() {
