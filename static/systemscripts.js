@@ -1,3 +1,12 @@
+let slideIndex = 1;
+showSlides(slideIndex, 'solarSlide');
+showSlides(slideIndex, 'sunSlide');
+showSlides(slideIndex, 'earthSlide');
+showSlides(slideIndex, 'marsSlide');
+showSlides(slideIndex, 'venusSlide');
+showSlides(slideIndex, 'saturnSlide');
+showSlides(slideIndex, 'phobosSlide');
+
 function onLoadSolar() {
     objClicked("systemInfo");
     randomShift = Math.floor(Math.random() * 100);
@@ -17,15 +26,6 @@ function onLoadSolar() {
     randomShift = Math.floor(Math.random() * 100);
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
 }
-
-let slideIndex = 1;
-showSlides(slideIndex, 'solarSlide');
-showSlides(slideIndex, 'sunSlide');
-showSlides(slideIndex, 'earthSlide');
-showSlides(slideIndex, 'marsSlide');
-showSlides(slideIndex, 'venusSlide');
-showSlides(slideIndex, 'saturnSlide');
-showSlides(slideIndex, 'phobosSlide');
 
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);

@@ -409,29 +409,62 @@
         </div>
     </div>
     <div id="neptuneInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <h3 class="h3-solar">&#9798; Neptune</h3>
-        <p class="p-solar">
-            Neptune is the eighth planet from the Sun and the farthest known solar planet. In the Solar
-            System, it is the
-            fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.
-            It is 17
-            times the mass of Earth, and slightly more massive than its near-twin Uranus. Neptune is denser
-            and physically
-            smaller than Uranus because its greater mass causes more gravitational compression of its
-            atmosphere.
-        </p>
+        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo solar" href="https://en.wikipedia.org/wiki/Neptune" target="_blank">&#9783;</a>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">&#9798; Neptune</h3>
+            <p class="p-solar">
+                Neptune is the eighth planet from the Sun and the farthest known solar planet. In the Solar
+                System, it is the
+                fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet.
+                It is 17
+                times the mass of Earth, and slightly more massive than its near-twin Uranus. Neptune is denser
+                and physically
+                smaller than Uranus because its greater mass causes more gravitational compression of its
+                atmosphere.
+            </p>
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/neptune1.jpg">
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/neptune2.jpg">
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/neptune3.jpg">
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/neptune4.jpg">
+        </div>
     </div>
     <div id="uranusInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <h3 class="h3-solar">&#9954; Uranus</h3>
-
-        <p class="p-solar">
-            Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky,
-            Uranus, who,
-            according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and
-            father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in
-            the
-            Solar System. Uranus is similar in composition to Neptune.
-        </p>
+        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">&#9954; Uranus</h3>
+            <p class="p-solar">
+                Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky,
+                Uranus, who,
+                according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and
+                father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in
+                the
+                Solar System. Uranus is similar in composition to Neptune.
+            </p>
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/uranus1.jpg">
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/uranus2.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-special">Coldest around</h3>
+            <p class="p-solar">
+                It has the coldest planetary atmosphere in the Solar System, with a minimum temperature of 49 K (-224
+                °C; -371 °F), and has a complex, layered cloud structure with water thought to make up the lowest clouds
+                and methane the uppermost layer of clouds. The interior of Uranus is mainly composed of ices and
+                rock.
+            </p>
+        </div>
     </div>
     <div id="moonInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
         <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
@@ -465,7 +498,8 @@
                 <h3 class="h3-solar">Deimos</h3>
                 <p class="p-solar">
                     Deimos is the smaller and outermost of the two
-                    natural satellites of Mars, the other being Phobos. Deimos has a mean radius of 6.2 km and takes 30.3 hours to orbit Mars. Deimos
+                    natural satellites of Mars, the other being Phobos. Deimos has a mean radius of 6.2 km and takes
+                    30.3 hours to orbit Mars. Deimos
                     is 23,460 km from Mars, much farther than Mars's other moon. It is named
                     after Deimos, the Ancient Greek god and personification of dread and terror.
                 </p>
@@ -474,16 +508,98 @@
             <button class="display-prev" onclick="plusSlides(-1.,'phobosSlide');">&#10094;</button>
             <button class="display-next" onclick="plusSlides(+1.,'phobosSlide');">&#10095;</button>
         </div>
-
-
     </div>
     <div id="asteroidInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
-        <h3 class="h3-solar" style="font-size:3.5vh;">Asteroid belt</h3>
-        <p class="p-solar">
-            The asteroid belt is a torus-shaped region in the Solar System, located roughly between the orbits of
-            the planets Jupiter and Mars. It contains a great many solid, irregularly shaped bodies, of many sizes,
-            but much smaller than planets, called asteroids or minor planets.
-        </p>
+        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Asteroid belt</h3>
+            <p class="p-solar">
+                The asteroid belt is a torus-shaped region in the Solar System, located roughly between the orbits of
+                the planets Jupiter and Mars. It contains a great many solid, irregularly shaped bodies, of many sizes,
+                but much smaller than planets, called asteroids or minor planets.
+            </p>
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/belt.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Ceres</h3>
+            <p class="p-solar">Ceres (minor-planet. Designation: 1 Ceres) is a dwarf planet in the
+                asteroid belt between the orbits of Mars and Jupiter. It was the first asteroid discovered, on 1 January
+                1801, by Giuseppe Piazzi at Palermo Astronomical Observatory in Sicily, and announced as a new planet.
+                Ceres was later classified as an asteroid and then as a dwarf planet – the only one always inside
+                Neptune's orbit.</p>
+            <img src="../static/jpg/solarsystem/ceres.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Vesta</h3>
+            <p class="p-solar">Vesta (minor-planet designation: 4 Vesta) is one of the largest objects in the asteroid
+                belt, with a mean diameter of 525 kilometres (326 mi). It was discovered by the German astronomer
+                Heinrich Wilhelm Matthias Olbers on 29 March 1807 and is named after Vesta, the virgin goddess of
+                home and hearth from Roman mythology.</p>
+            <img src="../static/jpg/solarsystem/vesta.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Pallas</h3>
+            <p class="p-solar">Pallas (minor-planet designation: 2 Pallas) is the second asteroid to have been
+                discovered, after Ceres. It is believed to have a mineral composition similar to carbonaceous chondrite
+                meteorites, like Ceres, though significantly less hydrated than Ceres. It is the third-largest asteroid
+                in the Solar System by both volume and mass, and is a likely remnant protoplanet. It is 79% the mass of
+                Vesta and 22% the mass of Ceres, constituting an estimated 7% of the mass of the asteroid belt. </p>
+            <img src="../static/jpg/solarsystem/pallas.jpg">
+        </div>
+    </div>
+    <div id="jovianInfo" class="left-panel" onclick="closeSidepanel();closeSystempanel();">
+        <button class="closeInfo solar" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Jovian moons</h3>
+            <p class="p-solar">
+                There are 80 known moons of Jupiter, not counting a number of moonlets likely shed from the inner moons.
+                All together, they form a satellite system which is called the Jovian system. The most massive of the
+                moons are the four Galilean moons: Io, Europa, Ganymede, and Callisto, which were independently
+                discovered in 1610 by Galileo Galilei and Simon Marius and were the first objects found to orbit a body
+                that was neither Earth nor the Sun.
+            </p>
+        </div>
+        <div class="normal-border solar solar-filling">
+            <img src="../static/jpg/solarsystem/jovian.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Io</h3>
+            <p class="p-solar">Io, or Jupiter I, is the innermost and third-largest of the four Galilean
+                moons of the planet Jupiter. Slightly larger than Earth's moon, Io is the fourth-largest moon in the
+                Solar System, has the highest density of any moon, the strongest surface gravity of any moon, and the
+                lowest amount of water (by atomic ratio) of any known astronomical object in the Solar System.</p>
+            <img src="../static/jpg/solarsystem/io.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Europa</h3>
+            <p class="p-solar">Europa, or Jupiter II, is the smallest of the four Galilean moons
+                orbiting Jupiter, and the sixth-closest to the planet of all the 80 known moons of Jupiter. It is also
+                the sixth-largest moon in the Solar System. Europa was discovered in 1610 by Galileo Galilei and was
+                named after Europa, the Phoenician mother of King Minos of Crete and lover of Zeus (the Greek equivalent
+                of the Roman god Jupiter).</p>
+            <img src="../static/jpg/solarsystem/europa.jpg">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Ganymede</h3>
+            <p class="p-solar">Ganymede, a satellite of Jupiter (Jupiter III), is the largest and most massive of the
+                Solar System's moons. The ninth-largest object (including the Sun) of the Solar System, it is the
+                largest without a substantial atmosphere (albeit not the most massive one, this is Mercury). It has a
+                diameter of 5,268 km (3,273 mi), making it 26 percent larger than the planet Mercury by volume, although
+                it is only 45 percent as massive. Possessing a metallic core, it has the lowest moment of inertia
+                factor of any solid body in the Solar System and is the only moon known to have a magnetic field.</p>
+            <img src="../static/jpg/solarsystem/ganymede.png">
+        </div>
+        <div class="normal-border solar">
+            <h3 class="h3-solar">Callisto</h3>
+            <p class="p-solar">Callisto, or Jupiter IV, is the second-largest moon of Jupiter, after
+                Ganymede. It is the third-largest moon in the Solar System after Ganymede and Saturn's largest moon
+                Titan, and the largest object in the Solar System that may not be properly differentiated. Callisto was
+                discovered in 1610 by Galileo Galilei. With a diameter of 4821 km, Callisto is about 99% the diameter of
+                the planet Mercury, but only about a third of its mass.</p>
+            <img src="../static/jpg/solarsystem/callisto.jpg">
+        </div>
     </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="sun" onclick="objClicked('sunInfo');closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
