@@ -578,6 +578,7 @@ body::-webkit-scrollbar {
     border: 1px solid rgb(57, 57, 78);
 }
 
+#zeropoint,
 #sun,
 .orbit,
 .orbit+div,
@@ -585,6 +586,7 @@ body::-webkit-scrollbar {
     position: absolute;
 }
 
+#zeropoint,
 #sun,
 .orbit,
 .orbit+div {
@@ -612,6 +614,13 @@ body::-webkit-scrollbar {
     margin-left: -4vh;
     border-radius: 50%;
     box-shadow: 0 0 20px #ffa600;
+}
+
+#zeropoint {
+    height: 0;
+    width: 0;
+    background: white;
+    border-radius: 50%;
 }
 
 #mercury {
@@ -878,5 +887,54 @@ body::-webkit-scrollbar {
 
 .neptune-spin {
     animation: spin-right 6000.0s linear infinite;
+    border-radius: 100%;
+}
+
+/* ------------------------------------------- alpha */
+
+#alpha {
+    height: 10vh;
+    width: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh;
+    background: rgb(255, 208, 0);
+    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(255, 174, 0) 58%);
+    box-shadow: 0 0 30px white;
+}
+
+#beta {
+    height: 7vh;
+    width: 7vh;
+    margin-top: -3.5vh;
+    margin-left: -3.5vh;
+    background: rgb(255, 170, 0);
+    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(251, 255, 0) 58%);
+    box-shadow: 0 0 20px yellow;
+}
+
+.alpha-orbit,
+.alpha-spin {
+    width: 12vh;
+    height: 12vh;
+    margin-top: -6vh;
+    margin-left: -6vh;
+}
+
+.beta-spin,
+.beta-orbit {
+    width: 30vh;
+    height: 30vh;
+    margin-top: -15vh;
+    margin-left: -15vh;
+}
+
+
+.alpha-spin {
+    animation: spin-right 30s linear infinite;
+    border-radius: 100%;
+}
+
+.beta-spin {
+    animation: spin-right 69s linear infinite;
     border-radius: 100%;
 }

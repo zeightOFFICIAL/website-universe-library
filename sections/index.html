@@ -17,9 +17,9 @@
         <a class="p-solar-side alphaalpha" onclick="objClicked('alphaInfo');closeSidepanel();">Alpha</a>
         <a class="p-solar-side alphabeta" onclick="objClicked('betaInfo');closeSidepanel();">Beta</a>
         <a class="p-solar-side alphaprox" onclick="objClicked('proximaInfo');closeSidepanel();">Proxima</a>
-        <a class="p-solar-side alphaproxb" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima B</a>
-        <a class="p-solar-side alphaproxc" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima C</a>
-        <a class="p-solar-side alphaproxd" onclick="objClicked('proximaaInfo');closeSidepanel();">Proxima D</a>
+        <a class="p-solar-side alphaproxb" onclick="objClicked('proximabInfo');closeSidepanel();">Proxima B</a>
+        <a class="p-solar-side alphaproxc" onclick="objClicked('proximacInfo');closeSidepanel();">Proxima C</a>
+        <a class="p-solar-side alphaproxd" onclick="objClicked('proximadInfo');closeSidepanel();">Proxima D</a>
     </div>
 
     <div class="sidepanel alpha" id="starSidepanel">
@@ -171,68 +171,90 @@
             stars, with its hue shifted toward red-yellow by an effective temperature of ~3,000 K.
         </div>
     </div>
-
+    <div id="proximabInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Proxima B</h3>
+            <p class="p-solar">
+                Proxima Centauri b (or Proxima b), sometimes referred to as Alpha Centauri Cb, is an exoplanet
+                orbiting in the habitable zone of the red dwarf star Proxima Centauri, which is the closest star to the
+                Sun and part of the triple star system Alpha Centauri. It is approximately 4.2 ly (1.3 pc) from Earth in
+                the constellation Centaurus, making it, along with the disputed Proxima c, and Proxima d the closest
+                known exoplanets to the Solar System.
+            </p>
+        </div>
+        <div class="normal-border alpha">
+            <img src="../static/jpg/alphasystem/proxb1.jpg">
+            <p class="p-solar">
+                Proxima Centauri b orbits its parent star at a distance of roughly 0.05 AU (7.5 million km; 4.6 million
+                mi) with an orbital period of approximately 11.2 Earth days. Its other properties are only poorly
+                understood, but it is believed to be a potentially Earth-like planet with a minimum mass of at least
+                1.07 M. The planet orbits within the habitable zone of its star. It is, however, not known whether or
+                not it has an atmosphere. Proxima Centauri is a flare star with intense emission of electromagnetic
+                radiation that could strip an atmosphere off the planet. The planet's proximity to Earth offers an
+                opportunity for robotic space exploration, for example, with the Breakthrough Starshot project.
+            </p>
+        </div>
+    </div>
+    <div id="proximacInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Proxima C</h3>
+            <p class="p-solar">
+                Proxima Centauri c (also called Proxima c or Alpha Centauri Cc) is a controversial exoplanet
+                candidate claimed to be orbiting the red dwarf star Proxima Centauri, which is the closest star to the
+                Sun and part of a triple star system. It is located approximately 4.2 light-years (1.3 parsecs; 40
+                trillion kilometres; 25 trillion miles) from Earth in the constellation of Centaurus, making it, Proxima
+                b, and Proxima d the closest known exoplanets to the Solar System.
+            </p>
+        </div>
+        <div class="normal-border alpha">
+            <img src="../static/jpg/alphasystem/proxc1.jpg">
+            <p class="p-solar">
+                Proxima Centauri c is a super-Earth or mini-Neptune about 7 times as massive as Earth, orbiting at
+                roughly 1.49 AU (223 million km; 139 million mi) every 1,928 days (5.28 yr). Due to its large mass
+                and its distance from Proxima Centauri, the exoplanet is uninhabitable, with an equilibrium temperature
+                of approximately 39 K (-234.2 °C; -389.5 °F). The planet is not transiting its parent star from the
+                point of view of an Earth-based observer.
+            </p>
+        </div>
+    </div>
+    <div id="proximadInfo" class="left-panel">
+        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border alpha">
+            <h3 class="h3-solar">Proxima D</h3>
+            <p class="p-solar">
+                Proxima Centauri d (also called Proxima d) is a candidate exoplanet orbiting the red dwarf star Proxima
+                Centauri, the closest star to the Sun and part of the Alpha Centauri triple star system. Together with
+                two other planets in the Proxima Centauri system, it is the closest known exoplanet to the Solar System,
+                located approximately 4.2 light-years (1.3 parsecs; 40 trillion kilometres; 25 trillion miles) away in
+                the constellation of Centaurus.
+            </p>
+        </div>
+        <div class="normal-border alpha">
+            <img src="../static/jpg/alphasystem/proxd1.jpg">
+            <p class="p-solar">
+                Proxima d is a sub-Earth at least one-quarter of the mass of Earth (or twice the mass of Mars), orbiting
+                at roughly 0.029 AU (4.3 million km; 2.7 million mi) every 5.1 days. It is the least massive and
+                innermost known planet of the Proxima Centauri system. It is the least massive exoplanet detected with
+                the radial velocity method as of 2022. Proxima d orbits too close to its star to be habitable, and
+                receives about 190% of Earth's irradiation—assuming an Earth-like reflectivity, its equilibrium
+                temperature may reach 360 K (87 °C; 188 °F).
+            </p>
+        </div>
+    </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
-        <div id="sun" onclick="objClicked('sunInfo');closeSidepanel();" style="cursor:pointer; z-index:100;"></div>
+        <div id="zeropoint" style="z-index:100;"></div>
 
-        <div class="orbit mercury-orbit"></div>
-        <div class="mercury-spin" id="mercury-spin" style="z-index:99;">
-            <div id="mercury" onclick="objClicked('mercuryInfo');closeSidepanel();" style="cursor:pointer;"></div>
+        <div class="orbit alpha-orbit"></div>
+        <div class="alpha-spin" id="alpha-spin" style="z-index:99;">
+            <div id="alpha" onclick="objClicked('alphaInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
-
-        <div class="orbit venus-orbit"></div>
-        <div class="venus-spin" id="venus-spin" style="z-index:98;">
-            <div id="venus" onclick="objClicked('venusInfo');closeSidepanel();" style="cursor:pointer;"></div>
+        <div class="orbit beta-orbit"></div>
+        <div class="beta-spin" id="beta-spin" style="z-index:98;">
+            <div id="beta" onclick="objClicked('betaInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
-
-        <div class="orbit earth-orbit"></div>
-        <div class="earth-spin" id="earth-spin" style="z-index:97;">
-            <div id="earth" onclick="objClicked('earthInfo');closeSidepanel();" style="cursor:pointer;z-index:96;">
-            </div>
-            <div class="orbit moon-orbit"></div>
-            <div class="moon-spin" onclick="objClicked('moonInfo');closeSidepanel();">
-                <div id="moon"></div>
-            </div>
-        </div>
-
-        <div class="orbit mars-orbit"></div>
-        <div class="mars-spin" id="mars-spin" style="z-index:95;">
-            <div id="mars" onclick="objClicked('marsInfo');closeSidepanel();" style="cursor:pointer;z-index:95;">
-            </div>
-            <div class="orbit deimos-orbit"></div>
-            <div class="deimos-spin">
-                <div id="deimos"></div>
-            </div>
-            <div class="orbit phobos-orbit"></div>
-            <div class="phobos-spin">
-                <div id="phobos"></div>
-            </div>
-        </div>
-
-        <div class="orbit asteroids-orbit"></div>
-        <div class="asteroids-spin">
-        </div>
-
-        <div class="orbit jupiter-orbit"></div>
-        <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
-            <div id="jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();" style="cursor:pointer;z-index:94;">
-            </div>
-        </div>
-
-        <div class="orbit saturn-orbit"></div>
-        <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
-            <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
-
-        <div class="orbit uranus-orbit"></div>
-        <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
-            <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
-
-        <div class="orbit neptune-orbit"></div>
-        <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
-            <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
+        
 
     </div>
     <script src="{% static 'alphascripts.js' %}"></script>

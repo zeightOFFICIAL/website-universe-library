@@ -4,6 +4,10 @@ showSlides(slideIndex, 'proxSlide');
 
 function onLoadAlpha() {
     objClicked("systemInfo");
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('alpha-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('beta-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
 function plusSlides(n, name) {
