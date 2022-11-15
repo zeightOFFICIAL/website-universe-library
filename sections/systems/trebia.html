@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <title>Hello, Trebia!</title>
+    <link rel="stylesheet" href="{% static 'systemstyles.css' %}">
+    <link rel="icon" href="{% static 'trebiaicon.ico' %}">
+</head>
+
+<body onload="onLoadTrebia();">
+
+    <div class="sidepanel trebia" id="solarSidepanel">
+        <a class="closeButton trebia" onclick="closeSidepanel();">&#9776; Obj</a>
+        <hr>
+        <a class="p-solar-side trebia" onclick="objClicked('trebiaInfo');closeSidepanel();">Trebia</a>
+        <a class="p-solar-side aventen" onclick="objClicked('aventenInfo');closeSidepanel();">Aventen</a>
+        <a class="p-solar-side caelax" onclick="objClicked('caelaxInfo');closeSidepanel();">Caelax</a>
+        <a class="p-solar-side datriux" onclick="objClicked('datriuxInfo');closeSidepanel();">Datriux</a>
+        <a class="p-solar-side essenus" onclick="objClicked('essenusInfo');closeSidepanel();">Essenus</a>
+        <a class="p-solar-side impera" onclick="objClicked('imperaInfo');closeSidepanel();">Impera</a>
+        <a class="p-solar-side menae" onclick="objClicked('menaeInfo');closeSidepanel();">Menae</a>
+        <a class="p-solar-side palaven" onclick="objClicked('palavenInfo');closeSidepanel();">Palaven</a>
+    </div>
+
+    <div class="sidepanel trebia" id="starSidepanel">
+        <a class="closeButton firstButton trebia" onclick="closeSystempanel();">&#9733; Sys</a>
+        <p></p>
+        <a class="solar-button" href="solarsystem">Solar<br>system<img class="short-image firstImg"
+                src="../static/jpg/shorts/solarshort.png" alt="sun"></a>
+        <a class="alpha-button" href="alphacentauri">Alpha<br>Centauri<img class="short-image secondImg"
+                src="../static/jpg/shorts/alphashort.png"></a>
+        <a class="trapp-button" href="trappsystem">Trappist<br>system<img class="short-image thirdImg"
+                src="../static/jpg/shorts/trappistshort.png"></a>
+        <a class="trebi-button">Trebia<br>system<img class="short-image fourthImg"
+                src="../static/jpg/shorts/trebiashort.png"></a>
+    </div>
+
+    <a class="openButton" onclick="openSidepanel();">&#9776;</a>
+    <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
+    <a class="openButton secondButton" href="">&#8634;</a>
+    <div class="accent-bar trebia"></div>
+
+    <div id="systemInfo" class="left-panel">
+        <div class="normal-border trebia">
+            <h2 class="h2-system trebia">Trebia System</h2>
+            <p class="p-solar">Home system of the turians, the Trebia System, as of 2182, was considered to be the
+                military stronghold within the Milky Way galaxy.</p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/trebia.jpg">
+        </div>
+    </div>
+    <div id="menaeInfo" class="left-panel">
+        <button class="closeInfo trebia" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo trebia" href="https://masseffect.fandom.com/wiki/Menae" target="_blank">&#9783;</a>
+        <div class="normal-border trebia">
+            <h3 class="h3-solar">Menae</h3>
+            <p class="p-solar">
+                Palaven's largest moon has been shrouded in secrecy since the dawn of the turian space age. During the
+                Krogan Rebellions, the Hierarchy classified nearly all data on Menae, and its sister moon Nanus, because
+                they feared the krogan could use the moons as weapons by smashing them into Palaven's surface.
+            </p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/menae1.jpg">
+        </div>
+        <div class="normal-border trebia p-solar">
+            <table border="1px solid" width="100%">
+                <tr>
+                    <td class="type">Orbital distance</td>
+                    <td class="classified">classified</td>
+                </tr>
+                <tr>
+                    <td class="type">Orbital period</td>
+                    <td class="value">33 Earth Days</td>
+                </tr>
+                <tr>
+                    <td class="type">Radius</td>
+                    <td class="classified">classified</td>
+                </tr>
+                <tr>
+                    <td class="type">Day Length</td>
+                    <td class="classified">classified</td>
+                </tr>
+                <tr>
+                    <td class="type">Atm. Pressure</td>
+                    <td class="classified">classified</td>
+                </tr>
+                <tr>
+                    <td class="type">Temperature</td>
+                    <td class="classified">classified</td>
+                </tr>
+                <tr>
+                    <td class="type">Gravity</td>
+                    <td class="classified">classified</td>
+                </tr>
+            </table>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/menae2.jpg">
+        </div>
+        <div class="normal-border trebia">
+            <p class="p-solar">
+                However, some information has leaked out. Images of turian bases where personnel walk without
+                enviro-suits indicate advanced infrastructure--likely a network of subterranean tunnels with powerful
+                mass effect field generators that retain heat and atmosphere over swaths of the surface.
+            </p>
+        </div>
+        <div class="normal-border trebia">
+            <p class="p-solar">
+                Menae is one of two moons orbiting the turian homeworld of Palaven. The Turian Hierarchy put Menae in
+                the hands of the military soon after their spacecraft first landed on the moon, immediately halting
+                civilian research and exploration. Menae's geological composition and specifications have been
+                classified ever since. These days, a few active naval bases dot the moonscape, as well as infantry
+                installations focused on extreme survival training.</p>
+            <img src="../static/jpg/trebiasystem/menae3.jpg">
+            <p class="p-solar">
+                The mystery of Menae is a lasting fascination for many turian citizens. Speculation about its presumably
+                rare and valuable resources has become a common plot point in vids, novels, and even poetry for young
+                turians.
+            </p>
+        </div>
+    </div>
+    <div id="imperaInfo" class="left-panel">
+        <button class="closeInfo trebia" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo trebia" href="https://masseffect.fandom.com/wiki/Impera" target="_blank">&#9783;</a>
+        <div class="normal-border trebia">
+            <h3 class="h3-solar">Impera</h3>
+            <p class="p-solar">
+                The small planet Impera is a hothouse of helium and argon, the latter a product of decaying radioactive
+                materials. Robo-mining was once lucrative here, but like the rest of the solar system, the only
+                remaining veins are inaccessible by cost-effective means.
+            </p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/impera1.jpg">
+        </div>
+        <div class="normal-border trebia p-solar">
+            <table border="1px solid" width="100%">
+                <tr>
+                    <td class="type">Orbital distance</td>
+                    <td class="value">2.4 au</td>
+                </tr>
+                <tr>
+                    <td class="type">Orbital period</td>
+                    <td class="value">3.7 Earth Years</td>
+                </tr>
+                <tr>
+                    <td class="type">Radius</td>
+                    <td class="value">1.676km</td>
+                </tr>
+                <tr>
+                    <td class="type">Day Length</td>
+                    <td class="value">32.6 Earth Hours</td>
+                </tr>
+                <tr>
+                    <td class="type">Atm. Pressure</td>
+                    <td class="value">24.28 atm</td>
+                </tr>
+                <tr>
+                    <td class="type">Temperature</td>
+                    <td class="value">223 celsius</td>
+                </tr>
+                <tr>
+                    <td class="type">Gravity</td>
+                    <td class="value">0.1 g</td>
+                </tr>
+            </table>
+        </div>
+        <div class="normal-border trebia">
+            <p class="p-solar">
+                The planet is named for Atrin Impera, the "turian Machiavelli," whose ambitious political philosophies
+                led to her reign as regent in the continent-spanning Nialin Empire for more than a decade. She famously
+                combined citizenship tiers with a meritocracy, rather than a caste system, which served to strengthen
+                her empire. This practice fell in and out of favor for centuries before its revival early in the
+                turians' age of nation-states.
+            </p>
+        </div>
+    </div>
+    <div id="essenusInfo" class="left-panel">
+        <button class="closeInfo trebia" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo trebia" href="https://masseffect.fandom.com/wiki/Essenus" target="_blank">&#9783;</a>
+        <div class="normal-border trebia">
+            <h3 class="h3-solar">Essenus</h3>
+            <p class="p-solar">
+                Essenus is a hydrogen-helium gas giant that was home to a substantial turian garrison defending the
+                planet's fuel infrastructure. It once held a distribution center for antiproton-based fuel as well as
+                the more common helium-3 collectors. The garrison is now gone. The Reapers drove the turians off and
+                destroyed all available machinery.
+            </p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/essenus.jpg">
+        </div>
+        <div class="normal-border trebia p-solar">
+            <table border="1px solid" width="100%">
+                <tr>
+                    <td class="type">Orbital distance</td>
+                    <td class="value">4.8 au</td>
+                </tr>
+                <tr>
+                    <td class="type">Orbital period</td>
+                    <td class="value">10.4 Earth Years</td>
+                </tr>
+                <tr>
+                    <td class="type">Radius</td>
+                    <td class="value">73.976km</td>
+                </tr>
+                <tr>
+                    <td class="type">Day Length</td>
+                    <td class="value">12.3 Earth Years</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="datriuxInfo" class="left-panel">
+        <button class="closeInfo trebia" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo trebia" href="https://masseffect.fandom.com/wiki/Datriux" target="_blank">&#9783;</a>
+        <div class="normal-border trebia">
+            <h3 class="h3-solar">Datriux</h3>
+            <p class="p-solar">
+                Datriux is a small rock and ice planet with an extremely thin nitrogen-based atmosphere. Exploited for
+                its metal deposits, the planet's iridium was marked as part of Palaven's strategic reserve during the
+                Krogan Rebellions. Its facilities have been maintained to this day.
+            </p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/datriux.jpg">
+        </div>
+        <div class="normal-border trebia p-solar">
+            <table border="1px solid" width="100%">
+                <tr>
+                    <td class="type">Orbital distance</td>
+                    <td class="value">8.7 au</td>
+                </tr>
+                <tr>
+                    <td class="type">Orbital period</td>
+                    <td class="value">25.7 Earth Years</td>
+                </tr>
+                <tr>
+                    <td class="type">Radius</td>
+                    <td class="value">7.183km</td>
+                </tr>
+                <tr>
+                    <td class="type">Day Length</td>
+                    <td class="value">31.8 Earth Hours</td>
+                </tr>
+                <tr>
+                    <td class="type">Temperature</td>
+                    <td class="value">-164 celsius</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="caelaxInfo" class="left-panel">
+        <button class="closeInfo trebia" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <a class="moreInfo trebia" href="https://masseffect.fandom.com/wiki/Caelax" target="_blank">&#9783;</a>
+        <div class="normal-border trebia">
+            <h3 class="h3-solar">Caelax</h3>
+            <p class="p-solar">
+                Like nearby Aventen, Caelax was named for an ancient philosopher and author. But where Aventen wrote for
+                the military leaders of tomorrow, Caelax focused on those who feed, clothe, heal and arm the soldier.
+                Her enormous tome, "Service" features a lengthy chapter on laws that formed the basis for the turian
+                concept of citizenship tiers. Caelax is lower in temperature than Aventen, and its minerals were thus
+                exploited first.
+            </p>
+        </div>
+        <div class="normal-border trebia trebia-filling">
+            <img src="../static/jpg/trebiasystem/caelax.jpg">
+        </div>
+        <div class="normal-border trebia p-solar">
+            <table border="1px solid" width="100%">
+                <tr>
+                    <td class="type">Orbital distance</td>
+                    <td class="value">8.7 au</td>
+                </tr>
+                <tr>
+                    <td class="type">Orbital period</td>
+                    <td class="value">25.7 Earth Years</td>
+                </tr>
+                <tr>
+                    <td class="type">Radius</td>
+                    <td class="value">7.183km</td>
+                </tr>
+                <tr>
+                    <td class="type">Day Length</td>
+                    <td class="value">31.8 Earth Hours</td>
+                </tr>
+                <tr>
+                    <td class="type">Temperature</td>
+                    <td class="value">-164 celsius</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
+
+
+    </div>
+    <script src="{% static 'trebiascripts.js' %}"></script>
+</body>
+
+</html>

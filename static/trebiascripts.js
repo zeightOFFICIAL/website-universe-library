@@ -2,20 +2,8 @@ let slideIndex = 1;
 showSlides(slideIndex, 'alphaSlide');
 showSlides(slideIndex, 'proxSlide');
 
-function onLoadAlpha() {
-    objClicked("systemInfo");
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('alpha-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('beta-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('proxc-spin').style.animationDelay = "-" + randomShift * 100 + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('proxb-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('proxd-spin').style.animationDelay = "-" + randomShift + "s";
+function onLoadTrebia() {
+    objClicked('systemInfo');
 }
 
 function plusSlides(n, name) {
@@ -49,7 +37,6 @@ function hideAllInfo() {
         item.style.top = '200vh';
         item.scrollTop = '0';
     })
-    document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
 }
 
 function openSidepanel() {

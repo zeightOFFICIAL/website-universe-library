@@ -31,6 +31,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+td {
+    padding: 0px 10px;
+}
+
 .h2-system {
     text-align: center;
     font-family: 'solar';
@@ -50,6 +54,14 @@ body::-webkit-scrollbar {
 .h2-system.alpha {
     background-color: rgba(255, 117, 0, 1);
     background-image: linear-gradient(62deg, rgb(255, 170, 0) 0%, rgba(255, 0, 0, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.h2-system.trebia {
+    background-color: #09b100 ;
+    background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -122,6 +134,12 @@ body::-webkit-scrollbar {
     box-shadow: 0 0 3vw red;
 }
 
+.accent-bar.trebia {
+    background: #067900;
+    background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
+    box-shadow: 0 0 3vw green;
+}
+
 .normal-border {
     border-width: 3px;
     border-style: solid;
@@ -134,6 +152,10 @@ body::-webkit-scrollbar {
 
 .normal-border.alpha {
     border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+}
+
+.normal-border.trebia {
+    border-image: linear-gradient(to bottom, #09b100, #53824f) 1;
 }
 
 .normal-border img {
@@ -166,6 +188,11 @@ body::-webkit-scrollbar {
     background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
 }
 
+.trebia-filling {
+    background-color: #067900;
+    background-image: linear-gradient(180deg, #09b100 0%, #53824f 100%);
+}
+
 .closeInfo,
 .moreInfo {
     position: absolute;
@@ -186,8 +213,15 @@ body::-webkit-scrollbar {
 .moreInfo.alpha,
 .closeInfo.alpha {
     background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    background-image: linear-gradient(62deg, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1));
 }
+
+.moreInfo.trebia,
+.closeInfo.trebia {
+    background-color: #067900;
+    background-image: linear-gradient(62deg, #09b300, #15ff00);
+}
+
 
 .closeInfo:hover,
 .moreInfo:hover {
@@ -203,6 +237,22 @@ body::-webkit-scrollbar {
 
 .moreInfo.second {
     left: 20vmin;
+}
+
+.classified {
+    text-align: left;
+    color: white;
+    background-color: rgb(114, 0, 0);
+}
+
+.value {
+    text-align: left;
+    color: white;
+}
+
+.type {
+    color: white;
+    text-align: right;
 }
 
 /* ------------------------------------------- side panel */
@@ -227,6 +277,10 @@ body::-webkit-scrollbar {
 
 .sidepanel.alpha {
     box-shadow: 3px 0 3px #ff0000;
+}
+
+.sidepanel.trebia {
+    box-shadow: 3px 0 3px #067900;
 }
 
 .sidepanel hr {
@@ -287,6 +341,12 @@ body::-webkit-scrollbar {
     background: rgb(107, 35, 35);
     background: linear-gradient(270deg, rgba(107, 35, 35, 1) 0%, rgba(255, 0, 0, 1) 100%);
     box-shadow: 0 0 3vw red;
+}
+
+.closeButton.trebia {
+    background: #067900;
+    background: linear-gradient(270deg, #067900 0%, #0be300 100%);
+    box-shadow: 0 0 3vw green;
 }
 
 .openButton {
@@ -432,6 +492,46 @@ body::-webkit-scrollbar {
 .p-solar-side:hover.alphaproxd:hover {
     color: rgb(150, 157, 255);
     text-shadow: 0px 0px 2vh rgb(64, 0, 255);
+}
+
+.p-solar-side:hover.trebia:hover {
+    color: rgb(0, 255, 0);
+    text-shadow: 0px 0px 2vh greenyellow;
+}
+
+.p-solar-side:hover.menae:hover {
+    color: magenta;
+    text-shadow: 0px 0px 2vh pink;
+}
+
+.p-solar-side:hover.palaven:hover {
+    color: red;
+    text-shadow: 0px 0px 2vh red;
+}
+
+.p-solar-side:hover.impera:hover {
+    color: orange;
+    text-shadow: 0px 0px 2vh red;
+}
+
+.p-solar-side:hover.essenus:hover {
+    color: goldenrod;
+    text-shadow: 0px 0px 2vh orange;
+}
+
+.p-solar-side:hover.datriux:hover {
+    color: slateblue;
+    text-shadow: 0px 0px 2vh blue;
+}
+
+.p-solar-side:hover.caelax:hover {
+    color: white;
+    text-shadow: 0px 0px 2vh wheat;
+}
+
+.p-solar-side:hover.aventen:hover {
+    color: skyblue;
+    text-shadow: 0px 0px 2vh lightseagreen;
 }
 
 .solar-button,
@@ -983,6 +1083,7 @@ body::-webkit-scrollbar {
     margin-top: -9vh;
     margin-left: -9vh;
 }
+
 .proxc-spin,
 .proxc-orbit {
     width: 30vh;
@@ -990,6 +1091,7 @@ body::-webkit-scrollbar {
     margin-top: -15vh;
     margin-left: -15vh;
 }
+
 .proxd-spin,
 .proxd-orbit {
     width: 10vh;
@@ -1007,18 +1109,22 @@ body::-webkit-scrollbar {
     animation: spin-right 36s linear infinite;
     border-radius: 100%;
 }
+
 .prox-spin {
     animation: spin-right 82s linear infinite;
     border-radius: 100%;
 }
+
 .proxb-spin {
     animation: spin-right 11s linear infinite;
     border-radius: 100%;
 }
+
 .proxc-spin {
     animation: spin-right 198s linear infinite;
     border-radius: 100%;
 }
+
 .proxd-spin {
     animation: spin-right 5s linear infinite;
     border-radius: 100%;
