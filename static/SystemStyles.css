@@ -898,7 +898,7 @@ body::-webkit-scrollbar {
     margin-top: -5vh;
     margin-left: -5vh;
     background: rgb(255, 208, 0);
-    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(255, 174, 0) 58%);
+    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(255, 119, 0) 100%);
     box-shadow: 0 0 30px white;
 }
 
@@ -907,34 +907,119 @@ body::-webkit-scrollbar {
     width: 7vh;
     margin-top: -3.5vh;
     margin-left: -3.5vh;
-    background: rgb(255, 170, 0);
-    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(251, 255, 0) 58%);
+    background: rgb(255, 145, 0);
+    background: radial-gradient(circle, rgb(255, 145, 0) 0%, rgb(255, 119, 0) 100%);
     box-shadow: 0 0 20px yellow;
+}
+
+#prox {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: rgb(255, 0, 0);
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgb(97, 0, 0) 100%);
+    box-shadow: 0 0 20px red;
+}
+
+#proxb {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: rgb(255, 173, 173);
+    background: radial-gradient(circle, rgb(255, 173, 173) 0%, rgb(255, 217, 167) 100%);
+    box-shadow: 0 0 10px rgb(255, 224, 158);
+}
+
+#proxc {
+    height: 6vh;
+    width: 6vh;
+    margin-top: -3vh;
+    margin-left: -3vh;
+    background: rgb(0, 81, 255);
+    background: radial-gradient(circle, rgb(0, 81, 255)0%, rgb(30, 0, 255) 100%);
+    box-shadow: 0 0 10px blueviolet;
+}
+
+#proxd {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: rgb(255, 208, 208);
+    background: radial-gradient(circle, rgb(255, 208, 208)0%, rgb(255, 99, 99) 100%);
+    box-shadow: 0 0 5px pink;
 }
 
 .alpha-orbit,
 .alpha-spin {
-    width: 12vh;
-    height: 12vh;
-    margin-top: -6vh;
-    margin-left: -6vh;
+    width: 2vh;
+    height: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
 }
 
 .beta-spin,
 .beta-orbit {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -10vh;
+    margin-left: -10vh;
+}
+
+.prox-spin,
+.prox-orbit {
+    width: 66vh;
+    height: 66vh;
+    margin-top: -33vh;
+    margin-left: -33vh;
+}
+
+.proxb-spin,
+.proxb-orbit {
+    width: 18vh;
+    height: 18vh;
+    margin-top: -9vh;
+    margin-left: -9vh;
+}
+.proxc-spin,
+.proxc-orbit {
     width: 30vh;
     height: 30vh;
     margin-top: -15vh;
     margin-left: -15vh;
 }
-
+.proxd-spin,
+.proxd-orbit {
+    width: 10vh;
+    height: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh;
+}
 
 .alpha-spin {
-    animation: spin-right 30s linear infinite;
+    animation: spin-right 22s linear infinite;
     border-radius: 100%;
 }
 
 .beta-spin {
-    animation: spin-right 69s linear infinite;
+    animation: spin-right 36s linear infinite;
+    border-radius: 100%;
+}
+.prox-spin {
+    animation: spin-right 82s linear infinite;
+    border-radius: 100%;
+}
+.proxb-spin {
+    animation: spin-right 11s linear infinite;
+    border-radius: 100%;
+}
+.proxc-spin {
+    animation: spin-right 198s linear infinite;
+    border-radius: 100%;
+}
+.proxd-spin {
+    animation: spin-right 5s linear infinite;
     border-radius: 100%;
 }

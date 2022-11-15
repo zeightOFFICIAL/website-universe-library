@@ -8,6 +8,14 @@ function onLoadAlpha() {
     document.getElementById('alpha-spin').style.animationDelay = "-" + randomShift + "s";
     randomShift = Math.floor(Math.random() * 30);
     document.getElementById('beta-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('proxc-spin').style.animationDelay = "-" + randomShift*100 + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('proxb-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('proxd-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
 function plusSlides(n, name) {

@@ -29,9 +29,9 @@
                 src="../static/jpg/shorts/solarshort.png" alt="sun"></a>
         <a class="alpha-button">Alpha<br>Centauri<img class="short-image secondImg"
                 src="../static/jpg/shorts/alphashort.png"></a>
-        <a class="trapp-button">Trappist<br>system<img class="short-image thirdImg"
+        <a class="trapp-button" href="trappsystem">Trappist<br>system<img class="short-image thirdImg"
                 src="../static/jpg/shorts/trappistshort.png"></a>
-        <a class="trebi-button">Trebia<br>system<img class="short-image fourthImg"
+        <a class="trebi-button" href="trebiasystem">Trebia<br>system<img class="short-image fourthImg"
                 src="../static/jpg/shorts/trebiashort.png"></a>
     </div>
 
@@ -254,7 +254,26 @@
         <div class="beta-spin" id="beta-spin" style="z-index:98;">
             <div id="beta" onclick="objClicked('betaInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
-        
+        <div class="orbit prox-orbit"></div>
+        <div class="prox-spin" id="prox-spin" style="z-index:97;">
+            <div id="prox" onclick="objClicked('proximaInfo');closeSidepanel();" style="cursor:pointer; z-index:96;"></div>
+
+            <div class="orbit proxd-orbit"></div>
+            <div class="proxd-spin" id="proxd-spin" style="z-index:95;">
+                <div id="proxd" onclick="objClicked('proximadInfo');closeSidepanel();" style="cursor:pointer;"></div>
+            </div>
+            
+            <div class="orbit proxb-orbit"></div>
+            <div class="proxb-spin" id="proxb-spin" style="z-index:94;">
+                <div id="proxb" onclick="objClicked('proximabInfo');closeSidepanel();" style="cursor:pointer;"></div>
+            </div>
+            
+            <div class="orbit proxc-orbit"></div>
+            <div class="proxc-spin" id="proxc-spin">
+                <div id="proxc" onclick="objClicked('proximacInfo');closeSidepanel();" style="cursor:pointer;"></div>
+            </div>
+        </div>
+
 
     </div>
     <script src="{% static 'alphascripts.js' %}"></script>
