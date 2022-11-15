@@ -1,6 +1,45 @@
 let slideIndex = 1;
-showSlides(slideIndex, 'alphaSlide');
-showSlides(slideIndex, 'proxSlide');
+
+try {
+    showSlides(slideIndex, 'solarSlide');
+    showSlides(slideIndex, 'sunSlide');
+    showSlides(slideIndex, 'earthSlide');
+    showSlides(slideIndex, 'marsSlide');
+    showSlides(slideIndex, 'venusSlide');
+    showSlides(slideIndex, 'saturnSlide');
+    showSlides(slideIndex, 'phobosSlide');
+}
+catch (TypeError) {
+    console.log("Solar slides was not found");
+}
+
+try {
+    showSlides(slideIndex, 'alphaSlide');
+    showSlides(slideIndex, 'proxSlide');
+}
+catch (TypeError) {
+    console.log("Alpha slides was not found");
+}
+
+function onLoadSolar() {
+    objClicked("systemInfo");
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('venus-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('mercury-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('earth-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('saturn-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('jupiter-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('uranus-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('neptune-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
+    randomShift = Math.floor(Math.random() * 100);
+    document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
+}
 
 function onLoadAlpha() {
     objClicked("systemInfo");
@@ -16,6 +55,11 @@ function onLoadAlpha() {
     document.getElementById('proxb-spin').style.animationDelay = "-" + randomShift + "s";
     randomShift = Math.floor(Math.random() * 30);
     document.getElementById('proxd-spin').style.animationDelay = "-" + randomShift + "s";
+}
+
+function onLoadTrebia() {
+    objClicked('systemInfo');
+
 }
 
 function plusSlides(n, name) {
@@ -49,7 +93,19 @@ function hideAllInfo() {
         item.style.top = '200vh';
         item.scrollTop = '0';
     })
-    document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+    try {
+        document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+    }
+    catch (TypeError) {
+        console.log("Video files was not found as this page.");
+    }
+    try {
+        sound.pause();
+        sound.currentTime = 0;
+    }
+    catch (TypeError) {
+        console.log("Sound files was not found as this page.");
+    }
 }
 
 function openSidepanel() {

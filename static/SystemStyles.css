@@ -1,38 +1,38 @@
 /* ------------------------------------------- setup */
 @font-face {
     font-family: 'solar';
-    src: url('../static/fonts/earthorbiter.ttf');
-    font-weight: normal;
-    font-style: normal;
+    src: url(../static/fonts/earthorbiter.ttf);
+    font-weight: 400;
+    font-style: normal
 }
 
 @font-face {
     font-family: 'normal';
-    src: url('../static/fonts/vanadine.ttf');
+    src: url(../static/fonts/vanadine.ttf);
     font-weight: bolder;
-    font-style: normal;
+    font-style: normal
 }
 
 /* ------------------------------------------- main settings */
 html,
 body {
-    background-color: black;
+    background-color: #000;
     height: 100vh;
     overflow: hidden;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: none
 }
 
 h3 {
-    text-align: center;
+    text-align: center
 }
 
 body::-webkit-scrollbar {
-    display: none;
+    display: none
 }
 
 td {
-    padding: 0px 10px;
+    padding: 0 10px
 }
 
 .h2-system {
@@ -40,7 +40,7 @@ td {
     font-family: 'solar';
     font-size: 7vmin;
     margin-bottom: 2.5vmin;
-    cursor: default;
+    cursor: default
 }
 
 .h2-system.solar {
@@ -48,23 +48,23 @@ td {
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent
 }
 
 .h2-system.alpha {
     background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(62deg, rgb(255, 170, 0) 0%, rgba(255, 0, 0, 1) 100%);
+    background-image: linear-gradient(62deg, #fa0 0%, rgba(255, 0, 0, 1) 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent
 }
 
 .h2-system.trebia {
-    background-color: #09b100 ;
+    background-color: #09b100;
     background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent
 }
 
 .h3-solar {
@@ -72,7 +72,7 @@ td {
     font-size: 6vmin;
     margin-bottom: 2.5vmin;
     cursor: default;
-    color: white;
+    color: #fff
 }
 
 .h3-special {
@@ -80,8 +80,8 @@ td {
     font-size: 6vmin;
     margin-bottom: 2.5vmin;
     cursor: default;
-    color: rgb(0, 255, 242);
-    text-shadow: 0 0 10px lightskyblue;
+    color: #00fff2;
+    text-shadow: 0 0 10px #87cefa
 }
 
 .p-solar {
@@ -89,28 +89,28 @@ td {
     font-family: 'normal';
     font-size: 3vmin;
     cursor: default;
-    color: white;
+    color: #fff
 }
 
 .left-panel {
     display: block;
     position: absolute;
-    top: 0%;
+    top: 0;
     left: 10%;
     width: 35%;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     text-indent: -1000em;
-    transition: left 0.7s;
+    transition: left .7s;
     top: 200vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth
 }
 
 .left-panel::-webkit-scrollbar {
-    display: none;
+    display: none
 }
 
 .accent-bar {
@@ -119,78 +119,78 @@ td {
     left: 0;
     width: 10vmin;
     height: 100vh;
-    transition: 0.7s;
+    transition: .7s
 }
 
 .accent-bar.solar {
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-    box-shadow: 0 0 3vw #FBAB7E;
+    box-shadow: 0 0 3vw #FBAB7E
 }
 
 .accent-bar.alpha {
-    background: rgb(255, 117, 0);
+    background: #ff7500;
     background: linear-gradient(0deg, rgba(255, 117, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
-    box-shadow: 0 0 3vw red;
+    box-shadow: 0 0 3vw red
 }
 
 .accent-bar.trebia {
     background: #067900;
     background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
-    box-shadow: 0 0 3vw green;
+    box-shadow: 0 0 3vw green
 }
 
 .normal-border {
     border-width: 3px;
     border-style: solid;
-    margin: 40px 15px;
+    margin: 40px 15px
 }
 
 .normal-border.solar {
-    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
+    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1
 }
 
 .normal-border.alpha {
-    border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1
 }
 
 .normal-border.trebia {
-    border-image: linear-gradient(to bottom, #09b100, #53824f) 1;
+    border-image: linear-gradient(to bottom, #09b100, #53824f) 1
 }
 
 .normal-border img {
     width: 100%;
     height: 35vmin;
-    object-fit: cover;
+    object-fit: cover
 }
 
 .normal-border.hidden {
-    overflow: hidden;
+    overflow: hidden
 }
 
 .normal-border .p-solar {
     padding: 20px 30px;
-    text-align: center;
+    text-align: center
 }
 
 .normal-border.p-solar {
     padding: 20px 30px;
-    text-align: center;
+    text-align: center
 }
 
 .solar-filling {
     background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1
 }
 
 .alpha-filling {
     background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1
 }
 
 .trebia-filling {
     background-color: #067900;
-    background-image: linear-gradient(180deg, #09b100 0%, #53824f 100%);
+    background-image: linear-gradient(180deg, #09b100 0%, #53824f 100%)
 }
 
 .closeInfo,
@@ -199,60 +199,59 @@ td {
     top: 30px;
     padding: 0 3vmin;
     text-align: center;
-    border: solid 2px black;
+    border: solid 2px #000;
     font-size: 3vmin;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .closeInfo.solar,
 .moreInfo.solar {
     background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)
 }
 
 .moreInfo.alpha,
 .closeInfo.alpha {
     background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(62deg, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1));
+    background-image: linear-gradient(62deg, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1))
 }
 
 .moreInfo.trebia,
 .closeInfo.trebia {
     background-color: #067900;
-    background-image: linear-gradient(62deg, #09b300, #15ff00);
+    background-image: linear-gradient(62deg, #09b300, #15ff00)
 }
-
 
 .closeInfo:hover,
 .moreInfo:hover {
-    background-color: #ffffff;
-    background-image: linear-gradient(62deg, #ffffff 0%, #ffffff 100%);
+    background-color: #fff;
+    background-image: linear-gradient(62deg, #fff 0%, #fff 100%)
 }
 
 .moreInfo {
     left: 10vmin;
     text-decoration: none;
-    color: black;
+    color: #000
 }
 
 .moreInfo.second {
-    left: 20vmin;
+    left: 20vmin
 }
 
 .classified {
     text-align: left;
-    color: white;
-    background-color: rgb(114, 0, 0);
+    color: #fff;
+    background-color: #720000
 }
 
 .value {
     text-align: left;
-    color: white;
+    color: #fff
 }
 
 .type {
-    color: white;
-    text-align: right;
+    color: #fff;
+    text-align: right
 }
 
 /* ------------------------------------------- side panel */
@@ -263,37 +262,37 @@ td {
     z-index: 2;
     top: 0;
     left: 0;
-    background-color: black;
-    transition: 0.7s;
+    background-color: #000;
+    transition: .7s;
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-width: none
 }
 
 .sidepanel.solar {
-    box-shadow: 3px 0 3px #FBAB7E;
+    box-shadow: 3px 0 3px #FBAB7E
 }
 
 .sidepanel.alpha {
-    box-shadow: 3px 0 3px #ff0000;
+    box-shadow: 3px 0 3px red
 }
 
 .sidepanel.trebia {
-    box-shadow: 3px 0 3px #067900;
+    box-shadow: 3px 0 3px #067900
 }
 
 .sidepanel hr {
     height: 12vmin;
-    border: none;
+    border: none
 }
 
 .sidepanel p {
-    font-size: 20vmin;
+    font-size: 20vmin
 }
 
 .sidepanel::-webkit-scrollbar {
-    display: none;
+    display: none
 }
 
 .closeButton,
@@ -304,64 +303,64 @@ td {
     text-decoration: none;
     width: 1em;
     cursor: pointer;
-    color: black;
+    color: #000;
     padding: 2vmin 3.5vmin;
-    transition: 0.7s;
+    transition: .7s;
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
+    border: none
 }
 
 .openButton.firstButton,
 .closeButton.firstButton {
-    top: 7.5vmin;
+    top: 7.5vmin
 }
 
 .openButton.secondButton,
 .closeButton.secondButton {
-    top: 92vh;
+    top: 92vh
 }
 
 .closeButton {
     width: 100%;
-    color: black;
+    color: #000;
     overflow: hidden;
     min-width: 50vmin;
-    text-align: left;
+    text-align: left
 }
 
 .closeButton.solar {
     background-color: #FBAB7E;
     background-image: linear-gradient(60deg, #FBAB7E 0%, #F7CE68 100%);
-    box-shadow: 0 0 3vw #FBAB7E;
+    box-shadow: 0 0 3vw #FBAB7E
 }
 
 .closeButton.alpha {
-    background: rgb(107, 35, 35);
+    background: #6b2323;
     background: linear-gradient(270deg, rgba(107, 35, 35, 1) 0%, rgba(255, 0, 0, 1) 100%);
-    box-shadow: 0 0 3vw red;
+    box-shadow: 0 0 3vw red
 }
 
 .closeButton.trebia {
     background: #067900;
     background: linear-gradient(270deg, #067900 0%, #0be300 100%);
-    box-shadow: 0 0 3vw green;
+    box-shadow: 0 0 3vw green
 }
 
 .openButton {
     background-color: rgba(255, 255, 255, 0);
-    z-index: 1;
+    z-index: 1
 }
 
 .openButton:hover {
-    background-color: white;
-    transition: 0.75s;
+    background-color: #fff;
+    transition: .75s
 }
 
 .closeButton:hover {
-    color: white;
-    transition: 0.75s;
+    color: #fff;
+    transition: .75s
 }
 
 .p-solar-side {
@@ -374,164 +373,164 @@ td {
     overflow-x: hidden;
     padding-bottom: 1vh;
     padding-left: 15%;
-    transition: 0.15s;
+    transition: .15s;
     max-height: 3vmin;
-    overflow-y: hidden;
+    overflow-y: hidden
 }
 
 .p-solar-side+.asteroid {
-    max-height: 7vmin;
+    max-height: 7vmin
 }
 
 .p-solar-side+.jovian {
-    max-height: 7vmin;
+    max-height: 7vmin
 }
 
 .p-solar-side+.phobos {
-    max-height: 7vmin;
+    max-height: 7vmin
 }
 
 .p-solar-side:hover {
     padding-left: 10%;
-    font-size: 4vmin;
+    font-size: 4vmin
 }
 
 .p-solar-side:hover.sun:hover {
-    color: yellow;
-    text-shadow: 0px 0px 2vh rgb(255, 221, 0);
+    color: #ff0;
+    text-shadow: 0 0 2vh #fd0
 }
 
 .p-solar-side:hover.earth:hover {
-    color: lightskyblue;
-    text-shadow: 0px 0px 2vh rgb(0, 153, 255);
+    color: #87cefa;
+    text-shadow: 0 0 2vh #09f
 }
 
 .p-solar-side:hover.asteroid:hover {
-    color: white;
-    text-shadow: 0px 0px 2vh white;
-    font-size: 3vmin;
+    color: #fff;
+    text-shadow: 0 0 2vh #fff;
+    font-size: 3vmin
 }
 
 .p-solar-side:hover.jupiter:hover {
     color: orange;
-    text-shadow: 0px 0px 2vh rgb(238, 255, 0);
+    text-shadow: 0 0 2vh #ef0
 }
 
 .p-solar-side:hover.mars:hover {
     color: red;
-    text-shadow: 0px 0px 2vh rgb(255, 0, 0);
+    text-shadow: 0 0 2vh red
 }
 
 .p-solar-side:hover.mercury:hover {
-    color: darksalmon;
-    text-shadow: 0px 0px 2vh white;
+    color: #e9967a;
+    text-shadow: 0 0 2vh #fff
 }
 
 .p-solar-side:hover.neptune:hover {
     color: blue;
-    text-shadow: 0px 0px 2vh rgb(4, 0, 255);
+    text-shadow: 0 0 2vh #0400ff
 }
 
 .p-solar-side:hover.uranus:hover {
-    color: lightseagreen;
-    text-shadow: 0px 0px 2vh rgb(0, 94, 255);
+    color: #20b2aa;
+    text-shadow: 0 0 2vh #005eff
 }
 
 .p-solar-side:hover.venus:hover {
-    color: pink;
-    text-shadow: 0px 0px 2vh rgb(255, 0, 255);
+    color: #ffc0cb;
+    text-shadow: 0 0 2vh #f0f
 }
 
 .p-solar-side:hover.moon:hover {
-    color: white;
-    text-shadow: 0px 0px 2vh white;
+    color: #fff;
+    text-shadow: 0 0 2vh #fff
 }
 
 .p-solar-side:hover.phobos:hover {
-    color: white;
-    text-shadow: 0px 0px 2vh white;
-    font-size: 3vmin;
+    color: #fff;
+    text-shadow: 0 0 2vh #fff;
+    font-size: 3vmin
 }
 
 .p-solar-side:hover.jovian:hover {
-    color: orangered;
-    text-shadow: 0px 0px 2vh rgb(255, 200, 0);
-    font-size: 3vmin;
+    color: #ff4500;
+    text-shadow: 0 0 2vh #ffc800;
+    font-size: 3vmin
 }
 
 .p-solar-side:hover.saturn:hover {
-    color: cornsilk;
-    text-shadow: 0px 0px 2vh rgb(255, 72, 0);
+    color: #fff8dc;
+    text-shadow: 0 0 2vh #ff4800
 }
 
 .p-solar-side:hover.alphaalpha:hover {
-    color: yellow;
-    text-shadow: 0px 0px 2vh yellow;
+    color: #ff0;
+    text-shadow: 0 0 2vh #ff0
 }
 
 .p-solar-side:hover.alphabeta:hover {
     color: orange;
-    text-shadow: 0px 0px 2vh orange;
+    text-shadow: 0 0 2vh orange
 }
 
 .p-solar-side:hover.alphaprox:hover {
     color: red;
-    text-shadow: 0px 0px 2vh red;
+    text-shadow: 0 0 2vh red
 }
 
 .p-solar-side:hover.alphaproxb:hover {
-    color: rgb(255, 0, 166);
-    text-shadow: 0px 0px 2vh rgb(255, 170, 237);
+    color: #ff00a6;
+    text-shadow: 0 0 2vh #ffaaed
 }
 
 .p-solar-side:hover.alphaproxc:hover {
-    color: rgb(255, 186, 103);
-    text-shadow: 0px 0px 2vh rgb(255, 132, 0);
+    color: #ffba67;
+    text-shadow: 0 0 2vh #ff8400
 }
 
 .p-solar-side:hover.alphaproxd:hover {
-    color: rgb(150, 157, 255);
-    text-shadow: 0px 0px 2vh rgb(64, 0, 255);
+    color: #969dff;
+    text-shadow: 0 0 2vh #4000ff
 }
 
 .p-solar-side:hover.trebia:hover {
-    color: rgb(0, 255, 0);
-    text-shadow: 0px 0px 2vh greenyellow;
+    color: #0f0;
+    text-shadow: 0 0 2vh #adff2f
 }
 
 .p-solar-side:hover.menae:hover {
-    color: magenta;
-    text-shadow: 0px 0px 2vh pink;
+    color: #f0f;
+    text-shadow: 0 0 2vh #ffc0cb
 }
 
 .p-solar-side:hover.palaven:hover {
     color: red;
-    text-shadow: 0px 0px 2vh red;
+    text-shadow: 0 0 2vh red
 }
 
 .p-solar-side:hover.impera:hover {
     color: orange;
-    text-shadow: 0px 0px 2vh red;
+    text-shadow: 0 0 2vh red
 }
 
 .p-solar-side:hover.essenus:hover {
-    color: goldenrod;
-    text-shadow: 0px 0px 2vh orange;
+    color: #daa520;
+    text-shadow: 0 0 2vh orange
 }
 
 .p-solar-side:hover.datriux:hover {
-    color: slateblue;
-    text-shadow: 0px 0px 2vh blue;
+    color: #6a5acd;
+    text-shadow: 0 0 2vh blue
 }
 
 .p-solar-side:hover.caelax:hover {
-    color: white;
-    text-shadow: 0px 0px 2vh wheat;
+    color: #fff;
+    text-shadow: 0 0 2vh #f5deb3
 }
 
 .p-solar-side:hover.aventen:hover {
-    color: skyblue;
-    text-shadow: 0px 0px 2vh lightseagreen;
+    color: #87ceeb;
+    text-shadow: 0 0 2vh #20b2aa
 }
 
 .solar-button,
@@ -546,7 +545,7 @@ td {
     cursor: pointer;
     overflow-x: hidden;
     padding-left: 4%;
-    transition: 0.5s;
+    transition: .5s;
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 35%, #F7CE68 65%);
     background-clip: text;
@@ -554,7 +553,7 @@ td {
     -webkit-text-fill-color: transparent;
     padding: 1.5vmin 0;
     height: 7vmin;
-    overflow-y: hidden;
+    overflow-y: hidden
 }
 
 .solar-button:hover,
@@ -563,104 +562,104 @@ td {
 .trebi-button:hover {
     height: 10vmin;
     padding-top: 5.25vmin;
-    padding-left: 0%;
-    padding-right: 25%;
+    padding-left: 0;
+    padding-right: 25%
 }
 
 .solar-button:hover .short-image {
-    left: 67%;
+    left: 67%
 }
 
 .alpha-button {
     background-color: #ffe900;
-    background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%);
+    background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%)
 }
 
 .alpha-button:hover .short-image {
-    left: 67%;
+    left: 67%
 }
 
 .trapp-button {
     background-color: #31fff4;
-    background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%);
+    background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%)
 }
 
 .trapp-button:hover .short-image {
-    left: 67%;
+    left: 67%
 }
 
 .trebi-button {
     background-color: #939037;
-    background-image: linear-gradient(62deg, #939037 35%, #999999 65%);
+    background-image: linear-gradient(62deg, #939037 35%, #999 65%)
 }
 
 .trebi-button:hover .short-image {
-    left: 67%;
+    left: 67%
 }
 
 .short-image {
     position: absolute;
     left: 120%;
     height: 20vmin;
-    transition: 0.5s;
+    transition: .5s
 }
 
 .short-image.firstImg {
-    top: 20vmin;
+    top: 20vmin
 }
 
 .short-image.secondImg {
-    top: 30vmin;
+    top: 30vmin
 }
 
 .short-image.thirdImg {
-    top: 40vmin;
+    top: 40vmin
 }
 
 .short-image.fourthImg {
-    top: 50vmin;
+    top: 50vmin
 }
 
 /* ------------------------------------------- image sliders */
 .display-prev,
 .display-next {
     display: inline;
-    color: black;
+    color: #000;
     cursor: pointer;
-    transition: 0.5s;
+    transition: .5s;
     background: transparent;
     border: none;
     font-size: 2vmin;
     background-color: #FBAB7E;
-    margin: 0 0;
-    padding: 0 0;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden
 }
 
 .display-next {
     background-color: #F7CE68;
     float: right;
-    width: 50%;
+    width: 50%
 }
 
 .display-next.alpha,
 .display-prev.alpha {
-    background-color: rgba(255, 117, 0, 1);
+    background-color: rgba(255, 117, 0, 1)
 }
 
 .display-prev {
     float: left;
-    width: 50%;
+    width: 50%
 }
 
 .display-next:hover,
 .display-prev:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: #fff
 }
 
 .solarSlide {
     text-align: center;
-    padding: 20px 30px;
+    padding: 20px 30px
 }
 
 /* ------------------------------------------- planet and star objects */
@@ -671,56 +670,69 @@ td {
     width: 54%;
     height: 100%;
     overflow: hidden;
-    transition: 0.7s;
+    transition: .7s
 }
 
 .orbit {
-    border: 1px solid rgb(57, 57, 78);
+    border: 1px solid #39394e
 }
 
+#trebia,
 #zeropoint,
 #sun,
 .orbit,
 .orbit+div,
 .orbit+div>div {
-    position: absolute;
+    position: absolute
 }
 
+#trebia,
 #zeropoint,
 #sun,
 .orbit,
 .orbit+div {
     top: 50%;
-    left: 50%;
+    left: 50%
 }
 
 .orbit+div>div {
     top: 0;
-    left: 50%;
+    left: 50%
 }
 
 .orbit,
 .orbit+div div,
 #earth {
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 #sun {
     height: 8vh;
     width: 8vh;
-    background: rgb(251, 255, 0);
+    background: #fbff00;
     background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, rgba(255, 0, 0, 1) 100%);
     margin-top: -4vh;
     margin-left: -4vh;
     border-radius: 50%;
-    box-shadow: 0 0 20px #ffa600;
+    box-shadow: 0 0 20px #ffa600
+}
+
+#trebia {
+    height: 8vh;
+    width: 8vh;
+    background: #fbff00;
+    background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, #fffdeb 100%);
+    margin-top: -4vh;
+    margin-left: -4vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #f90
 }
 
 #zeropoint {
     height: 0;
     width: 0;
-    background: white;
-    border-radius: 50%;
+    background: #fff;
+    border-radius: 50%
 }
 
 #mercury {
@@ -728,8 +740,8 @@ td {
     margin-left: -1vh;
     height: 2vh;
     width: 2vh;
-    background: rgb(150, 71, 71);
-    background: radial-gradient(circle, rgba(150, 71, 71, 1) 0%, rgba(107, 72, 72, 1) 58%);
+    background: #964747;
+    background: radial-gradient(circle, rgba(150, 71, 71, 1) 0%, rgba(107, 72, 72, 1) 58%)
 }
 
 .mercury-orbit,
@@ -737,7 +749,7 @@ td {
     width: 11vh;
     height: 11vh;
     margin-left: -5.5vh;
-    margin-top: -5.5vh;
+    margin-top: -5.5vh
 }
 
 #venus {
@@ -745,9 +757,9 @@ td {
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background: rgb(255, 226, 176);
+    background: #ffe2b0;
     background: radial-gradient(circle, rgba(255, 226, 176, 1) 0%, rgba(255, 230, 255, 1) 100%);
-    box-shadow: 0 0 5px #ffee90;
+    box-shadow: 0 0 5px #ffee90
 }
 
 .venus-orbit,
@@ -755,7 +767,7 @@ td {
     margin-top: -9vh;
     margin-left: -9vh;
     width: 18vh;
-    height: 18vh;
+    height: 18vh
 }
 
 #earth {
@@ -763,9 +775,9 @@ td {
     margin-left: -2vh;
     height: 4vh;
     width: 4vh;
-    background: rgb(26, 252, 255);
+    background: #1afcff;
     background: radial-gradient(circle, rgba(26, 252, 255, 1) 0%, rgba(122, 128, 255, 1) 100%);
-    box-shadow: 0 0 5px #d7d9f5;
+    box-shadow: 0 0 5px #d7d9f5
 }
 
 .earth-orbit,
@@ -773,15 +785,15 @@ td {
     width: 29vh;
     height: 29vh;
     margin-left: -14.5vh;
-    margin-top: -14.5vh;
+    margin-top: -14.5vh
 }
 
 #moon {
-    margin-top: -0.5vh;
-    margin-left: -0.5vh;
+    margin-top: -.5vh;
+    margin-left: -.5vh;
     height: 1vh;
     width: 1vh;
-    background-color: #aaaaaa;
+    background-color: #aaa
 }
 
 .moon-orbit,
@@ -790,7 +802,7 @@ td {
     width: 6vh;
     margin-top: -3vh;
     margin-left: -3vh;
-    border-color: rgb(57, 57, 78);
+    border-color: #39394e
 }
 
 #mars {
@@ -798,9 +810,9 @@ td {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(255, 0, 0);
+    background: red;
     background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(179, 73, 0, 1) 100%);
-    box-shadow: 0 0 5px #be1616;
+    box-shadow: 0 0 5px #be1616
 }
 
 .mars-orbit,
@@ -808,15 +820,15 @@ td {
     width: 44vh;
     height: 44vh;
     margin-left: -22vh;
-    margin-top: -22vh;
+    margin-top: -22vh
 }
 
 #deimos {
-    margin-top: -0.5vh;
-    margin-left: -0.5vh;
+    margin-top: -.5vh;
+    margin-left: -.5vh;
     height: 1vh;
     width: 1vh;
-    background-color: #aaaaaa;
+    background-color: #aaa
 }
 
 .deimos-orbit,
@@ -825,15 +837,15 @@ td {
     width: 5vh;
     margin-top: -2.5vh;
     margin-left: -2.5vh;
-    border-color: rgb(57, 57, 78);
+    border-color: #39394e
 }
 
 #phobos {
-    margin-top: -0.5vh;
-    margin-left: -0.5vh;
+    margin-top: -.5vh;
+    margin-left: -.5vh;
     height: 1vh;
     width: 1vh;
-    background-color: #aaaaaa;
+    background-color: #aaa
 }
 
 .phobos-orbit,
@@ -842,7 +854,7 @@ td {
     width: 7vh;
     margin-top: -3.5vh;
     margin-left: -3.5vh;
-    border-color: rgb(57, 57, 78);
+    border-color: #39394e
 }
 
 .asteroids-orbit,
@@ -852,9 +864,9 @@ td {
     margin-left: -26vh;
     margin-top: -26vh;
     border-radius: 50%;
-    border-width: 0vh;
+    border-width: 0;
     box-shadow: 0 0 7vh #4b4b4b;
-    border-color: rgb(41, 41, 41);
+    border-color: #292929
 }
 
 #jupiter {
@@ -862,9 +874,9 @@ td {
     margin-left: -3.5vh;
     height: 7vh;
     width: 7vh;
-    background: rgb(255, 130, 0);
+    background: #ff8200;
     background: radial-gradient(circle, rgba(255, 130, 0, 1) 0%, rgba(99, 46, 0, 1) 100%);
-    box-shadow: 0 0 10px #c5a572;
+    box-shadow: 0 0 10px #c5a572
 }
 
 .jupiter-orbit,
@@ -872,7 +884,7 @@ td {
     width: 59vh;
     height: 59vh;
     margin-left: -29.5vh;
-    margin-top: -29.5vh;
+    margin-top: -29.5vh
 }
 
 #saturn {
@@ -880,9 +892,9 @@ td {
     margin-left: -3vh;
     height: 6vh;
     width: 6vh;
-    background: rgb(182, 115, 53);
+    background: #b67335;
     background: radial-gradient(circle, rgba(182, 115, 53, 1) 0%, rgba(255, 185, 151, 1) 100%);
-    box-shadow: 0 0 15px #9c7a48;
+    box-shadow: 0 0 15px #9c7a48
 }
 
 .saturn-orbit,
@@ -890,7 +902,7 @@ td {
     width: 73vh;
     height: 73vh;
     margin-left: -36.5vh;
-    margin-top: -36.5vh;
+    margin-top: -36.5vh
 }
 
 #uranus {
@@ -898,9 +910,9 @@ td {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(134, 196, 255);
+    background: #86c4ff;
     background: radial-gradient(circle, rgba(134, 196, 255, 1) 0%, rgba(213, 206, 255, 1) 100%);
-    box-shadow: 0 0 25px #a490ff;
+    box-shadow: 0 0 25px #a490ff
 }
 
 .uranus-orbit,
@@ -908,7 +920,7 @@ td {
     width: 83vh;
     height: 83vh;
     margin-left: -41.5vh;
-    margin-top: -41.5vh;
+    margin-top: -41.5vh
 }
 
 #neptune {
@@ -916,9 +928,9 @@ td {
     margin-left: -1.5vh;
     height: 3vh;
     width: 3vh;
-    background: rgb(99, 179, 255);
+    background: #63b3ff;
     background: radial-gradient(circle, rgba(99, 179, 255, 1) 0%, rgba(36, 0, 255, 1) 100%);
-    box-shadow: 0 0 25px #2f00ff;
+    box-shadow: 0 0 25px #2f00ff
 }
 
 .neptune-orbit,
@@ -926,80 +938,79 @@ td {
     width: 92vh;
     height: 92vh;
     margin-left: -46vh;
-    margin-top: -46vh;
+    margin-top: -46vh
 }
 
 @keyframes spin-right {
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg)
     }
 }
 
 .earth-spin {
     animation: spin-right 36.5s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .moon-spin {
     animation: spin-right 3s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .venus-spin {
     animation: spin-right 22s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .mercury-spin {
     animation: spin-right 8.8s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .mars-spin {
     animation: spin-right 68.7s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .deimos-spin {
     animation: spin-right 1.12s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .phobos-spin {
-    animation: spin-right 0.5s linear infinite;
-    border-radius: 100%;
+    animation: spin-right .5s linear infinite;
+    border-radius: 100%
 }
 
 .saturn-spin {
     animation: spin-right 1075.5s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .jupiter-spin {
     animation: spin-right 433.2s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .uranus-spin {
     animation: spin-right 3068.8s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .neptune-spin {
-    animation: spin-right 6000.0s linear infinite;
-    border-radius: 100%;
+    animation: spin-right 6000s linear infinite;
+    border-radius: 100%
 }
 
 /* ------------------------------------------- alpha */
-
 #alpha {
     height: 10vh;
     width: 10vh;
     margin-top: -5vh;
     margin-left: -5vh;
-    background: rgb(255, 208, 0);
-    background: radial-gradient(circle, rgba(255, 208, 0) 0%, rgb(255, 119, 0) 100%);
-    box-shadow: 0 0 30px white;
+    background: #ffd000;
+    background: radial-gradient(circle, rgba(255, 208, 0) 0%, #f70 100%);
+    box-shadow: 0 0 30px #fff
 }
 
 #beta {
@@ -1007,9 +1018,9 @@ td {
     width: 7vh;
     margin-top: -3.5vh;
     margin-left: -3.5vh;
-    background: rgb(255, 145, 0);
-    background: radial-gradient(circle, rgb(255, 145, 0) 0%, rgb(255, 119, 0) 100%);
-    box-shadow: 0 0 20px yellow;
+    background: #ff9100;
+    background: radial-gradient(circle, #ff9100 0%, #f70 100%);
+    box-shadow: 0 0 20px #ff0
 }
 
 #prox {
@@ -1017,9 +1028,9 @@ td {
     width: 4vh;
     margin-top: -2vh;
     margin-left: -2vh;
-    background: rgb(255, 0, 0);
-    background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgb(97, 0, 0) 100%);
-    box-shadow: 0 0 20px red;
+    background: red;
+    background: radial-gradient(circle, red 0%, #610000 100%);
+    box-shadow: 0 0 20px red
 }
 
 #proxb {
@@ -1027,9 +1038,9 @@ td {
     width: 4vh;
     margin-top: -2vh;
     margin-left: -2vh;
-    background: rgb(255, 173, 173);
-    background: radial-gradient(circle, rgb(255, 173, 173) 0%, rgb(255, 217, 167) 100%);
-    box-shadow: 0 0 10px rgb(255, 224, 158);
+    background: #ffadad;
+    background: radial-gradient(circle, #ffadad 0%, #ffd9a7 100%);
+    box-shadow: 0 0 10px #ffe09e
 }
 
 #proxc {
@@ -1037,9 +1048,9 @@ td {
     width: 6vh;
     margin-top: -3vh;
     margin-left: -3vh;
-    background: rgb(0, 81, 255);
-    background: radial-gradient(circle, rgb(0, 81, 255)0%, rgb(30, 0, 255) 100%);
-    box-shadow: 0 0 10px blueviolet;
+    background: #0051ff;
+    background: radial-gradient(circle, #0051ff, #1e00ff 100%);
+    box-shadow: 0 0 10px #8a2be2
 }
 
 #proxd {
@@ -1047,9 +1058,9 @@ td {
     width: 2vh;
     margin-top: -1vh;
     margin-left: -1vh;
-    background: rgb(255, 208, 208);
-    background: radial-gradient(circle, rgb(255, 208, 208)0%, rgb(255, 99, 99) 100%);
-    box-shadow: 0 0 5px pink;
+    background: #ffd0d0;
+    background: radial-gradient(circle, #ffd0d0, #ff6363 100%);
+    box-shadow: 0 0 5px #ffc0cb
 }
 
 .alpha-orbit,
@@ -1057,7 +1068,7 @@ td {
     width: 2vh;
     height: 2vh;
     margin-top: -1vh;
-    margin-left: -1vh;
+    margin-left: -1vh
 }
 
 .beta-spin,
@@ -1065,7 +1076,7 @@ td {
     width: 20vh;
     height: 20vh;
     margin-top: -10vh;
-    margin-left: -10vh;
+    margin-left: -10vh
 }
 
 .prox-spin,
@@ -1073,7 +1084,7 @@ td {
     width: 66vh;
     height: 66vh;
     margin-top: -33vh;
-    margin-left: -33vh;
+    margin-left: -33vh
 }
 
 .proxb-spin,
@@ -1081,7 +1092,7 @@ td {
     width: 18vh;
     height: 18vh;
     margin-top: -9vh;
-    margin-left: -9vh;
+    margin-left: -9vh
 }
 
 .proxc-spin,
@@ -1089,7 +1100,7 @@ td {
     width: 30vh;
     height: 30vh;
     margin-top: -15vh;
-    margin-left: -15vh;
+    margin-left: -15vh
 }
 
 .proxd-spin,
@@ -1097,35 +1108,197 @@ td {
     width: 10vh;
     height: 10vh;
     margin-top: -5vh;
-    margin-left: -5vh;
+    margin-left: -5vh
 }
 
 .alpha-spin {
     animation: spin-right 22s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .beta-spin {
     animation: spin-right 36s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .prox-spin {
     animation: spin-right 82s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .proxb-spin {
     animation: spin-right 11s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .proxc-spin {
     animation: spin-right 198s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
 }
 
 .proxd-spin {
     animation: spin-right 5s linear infinite;
-    border-radius: 100%;
+    border-radius: 100%
+}
+
+/* ------------------------------------------- trebia */
+#aventen {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #3583c3;
+    background: radial-gradient(circle, #3583c3 0%, #a37cff 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.aventen-spin,
+.aventen-orbit {
+    width: 12vh;
+    height: 12vh;
+    margin-top: -6vh;
+    margin-left: -6vh
+}
+
+.aventen-spin {
+    animation: spin-right 9.9s linear infinite;
+    border-radius: 100%
+}
+
+#caelax {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #fff;
+    background: radial-gradient(circle, #fff 0%, #ff7cf4 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.caelax-spin,
+.caelax-orbit {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -10vh;
+    margin-left: -10vh
+}
+
+.caelax-spin {
+    animation: spin-right 14.5s linear infinite;
+    border-radius: 100%
+}
+
+#palaven {
+    height: 5vh;
+    width: 5vh;
+    margin-top: -2.5vh;
+    margin-left: -2.5vh;
+    background: #fff;
+    background: radial-gradient(circle, #fff 0%, #686868 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.palaven-spin,
+.palaven-orbit {
+    width: 38vh;
+    height: 38vh;
+    margin-top: -19vh;
+    margin-left: -19vh
+}
+
+.palaven-spin {
+    animation: spin-right 37.5s linear infinite;
+    border-radius: 100%
+}
+
+#menae {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #fff;
+    background: radial-gradient(circle, #727272 0%, #fff 100%);
+    box-shadow: 0 0 1px #fff
+}
+
+.menae-spin,
+.menae-orbit {
+    width: 10vh;
+    height: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh
+}
+
+.menae-spin {
+    animation: spin-right 1.9s linear infinite;
+    border-radius: 100%
+}
+
+#impera {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #d000ff;
+    background: radial-gradient(circle, #d000ff 0%, #5d00ff 100%);
+    box-shadow: 0 0 1px #f0f
+}
+
+.impera-spin,
+.impera-orbit {
+    width: 52vh;
+    height: 52vh;
+    margin-top: -26vh;
+    margin-left: -26vh
+}
+
+.impera-spin {
+    animation: spin-right 100s linear infinite;
+    border-radius: 100%
+}
+
+#essenus {
+    height: 8vh;
+    width: 8vh;
+    margin-top: -4vh;
+    margin-left: -4vh;
+    background: #ff6a00;
+    background: radial-gradient(circle, #ff6a00 0%, #fff9b4 100%);
+    box-shadow: 0 0 5px #fff8dc
+}
+
+.essenus-spin,
+.essenus-orbit {
+    width: 66vh;
+    height: 66vh;
+    margin-top: -33vh;
+    margin-left: -33vh
+}
+
+.essenus-spin {
+    animation: spin-right 420.5s linear infinite;
+    border-radius: 100%
+}
+
+#datriux {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #ffe9da;
+    background: radial-gradient(circle, #ffe9da 0%, #fff9b4 100%);
+    box-shadow: 0 0 5px #fff8dc
+}
+
+.datriux-spin,
+.datriux-orbit {
+    width: 84vh;
+    height: 84vh;
+    margin-top: -42vh;
+    margin-left: -42vh
+}
+
+.datriux-spin {
+    animation: spin-right 1005.5s linear infinite;
+    border-radius: 100%
 }
