@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <title>Hello, Trappist!</title>
+    <link rel="stylesheet" href="{% static 'systemstyles.css' %}">
+    <link rel="icon" href="{% static 'trappicon.ico' %}">
+</head>
+
+<body onload="onLoadTrapp();">
+
+    <div class="sidepanel trapp" id="solarSidepanel">
+        <a class="closeButton trapp" onclick="closeSidepanel();">&#9776; Obj</a>
+        <hr>
+        <a class="p-solar-side trapp" onclick="objClicked('trappInfo');closeSidepanel();">TRAPPIST-1</a>
+        <a class="p-solar-side trapb" onclick="objClicked('trapbInfo');closeSidepanel();">TRAPPIST-1 b</a>
+        <a class="p-solar-side trapc" onclick="objClicked('trapcInfo');closeSidepanel();">TRAPPIST-1 c</a>
+        <a class="p-solar-side trapd" onclick="objClicked('trapdInfo');closeSidepanel();">TRAPPIST-1 d</a>
+        <a class="p-solar-side trape" onclick="objClicked('trapeInfo');closeSidepanel();">TRAPPIST-1 e</a>
+        <a class="p-solar-side trapf" onclick="objClicked('trapfInfo');closeSidepanel();">TRAPPIST-1 f</a>
+        <a class="p-solar-side trapg" onclick="objClicked('trapgInfo');closeSidepanel();">TRAPPIST-1 g</a>
+        <a class="p-solar-side traph" onclick="objClicked('traphInfo');closeSidepanel();">TRAPPIST-1 h</a>
+    </div>
+
+    <div class="sidepanel trapp" id="starSidepanel">
+        <a class="closeButton firstButton trapp" onclick="closeSystempanel();">&#9733; Sys</a>
+        <p></p>
+        <a class="solar-button" href="solarsystem">Solar<br>system<img class="short-image firstImg"
+                src="../static/jpg/shorts/solarshort.png" alt="sun"></a>
+        <a class="alpha-button" href="alphacentauri">Alpha<br>Centauri<img class="short-image secondImg"
+                src="../static/jpg/shorts/alphashort.png"></a>
+        <a class="trapp-button">Trappist<br>system<img class="short-image thirdImg"
+                src="../static/jpg/shorts/trappistshort.png"></a>
+        <a class="trebi-button" href="trebia">Trebia<br>system<img class="short-image fourthImg"
+                src="../static/jpg/shorts/trebiashort.png"></a>
+    </div>
+
+    <a class="openButton" onclick="openSidepanel();">&#9776;</a>
+    <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
+    <a class="openButton secondButton" href="">&#8634;</a>
+    <div class="accent-bar trapp"></div>
+
+    <div id="systemInfo" class="left-panel">
+        <a class="moreInfo trapp backToOrg" href="https://russian.rt.com/science/article/477416-planeti-kosmos-zemlya"
+            target="_blank">&#9783;</a>
+        <a class="moreInfo trapp" href="https://exoplanets.nasa.gov/trappist1/" target="_blank">&#9783;</a>
+        <a class="moreInfo trapp second" href="https://nplus1.ru/news/2018/02/06/mystery-of-TRAPPIST-1"
+            target="_blank">&#9783;</a>
+        <div class="normal-border trapp">
+            <h2 class="h2-system trapp">Trappist-1</h2>
+            <p class="p-solar">TRAPPIST-1 is an ultra-cool red dwarf star in the constellation Aquarius with a planetary
+                system of seven known planets. Its mass is about 9% of the Sun's with a radius slightly larger than the
+                planet Jupiter and a surface temperature of about 2,566 K (2,293 °C). The star is 40.7 light-years (12.5
+                pc) from the Sun and is estimated to be 7.6 billion years old, making it older than the Solar System.
+            </p>
+        </div>
+        <div class="normal-border large trapp trapp-filling">
+            <img src="../static/jpg/trappsystem/trappist4.jpg">
+        </div>
+        <div class="normal-border trapp trapp-filling">
+            <img src="../static/jpg/trappsystem/trappist1.jpg">
+        </div>
+        <div class="normal-border trapp">
+            <p class="p-solar">
+                The star was discovered in 2000 and its planets were discovered in 2016 and 2017 based on observations
+                from the Transiting Planets and Planetesimals Small Telescope (TRAPPIST) telescope at La Silla
+                Observatory in Chile and numerous other telescopes. Following the initial discovery of two terrestrial
+                planets in orbit around TRAPPIST-1, a data "anomaly" was found to be caused by five more planets. Their
+                orbital periods – the time each planet takes to orbit the star – range roughly from 1.5 to 19 Earth
+                days. The gravity of TRAPPIST-1's planets holds them in orbital resonance, which could have existed
+                since the formation of the planetary system. The planets are likely to be tidally locked to TRAPPIST-1,
+                which would force them to keep the same side facing their host star at all times.
+            </p>
+        </div>
+        <div class="normal-border trapp">
+            <p class="p-solar">
+                As many as four of the planets (d, e, f, g) are potentially hospitable to life, having orbits in the
+                star's habitable zone.[c] There is no clear evidence that any of the planets have an atmosphere and it
+                is unclear whether the planets could retain an atmosphere given TRAPPIST-1's radiation emission. Given
+                their low densities, the planets may consist of large amounts of volatile material.
+            </p>
+        </div>
+        <div class="normal-border trapp trapp-filling">
+            <img src="../static/jpg/trappsystem/trappist2.jpg">
+        </div>
+        <div class="normal-border trapp trapp-filling">
+            <img src="../static/jpg/trappsystem/trappist3.jpg">
+        </div>
+    </div>
+    <div id="trappInfo" class="left-panel">
+        <button class="closeInfo trapp" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
+        <div class="normal-border trapp">
+            <h3 class="h3-solar">Trappist-1</h3>
+            <p class="p-solar">
+                TRAPPIST-1 is a red dwarf, a cold star with a smaller mass than the Sun. Red dwarfs include the
+                spectral types M and K, and TRAPPIST-1 belongs to class M8.0±0.5. Its mass is about 8.98% of
+                the Sun's mass, only barely sufficient mass to allow nuclear fusion to take place. Slightly
+                larger than Jupiter, its radius is 11.9% that of the Sun.
+            </p>
+        </div>
+        <div class="normal-border trapp trapp-filling">
+            <img src="../static/jpg/trappsystem/trappist11.jpg">
+        </div>
+        <div class="normal-border trapp trapp-filling">
+            <div class="trapslide">
+                <p class="p-solar">
+
+                </p>
+            </div>
+            <div class="trapslide">
+                <p class="p-solar">
+
+                </p>
+            </div>
+            <div class="trapslide">
+                <p class="p-solar">
+
+                </p>
+            </div>
+            <div class="trapslide">
+                <p class="p-solar">
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
+
+    </div>
+    <script src="{% static 'systemscripts.js' %}"></script>
+</body>
+
+</html>
