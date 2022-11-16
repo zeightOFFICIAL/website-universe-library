@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'menustyles.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    <title>Hello, Universe!</title>
+    <link rel="icon" href="{% static 'solaricon.ico' %}">
+</head>
+
+<body>
+
+</body>
+
+</html>
