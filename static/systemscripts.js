@@ -10,7 +10,7 @@ try {
     showSlides(slideIndex, 'phobosSlide');
 }
 catch (TypeError) {
-    console.log("Solar slides was not found");
+    console.log("Solar slides were not found");
 }
 
 try {
@@ -18,7 +18,14 @@ try {
     showSlides(slideIndex, 'proxSlide');
 }
 catch (TypeError) {
-    console.log("Alpha slides was not found");
+    console.log("Alpha slides were not found");
+}
+
+try {
+    showSlides(slideIndex, 'trappSlide');
+}
+catch (TypeError) {
+    console.log("Trapp slides were not found");
 }
 
 function onLoadSolar() {
@@ -48,7 +55,7 @@ function onLoadAlpha() {
     randomShift = Math.floor(Math.random() * 30);
     document.getElementById('beta-spin').style.animationDelay = "-" + randomShift + "s";
     randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift + "s";
+    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift * 100 + "s";
     randomShift = Math.floor(Math.random() * 30);
     document.getElementById('proxc-spin').style.animationDelay = "-" + randomShift * 100 + "s";
     randomShift = Math.floor(Math.random() * 30);
@@ -68,13 +75,27 @@ function onLoadTrebia() {
     randomShift = Math.floor(Math.random() * 30);
     document.getElementById('impera-spin').style.animationDelay = "-" + randomShift + "s";
     randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('essenus-spin').style.animationDelay = "-" + randomShift*100 + "s";
+    document.getElementById('essenus-spin').style.animationDelay = "-" + randomShift * 100 + "s";
     randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('datriux-spin').style.animationDelay = "-" + randomShift*100 + "s";
+    document.getElementById('datriux-spin').style.animationDelay = "-" + randomShift * 100 + "s";
 }
 
 function onLoadTrapp() {
     objClicked('systemInfo');
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trapb-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trapc-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trapd-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trape-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trapf-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('trapg-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 30);
+    document.getElementById('traph-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
 function plusSlides(n, name) {
@@ -112,14 +133,14 @@ function hideAllInfo() {
         document.getElementById('video').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
     }
     catch (TypeError) {
-        console.log("Video files was not found as this page.");
+        console.log("Video files were not found as this page.");
     }
     try {
         sound.pause();
         sound.currentTime = 0;
     }
     catch (TypeError) {
-        console.log("Sound files was not found as this page.");
+        console.log("Sound files were not found as this page.");
     }
 }
 

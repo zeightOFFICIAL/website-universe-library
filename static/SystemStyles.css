@@ -92,6 +92,18 @@ td {
     text-shadow: 0 0 10px #87cefa
 }
 
+.h3-vitte {
+    background-color: rgb(21, 255, 0);
+    background-image: linear-gradient(62deg, rgb(21, 255, 0) 0%, red 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'solar';
+    font-size: 6vmin;
+    margin-bottom: 2.5vmin;
+    cursor: default;
+}
+
 .p-solar {
     text-align: center;
     font-family: 'normal';
@@ -186,6 +198,12 @@ td {
     width: 100%;
     height: 100vmin;
     object-fit: cover
+}
+
+.normal-border.medium img {
+    width: 100%;
+    height: 45vmin;
+    object-fit: cover;
 }
 
 .normal-border.hidden {
@@ -728,6 +746,11 @@ td {
     background-color: rgba(255, 117, 0, 1)
 }
 
+.display-next.trapp,
+.display-prev.trapp {
+    background-color: #00fff2
+}
+
 .display-prev {
     float: left;
     width: 50%
@@ -761,6 +784,7 @@ td {
 #trebia,
 #zeropoint,
 #sun,
+#trapp,
 .orbit,
 .orbit+div,
 .orbit+div>div {
@@ -770,6 +794,7 @@ td {
 #trebia,
 #zeropoint,
 #sun,
+#trapp,
 .orbit,
 .orbit+div {
     top: 50%;
@@ -814,6 +839,17 @@ td {
     width: 0;
     background: #fff;
     border-radius: 50%
+}
+
+#trapp {
+    height: 4vh;
+    width: 4vh;
+    background: #ff0000;
+    background: radial-gradient(circle, #ff0000 39%, rgb(255, 98, 0) 100%);
+    margin-top: -2vh;
+    margin-left: -2vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 2px #ff0000
 }
 
 #mercury {
@@ -1381,5 +1417,160 @@ td {
 
 .datriux-spin {
     animation: spin-right 1005.5s linear infinite;
+    border-radius: 100%
+}
+
+/* ------------------------------------------------ trapp */
+
+#trapb {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #35b0c3;
+    background: radial-gradient(circle, #35b0c3 0%, #00046c 100%);
+    box-shadow: 0 0 2px #fff
+}
+.trapb-spin,
+.trapb-orbit {
+    width: 12vh;
+    height: 12vh;
+    margin-top: -6vh;
+    margin-left: -6vh
+}
+
+.trapb-spin {
+    animation: spin-right 3s linear infinite;
+    border-radius: 100%
+}
+
+#trapc {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #fffcab 0%, #c2a12a 100%);
+    box-shadow: 0 0 1px #fff
+}
+.trapc-spin,
+.trapc-orbit {
+    width: 22vh;
+    height: 22vh;
+    margin-top: -11vh;
+    margin-left: -11vh
+}
+
+.trapc-spin {
+    animation: spin-right 9s linear infinite;
+    border-radius: 100%
+}
+
+#trapd {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #3dd6a9;
+    background: radial-gradient(circle, #2fce86 0%, #3122d4 100%);
+}
+.trapd-spin,
+.trapd-orbit {
+    width: 28vh;
+    height: 28vh;
+    margin-top: -14vh;
+    margin-left: -14vh
+}
+
+.trapd-spin {
+    animation: spin-right 12s linear infinite;
+    border-radius: 100%
+}
+
+#trape {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #fbff79;
+    background: radial-gradient(circle, #ffdc7b 0%, #0c70ea 100%);
+    box-shadow: 0 0 5px blue;
+}
+.trape-spin,
+.trape-orbit {
+    width: 36vh;
+    height: 36vh;
+    margin-top: -18vh;
+    margin-left: -18vh
+}
+
+.trape-spin {
+    animation: spin-right 23s linear infinite;
+    border-radius: 100%
+}
+
+#trapf {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #d2ac43 0%, #614c00 100%);
+    box-shadow: 0 0 3px #fff
+}
+.trapf-spin,
+.trapf-orbit {
+    width: 46vh;
+    height: 46vh;
+    margin-top: -23vh;
+    margin-left: -23vh
+}
+
+.trapf-spin {
+    animation: spin-right 45s linear infinite;
+    border-radius: 100%
+}
+
+#trapg {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #ffffff 0%, #ffb854 100%);
+    box-shadow: 0 0 2px #fff
+}
+.trapg-spin,
+.trapg-orbit {
+    width: 60vh;
+    height: 60vh;
+    margin-top: -30vh;
+    margin-left: -30vh
+}
+
+.trapg-spin {
+    animation: spin-right 65s linear infinite;
+    border-radius: 100%
+}
+
+#traph {
+    height: 6vh;
+    width: 6vh;
+    margin-top: -3vh;
+    margin-left: -3vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #6a4800 0%, #5e0000 100%);
+    box-shadow: 0 0 2px #fff
+}
+.traph-spin,
+.traph-orbit {
+    width: 74vh;
+    height: 74vh;
+    margin-top: -37vh;
+    margin-left: -37vh
+}
+
+.traph-spin {
+    animation: spin-right 98s linear infinite;
     border-radius: 100%
 }
