@@ -14,3 +14,6 @@ def trappPage(request):
 
 def trebiaPage(request):
     return render(request, "systems/trebia.html")
+
+def aboutPage(request):
+    return render(request, "about.html")

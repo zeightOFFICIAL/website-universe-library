@@ -21,6 +21,7 @@ from .views import *
 urlpatterns = [
     path('', indexPage, name="index"),
     path('space', indexPage, name="index"),
+    path('about', aboutPage, name="about"),
     path('solarsystem', solarPage, name="solar"),
     path('alphacentauri', alphaPage, name="alpha"),
     path('trappist', trappPage, name="trapp"),
