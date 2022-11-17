@@ -158,14 +158,15 @@ body {
 }
 
 .secondtext,
-.thirdtext {
+.thirdtext,
+.fourtext {
     position: absolute;
     top: 44vh;
-    left: 400vw;
+    left: 200vw;
     width: 100vw;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 2.5vw;
+    font-size: 5vmin;
     font-family: "solar_bold", sans-serif;
     text-align: center;
     transition: left 3s, text-shadow 1.5s;
@@ -178,9 +179,82 @@ body {
     background-clip: text;
     color: transparent;
 }
+.thirdtext {
+    left: 400vw;
+}
+.fourtext {
+    left: 600vw;
+}
 
 .maintext:hover,
 .secondtext:hover,
 .thirdtext:hover {
     text-shadow: 0 0 15px #fff;
+}
+
+.abouttext,
+.skiptext,
+.tosolar,
+.toalpha,
+.totrapp,
+.totrebia {
+    position: absolute;
+    top: 3vmin;
+    left: 3.5vmin;
+    width: 15vmin;
+    height: 4vmin;
+    font-size: 1.5vmin;
+    text-align: center;
+    font-family: 'solar_bold';
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 1vmin;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border-image: linear-gradient(to top, rgb(255, 255, 255), rgb(85, 85, 85)) 1;
+    line-height: 1.15;
+    transition: 1s;
+    overflow: hidden;
+    opacity: 0%;
+    animation: reveal2 3000ms ease-in-out forwards 200ms;
+
+    @keyframes reveal2 {
+        100% {
+            opacity: 100%;
+        }
+
+        
+    }
+}
+
+.abouttext:hover,
+.skiptext:hover,
+.tosolar:hover,
+.toalpha:hover,
+.totrapp:hover,
+.totrebia:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0 0 10px white;
+}
+
+.skiptext {
+    top: 8vmin;
+}
+
+.tosolar {
+    top: 13vmin;
+}
+
+.toalpha {
+    top: 18vmin;
+}
+
+.totrapp {
+    top: 23vmin;
+}
+
+.totrebia {
+    top: 28vmin;
 }
