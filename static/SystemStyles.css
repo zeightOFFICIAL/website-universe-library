@@ -1,1517 +1,1582 @@
 @font-face {
-    font-family:'solar';
-    src:url(../static/fonts/earthorbiter.ttf);
-    font-weight:400;
-    font-style:normal
-    }
-    
-    @font-face {
-    font-family:'normal';
-    src:url(../static/fonts/vanadine.ttf);
-    font-weight:bolder;
-    font-style:normal
-    }
-    
-    @font-face {
-    font-family:'side';
-    src:url(../static/fonts/alienleague.ttf);
-    font-weight:400;
-    font-style:normal
-    }
-    
-    html,body {
-    background-color:#000;
-    height:100vh;
-    overflow:hidden;
-    -ms-overflow-style:none;
-    scrollbar-width:none
-    }
-    
-    h3 {
-    text-align:center
-    }
-    
-    body::-webkit-scrollbar {
-    display:none
-    }
-    
-    td {
-    padding:0 10px
-    }
-    
-    .h2-system {
-    text-align:center;
-    font-family:'solar';
-    font-size:7vmin;
-    margin-bottom:2.5vmin;
-    cursor:default
-    }
-    
-    .h2-system.solar {
-    background-color:#FBAB7E;
-    background-image:linear-gradient(62deg,#FBAB7E 0%,#F7CE68 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent
-    }
-    
-    .h2-system.alpha {
-    background-color:rgba(255,117,0,1);
-    background-image:linear-gradient(62deg,#fa0 0%,red 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent
-    }
-    
-    .h2-system.trebia {
-    background-color:#09b100;
-    background:linear-gradient(180deg,#09b100 0%,#53824f 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent
-    }
-    
-    .h2-system.trapp {
-    background-color:#00fff2;
-    background:linear-gradient(0deg,#00fff2 0%,#0800ff 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent
-    }
-    
-    .h3-solar {
-    font-family:'solar';
-    font-size:6vmin;
-    margin-bottom:2.5vmin;
-    cursor:default;
-    color:#fff
-    }
-    
-    .h3-special {
-    font-family:'solar';
-    font-size:6vmin;
-    margin-bottom:2.5vmin;
-    cursor:default;
-    color:#00fff2;
-    text-shadow:0 0 10px #87cefa
-    }
-    
-    .h3-vitte {
-    background-color:#15ff00;
-    text-shadow:0 0 10px #15ff00;
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    font-family:'solar';
-    font-size:6vmin;
-    margin-bottom:2.5vmin;
-    cursor:default
-    }
-    
-    .p-solar {
-    text-align:center;
-    font-family:'normal';
-    font-size:3vmin;
-    cursor:default;
-    color:#fff
-    }
-    
-    .p-solar table {
-    font-size:2vmin
-    }
-    
-    .left-panel {
-    display:block;
-    position:absolute;
-    top:0;
-    left:10%;
-    width:35%;
-    height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-    text-indent:-1000em;
-    transition:left .7s;
-    top:200vh;
-    -ms-overflow-style:none;
-    scrollbar-width:none;
-    scroll-behavior:smooth
-    }
-    
-    .left-panel::-webkit-scrollbar {
-    display:none
-    }
-    
-    .accent-bar {
-    position:absolute;
-    top:0;
-    left:0;
-    width:10vmin;
-    height:100vh;
-    transition:.7s
-    }
-    
-    .accent-bar.solar {
-    background-color:#FBAB7E;
-    background-image:linear-gradient(62deg,#FBAB7E 0%,#F7CE68 100%);
-    box-shadow:0 0 3vw #FBAB7E
-    }
-    
-    .accent-bar.alpha {
-    background:#ff7500;
-    background:linear-gradient(0deg,rgba(255,117,0,1) 0%,rgba(255,0,0,1) 100%);
-    box-shadow:0 0 3vw red
-    }
-    
-    .accent-bar.trebia {
-    background:#067900;
-    background:linear-gradient(180deg,#09b100 0%,#53824f 100%);
-    box-shadow:0 0 3vw green
-    }
-    
-    .accent-bar.trapp {
-    background:#1351cd;
-    background:linear-gradient(180deg,#1380cd 0%,#0f82a8 100%);
-    box-shadow:0 0 3vw #00fff2
-    }
-    
-    .normal-border {
-    border-width:3px;
-    border-style:solid;
-    margin:40px 15px
-    }
-    
-    .normal-border.solar {
-    border-image:linear-gradient(to right,#FBAB7E,#F7CE68) 1;
-    box-shadow:0 0 20px #ff0
-    }
-    
-    .normal-border.alpha {
-    border-image:linear-gradient(to top,rgba(255,117,0,1),rgba(255,0,0,1)) 1;
-    box-shadow:0 0 20px orange
-    }
-    
-    .normal-border.trebia {
-    border-image:linear-gradient(to bottom,#09b100,#53824f) 1;
-    box-shadow:0 0 20px #00cb87
-    }
-    
-    .normal-border.trapp {
-    border-image:linear-gradient(to top,#00fff2,#2e6198) 1;
-    box-shadow:0 0 20px #00fff2
-    }
-    
-    .normal-border img {
-    width:100%;
-    height:35vmin;
-    object-fit:cover
-    }
-    
-    .normal-border.large img {
-    width:100%;
-    height:100vmin;
-    object-fit:cover
-    }
-    
-    .normal-border.medium img {
-    width:100%;
-    height:45vmin;
-    object-fit:cover
-    }
-    
-    .normal-border.hidden {
-    overflow:hidden
-    }
-    
-    .normal-border .p-solar {
-    padding:20px 30px;
-    text-align:center
-    }
-    
-    .normal-border.p-solar {
-    padding:20px 30px;
-    text-align:center
-    }
-    
-    .solar-filling {
-    background-color:#FBAB7E;
-    background-image:linear-gradient(to right,#FBAB7E,#F7CE68)
-    }
-    
-    .alpha-filling {
-    background-color:rgba(255,117,0,1);
-    background-image:linear-gradient(to top,rgba(255,117,0,1),rgba(255,0,0,1))
-    }
-    
-    .trebia-filling {
-    background-color:#067900;
-    background-image:linear-gradient(180deg,#09b100 0%,#53824f 100%)
-    }
-    
-    .trapp-filling {
-    background-color:#00fff2;
-    background-image:linear-gradient(0deg,#00fff2 0%,#2e6198 100%)
-    }
-    
-    .closeInfo,.moreInfo {
-    position:absolute;
-    top:30px;
-    padding:0 3vmin;
-    text-align:center;
-    border:solid 2px #000;
-    font-size:3vmin;
-    cursor:pointer
-    }
-    
-    .closeInfo.solar,.moreInfo.solar {
-    background-color:#FBAB7E;
-    background-image:linear-gradient(62deg,#FBAB7E 0%,#F7CE68 100%)
-    }
-    
-    .moreInfo.alpha,.closeInfo.alpha {
-    background-color:rgba(255,117,0,1);
-    background-image:linear-gradient(62deg,rgba(255,117,0,1),rgba(255,0,0,1))
-    }
-    
-    .moreInfo.trebia,.closeInfo.trebia {
-    background-color:#067900;
-    background-image:linear-gradient(62deg,#09b300,#15ff00)
-    }
-    
-    .moreInfo.trapp,.closeInfo.trapp {
-    background-color:#00fff2;
-    background-image:linear-gradient(62deg,#00fff2,#2e6198)
-    }
-    
-    .closeInfo:hover,.moreInfo:hover {
-    background-color:#fff;
-    background-image:linear-gradient(62deg,#fff 0%,#fff 100%)
-    }
-    
-    .moreInfo {
-    left:10vmin;
-    text-decoration:none;
-    color:#000
-    }
-    
-    .moreInfo.second {
-    left:20vmin
-    }
-    
-    .moreInfo.backToOrg {
-    left:0
-    }
-    
-    .classified {
-    text-align:left;
-    color:#fff;
-    background-color:#720000
-    }
-    
-    .value {
-    text-align:left;
-    color:#fff
-    }
-    
-    .type {
-    color:#fff;
-    text-align:right
-    }
-    
-    .sidepanel {
-    height:100vh;
-    width:0;
-    position:fixed;
-    z-index:2;
-    top:0;
-    left:0;
-    background-color:#000;
-    transition:.7s;
-    overflow-x:hidden;
-    overflow-y:scroll;
-    -ms-overflow-style:none;
-    scrollbar-width:none
-    }
-    
-    .sidepanel.solar {
-    box-shadow:3px 0 3px #FBAB7E
-    }
-    
-    .sidepanel.alpha {
-    box-shadow:3px 0 3px red
-    }
-    
-    .sidepanel.trebia {
-    box-shadow:3px 0 3px #067900
-    }
-    
-    .sidepanel.trapp {
-    box-shadow:3px 0 3px #00fff2
-    }
-    
-    .sidepanel hr {
-    height:12vmin;
-    border:none
-    }
-    
-    .sidepanel p {
-    font-size:20vmin
-    }
-    
-    .sidepanel::-webkit-scrollbar {
-    display:none
-    }
-    
-    .closeButton,.openButton {
-    font-family:'solar';
-    font-size:3vmin;
-    font-weight:bolder;
-    text-decoration:none;
-    width:1em;
-    cursor:pointer;
-    color:#000;
-    padding:2vmin 3.5vmin;
-    transition:.7s;
-    position:absolute;
-    top:0;
-    left:0;
-    border:none
-    }
-    
-    .openButton.firstButton,.closeButton.firstButton {
-    top:7.5vmin
-    }
-    
-    .openButton.secondButton,.closeButton.secondButton {
-    top:92vh
-    }
-    
-    .closeButton {
-    width:100%;
-    color:#000;
-    overflow:hidden;
-    min-width:50vmin;
-    text-align:left
-    }
-    
-    .closeButton.solar {
-    background-color:#FBAB7E;
-    background-image:linear-gradient(60deg,#FBAB7E 0%,#F7CE68 100%);
-    box-shadow:0 0 3vw #FBAB7E
-    }
-    
-    .closeButton.alpha {
-    background:#6b2323;
-    background:linear-gradient(270deg,rgba(107,35,35,1) 0%,rgba(255,0,0,1) 100%);
-    box-shadow:0 0 3vw red
-    }
-    
-    .closeButton.trebia {
-    background:#067900;
-    background:linear-gradient(270deg,#067900 0%,#0be300 100%);
-    box-shadow:0 0 3vw green
-    }
-    
-    .closeButton.trapp {
-    background:#00fff2;
-    background:linear-gradient(270deg,#00fff2 0%,#5148ff 100%);
-    box-shadow:0 0 3vw #00fff2
-    }
-    
-    .openButton {
-    background-color:rgba(255,255,255,0);
-    z-index:1
-    }
-    
-    .openButton:hover {
-    background-color:#fff;
-    transition:.75s
-    }
-    
-    .closeButton:hover {
-    color:#fff;
-    transition:.75s
-    }
-    
-    .p-solar-side {
-    display:block;
-    font-family:'side';
-    font-size:3.5vmin;
-    font-weight:900;
-    color:#aaa;
-    cursor:pointer;
-    overflow-x:hidden;
-    padding-bottom:1vmin;
-    padding-left:15%;
-    transition:.15s;
-    height:4vmin;
-    overflow-y:hidden;
-    white-space:nowrap
-    }
-    
-    .p-solar-side:hover {
-    padding-left:10%;
-    font-size:5vmin
-    }
-    
-    .p-solar-side:hover.sun:hover {
-    color:#ff0;
-    text-shadow:0 0 2vh #ff0
-    }
-    
-    .p-solar-side:hover.earth:hover {
-    color:#35b1ff;
-    text-shadow:0 0 7px #00b7ff
-    }
-    
-    .p-solar-side:hover.asteroid:hover {
-    color:#fff;
-    text-shadow:0 0 7px #fff
-    }
-    
-    .p-solar-side:hover.jupiter:hover {
-    color:#ffbf00;
-    text-shadow:0 0 2vh #ffa200
-    }
-    
-    .p-solar-side:hover.mars:hover {
-    color:red;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.mercury:hover {
-    color:#ff9e7d;
-    text-shadow:0 0 2vh #ff4000
-    }
-    
-    .p-solar-side:hover.neptune:hover {
-    color:#0051ff;
-    text-shadow:0 0 2vh #008cff
-    }
-    
-    .p-solar-side:hover.uranus:hover {
-    color:#00fff2;
-    text-shadow:0 0 2vh #00fff2
-    }
-    
-    .p-solar-side:hover.venus:hover {
-    color:#ff91a3;
-    text-shadow:0 0 2vh #f0f
-    }
-    
-    .p-solar-side:hover.moon:hover {
-    color:#fff;
-    text-shadow:0 0 2vh #fff
-    }
-    
-    .p-solar-side:hover.phobos:hover {
-    color:#fff;
-    text-shadow:0 0 2vh #fff
-    }
-    
-    .p-solar-side:hover.jovian:hover {
-    color:#ff4500;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.saturn:hover {
-    color:#ffeda4;
-    text-shadow:0 0 2vh #ff9500
-    }
-    
-    .p-solar-side:hover.alphaalpha:hover {
-    color:#ff0;
-    text-shadow:0 0 2vh #ff0
-    }
-    
-    .p-solar-side:hover.alphabeta:hover {
-    color:orange;
-    text-shadow:0 0 2vh orange
-    }
-    
-    .p-solar-side:hover.alphaprox:hover {
-    color:red;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.alphaproxb:hover {
-    color:#ffa3df;
-    text-shadow:0 0 2vh #ff00c8
-    }
-    
-    .p-solar-side:hover.alphaproxc:hover {
-    color:#ffdaad;
-    text-shadow:0 0 2vh #ff8400
-    }
-    
-    .p-solar-side:hover.alphaproxd:hover {
-    color:#969dff;
-    text-shadow:0 0 2vh #0084ff
-    }
-    
-    .p-solar-side:hover.trebia:hover {
-    color:#0f0;
-    text-shadow:0 0 2vh #adff2f
-    }
-    
-    .p-solar-side:hover.menae:hover {
-    color:#f0f;
-    text-shadow:0 0 2vh #ffc0cb
-    }
-    
-    .p-solar-side:hover.palaven:hover {
-    color:red;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.impera:hover {
-    color:orange;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.essenus:hover {
-    color:#daa520;
-    text-shadow:0 0 2vh orange
-    }
-    
-    .p-solar-side:hover.datriux:hover {
-    color:#6a5acd;
-    text-shadow:0 0 2vh blue
-    }
-    
-    .p-solar-side:hover.caelax:hover {
-    color:#fff;
-    text-shadow:0 0 2vh #f5deb3
-    }
-    
-    .p-solar-side:hover.aventen:hover {
-    color:#87ceeb;
-    text-shadow:0 0 2vh #20b2aa
-    }
-    
-    .p-solar-side:hover.trapp:hover {
-    color:red;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.trapb:hover {
-    color:#00cb87;
-    text-shadow:0 0 2vh #87cefa
-    }
-    
-    .p-solar-side:hover.trapc:hover {
-    color:#ffe09c;
-    text-shadow:0 0 2vh #fe0
-    }
-    
-    .p-solar-side:hover.trapd:hover {
-    color:#6e70ff;
-    text-shadow:0 0 2vh #00b3ff
-    }
-    
-    .p-solar-side:hover.trape:hover {
-    color:#ffc34c;
-    text-shadow:0 0 2vh #feffaa
-    }
-    
-    .p-solar-side:hover.trapf:hover {
-    color:#ffb300;
-    text-shadow:0 0 2vh red
-    }
-    
-    .p-solar-side:hover.trapg:hover {
-    color:#f6ff00;
-    text-shadow:0 0 2vh #ffa600
-    }
-    
-    .p-solar-side:hover.traph:hover {
-    color:#f37500;
-    text-shadow:0 0 2vh red
-    }
-    
-    .solar-button,.alpha-button,.trebi-button,.trapp-button {
-    text-align:center;
-    display:block;
-    font-family:'solar';
-    font-size:4vmin;
-    font-weight:bolder;
-    cursor:pointer;
-    overflow-x:hidden;
-    transition:.5s;
-    background-color:#FBAB7E;
-    background-image:linear-gradient(62deg,#FBAB7E 35%,#F7CE68 65%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    padding:1.5vmin 0;
-    height:7vmin;
-    overflow-y:hidden
-    }
-    
-    .solar-button:hover,.alpha-button:hover,.trapp-button:hover,.trebi-button:hover {
-    height:10vmin;
-    padding-top:5.25vmin;
-    padding-left:0;
-    padding-right:25%
-    }
-    
-    .solar-button:hover .short-image {
-    left:67%
-    }
-    
-    .alpha-button {
-    background-color:#ffe900;
-    background-image:linear-gradient(62deg,#ffe900 35%,#9a0000 65%)
-    }
-    
-    .alpha-button:hover .short-image {
-    left:67%
-    }
-    
-    .trapp-button {
-    background-color:#31fff4;
-    background-image:linear-gradient(62deg,#31fff4 35%,#3d00ff 65%)
-    }
-    
-    .trapp-button:hover .short-image {
-    left:67%
-    }
-    
-    .trebi-button {
-    background-color:#939037;
-    background-image:linear-gradient(62deg,#939037 35%,#999 65%)
-    }
-    
-    .trebi-button:hover .short-image {
-    left:67%
-    }
-    
-    .short-image {
-    position:absolute;
-    left:120%;
-    height:20vmin;
-    transition:.5s
-    }
-    
-    .short-image.firstImg {
-    top:20vmin
-    }
-    
-    .short-image.secondImg {
-    top:30vmin
-    }
-    
-    .short-image.thirdImg {
-    top:40vmin
-    }
-    
-    .short-image.fourthImg {
-    top:50vmin
-    }
-    
-    .display-prev,.display-next {
-    display:inline;
-    color:#000;
-    cursor:pointer;
-    transition:.5s;
-    background:transparent;
-    border:none;
-    font-size:2vmin;
-    background-color:#FBAB7E;
-    margin:0;
-    padding:0;
-    overflow:hidden
-    }
-    
-    .display-next {
-    background-color:#F7CE68;
-    float:right;
-    width:50%
-    }
-    
-    .display-next.alpha,.display-prev.alpha {
-    background-color:rgba(255,117,0,1)
-    }
-    
-    .display-next.trapp,.display-prev.trapp {
-    background-color:#00fff2
-    }
-    
-    .display-prev {
-    float:left;
-    width:50%
-    }
-    
-    .display-next:hover,.display-prev:hover {
-    background-color:#fff
-    }
-    
-    .solarSlide {
-    text-align:center;
-    padding:20px 30px
-    }
-    
-    .star-system {
-    position:absolute;
-    top:0;
-    left:46%;
-    width:54%;
-    height:100%;
-    overflow:hidden;
-    transition:.7s
-    }
-    
-    .orbit {
-    border:1px solid #39394e
-    }
-    
-    #trebia,#zeropoint,#sun,#trapp,.orbit,.orbit+div,.orbit+div>div {
-    position:absolute
-    }
-    
-    #trebia,#zeropoint,#sun,#trapp,.orbit,.orbit+div {
-    top:50%;
-    left:50%
-    }
-    
-    .orbit+div>div {
-    top:0;
-    left:50%
-    }
-    
-    .orbit,.orbit+div div,#earth {
-    border-radius:50%
-    }
-    
-    #sun {
-    height:8vh;
-    width:8vh;
-    background:#fbff00;
-    background:radial-gradient(circle,rgba(251,255,0,1) 39%,rgba(255,0,0,1) 100%);
-    margin-top:-4vh;
-    margin-left:-4vh;
-    border-radius:50%;
-    box-shadow:0 0 20px #ffa600
-    }
-    
-    #trebia {
-    height:8vh;
-    width:8vh;
-    background:#fbff00;
-    background:radial-gradient(circle,rgba(251,255,0,1) 39%,#fffdeb 100%);
-    margin-top:-4vh;
-    margin-left:-4vh;
-    border-radius:50%;
-    box-shadow:0 0 20px #f90
-    }
-    
-    #zeropoint {
-    height:0;
-    width:0;
-    background:#fff;
-    border-radius:50%
-    }
-    
-    #trapp {
-    height:4vh;
-    width:4vh;
-    background:red;
-    background:radial-gradient(circle,red 39%,#ff6200 100%);
-    margin-top:-2vh;
-    margin-left:-2vh;
-    border-radius:50%;
-    box-shadow:0 0 20px 2px red
-    }
-    
-    #mercury {
-    margin-top:-1vh;
-    margin-left:-1vh;
-    height:2vh;
-    width:2vh;
-    background:#964747;
-    background:radial-gradient(circle,rgba(150,71,71,1) 0%,rgba(107,72,72,1) 58%)
-    }
-    
-    .mercury-orbit,.mercury-spin {
-    width:11vh;
-    height:11vh;
-    margin-left:-5.5vh;
-    margin-top:-5.5vh
-    }
-    
-    #venus {
-    margin-top:-2vh;
-    margin-left:-2vh;
-    height:4vh;
-    width:4vh;
-    background:#ffe2b0;
-    background:radial-gradient(circle,rgba(255,226,176,1) 0%,rgba(255,230,255,1) 100%);
-    box-shadow:0 0 5px #ffee90
-    }
-    
-    .venus-orbit,.venus-spin {
-    margin-top:-9vh;
-    margin-left:-9vh;
-    width:18vh;
-    height:18vh
-    }
-    
-    #earth {
-    margin-top:-2vh;
-    margin-left:-2vh;
-    height:4vh;
-    width:4vh;
-    background:#1afcff;
-    background:radial-gradient(circle,rgba(26,252,255,1) 0%,rgba(122,128,255,1) 100%);
-    box-shadow:0 0 5px #d7d9f5
-    }
-    
-    .earth-orbit,.earth-spin {
-    width:29vh;
-    height:29vh;
-    margin-left:-14.5vh;
-    margin-top:-14.5vh
-    }
-    
-    #moon {
-    margin-top:-.5vh;
-    margin-left:-.5vh;
-    height:1vh;
-    width:1vh;
-    background-color:#aaa
-    }
-    
-    .moon-orbit,.moon-spin {
-    height:6vh;
-    width:6vh;
-    margin-top:-3vh;
-    margin-left:-3vh;
-    border-color:#39394e
-    }
-    
-    #mars {
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    height:3vh;
-    width:3vh;
-    background:red;
-    background:radial-gradient(circle,rgba(255,0,0,1) 0%,rgba(179,73,0,1) 100%);
-    box-shadow:0 0 5px #be1616
-    }
-    
-    .mars-orbit,.mars-spin {
-    width:44vh;
-    height:44vh;
-    margin-left:-22vh;
-    margin-top:-22vh
-    }
-    
-    #deimos {
-    margin-top:-.5vh;
-    margin-left:-.5vh;
-    height:1vh;
-    width:1vh;
-    background-color:#aaa
-    }
-    
-    .deimos-orbit,.deimos-spin {
-    height:5vh;
-    width:5vh;
-    margin-top:-2.5vh;
-    margin-left:-2.5vh;
-    border-color:#39394e
-    }
-    
-    #phobos {
-    margin-top:-.5vh;
-    margin-left:-.5vh;
-    height:1vh;
-    width:1vh;
-    background-color:#aaa
-    }
-    
-    .phobos-orbit,.phobos-spin {
-    height:7vh;
-    width:7vh;
-    margin-top:-3.5vh;
-    margin-left:-3.5vh;
-    border-color:#39394e
-    }
-    
-    .asteroids-orbit,.asteroids-spin {
-    width:52vh;
-    height:52vh;
-    margin-left:-26vh;
-    margin-top:-26vh;
-    border-radius:50%;
-    border-width:0;
-    box-shadow:0 0 7vh #4b4b4b;
-    border-color:#292929
-    }
-    
-    #jupiter {
-    margin-top:-3.5vh;
-    margin-left:-3.5vh;
-    height:7vh;
-    width:7vh;
-    background:#ff8200;
-    background:radial-gradient(circle,rgba(255,130,0,1) 0%,rgba(99,46,0,1) 100%);
-    box-shadow:0 0 10px #c5a572
-    }
-    
-    .jupiter-orbit,.jupiter-spin {
-    width:59vh;
-    height:59vh;
-    margin-left:-29.5vh;
-    margin-top:-29.5vh
-    }
-    
-    #saturn {
-    margin-top:-3vh;
-    margin-left:-3vh;
-    height:6vh;
-    width:6vh;
-    background:#b67335;
-    background:radial-gradient(circle,rgba(182,115,53,1) 0%,rgba(255,185,151,1) 100%);
-    box-shadow:0 0 15px #9c7a48
-    }
-    
-    .saturn-orbit,.saturn-spin {
-    width:73vh;
-    height:73vh;
-    margin-left:-36.5vh;
-    margin-top:-36.5vh
-    }
-    
-    #uranus {
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    height:3vh;
-    width:3vh;
-    background:#86c4ff;
-    background:radial-gradient(circle,rgba(134,196,255,1) 0%,rgba(213,206,255,1) 100%);
-    box-shadow:0 0 25px #a490ff
-    }
-    
-    .uranus-orbit,.uranus-spin {
-    width:83vh;
-    height:83vh;
-    margin-left:-41.5vh;
-    margin-top:-41.5vh
-    }
-    
-    #neptune {
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    height:3vh;
-    width:3vh;
-    background:#63b3ff;
-    background:radial-gradient(circle,rgba(99,179,255,1) 0%,rgba(36,0,255,1) 100%);
-    box-shadow:0 0 25px #2f00ff
-    }
-    
-    .neptune-orbit,.neptune-spin {
-    width:92vh;
-    height:92vh;
-    margin-left:-46vh;
-    margin-top:-46vh
-    }
-    
-    @keyframes spin-right {
+    font-family: 'solar';
+    src: url(../static/fonts/earthorbiter.ttf);
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'normal';
+    src: url(../static/fonts/vanadine.ttf);
+    font-weight: bolder;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'side';
+    src: url(../static/fonts/alienleague.ttf);
+    font-weight: 400;
+    font-style: normal
+}
+
+html,
+body {
+    background-color: #000;
+    height: 100vh;
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+h3 {
+    text-align: center
+}
+
+body::-webkit-scrollbar {
+    display: none
+}
+
+td {
+    padding: 0 10px
+}
+
+.h2-system {
+    text-align: center;
+    font-family: 'solar';
+    font-size: 7vmin;
+    margin-bottom: 2.5vmin;
+    cursor: default
+}
+
+.h2-system.solar {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.h2-system.alpha {
+    background-color: rgba(255, 117, 0, 1);
+    background-image: linear-gradient(62deg, #fa0 0%, red 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.h2-system.trebia {
+    background-color: #09b100;
+    background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.h2-system.trapp {
+    background-color: #00fff2;
+    background: linear-gradient(0deg, #00fff2 0%, #0800ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+.h3-solar {
+    font-family: 'solar';
+    font-size: 6vmin;
+    margin-bottom: 2.5vmin;
+    cursor: default;
+    color: #fff
+}
+
+.h3-special {
+    font-family: 'solar';
+    font-size: 6vmin;
+    margin-bottom: 2.5vmin;
+    cursor: default;
+    color: #00fff2;
+    text-shadow: 0 0 10px #87cefa
+}
+
+.h3-vitte {
+    background-color: #15ff00;
+    text-shadow: 0 0 10px #15ff00;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'solar';
+    font-size: 6vmin;
+    margin-bottom: 2.5vmin;
+    cursor: default
+}
+
+.p-solar {
+    text-align: center;
+    font-family: 'normal';
+    font-size: 3vmin;
+    cursor: default;
+    color: #fff
+}
+
+.p-solar table {
+    font-size: 2vmin
+}
+
+.left-panel {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 35%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-indent: -1000em;
+    transition: left .7s;
+    top: 200vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth
+}
+
+.left-panel::-webkit-scrollbar {
+    display: none
+}
+
+.accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10vmin;
+    height: 100vh;
+    transition: .7s
+}
+
+.accent-bar.solar {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    box-shadow: 0 0 3vw #FBAB7E
+}
+
+.accent-bar.alpha {
+    background: #ff7500;
+    background: linear-gradient(0deg, rgba(255, 117, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    box-shadow: 0 0 3vw red
+}
+
+.accent-bar.trebia {
+    background: #067900;
+    background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
+    box-shadow: 0 0 3vw green
+}
+
+.accent-bar.trapp {
+    background: #1351cd;
+    background: linear-gradient(180deg, #1380cd 0%, #0f82a8 100%);
+    box-shadow: 0 0 3vw #00fff2
+}
+
+.normal-border {
+    border-width: 3px;
+    border-style: solid;
+    margin: 40px 15px
+}
+
+.normal-border.solar {
+    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
+    box-shadow: 0 0 20px #ff0
+}
+
+.normal-border.alpha {
+    border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    box-shadow: 0 0 20px orange
+}
+
+.normal-border.trebia {
+    border-image: linear-gradient(to bottom, #09b100, #53824f) 1;
+    box-shadow: 0 0 20px #00cb87
+}
+
+.normal-border.trapp {
+    border-image: linear-gradient(to top, #00fff2, #2e6198) 1;
+    box-shadow: 0 0 20px #00fff2
+}
+
+.normal-border img {
+    width: 100%;
+    height: 35vmin;
+    object-fit: cover
+}
+
+.normal-border.large img {
+    width: 100%;
+    height: 100vmin;
+    object-fit: cover
+}
+
+.normal-border.medium img {
+    width: 100%;
+    height: 45vmin;
+    object-fit: cover
+}
+
+.normal-border.hidden {
+    overflow: hidden
+}
+
+.normal-border .p-solar {
+    padding: 20px 30px;
+    text-align: center
+}
+
+.normal-border.p-solar {
+    padding: 20px 30px;
+    text-align: center
+}
+
+.solar-filling {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(to right, #FBAB7E, #F7CE68)
+}
+
+.alpha-filling {
+    background-color: rgba(255, 117, 0, 1);
+    background-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1))
+}
+
+.trebia-filling {
+    background-color: #067900;
+    background-image: linear-gradient(180deg, #09b100 0%, #53824f 100%)
+}
+
+.trapp-filling {
+    background-color: #00fff2;
+    background-image: linear-gradient(0deg, #00fff2 0%, #2e6198 100%)
+}
+
+.closeInfo,
+.moreInfo {
+    position: absolute;
+    top: 30px;
+    padding: 0 3vmin;
+    text-align: center;
+    border: solid 2px #000;
+    font-size: 3vmin;
+    cursor: pointer
+}
+
+.closeInfo.solar,
+.moreInfo.solar {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)
+}
+
+.moreInfo.alpha,
+.closeInfo.alpha {
+    background-color: rgba(255, 117, 0, 1);
+    background-image: linear-gradient(62deg, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1))
+}
+
+.moreInfo.trebia,
+.closeInfo.trebia {
+    background-color: #067900;
+    background-image: linear-gradient(62deg, #09b300, #15ff00)
+}
+
+.moreInfo.trapp,
+.closeInfo.trapp {
+    background-color: #00fff2;
+    background-image: linear-gradient(62deg, #00fff2, #2e6198)
+}
+
+.closeInfo:hover,
+.moreInfo:hover {
+    background-color: #fff;
+    background-image: linear-gradient(62deg, #fff 0%, #fff 100%)
+}
+
+.moreInfo {
+    left: 10vmin;
+    text-decoration: none;
+    color: #000
+}
+
+.moreInfo.second {
+    left: 20vmin
+}
+
+.moreInfo.backToOrg {
+    left: 0
+}
+
+.classified {
+    text-align: left;
+    color: #fff;
+    background-color: #720000
+}
+
+.value {
+    text-align: left;
+    color: #fff
+}
+
+.type {
+    color: #fff;
+    text-align: right
+}
+
+.sidepanel {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    transition: .7s;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+.sidepanel.solar {
+    box-shadow: 3px 0 3px #FBAB7E
+}
+
+.sidepanel.alpha {
+    box-shadow: 3px 0 3px red
+}
+
+.sidepanel.trebia {
+    box-shadow: 3px 0 3px #067900
+}
+
+.sidepanel.trapp {
+    box-shadow: 3px 0 3px #00fff2
+}
+
+.sidepanel hr {
+    height: 12vmin;
+    border: none
+}
+
+.sidepanel p {
+    font-size: 20vmin
+}
+
+.sidepanel::-webkit-scrollbar {
+    display: none
+}
+
+.closeButton,
+.openButton {
+    font-family: 'solar';
+    font-size: 3vmin;
+    font-weight: bolder;
+    text-decoration: none;
+    width: 1em;
+    cursor: pointer;
+    color: #000;
+    padding: 2vmin 3.5vmin;
+    transition: .7s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none
+}
+
+.openButton.firstButton,
+.closeButton.firstButton {
+    top: 7.5vmin
+}
+
+.openButton.secondButton,
+.closeButton.secondButton {
+    top: 92vh
+}
+
+.closeButton {
+    width: 100%;
+    color: #000;
+    overflow: hidden;
+    min-width: 50vmin;
+    text-align: left
+}
+
+.closeButton.solar {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(60deg, #FBAB7E 0%, #F7CE68 100%);
+    box-shadow: 0 0 3vw #FBAB7E
+}
+
+.closeButton.alpha {
+    background: #6b2323;
+    background: linear-gradient(270deg, rgba(107, 35, 35, 1) 0%, rgba(255, 0, 0, 1) 100%);
+    box-shadow: 0 0 3vw red
+}
+
+.closeButton.trebia {
+    background: #067900;
+    background: linear-gradient(270deg, #067900 0%, #0be300 100%);
+    box-shadow: 0 0 3vw green
+}
+
+.closeButton.trapp {
+    background: #00fff2;
+    background: linear-gradient(270deg, #00fff2 0%, #5148ff 100%);
+    box-shadow: 0 0 3vw #00fff2
+}
+
+.openButton {
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1
+}
+
+.openButton:hover {
+    background-color: #fff;
+    transition: .75s
+}
+
+.closeButton:hover {
+    color: #fff;
+    transition: .75s
+}
+
+.p-solar-side {
+    display: block;
+    font-family: 'side';
+    font-size: 3.5vmin;
+    font-weight: 900;
+    color: #aaa;
+    cursor: pointer;
+    overflow-x: hidden;
+    padding-bottom: 1vmin;
+    padding-left: 15%;
+    transition: .15s;
+    height: 4vmin;
+    overflow-y: hidden;
+    white-space: nowrap
+}
+
+.p-solar-side:hover {
+    padding-left: 10%;
+    font-size: 5vmin
+}
+
+.p-solar-side:hover.sun:hover {
+    color: #ff0;
+    text-shadow: 0 0 2vh #ff0
+}
+
+.p-solar-side:hover.earth:hover {
+    color: #35b1ff;
+    text-shadow: 0 0 7px #00b7ff
+}
+
+.p-solar-side:hover.asteroid:hover {
+    color: #fff;
+    text-shadow: 0 0 7px #fff
+}
+
+.p-solar-side:hover.jupiter:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 2vh #ffa200
+}
+
+.p-solar-side:hover.mars:hover {
+    color: red;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.mercury:hover {
+    color: #ff9e7d;
+    text-shadow: 0 0 2vh #ff4000
+}
+
+.p-solar-side:hover.neptune:hover {
+    color: #0051ff;
+    text-shadow: 0 0 2vh #008cff
+}
+
+.p-solar-side:hover.uranus:hover {
+    color: #00fff2;
+    text-shadow: 0 0 2vh #00fff2
+}
+
+.p-solar-side:hover.venus:hover {
+    color: #ff91a3;
+    text-shadow: 0 0 2vh #f0f
+}
+
+.p-solar-side:hover.moon:hover {
+    color: #fff;
+    text-shadow: 0 0 2vh #fff
+}
+
+.p-solar-side:hover.phobos:hover {
+    color: #fff;
+    text-shadow: 0 0 2vh #fff
+}
+
+.p-solar-side:hover.jovian:hover {
+    color: #ff4500;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.saturn:hover {
+    color: #ffeda4;
+    text-shadow: 0 0 2vh #ff9500
+}
+
+.p-solar-side:hover.alphaalpha:hover {
+    color: #ff0;
+    text-shadow: 0 0 2vh #ff0
+}
+
+.p-solar-side:hover.alphabeta:hover {
+    color: orange;
+    text-shadow: 0 0 2vh orange
+}
+
+.p-solar-side:hover.alphaprox:hover {
+    color: red;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.alphaproxb:hover {
+    color: #ffa3df;
+    text-shadow: 0 0 2vh #ff00c8
+}
+
+.p-solar-side:hover.alphaproxc:hover {
+    color: #ffdaad;
+    text-shadow: 0 0 2vh #ff8400
+}
+
+.p-solar-side:hover.alphaproxd:hover {
+    color: #969dff;
+    text-shadow: 0 0 2vh #0084ff
+}
+
+.p-solar-side:hover.trebia:hover {
+    color: #0f0;
+    text-shadow: 0 0 2vh #adff2f
+}
+
+.p-solar-side:hover.menae:hover {
+    color: #f0f;
+    text-shadow: 0 0 2vh #ffc0cb
+}
+
+.p-solar-side:hover.palaven:hover {
+    color: red;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.impera:hover {
+    color: orange;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.essenus:hover {
+    color: #daa520;
+    text-shadow: 0 0 2vh orange
+}
+
+.p-solar-side:hover.datriux:hover {
+    color: #6a5acd;
+    text-shadow: 0 0 2vh blue
+}
+
+.p-solar-side:hover.caelax:hover {
+    color: #fff;
+    text-shadow: 0 0 2vh #f5deb3
+}
+
+.p-solar-side:hover.aventen:hover {
+    color: #87ceeb;
+    text-shadow: 0 0 2vh #20b2aa
+}
+
+.p-solar-side:hover.trapp:hover {
+    color: red;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.trapb:hover {
+    color: #00cb87;
+    text-shadow: 0 0 2vh #87cefa
+}
+
+.p-solar-side:hover.trapc:hover {
+    color: #ffe09c;
+    text-shadow: 0 0 2vh #fe0
+}
+
+.p-solar-side:hover.trapd:hover {
+    color: #6e70ff;
+    text-shadow: 0 0 2vh #00b3ff
+}
+
+.p-solar-side:hover.trape:hover {
+    color: #ffc34c;
+    text-shadow: 0 0 2vh #feffaa
+}
+
+.p-solar-side:hover.trapf:hover {
+    color: #ffb300;
+    text-shadow: 0 0 2vh red
+}
+
+.p-solar-side:hover.trapg:hover {
+    color: #f6ff00;
+    text-shadow: 0 0 2vh #ffa600
+}
+
+.p-solar-side:hover.traph:hover {
+    color: #f37500;
+    text-shadow: 0 0 2vh red
+}
+
+.solar-button,
+.alpha-button,
+.trebi-button,
+.trapp-button {
+    text-align: center;
+    display: block;
+    font-family: 'solar';
+    font-size: 4vmin;
+    font-weight: bolder;
+    cursor: pointer;
+    overflow-x: hidden;
+    transition: .5s;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 35%, #F7CE68 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 1.5vmin 0;
+    height: 7vmin;
+    overflow-y: hidden
+}
+
+.solar-button:hover,
+.alpha-button:hover,
+.trapp-button:hover,
+.trebi-button:hover {
+    height: 10vmin;
+    padding-top: 5.25vmin;
+    padding-left: 0;
+    padding-right: 25%
+}
+
+.solar-button:hover .short-image {
+    left: 67%
+}
+
+.alpha-button {
+    background-color: #ffe900;
+    background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%)
+}
+
+.alpha-button:hover .short-image {
+    left: 67%
+}
+
+.trapp-button {
+    background-color: #31fff4;
+    background-image: linear-gradient(62deg, #31fff4 35%, #3d00ff 65%)
+}
+
+.trapp-button:hover .short-image {
+    left: 67%
+}
+
+.trebi-button {
+    background-color: #939037;
+    background-image: linear-gradient(62deg, #939037 35%, #999 65%)
+}
+
+.trebi-button:hover .short-image {
+    left: 67%
+}
+
+.short-image {
+    position: absolute;
+    left: 120%;
+    height: 20vmin;
+    transition: .5s
+}
+
+.short-image.firstImg {
+    top: 20vmin
+}
+
+.short-image.secondImg {
+    top: 30vmin
+}
+
+.short-image.thirdImg {
+    top: 40vmin
+}
+
+.short-image.fourthImg {
+    top: 50vmin
+}
+
+.display-prev,
+.display-next {
+    display: inline;
+    color: #000;
+    cursor: pointer;
+    transition: .5s;
+    background: transparent;
+    border: none;
+    font-size: 2vmin;
+    background-color: #FBAB7E;
+    margin: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+.display-next {
+    background-color: #F7CE68;
+    float: right;
+    width: 50%
+}
+
+.display-next.alpha,
+.display-prev.alpha {
+    background-color: rgba(255, 117, 0, 1)
+}
+
+.display-next.trapp,
+.display-prev.trapp {
+    background-color: #00fff2
+}
+
+.display-prev {
+    float: left;
+    width: 50%
+}
+
+.display-next:hover,
+.display-prev:hover {
+    background-color: #fff
+}
+
+.solarSlide {
+    text-align: center;
+    padding: 20px 30px
+}
+
+.star-system {
+    position: absolute;
+    top: 0;
+    left: 46%;
+    width: 54%;
+    height: 100%;
+    overflow: hidden;
+    transition: .7s
+}
+
+.orbit {
+    border: 1px solid #39394e
+}
+
+#trebia,
+#zeropoint,
+#sun,
+#trapp,
+.orbit,
+.orbit+div,
+.orbit+div>div {
+    position: absolute
+}
+
+#trebia,
+#zeropoint,
+#sun,
+#trapp,
+.orbit,
+.orbit+div {
+    top: 50%;
+    left: 50%
+}
+
+.orbit+div>div {
+    top: 0;
+    left: 50%
+}
+
+.orbit,
+.orbit+div div,
+#earth {
+    border-radius: 50%
+}
+
+#sun {
+    height: 8vh;
+    width: 8vh;
+    background: #fbff00;
+    background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, rgba(255, 0, 0, 1) 100%);
+    margin-top: -4vh;
+    margin-left: -4vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffa600
+}
+
+#trebia {
+    height: 8vh;
+    width: 8vh;
+    background: #fbff00;
+    background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, #fffdeb 100%);
+    margin-top: -4vh;
+    margin-left: -4vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #f90
+}
+
+#zeropoint {
+    height: 0;
+    width: 0;
+    background: #fff;
+    border-radius: 50%
+}
+
+#trapp {
+    height: 4vh;
+    width: 4vh;
+    background: red;
+    background: radial-gradient(circle, red 39%, #ff6200 100%);
+    margin-top: -2vh;
+    margin-left: -2vh;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 2px red
+}
+
+#mercury {
+    margin-top: -1vh;
+    margin-left: -1vh;
+    height: 2vh;
+    width: 2vh;
+    background: #964747;
+    background: radial-gradient(circle, rgba(150, 71, 71, 1) 0%, rgba(107, 72, 72, 1) 58%)
+}
+
+.mercury-orbit,
+.mercury-spin {
+    width: 11vh;
+    height: 11vh;
+    margin-left: -5.5vh;
+    margin-top: -5.5vh
+}
+
+#venus {
+    margin-top: -2vh;
+    margin-left: -2vh;
+    height: 4vh;
+    width: 4vh;
+    background: #ffe2b0;
+    background: radial-gradient(circle, rgba(255, 226, 176, 1) 0%, rgba(255, 230, 255, 1) 100%);
+    box-shadow: 0 0 5px #ffee90
+}
+
+.venus-orbit,
+.venus-spin {
+    margin-top: -9vh;
+    margin-left: -9vh;
+    width: 18vh;
+    height: 18vh
+}
+
+#earth {
+    margin-top: -2vh;
+    margin-left: -2vh;
+    height: 4vh;
+    width: 4vh;
+    background: #1afcff;
+    background: radial-gradient(circle, rgba(26, 252, 255, 1) 0%, rgba(122, 128, 255, 1) 100%);
+    box-shadow: 0 0 5px #d7d9f5
+}
+
+.earth-orbit,
+.earth-spin {
+    width: 29vh;
+    height: 29vh;
+    margin-left: -14.5vh;
+    margin-top: -14.5vh
+}
+
+#moon {
+    margin-top: -.5vh;
+    margin-left: -.5vh;
+    height: 1vh;
+    width: 1vh;
+    background-color: #aaa
+}
+
+.moon-orbit,
+.moon-spin {
+    height: 6vh;
+    width: 6vh;
+    margin-top: -3vh;
+    margin-left: -3vh;
+    border-color: #39394e
+}
+
+#mars {
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    height: 3vh;
+    width: 3vh;
+    background: red;
+    background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(179, 73, 0, 1) 100%);
+    box-shadow: 0 0 5px #be1616
+}
+
+.mars-orbit,
+.mars-spin {
+    width: 44vh;
+    height: 44vh;
+    margin-left: -22vh;
+    margin-top: -22vh
+}
+
+#deimos {
+    margin-top: -.5vh;
+    margin-left: -.5vh;
+    height: 1vh;
+    width: 1vh;
+    background-color: #aaa
+}
+
+.deimos-orbit,
+.deimos-spin {
+    height: 5vh;
+    width: 5vh;
+    margin-top: -2.5vh;
+    margin-left: -2.5vh;
+    border-color: #39394e
+}
+
+#phobos {
+    margin-top: -.5vh;
+    margin-left: -.5vh;
+    height: 1vh;
+    width: 1vh;
+    background-color: #aaa
+}
+
+.phobos-orbit,
+.phobos-spin {
+    height: 7vh;
+    width: 7vh;
+    margin-top: -3.5vh;
+    margin-left: -3.5vh;
+    border-color: #39394e
+}
+
+.asteroids-orbit,
+.asteroids-spin {
+    width: 52vh;
+    height: 52vh;
+    margin-left: -26vh;
+    margin-top: -26vh;
+    border-radius: 50%;
+    border-width: 0;
+    box-shadow: 0 0 7vh #4b4b4b;
+    border-color: #292929
+}
+
+#jupiter {
+    margin-top: -3.5vh;
+    margin-left: -3.5vh;
+    height: 7vh;
+    width: 7vh;
+    background: #ff8200;
+    background: radial-gradient(circle, rgba(255, 130, 0, 1) 0%, rgba(99, 46, 0, 1) 100%);
+    box-shadow: 0 0 10px #c5a572
+}
+
+.jupiter-orbit,
+.jupiter-spin {
+    width: 59vh;
+    height: 59vh;
+    margin-left: -29.5vh;
+    margin-top: -29.5vh
+}
+
+#saturn {
+    margin-top: -3vh;
+    margin-left: -3vh;
+    height: 6vh;
+    width: 6vh;
+    background: #b67335;
+    background: radial-gradient(circle, rgba(182, 115, 53, 1) 0%, rgba(255, 185, 151, 1) 100%);
+    box-shadow: 0 0 15px #9c7a48
+}
+
+.saturn-orbit,
+.saturn-spin {
+    width: 73vh;
+    height: 73vh;
+    margin-left: -36.5vh;
+    margin-top: -36.5vh
+}
+
+#uranus {
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    height: 3vh;
+    width: 3vh;
+    background: #86c4ff;
+    background: radial-gradient(circle, rgba(134, 196, 255, 1) 0%, rgba(213, 206, 255, 1) 100%);
+    box-shadow: 0 0 25px #a490ff
+}
+
+.uranus-orbit,
+.uranus-spin {
+    width: 83vh;
+    height: 83vh;
+    margin-left: -41.5vh;
+    margin-top: -41.5vh
+}
+
+#neptune {
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    height: 3vh;
+    width: 3vh;
+    background: #63b3ff;
+    background: radial-gradient(circle, rgba(99, 179, 255, 1) 0%, rgba(36, 0, 255, 1) 100%);
+    box-shadow: 0 0 25px #2f00ff
+}
+
+.neptune-orbit,
+.neptune-spin {
+    width: 92vh;
+    height: 92vh;
+    margin-left: -46vh;
+    margin-top: -46vh
+}
+
+@keyframes spin-right {
     100% {
-    transform:rotate(360deg)
-    }
-    }
-    
-    .earth-spin {
-    animation:spin-right 36.5s linear infinite;
-    border-radius:100%
-    }
-    
-    .moon-spin {
-    animation:spin-right 2.7s linear infinite;
-    border-radius:100%
-    }
-    
-    .venus-spin {
-    animation:spin-right 22.4s linear infinite;
-    border-radius:100%
-    }
-    
-    .mercury-spin {
-    animation:spin-right 8.7s linear infinite;
-    border-radius:100%
-    }
-    
-    .mars-spin {
-    animation:spin-right 68.7s linear infinite;
-    border-radius:100%
-    }
-    
-    .deimos-spin {
-    animation:spin-right .12s linear infinite;
-    border-radius:100%
-    }
-    
-    .phobos-spin {
-    animation:spin-right .31s linear infinite;
-    border-radius:100%
-    }
-    
-    .saturn-spin {
-    animation:spin-right 1075.9s linear infinite;
-    border-radius:100%
-    }
-    
-    .jupiter-spin {
-    animation:spin-right 433.2s linear infinite;
-    border-radius:100%
-    }
-    
-    .uranus-spin {
-    animation:spin-right 3068.8s linear infinite;
-    border-radius:100%
-    }
-    
-    .neptune-spin {
-    animation:spin-right 6000s linear infinite;
-    border-radius:100%
-    }
-    
-    #alpha {
-    height:10vh;
-    width:10vh;
-    margin-top:-5vh;
-    margin-left:-5vh;
-    background:#ffd000;
-    background:radial-gradient(circle,rgba(255,208,0) 0%,#f70 100%);
-    box-shadow:0 0 30px #fff
-    }
-    
-    #beta {
-    height:7vh;
-    width:7vh;
-    margin-top:-3.5vh;
-    margin-left:-3.5vh;
-    background:#ff9100;
-    background:radial-gradient(circle,#ff9100 0%,#f70 100%);
-    box-shadow:0 0 20px #ff0
-    }
-    
-    #prox {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:red;
-    background:radial-gradient(circle,red 0%,#610000 100%);
-    box-shadow:0 0 20px red
-    }
-    
-    #proxb {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#ffadad;
-    background:radial-gradient(circle,#ffadad 0%,#ffd9a7 100%);
-    box-shadow:0 0 10px #ffe09e
-    }
-    
-    #proxc {
-    height:6vh;
-    width:6vh;
-    margin-top:-3vh;
-    margin-left:-3vh;
-    background:#0051ff;
-    background:radial-gradient(circle,#0051ff,#1e00ff 100%);
-    box-shadow:0 0 10px #8a2be2
-    }
-    
-    #proxd {
-    height:2vh;
-    width:2vh;
-    margin-top:-1vh;
-    margin-left:-1vh;
-    background:#ffd0d0;
-    background:radial-gradient(circle,#ffd0d0,#ff6363 100%);
-    box-shadow:0 0 5px #ffc0cb
-    }
-    
-    .alpha-orbit,.alpha-spin {
-    width:2vh;
-    height:2vh;
-    margin-top:-1vh;
-    margin-left:-1vh
-    }
-    
-    .beta-spin,.beta-orbit {
-    width:20vh;
-    height:20vh;
-    margin-top:-10vh;
-    margin-left:-10vh
-    }
-    
-    .prox-spin,.prox-orbit {
-    width:64vh;
-    height:64vh;
-    margin-top:-32vh;
-    margin-left:-32vh
-    }
-    
-    .proxb-spin,.proxb-orbit {
-    width:18vh;
-    height:18vh;
-    margin-top:-9vh;
-    margin-left:-9vh
-    }
-    
-    .proxc-spin,.proxc-orbit {
-    width:30vh;
-    height:30vh;
-    margin-top:-15vh;
-    margin-left:-15vh
-    }
-    
-    .proxd-spin,.proxd-orbit {
-    width:10vh;
-    height:10vh;
-    margin-top:-5vh;
-    margin-left:-5vh
-    }
-    
-    .alpha-spin {
-    animation:spin-right 10s linear infinite;
-    border-radius:100%
-    }
-    
-    .beta-spin {
-    animation:spin-right 45s linear infinite;
-    border-radius:100%
-    }
-    
-    .prox-spin {
-    animation:spin-right 325s linear infinite;
-    border-radius:100%
-    }
-    
-    .proxb-spin {
-    animation:spin-right 11s linear infinite;
-    border-radius:100%
-    }
-    
-    .proxc-spin {
-    animation:spin-right 1928s linear infinite;
-    border-radius:100%
-    }
-    
-    .proxd-spin {
-    animation:spin-right 5s linear infinite;
-    border-radius:100%
-    }
-    
-    #aventen {
-    height:2vh;
-    width:2vh;
-    margin-top:-1vh;
-    margin-left:-1vh;
-    background:#3583c3;
-    background:radial-gradient(circle,#3583c3 0%,#a37cff 100%);
-    box-shadow:0 0 5px #fff
-    }
-    
-    .aventen-spin,.aventen-orbit {
-    width:12vh;
-    height:12vh;
-    margin-top:-6vh;
-    margin-left:-6vh
-    }
-    
-    .aventen-spin {
-    animation:spin-right 6s linear infinite;
-    border-radius:100%
-    }
-    
-    #caelax {
-    height:3vh;
-    width:3vh;
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    background:#fff;
-    background:radial-gradient(circle,#fff 0%,#ff7cf4 100%);
-    box-shadow:0 0 5px #fff
-    }
-    
-    .caelax-spin,.caelax-orbit {
-    width:20vh;
-    height:20vh;
-    margin-top:-10vh;
-    margin-left:-10vh
-    }
-    
-    .caelax-spin {
-    animation:spin-right 12s linear infinite;
-    border-radius:100%
-    }
-    
-    #palaven {
-    height:5vh;
-    width:5vh;
-    margin-top:-2.5vh;
-    margin-left:-2.5vh;
-    background:#fff;
-    background:radial-gradient(circle,#fff 0%,#686868 100%);
-    box-shadow:0 0 5px #fff
-    }
-    
-    .palaven-spin,.palaven-orbit {
-    width:38vh;
-    height:38vh;
-    margin-top:-19vh;
-    margin-left:-19vh
-    }
-    
-    .palaven-spin {
-    animation:spin-right 40s linear infinite;
-    border-radius:100%
-    }
-    
-    #menae {
-    height:2vh;
-    width:2vh;
-    margin-top:-1vh;
-    margin-left:-1vh;
-    background:#fff;
-    background:radial-gradient(circle,#727272 0%,#fff 100%);
-    box-shadow:0 0 1px #fff
-    }
-    
-    .menae-spin,.menae-orbit {
-    width:10vh;
-    height:10vh;
-    margin-top:-5vh;
-    margin-left:-5vh
-    }
-    
-    .menae-spin {
-    animation:spin-right 1s linear infinite;
-    border-radius:100%
-    }
-    
-    #impera {
-    height:3vh;
-    width:3vh;
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    background:#d000ff;
-    background:radial-gradient(circle,#d000ff 0%,#5d00ff 100%);
-    box-shadow:0 0 1px #f0f
-    }
-    
-    .impera-spin,.impera-orbit {
-    width:52vh;
-    height:52vh;
-    margin-top:-26vh;
-    margin-left:-26vh
-    }
-    
-    .impera-spin {
-    animation:spin-right 130s linear infinite;
-    border-radius:100%
-    }
-    
-    #essenus {
-    height:8vh;
-    width:8vh;
-    margin-top:-4vh;
-    margin-left:-4vh;
-    background:#ff6a00;
-    background:radial-gradient(circle,#ff6a00 0%,#fff9b4 100%);
-    box-shadow:0 0 5px #fff8dc
-    }
-    
-    .essenus-spin,.essenus-orbit {
-    width:66vh;
-    height:66vh;
-    margin-top:-33vh;
-    margin-left:-33vh
-    }
-    
-    .essenus-spin {
-    animation:spin-right 4300s linear infinite;
-    border-radius:100%
-    }
-    
-    #datriux {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#ffe9da;
-    background:radial-gradient(circle,#ffe9da 0%,#fff9b4 100%);
-    box-shadow:0 0 5px #fff8dc
-    }
-    
-    .datriux-spin,.datriux-orbit {
-    width:84vh;
-    height:84vh;
-    margin-top:-42vh;
-    margin-left:-42vh
-    }
-    
-    .datriux-spin {
-    animation:spin-right 6700s linear infinite;
-    border-radius:100%
-    }
-    
-    #trapb {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#35b0c3;
-    background:radial-gradient(circle,#35b0c3 0%,#00046c 100%);
-    box-shadow:0 0 2px #fff
-    }
-    
-    .trapb-spin,.trapb-orbit {
-    width:12vh;
-    height:12vh;
-    margin-top:-6vh;
-    margin-left:-6vh
-    }
-    
-    .trapb-spin {
-    animation:spin-right 4.5s linear infinite;
-    border-radius:100%
-    }
-    
-    #trapc {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#fffcab;
-    background:radial-gradient(circle,#fffcab 0%,#c2a12a 100%);
-    box-shadow:0 0 1px #fff
-    }
-    
-    .trapc-spin,.trapc-orbit {
-    width:22vh;
-    height:22vh;
-    margin-top:-11vh;
-    margin-left:-11vh
-    }
-    
-    .trapc-spin {
-    animation:spin-right 7.5s linear infinite;
-    border-radius:100%
-    }
-    
-    #trapd {
-    height:2vh;
-    width:2vh;
-    margin-top:-1vh;
-    margin-left:-1vh;
-    background:#3dd6a9;
-    background:radial-gradient(circle,#2fce86 0%,#3122d4 100%)
-    }
-    
-    .trapd-spin,.trapd-orbit {
-    width:28vh;
-    height:28vh;
-    margin-top:-14vh;
-    margin-left:-14vh
-    }
-    
-    .trapd-spin {
-    animation:spin-right 12s linear infinite;
-    border-radius:100%
-    }
-    
-    #trape {
-    height:3vh;
-    width:3vh;
-    margin-top:-1.5vh;
-    margin-left:-1.5vh;
-    background:#fbff79;
-    background:radial-gradient(circle,#ffdc7b 0%,#0c70ea 100%);
-    box-shadow:0 0 5px blue
-    }
-    
-    .trape-spin,.trape-orbit {
-    width:36vh;
-    height:36vh;
-    margin-top:-18vh;
-    margin-left:-18vh
-    }
-    
-    .trape-spin {
-    animation:spin-right 18s linear infinite;
-    border-radius:100%
-    }
-    
-    #trapf {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#fffcab;
-    background:radial-gradient(circle,#d2ac43 0%,#614c00 100%);
-    box-shadow:0 0 3px #fff
-    }
-    
-    .trapf-spin,.trapf-orbit {
-    width:46vh;
-    height:46vh;
-    margin-top:-23vh;
-    margin-left:-23vh
-    }
-    
-    .trapf-spin {
-    animation:spin-right 27s linear infinite;
-    border-radius:100%
-    }
-    
-    #trapg {
-    height:4vh;
-    width:4vh;
-    margin-top:-2vh;
-    margin-left:-2vh;
-    background:#fffcab;
-    background:radial-gradient(circle,#fff 0%,#ffb854 100%);
-    box-shadow:0 0 2px #fff
-    }
-    
-    .trapg-spin,.trapg-orbit {
-    width:60vh;
-    height:60vh;
-    margin-top:-30vh;
-    margin-left:-30vh
-    }
-    
-    .trapg-spin {
-    animation:spin-right 36s linear infinite;
-    border-radius:100%
-    }
-    
-    #traph {
-    height:6vh;
-    width:6vh;
-    margin-top:-3vh;
-    margin-left:-3vh;
-    background:#fffcab;
-    background:radial-gradient(circle,#6a4800 0%,#5e0000 100%);
-    box-shadow:0 0 2px #fff
-    }
-    
-    .traph-spin,.traph-orbit {
-    width:74vh;
-    height:74vh;
-    margin-top:-37vh;
-    margin-left:-37vh
-    }
-    
-    .traph-spin {
-    animation:spin-right 64s linear infinite;
-    border-radius:100%
-    }
+        transform: rotate(360deg)
+    }
+}
+
+.earth-spin {
+    animation: spin-right 36.5s linear infinite;
+    border-radius: 100%
+}
+
+.moon-spin {
+    animation: spin-right 2.7s linear infinite;
+    border-radius: 100%
+}
+
+.venus-spin {
+    animation: spin-right 22.4s linear infinite;
+    border-radius: 100%
+}
+
+.mercury-spin {
+    animation: spin-right 8.7s linear infinite;
+    border-radius: 100%
+}
+
+.mars-spin {
+    animation: spin-right 68.7s linear infinite;
+    border-radius: 100%
+}
+
+.deimos-spin {
+    animation: spin-right .12s linear infinite;
+    border-radius: 100%
+}
+
+.phobos-spin {
+    animation: spin-right .31s linear infinite;
+    border-radius: 100%
+}
+
+.saturn-spin {
+    animation: spin-right 1075.9s linear infinite;
+    border-radius: 100%
+}
+
+.jupiter-spin {
+    animation: spin-right 433.2s linear infinite;
+    border-radius: 100%
+}
+
+.uranus-spin {
+    animation: spin-right 3068.8s linear infinite;
+    border-radius: 100%
+}
+
+.neptune-spin {
+    animation: spin-right 6000s linear infinite;
+    border-radius: 100%
+}
+
+#alpha {
+    height: 10vh;
+    width: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh;
+    background: #ffd000;
+    background: radial-gradient(circle, rgba(255, 208, 0) 0%, #f70 100%);
+    box-shadow: 0 0 30px #fff
+}
+
+#beta {
+    height: 7vh;
+    width: 7vh;
+    margin-top: -3.5vh;
+    margin-left: -3.5vh;
+    background: #ff9100;
+    background: radial-gradient(circle, #ff9100 0%, #f70 100%);
+    box-shadow: 0 0 20px #ff0
+}
+
+#prox {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: red;
+    background: radial-gradient(circle, red 0%, #610000 100%);
+    box-shadow: 0 0 20px red
+}
+
+#proxb {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #ffadad;
+    background: radial-gradient(circle, #ffadad 0%, #ffd9a7 100%);
+    box-shadow: 0 0 10px #ffe09e
+}
+
+#proxc {
+    height: 6vh;
+    width: 6vh;
+    margin-top: -3vh;
+    margin-left: -3vh;
+    background: #0051ff;
+    background: radial-gradient(circle, #0051ff, #1e00ff 100%);
+    box-shadow: 0 0 10px #8a2be2
+}
+
+#proxd {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #ffd0d0;
+    background: radial-gradient(circle, #ffd0d0, #ff6363 100%);
+    box-shadow: 0 0 5px #ffc0cb
+}
+
+.alpha-orbit,
+.alpha-spin {
+    width: 2vh;
+    height: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh
+}
+
+.beta-spin,
+.beta-orbit {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -10vh;
+    margin-left: -10vh
+}
+
+.prox-spin,
+.prox-orbit {
+    width: 64vh;
+    height: 64vh;
+    margin-top: -32vh;
+    margin-left: -32vh
+}
+
+.proxb-spin,
+.proxb-orbit {
+    width: 18vh;
+    height: 18vh;
+    margin-top: -9vh;
+    margin-left: -9vh
+}
+
+.proxc-spin,
+.proxc-orbit {
+    width: 30vh;
+    height: 30vh;
+    margin-top: -15vh;
+    margin-left: -15vh
+}
+
+.proxd-spin,
+.proxd-orbit {
+    width: 10vh;
+    height: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh
+}
+
+.alpha-spin {
+    animation: spin-right 10s linear infinite;
+    border-radius: 100%
+}
+
+.beta-spin {
+    animation: spin-right 45s linear infinite;
+    border-radius: 100%
+}
+
+.prox-spin {
+    animation: spin-right 325s linear infinite;
+    border-radius: 100%
+}
+
+.proxb-spin {
+    animation: spin-right 11s linear infinite;
+    border-radius: 100%
+}
+
+.proxc-spin {
+    animation: spin-right 1928s linear infinite;
+    border-radius: 100%
+}
+
+.proxd-spin {
+    animation: spin-right 5s linear infinite;
+    border-radius: 100%
+}
+
+#aventen {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #3583c3;
+    background: radial-gradient(circle, #3583c3 0%, #a37cff 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.aventen-spin,
+.aventen-orbit {
+    width: 12vh;
+    height: 12vh;
+    margin-top: -6vh;
+    margin-left: -6vh
+}
+
+.aventen-spin {
+    animation: spin-right 6s linear infinite;
+    border-radius: 100%
+}
+
+#caelax {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #fff;
+    background: radial-gradient(circle, #fff 0%, #ff7cf4 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.caelax-spin,
+.caelax-orbit {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -10vh;
+    margin-left: -10vh
+}
+
+.caelax-spin {
+    animation: spin-right 12s linear infinite;
+    border-radius: 100%
+}
+
+#palaven {
+    height: 5vh;
+    width: 5vh;
+    margin-top: -2.5vh;
+    margin-left: -2.5vh;
+    background: #fff;
+    background: radial-gradient(circle, #fff 0%, #686868 100%);
+    box-shadow: 0 0 5px #fff
+}
+
+.palaven-spin,
+.palaven-orbit {
+    width: 38vh;
+    height: 38vh;
+    margin-top: -19vh;
+    margin-left: -19vh
+}
+
+.palaven-spin {
+    animation: spin-right 40s linear infinite;
+    border-radius: 100%
+}
+
+#menae {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #fff;
+    background: radial-gradient(circle, #727272 0%, #fff 100%);
+    box-shadow: 0 0 1px #fff
+}
+
+.menae-spin,
+.menae-orbit {
+    width: 10vh;
+    height: 10vh;
+    margin-top: -5vh;
+    margin-left: -5vh
+}
+
+.menae-spin {
+    animation: spin-right 1s linear infinite;
+    border-radius: 100%
+}
+
+#impera {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #d000ff;
+    background: radial-gradient(circle, #d000ff 0%, #5d00ff 100%);
+    box-shadow: 0 0 1px #f0f
+}
+
+.impera-spin,
+.impera-orbit {
+    width: 52vh;
+    height: 52vh;
+    margin-top: -26vh;
+    margin-left: -26vh
+}
+
+.impera-spin {
+    animation: spin-right 130s linear infinite;
+    border-radius: 100%
+}
+
+#essenus {
+    height: 8vh;
+    width: 8vh;
+    margin-top: -4vh;
+    margin-left: -4vh;
+    background: #ff6a00;
+    background: radial-gradient(circle, #ff6a00 0%, #fff9b4 100%);
+    box-shadow: 0 0 5px #fff8dc
+}
+
+.essenus-spin,
+.essenus-orbit {
+    width: 66vh;
+    height: 66vh;
+    margin-top: -33vh;
+    margin-left: -33vh
+}
+
+.essenus-spin {
+    animation: spin-right 4300s linear infinite;
+    border-radius: 100%
+}
+
+#datriux {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #ffe9da;
+    background: radial-gradient(circle, #ffe9da 0%, #fff9b4 100%);
+    box-shadow: 0 0 5px #fff8dc
+}
+
+.datriux-spin,
+.datriux-orbit {
+    width: 84vh;
+    height: 84vh;
+    margin-top: -42vh;
+    margin-left: -42vh
+}
+
+.datriux-spin {
+    animation: spin-right 6700s linear infinite;
+    border-radius: 100%
+}
+
+#trapb {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #35b0c3;
+    background: radial-gradient(circle, #35b0c3 0%, #00046c 100%);
+    box-shadow: 0 0 2px #fff
+}
+
+.trapb-spin,
+.trapb-orbit {
+    width: 12vh;
+    height: 12vh;
+    margin-top: -6vh;
+    margin-left: -6vh
+}
+
+.trapb-spin {
+    animation: spin-right 4.5s linear infinite;
+    border-radius: 100%
+}
+
+#trapc {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #fffcab 0%, #c2a12a 100%);
+    box-shadow: 0 0 1px #fff
+}
+
+.trapc-spin,
+.trapc-orbit {
+    width: 22vh;
+    height: 22vh;
+    margin-top: -11vh;
+    margin-left: -11vh
+}
+
+.trapc-spin {
+    animation: spin-right 7.5s linear infinite;
+    border-radius: 100%
+}
+
+#trapd {
+    height: 2vh;
+    width: 2vh;
+    margin-top: -1vh;
+    margin-left: -1vh;
+    background: #3dd6a9;
+    background: radial-gradient(circle, #2fce86 0%, #3122d4 100%)
+}
+
+.trapd-spin,
+.trapd-orbit {
+    width: 28vh;
+    height: 28vh;
+    margin-top: -14vh;
+    margin-left: -14vh
+}
+
+.trapd-spin {
+    animation: spin-right 12s linear infinite;
+    border-radius: 100%
+}
+
+#trape {
+    height: 3vh;
+    width: 3vh;
+    margin-top: -1.5vh;
+    margin-left: -1.5vh;
+    background: #fbff79;
+    background: radial-gradient(circle, #ffdc7b 0%, #0c70ea 100%);
+    box-shadow: 0 0 5px blue
+}
+
+.trape-spin,
+.trape-orbit {
+    width: 36vh;
+    height: 36vh;
+    margin-top: -18vh;
+    margin-left: -18vh
+}
+
+.trape-spin {
+    animation: spin-right 18s linear infinite;
+    border-radius: 100%
+}
+
+#trapf {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #d2ac43 0%, #614c00 100%);
+    box-shadow: 0 0 3px #fff
+}
+
+.trapf-spin,
+.trapf-orbit {
+    width: 46vh;
+    height: 46vh;
+    margin-top: -23vh;
+    margin-left: -23vh
+}
+
+.trapf-spin {
+    animation: spin-right 27s linear infinite;
+    border-radius: 100%
+}
+
+#trapg {
+    height: 4vh;
+    width: 4vh;
+    margin-top: -2vh;
+    margin-left: -2vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #fff 0%, #ffb854 100%);
+    box-shadow: 0 0 2px #fff
+}
+
+.trapg-spin,
+.trapg-orbit {
+    width: 60vh;
+    height: 60vh;
+    margin-top: -30vh;
+    margin-left: -30vh
+}
+
+.trapg-spin {
+    animation: spin-right 36s linear infinite;
+    border-radius: 100%
+}
+
+#traph {
+    height: 6vh;
+    width: 6vh;
+    margin-top: -3vh;
+    margin-left: -3vh;
+    background: #fffcab;
+    background: radial-gradient(circle, #6a4800 0%, #5e0000 100%);
+    box-shadow: 0 0 2px #fff
+}
+
+.traph-spin,
+.traph-orbit {
+    width: 74vh;
+    height: 74vh;
+    margin-top: -37vh;
+    margin-left: -37vh
+}
+
+.traph-spin {
+    animation: spin-right 64s linear infinite;
+    border-radius: 100%
+}
