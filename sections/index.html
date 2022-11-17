@@ -14,7 +14,8 @@
 
 <body>
     <a href="about"><button class="abouttext" id="about">About</button></a>
-    <button class="skiptext" id="about" onclick="continueToLast();">Skip</button>
+    <button class="skiptext" id="skip" onclick="continueToLast();">Skip</button>
+    <button class="backtext" id="back" onclick="continueToFirst();">Back</button>
     <a href="solarsystem"><button class="tosolar" id="about">Solar</button></a>
     <a href="alphacentauri"><button class="toalpha" id="about">Alpha</button></a>
     <a href="trappist"><button class="totrapp" id="about">Trappist</button></a>
@@ -27,24 +28,26 @@
         Tsiolkovsky
     </div>
     <div class="thirdtext" id="third" onclick="continueToInfo2();">
-        This is a simple project to show you<br> our home, solar system, to show you<br> closest stellar system, along
-        with<br> the most promising one, and fictional one.
+        This is a simple project to show you<br> the universe. Our home, solar system.<br> Alpha Centauri - our closest
+        neighbor.<br> The most promising lands and one of <br>the fictional ones.
     </div>
     <div class="fourtext" id="four" onclick="continueToCards();">
         Observe, learn and contemplate!
     </div>
-    <div class="cards" id="five" onclick="backToFirst();">
-        <div class="system1" id="four1">
-
-        </div>
-        <div class="system2" id="four2">
-
-        </div>
-        <div class="system3" id="four3">
-
-        </div>
-        <div class="system4" id="four4">
-
+    <div class="cards" id="five" onclick="continueToFirst();">
+        <div class="container" id="fiveinner">
+            <div class="box">
+                <a href="solarsystem"><img src="../static/jpg/fulls/sun.jpg"></a>
+            </div>
+            <div class="box">
+                <a href="alphacentauri"><img src="../static/jpg/fulls/alpha.jpg"></a>
+            </div>
+            <div class="box">
+                <a href="trappist"> <img src="../static/jpg/fulls/trappist.jpg"></a>
+            </div>
+            <div class="box">
+                <a href="trebia"><img src="../static/jpg/fulls/palaven.jpg"></a>
+            </div>
         </div>
     </div>
     <div class="stars">

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'menustyles.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    <title>Hello, User!</title>
+    <link rel="icon" href="{% static 'solaricon.ico' %}">
+</head>
+
+<body class="aboutbody">
+</body>
+    <a href="space"><button class="abouttext" id="about">Back</button></a>
+    <a href="https://github.com/zeightOFFICIAL/"><button class="skiptext" id="about">github</button></a>
+    <a href="https://vk.com/zeightofficial"><button class="backtext" id="about">vk</button></a>
+</html>

@@ -27,6 +27,11 @@ body {
     overflow: hidden;
 }
 
+.aboutbody {
+    color: black;
+    background: radial-gradient(ellipse at bottom, #30310d 0%, #13130c 100%);
+}
+
 @function random_range($min, $max) {
     $rand: random();
     $random_range: $min +floor($rand * (($max - $min) + 1));
@@ -39,6 +44,7 @@ body {
     left: 0;
     width: 100%;
     height: 120%;
+    z-index: 0;
     transform: rotate(-45deg);
 }
 
@@ -184,11 +190,13 @@ body {
 }
 .fourtext {
     left: 600vw;
+    font-size: 7vmin;
 }
 
 .maintext:hover,
 .secondtext:hover,
-.thirdtext:hover {
+.thirdtext:hover,
+.fourtext:hover {
     text-shadow: 0 0 15px #fff;
 }
 
@@ -197,7 +205,8 @@ body {
 .tosolar,
 .toalpha,
 .totrapp,
-.totrebia {
+.totrebia,
+.backtext {
     position: absolute;
     top: 3vmin;
     left: 3.5vmin;
@@ -223,8 +232,6 @@ body {
         100% {
             opacity: 100%;
         }
-
-        
     }
 }
 
@@ -233,28 +240,80 @@ body {
 .tosolar:hover,
 .toalpha:hover,
 .totrapp:hover,
-.totrebia:hover {
+.totrebia:hover,
+.backtext:hover {
     background-color: rgb(255, 255, 255);
     color: black;
     box-shadow: 0 0 10px white;
 }
 
 .skiptext {
-    top: 8vmin;
-}
-
-.tosolar {
     top: 13vmin;
 }
 
-.toalpha {
+.tosolar {
     top: 18vmin;
 }
 
-.totrapp {
+.toalpha {
     top: 23vmin;
 }
 
-.totrebia {
+.totrapp {
     top: 28vmin;
 }
+
+.totrebia {
+    top: 33vmin;
+}
+.backtext {
+    top: 8vmin;
+}
+
+.cards {
+    left: 400vw;
+    height: 70vh;
+    width: 100vw;
+    cursor: pointer;
+    position: absolute;
+    z-index: -10;
+    transition: 3s;
+}
+
+.container {
+    left: 400vw;
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    padding: 0 20vw;
+    box-sizing: border-box;
+    height: 60vh;
+    transition: 3s;
+    z-index: 11;
+  }
+  .container span {
+    color: white;
+    font-family: "solar_bold", sans-serif;
+  }
+  
+  .box {
+    flex: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 2%;
+    box-shadow: 0 20px 30px rgba(0,0,0,.1);
+    line-height: 0;
+  }
+  
+  .box > img {
+    width: 100%;
+    height: calc(100% - 10vh);
+    object-fit: cover; 
+    transition: .5s;
+  }
+    
+  .box:hover { flex: 1 1 50%; }
+  .box:hover > img {
+    width: 100%;
+    height: 100%;
+  }
