@@ -1,4 +1,4 @@
 compiled/CACHE/
 *.env
-mysite/pycache/
-*.pyc 
+mysite/__pycache__/
+*.pyc

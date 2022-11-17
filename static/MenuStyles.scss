@@ -27,6 +27,55 @@ body {
     overflow: hidden;
 }
 
+h2 {
+    font-family: 'solar_bold';
+    font-size: 5vmin;
+    color: white;
+}
+
+h3 {
+    font-family: 'solar_bold';
+    font-size: 3vmin;
+    color: white;
+}
+
+p {
+    font-family: 'solar';
+    font-size: 2vmin;
+    color: white;
+
+}
+
+.top_left {
+    position: absolute;
+    top: 1vmin;
+    left: 30vmin;
+    opacity: 0;
+    transition: 1s;
+    animation: reveal2 3000ms ease-in-out forwards 200ms;
+
+    @keyframes reveal2 {
+        100% {
+            opacity: 100%;
+        }
+    }
+}
+
+.top_left_h {
+    position: absolute;
+    top: 7vmin;
+    left: 30vmin;
+    opacity: 0;
+    transition: 1s;
+    animation: reveal2 3000ms ease-in-out forwards 200ms;
+
+    @keyframes reveal2 {
+        100% {
+            opacity: 100%;
+        }
+    }
+}
+
 .aboutbody {
     color: black;
     background: radial-gradient(ellipse at bottom, #30310d 0%, #13130c 100%);
@@ -185,9 +234,11 @@ body {
     background-clip: text;
     color: transparent;
 }
+
 .thirdtext {
     left: 400vw;
 }
+
 .fourtext {
     left: 600vw;
     font-size: 7vmin;
@@ -266,6 +317,7 @@ body {
 .totrebia {
     top: 33vmin;
 }
+
 .backtext {
     top: 8vmin;
 }
@@ -287,33 +339,39 @@ body {
     width: 100vw;
     padding: 0 20vw;
     box-sizing: border-box;
-    height: 60vh;
+    height: 65vh;
     transition: 3s;
     z-index: 11;
-  }
-  .container span {
+}
+
+.container span {
     color: white;
     font-family: "solar_bold", sans-serif;
-  }
-  
-  .box {
+}
+
+.box {
     flex: 1;
     overflow: hidden;
     transition: .5s;
-    margin: 0 2%;
-    box-shadow: 0 20px 30px rgba(0,0,0,.1);
+    margin: 0 1%;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
     line-height: 0;
-  }
-  
-  .box > img {
-    width: 100%;
-    height: calc(100% - 10vh);
-    object-fit: cover; 
-    transition: .5s;
-  }
-    
-  .box:hover { flex: 1 1 50%; }
-  .box:hover > img {
-    width: 100%;
+}
+
+img {
     height: 100%;
-  }
+}
+
+.box>img {
+    width: 50%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.box:hover {
+    flex: 1 1 50%;
+}
+
+.box:hover>img {
+    width: 100%;
+}
