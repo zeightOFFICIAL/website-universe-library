@@ -13,6 +13,13 @@
     font-style: normal
 }
 
+@font-face {
+    font-family: 'side';
+    src: url(../static/fonts/alienleague.ttf);
+    font-weight: normal;
+    font-style: normal
+}
+
 /* ------------------------------------------- main settings */
 html,
 body {
@@ -94,7 +101,7 @@ td {
 
 .h3-vitte {
     background-color: rgb(21, 255, 0);
-    background-image: linear-gradient(62deg, rgb(21, 255, 0) 0%, red 100%);
+    text-shadow: 0 0 10px rgb(21, 255, 0);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -110,6 +117,9 @@ td {
     font-size: 3vmin;
     cursor: default;
     color: #fff
+}
+.p-solar table {
+    font-size: 2vmin;
 }
 
 .left-panel {
@@ -173,19 +183,23 @@ td {
 }
 
 .normal-border.solar {
-    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1
+    border-image: linear-gradient(to right, #FBAB7E, #F7CE68) 1;
+    box-shadow: 0 0 20px yellow;
 }
 
 .normal-border.alpha {
-    border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1
+    border-image: linear-gradient(to top, rgba(255, 117, 0, 1), rgba(255, 0, 0, 1)) 1;
+    box-shadow: 0 0 20px orange;
 }
 
 .normal-border.trebia {
-    border-image: linear-gradient(to bottom, #09b100, #53824f) 1
+    border-image: linear-gradient(to bottom, #09b100, #53824f) 1;
+    box-shadow: 0 0 20px #00cb87;
 }
 
 .normal-border.trapp {
-    border-image: linear-gradient(to top, #00fff2, #2e6198) 1
+    border-image: linear-gradient(to top, #00fff2, #2e6198) 1;
+    box-shadow: 0 0 20px #00fff2;
 }
 
 .normal-border img {
@@ -272,7 +286,7 @@ td {
 .moreInfo.trapp,
 .closeInfo.trapp {
     background-color: #00fff2;
-    background-image: linear-gradient(62deg, #00fff2, #2e6198) 
+    background-image: linear-gradient(62deg, #00fff2, #2e6198)
 }
 
 .closeInfo:hover,
@@ -324,7 +338,7 @@ td {
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
-    scrollbar-width: none
+    scrollbar-width: none;
 }
 
 .sidepanel.solar {
@@ -432,55 +446,43 @@ td {
 
 .p-solar-side {
     display: block;
-    font-family: 'normal';
-    font-size: 3vmin;
-    font-weight: bolder;
-    color: grey;
+    font-family: 'side';
+    font-size: 3.5vmin;
+    font-weight: 900;
+    color: rgb(170, 170, 170);
     cursor: pointer;
     overflow-x: hidden;
-    padding-bottom: 1vh;
+    padding-bottom: 1vmin;
     padding-left: 15%;
     transition: .15s;
-    max-height: 3vmin;
-    overflow-y: hidden
-}
-
-.p-solar-side+.asteroid {
-    max-height: 7vmin
-}
-
-.p-solar-side+.jovian {
-    max-height: 7vmin
-}
-
-.p-solar-side+.phobos {
-    max-height: 7vmin
+    height: 4vmin;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 .p-solar-side:hover {
     padding-left: 10%;
-    font-size: 4vmin
+    font-size: 5vmin;
 }
 
 .p-solar-side:hover.sun:hover {
     color: #ff0;
-    text-shadow: 0 0 2vh #fd0
+    text-shadow: 0 0 2vh rgb(255, 255, 0)
 }
 
 .p-solar-side:hover.earth:hover {
-    color: #87cefa;
-    text-shadow: 0 0 2vh #09f
+    color: #35b1ff;
+    text-shadow: 0 0 7px #00b7ff
 }
 
 .p-solar-side:hover.asteroid:hover {
     color: #fff;
-    text-shadow: 0 0 2vh #fff;
-    font-size: 3vmin
+    text-shadow: 0 0 7px #fff;
 }
 
 .p-solar-side:hover.jupiter:hover {
-    color: orange;
-    text-shadow: 0 0 2vh #ef0
+    color: rgb(255, 191, 0);
+    text-shadow: 0 0 2vh rgb(255, 162, 0)
 }
 
 .p-solar-side:hover.mars:hover {
@@ -489,22 +491,22 @@ td {
 }
 
 .p-solar-side:hover.mercury:hover {
-    color: #e9967a;
-    text-shadow: 0 0 2vh #fff
+    color: #ff9e7d;
+    text-shadow: 0 0 2vh #ff4000
 }
 
 .p-solar-side:hover.neptune:hover {
-    color: blue;
-    text-shadow: 0 0 2vh #0400ff
+    color: rgb(0, 81, 255);
+    text-shadow: 0 0 2vh #008cff
 }
 
 .p-solar-side:hover.uranus:hover {
-    color: #20b2aa;
-    text-shadow: 0 0 2vh #005eff
+    color: #00fff2;
+    text-shadow: 0 0 2vh #00fff2
 }
 
 .p-solar-side:hover.venus:hover {
-    color: #ffc0cb;
+    color: #ff91a3;
     text-shadow: 0 0 2vh #f0f
 }
 
@@ -516,18 +518,16 @@ td {
 .p-solar-side:hover.phobos:hover {
     color: #fff;
     text-shadow: 0 0 2vh #fff;
-    font-size: 3vmin
 }
 
 .p-solar-side:hover.jovian:hover {
     color: #ff4500;
-    text-shadow: 0 0 2vh #ffc800;
-    font-size: 3vmin
+    text-shadow: 0 0 2vh #ff0000;
 }
 
 .p-solar-side:hover.saturn:hover {
-    color: #fff8dc;
-    text-shadow: 0 0 2vh #ff4800
+    color: #ffeda4;
+    text-shadow: 0 0 2vh #ff9500
 }
 
 .p-solar-side:hover.alphaalpha:hover {
@@ -546,18 +546,18 @@ td {
 }
 
 .p-solar-side:hover.alphaproxb:hover {
-    color: #ff00a6;
-    text-shadow: 0 0 2vh #ffaaed
+    color: #ffa3df;
+    text-shadow: 0 0 2vh #ff00c8
 }
 
 .p-solar-side:hover.alphaproxc:hover {
-    color: #ffba67;
+    color: #ffdaad;
     text-shadow: 0 0 2vh #ff8400
 }
 
 .p-solar-side:hover.alphaproxd:hover {
     color: #969dff;
-    text-shadow: 0 0 2vh #4000ff
+    text-shadow: 0 0 2vh #0084ff
 }
 
 .p-solar-side:hover.trebia:hover {
@@ -599,34 +599,42 @@ td {
     color: #87ceeb;
     text-shadow: 0 0 2vh #20b2aa
 }
+
 .p-solar-side:hover.trapp:hover {
     color: red;
     text-shadow: 0 0 2vh red;
 }
+
 .p-solar-side:hover.trapb:hover {
     color: #00cb87;
     text-shadow: 0 0 2vh lightskyblue;
 }
+
 .p-solar-side:hover.trapc:hover {
     color: #ffe09c;
     text-shadow: 0 0 2vh rgb(255, 238, 0);
 }
+
 .p-solar-side:hover.trapd:hover {
     color: #6e70ff;
     text-shadow: 0 0 2vh rgb(0, 179, 255);
 }
+
 .p-solar-side:hover.trape:hover {
     color: #ffc34c;
     text-shadow: 0 0 2vh rgb(254, 255, 170);
 }
+
 .p-solar-side:hover.trapf:hover {
     color: #ffb300;
     text-shadow: 0 0 2vh rgb(255, 0, 0);
 }
+
 .p-solar-side:hover.trapg:hover {
     color: #f6ff00;
     text-shadow: 0 0 2vh rgb(255, 166, 0);
 }
+
 .p-solar-side:hover.traph:hover {
     color: #f37500;
     text-shadow: 0 0 2vh rgb(255, 0, 0);
@@ -1064,23 +1072,24 @@ td {
     }
 }
 
+
 .earth-spin {
     animation: spin-right 36.5s linear infinite;
     border-radius: 100%
 }
 
 .moon-spin {
-    animation: spin-right 3s linear infinite;
+    animation: spin-right 2.7s linear infinite;
     border-radius: 100%
 }
 
 .venus-spin {
-    animation: spin-right 22s linear infinite;
+    animation: spin-right 22.4s linear infinite;
     border-radius: 100%
 }
 
 .mercury-spin {
-    animation: spin-right 8.8s linear infinite;
+    animation: spin-right 8.7s linear infinite;
     border-radius: 100%
 }
 
@@ -1090,17 +1099,17 @@ td {
 }
 
 .deimos-spin {
-    animation: spin-right 1.12s linear infinite;
+    animation: spin-right 0.12s linear infinite;
     border-radius: 100%
 }
 
 .phobos-spin {
-    animation: spin-right .5s linear infinite;
+    animation: spin-right 0.31s linear infinite;
     border-radius: 100%
 }
 
 .saturn-spin {
-    animation: spin-right 1075.5s linear infinite;
+    animation: spin-right 1075.9s linear infinite;
     border-radius: 100%
 }
 
@@ -1198,10 +1207,10 @@ td {
 
 .prox-spin,
 .prox-orbit {
-    width: 66vh;
-    height: 66vh;
-    margin-top: -33vh;
-    margin-left: -33vh
+    width: 64vh;
+    height: 64vh;
+    margin-top: -32vh;
+    margin-left: -32vh
 }
 
 .proxb-spin,
@@ -1229,17 +1238,17 @@ td {
 }
 
 .alpha-spin {
-    animation: spin-right 22s linear infinite;
+    animation: spin-right 10s linear infinite;
     border-radius: 100%
 }
 
 .beta-spin {
-    animation: spin-right 36s linear infinite;
+    animation: spin-right 45s linear infinite;
     border-radius: 100%
 }
 
 .prox-spin {
-    animation: spin-right 82s linear infinite;
+    animation: spin-right 325s linear infinite;
     border-radius: 100%
 }
 
@@ -1249,7 +1258,7 @@ td {
 }
 
 .proxc-spin {
-    animation: spin-right 198s linear infinite;
+    animation: spin-right 1928s linear infinite;
     border-radius: 100%
 }
 
@@ -1431,6 +1440,7 @@ td {
     background: radial-gradient(circle, #35b0c3 0%, #00046c 100%);
     box-shadow: 0 0 2px #fff
 }
+
 .trapb-spin,
 .trapb-orbit {
     width: 12vh;
@@ -1440,7 +1450,7 @@ td {
 }
 
 .trapb-spin {
-    animation: spin-right 3s linear infinite;
+    animation: spin-right 4.5s linear infinite;
     border-radius: 100%
 }
 
@@ -1453,6 +1463,7 @@ td {
     background: radial-gradient(circle, #fffcab 0%, #c2a12a 100%);
     box-shadow: 0 0 1px #fff
 }
+
 .trapc-spin,
 .trapc-orbit {
     width: 22vh;
@@ -1462,7 +1473,7 @@ td {
 }
 
 .trapc-spin {
-    animation: spin-right 9s linear infinite;
+    animation: spin-right 7.5s linear infinite;
     border-radius: 100%
 }
 
@@ -1474,6 +1485,7 @@ td {
     background: #3dd6a9;
     background: radial-gradient(circle, #2fce86 0%, #3122d4 100%);
 }
+
 .trapd-spin,
 .trapd-orbit {
     width: 28vh;
@@ -1496,6 +1508,7 @@ td {
     background: radial-gradient(circle, #ffdc7b 0%, #0c70ea 100%);
     box-shadow: 0 0 5px blue;
 }
+
 .trape-spin,
 .trape-orbit {
     width: 36vh;
@@ -1505,7 +1518,7 @@ td {
 }
 
 .trape-spin {
-    animation: spin-right 23s linear infinite;
+    animation: spin-right 18s linear infinite;
     border-radius: 100%
 }
 
@@ -1518,6 +1531,7 @@ td {
     background: radial-gradient(circle, #d2ac43 0%, #614c00 100%);
     box-shadow: 0 0 3px #fff
 }
+
 .trapf-spin,
 .trapf-orbit {
     width: 46vh;
@@ -1527,7 +1541,7 @@ td {
 }
 
 .trapf-spin {
-    animation: spin-right 45s linear infinite;
+    animation: spin-right 27s linear infinite;
     border-radius: 100%
 }
 
@@ -1540,6 +1554,7 @@ td {
     background: radial-gradient(circle, #ffffff 0%, #ffb854 100%);
     box-shadow: 0 0 2px #fff
 }
+
 .trapg-spin,
 .trapg-orbit {
     width: 60vh;
@@ -1549,7 +1564,7 @@ td {
 }
 
 .trapg-spin {
-    animation: spin-right 65s linear infinite;
+    animation: spin-right 36s linear infinite;
     border-radius: 100%
 }
 
@@ -1562,6 +1577,7 @@ td {
     background: radial-gradient(circle, #6a4800 0%, #5e0000 100%);
     box-shadow: 0 0 2px #fff
 }
+
 .traph-spin,
 .traph-orbit {
     width: 74vh;
@@ -1571,6 +1587,6 @@ td {
 }
 
 .traph-spin {
-    animation: spin-right 98s linear infinite;
+    animation: spin-right 64s linear infinite;
     border-radius: 100%
 }

@@ -20,10 +20,10 @@
         <a class="p-solar-side earth" onclick="objClicked('earthInfo');closeSidepanel();">Earth</a>
         <a class="p-solar-side moon" onclick="objClicked('moonInfo');closeSidepanel();">Moon</a>
         <a class="p-solar-side mars" onclick="objClicked('marsInfo');closeSidepanel();">Mars</a>
-        <a class="p-solar-side phobos" onclick="objClicked('phobosInfo');closeSidepanel();">Phobos<br>Deimos</a>
-        <a class="p-solar-side asteroid" onclick="objClicked('asteroidInfo');closeSidepanel();">Asteroid<br>belt</a>
+        <a class="p-solar-side phobos" onclick="objClicked('phobosInfo');closeSidepanel();">Phobos</a>
+        <a class="p-solar-side asteroid" onclick="objClicked('asteroidInfo');closeSidepanel();">Belt</a>
         <a class="p-solar-side jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();">Jupiter</a>
-        <a class="p-solar-side jovian" onclick="objClicked('jovianInfo');closeSidepanel();">Jovian<br>moons</a>
+        <a class="p-solar-side jovian" onclick="objClicked('jovianInfo');closeSidepanel();">Jovian</a>
         <a class="p-solar-side saturn" onclick="objClicked('saturnInfo');closeSidepanel();">Saturn</a>
         <a class="p-solar-side uranus" onclick="objClicked('uranusInfo');closeSidepanel();">Uranus</a>
         <a class="p-solar-side neptune" onclick="objClicked('neptuneInfo');closeSidepanel();">Neptune</a>
@@ -44,16 +44,15 @@
 
     <a class="openButton" onclick="openSidepanel();">&#9776;</a>
     <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
-    <a class="openButton secondButton" href="">&#8634;</a>
+    <a class="openButton secondButton" href='space'>&#8634;</a>
     <div class="accent-bar solar"></div>
 
     <div id="systemInfo" class="left-panel">
         <div class="normal-border solar">
             <h2 class="h2-system solar">Solar System</h2>
             <p class="p-solar">The Solar System is the gravitationally bound
-                system of the Sun
-                and the objects that orbit it. It formed 4.6 billion years ago from the gravitational collapse
-                of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
+                system of the Sun and the objects that orbit it. It formed 4.6 billion years ago from the gravitational
+                collapse of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun,
                 with most of the remaining mass contained in the planet Jupiter.</p>
         </div>
         <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar1.png"></div>
@@ -619,7 +618,7 @@
             <div id="earth" onclick="objClicked('earthInfo');closeSidepanel();" style="cursor:pointer;z-index:96;">
             </div>
             <div class="orbit moon-orbit"></div>
-            <div class="moon-spin" onclick="objClicked('moonInfo');closeSidepanel();">
+            <div class="moon-spin" onclick="objClicked('moonInfo');closeSidepanel();" style="cursor:pointer">
                 <div id="moon"></div>
             </div>
         </div>
@@ -633,7 +632,7 @@
                 <div id="deimos"></div>
             </div>
             <div class="orbit phobos-orbit"></div>
-            <div class="phobos-spin">
+            <div class="phobos-spin" onclick="objClicked('phobosInfo');closeSidepanel();" style="cursor:pointer">
                 <div id="phobos"></div>
             </div>
         </div>
@@ -643,25 +642,26 @@
         </div>
 
         <div class="orbit jupiter-orbit"></div>
-        <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;">
-            <div id="jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();" style="cursor:pointer;z-index:94;">
-            </div>
+        <div class="jupiter-spin" id="jupiter-spin" style="z-index:93;"">
+            <div id=" jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();"
+            style="cursor:pointer;z-index:94;">
         </div>
+    </div>
 
-        <div class="orbit saturn-orbit"></div>
-        <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
-            <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
+    <div class="orbit saturn-orbit"></div>
+    <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
+        <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
+    </div>
 
-        <div class="orbit uranus-orbit"></div>
-        <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
-            <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
+    <div class="orbit uranus-orbit"></div>
+    <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
+        <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
+    </div>
 
-        <div class="orbit neptune-orbit"></div>
-        <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
-            <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
+    <div class="orbit neptune-orbit"></div>
+    <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
+        <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
+    </div>
 
     </div>
     <script src="{% static 'systemscripts.js' %}"></script>

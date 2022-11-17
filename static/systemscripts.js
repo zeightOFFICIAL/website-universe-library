@@ -30,37 +30,37 @@ catch (TypeError) {
 
 function onLoadSolar() {
     objClicked("systemInfo");
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 23);
     document.getElementById('venus-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 9);
     document.getElementById('mercury-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 37);
     document.getElementById('earth-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 1076);
     document.getElementById('saturn-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 434);
     document.getElementById('jupiter-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 3069);
     document.getElementById('uranus-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 6001);
     document.getElementById('neptune-spin').style.animationDelay = "-" + randomShift * 1000 + "s";
-    randomShift = Math.floor(Math.random() * 100);
+    randomShift = Math.floor(Math.random() * 69);
     document.getElementById('mars-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
 function onLoadAlpha() {
     objClicked("systemInfo");
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 10);
     document.getElementById('alpha-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 45);
     document.getElementById('beta-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift * 100 + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('proxc-spin').style.animationDelay = "-" + randomShift * 100 + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 325);
+    document.getElementById('prox-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 1928);
+    document.getElementById('proxc-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 11);
     document.getElementById('proxb-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 5);
     document.getElementById('proxd-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
@@ -82,19 +82,19 @@ function onLoadTrebia() {
 
 function onLoadTrapp() {
     objClicked('systemInfo');
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 5);
     document.getElementById('trapb-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 8);
     document.getElementById('trapc-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 12);
     document.getElementById('trapd-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 18);
     document.getElementById('trape-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 27);
     document.getElementById('trapf-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 36);
     document.getElementById('trapg-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 65);
     document.getElementById('traph-spin').style.animationDelay = "-" + randomShift + "s";
 }
 

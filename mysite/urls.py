@@ -19,7 +19,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', indexPage, name="index"),
+    path('space', indexPage, name="index"),
     path('solarsystem', solarPage, name="solar"),
     path('alphacentauri', alphaPage, name="alpha"),
     path('trappist', trappPage, name="trapp"),
