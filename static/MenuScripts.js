@@ -9,5 +9,6 @@ function continueToInfo() {
 }
 
 function continueToCards() {
-    document.getElementById('fourth').style.left = '-200vw';
+    document.getElementById('third').style.left = '-200vw';
+    document.getElementById('fourth').style.left = '0vw';
 }

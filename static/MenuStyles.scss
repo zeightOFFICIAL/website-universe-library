@@ -143,9 +143,8 @@ body {
     font-size: 5vw;
     font-family: "solar", sans-serif;
     text-align: center;
-    transition: 2.5s;
-    animation: reveal 3000ms ease-in-out forwards 200ms,
-        glow 2500ms linear infinite 2000ms;
+    transition: left 3s, text-shadow 1.5s;
+    animation: reveal 3000ms ease-in-out forwards 200ms;
 
     @keyframes reveal {
         80% {
@@ -154,12 +153,6 @@ body {
 
         100% {
             background-size: 300% 300%;
-        }
-    }
-
-    @keyframes glow {
-        40% {
-            text-shadow: 0 0 8px #fff;
         }
     }
 }
@@ -175,7 +168,7 @@ body {
     font-size: 2.5vw;
     font-family: "solar_bold", sans-serif;
     text-align: center;
-    transition: 2.5s;
+    transition: left 3s, text-shadow 1.5s;
     z-index: 1;
     background-color: #ffffff;
     background-image: linear-gradient(65deg, #ffffff 0%, #969696 100%);
