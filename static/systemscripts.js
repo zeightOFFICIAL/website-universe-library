@@ -66,18 +66,18 @@ function onLoadAlpha() {
 
 function onLoadTrebia() {
     objClicked('systemInfo');
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 6);
     document.getElementById('aventen-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 12);
     document.getElementById('caelax-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 40);
     document.getElementById('palaven-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
+    randomShift = Math.floor(Math.random() * 130);
     document.getElementById('impera-spin').style.animationDelay = "-" + randomShift + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('essenus-spin').style.animationDelay = "-" + randomShift * 100 + "s";
-    randomShift = Math.floor(Math.random() * 30);
-    document.getElementById('datriux-spin').style.animationDelay = "-" + randomShift * 100 + "s";
+    randomShift = Math.floor(Math.random() * 4300);
+    document.getElementById('essenus-spin').style.animationDelay = "-" + randomShift + "s";
+    randomShift = Math.floor(Math.random() * 6700);
+    document.getElementById('datriux-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
 function onLoadTrapp() {
