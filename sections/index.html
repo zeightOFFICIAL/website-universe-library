@@ -14,12 +14,16 @@
 
 <body>
     <a href="about"><button class="abouttext" id="about">About</button></a>
-    <button class="skiptext" id="skip" onclick="continueToLast();">Skip</button>
-    <button class="backtext" id="back" onclick="continueToFirst();">Back</button>
-    <a href="solarsystem"><button class="tosolar" id="about">Solar</button></a>
-    <a href="alphacentauri"><button class="toalpha" id="about">Alpha</button></a>
-    <a href="trappist"><button class="totrapp" id="about">Trappist</button></a>
-    <a href="trebia"><button class="totrebia" id="about">Trebia</button></a>
+    <div class="containBot">
+        <button class="backtext" id="back" onclick="continueToFirst();">Back</button>
+        <button class="skiptext" id="skip" onclick="continueToLast();">Skip</button>
+    </div>
+    <div class="containTop">
+        <a href="solarsystem"><button class="tosolar" id="about">Solar</button></a>
+        <a href="alphacentauri"><button class="toalpha" id="about">Alpha</button></a>
+        <a href="trappist"><button class="totrapp" id="about">Trappist</button></a>
+        <a href="trebia"><button class="totrebia" id="about">Trebia</button></a>
+    </div>
     <div class="maintext" id="first" onclick="continueToLabel();">
         HELLO<br>UNIVERSE!
     </div>

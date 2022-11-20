@@ -186,9 +186,9 @@ p {
 
 .maintext {
     position: absolute;
-    top: 41vh;
+    top: 39vmin;
     left: 0;
-    width: 100vw;
+    width: 100%;
     cursor: pointer;
     z-index: 1;
     background: 50% 100% / 50% 50% no-repeat radial-gradient(ellipse at bottom, #fff, transparent, transparent);
@@ -216,9 +216,9 @@ p {
 .thirdtext,
 .fourtext {
     position: absolute;
-    top: 44vh;
     left: 200vw;
     width: 100vw;
+    top: 39vmin;
     white-space: nowrap;
     cursor: pointer;
     font-size: 5vmin;
@@ -264,6 +264,7 @@ p {
     width: 15vmin;
     height: 4vmin;
     font-size: 1.5vmin;
+    z-index: 1;
     text-align: center;
     font-family: 'solar_bold';
     display: inline-block;
@@ -298,29 +299,17 @@ p {
     box-shadow: 0 0 10px white;
 }
 
+.tosolar,
+.toalpha,
+.totrapp,
+.totrebia,
+.backtext,
 .skiptext {
-    top: 13vmin;
+    position: relative;
+    height: 4vmin;
+    font-size: 1.5vmin;
 }
 
-.tosolar {
-    top: 18vmin;
-}
-
-.toalpha {
-    top: 23vmin;
-}
-
-.totrapp {
-    top: 28vmin;
-}
-
-.totrebia {
-    top: 33vmin;
-}
-
-.backtext {
-    top: 8vmin;
-}
 
 .cards {
     left: 400vw;
@@ -344,9 +333,56 @@ p {
     z-index: 11;
 }
 
-.container span {
-    color: white;
-    font-family: "solar_bold", sans-serif;
+.containTop {
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    top: 2vh;
+    left: 0;
+    width: 100vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    height: 7vh;
+    align-items: center;
+    margin: 0 0;
+}
+
+.containTop button {
+    width: 13.9vw;
+    margin: 0 0.5vw;
+    left: 0;
+}
+
+.containBot {
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    top: 92vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    align-content: center;
+    padding-left: 40vw;
+    padding-right: 40vw;
+}
+
+.containBot button {
+    width: 8.8vw;
+    margin: 0 0.5vw;
+    left: 0;
+}
+
+.containAbt {
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    align-content: center;
+    padding-left: 15vw;
+    padding-right: 40vw;
 }
 
 .box {
