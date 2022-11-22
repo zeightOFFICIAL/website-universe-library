@@ -326,20 +326,23 @@ p {
     position: absolute;
     display: flex;
     width: 100vw;
-    padding: 0 20vw;
+    padding-left: 20vw;
+    padding-right: 19vw;
     box-sizing: border-box;
     height: 65vh;
     transition: 3s;
     z-index: 11;
 }
 
-.containTop {
+.containTop,
+.containBot {
     display: inline;
     position: absolute;
     overflow: hidden;
     top: 2vh;
     left: 0;
     width: 100vw;
+    height: 11vh;
     padding-left: 20vw;
     padding-right: 20vw;
     height: 7vh;
@@ -348,26 +351,20 @@ p {
 }
 
 .containTop button {
-    width: 13.9vw;
+    width: 14vw;
     margin: 0 0.5vw;
     left: 0;
 }
 
 .containBot {
-    display: inline;
-    position: absolute;
-    overflow: hidden;
     top: 92vh;
-    left: 0;
     width: 100vw;
-    height: 10vh;
-    align-content: center;
     padding-left: 40vw;
     padding-right: 40vw;
 }
 
 .containBot button {
-    width: 8.8vw;
+    width: 9vw;
     margin: 0 0.5vw;
     left: 0;
 }
