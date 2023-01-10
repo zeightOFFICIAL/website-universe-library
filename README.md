@@ -1,4 +1,4 @@
-# Hello, Universe
+# Stellar Web-Library
 
 ## Website – library for information about star systems and objects within
 
