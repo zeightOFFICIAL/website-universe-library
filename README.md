@@ -1,4 +1,4 @@
-# Stellar Web-Library
+# Website Star Library
 
 ## Website – library for information about star systems and objects within
 
@@ -20,7 +20,7 @@ Internet library for star systems and objects within them. The site presents the
 
 ### Launch conditions
 
-Be sure to have packages listed in requirements.txt installed. Use any IDE able to interpret Python code. Launch from manage.py, settings in settings.py.
+Be sure to have packages listed in requirements.txt installed. Use any IDE able to interpret Python code. Create .env file in which you should store SECRET_KEY (for example SECRET_KEY='0449'), it should be not visible during production. Launch from manage.py, settings in settings.py.
 
 First launch from new machine
 
@@ -34,10 +34,14 @@ Launch server
 python ./manage.py runserver
 ```
 
+During loading of the index page, a cached compiled file appears at compiled/CACHE/css. There is a code which should clear directory, but it only launches at the host during ./manage.py runserver.
+
 ### Packages list
 
-* Django is a framework.
-* Python Decouple to work with envs.
+* Django is a framework
+* Python Decouple to work with envs
+* Django libsass to compile Scss to css
+* Django compressor for compiled files
 
 ### Future scope
 

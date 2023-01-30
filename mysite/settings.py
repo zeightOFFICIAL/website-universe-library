@@ -135,6 +135,7 @@ STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder',
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+COMPRESS_ENABLED = True
 
 
 # Default primary key field type
