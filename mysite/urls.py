@@ -26,4 +26,5 @@ urlpatterns = [
     path('alphacentauri', alphaPage, name="alpha"),
     path('trappist', trappPage, name="trapp"),
     path('trebia', trebiaPage, name="trebia"),
+    path('tempsystem', tempSystem, name="temp")
 ]

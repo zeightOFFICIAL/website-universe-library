@@ -48,7 +48,6 @@
     <div class="accent-bar solar"></div>
 
     <div id="systemInfo" class="left-panel">
-        {{ panel|safe }}
         <div class="normal-border solar">
             <h2 class="h2-system solar">Solar System</h2>
             <p class="p-solar">The Solar System is the gravitationally bound
@@ -57,6 +56,8 @@
                 with most of the remaining mass contained in the planet Jupiter.</p>
         </div>
         <div class="normal-border solar-filling solar"><img src="../static/jpg/solarsystem/solar1.png"></div>
+
+
         <div class="normal-border solar p-solar">Our solar system is made up of
             a star, eight planets, and countless smaller bodies such as dwarf planets, asteroids, and comets.</div>
         <div class="normal-border solar p-solar">Our solar system orbits the
@@ -639,7 +640,7 @@
         </div>
 
         <div class="orbit asteroids-orbit"></div>
-            <div class="asteroids-spin">
+        <div class="asteroids-spin">
         </div>
 
         <div class="orbit jupiter-orbit"></div>
@@ -647,20 +648,20 @@
             <div id="jupiter" onclick="objClicked('jupiterInfo');closeSidepanel();" style="cursor:pointer;"></div>
         </div>
 
-    <div class="orbit saturn-orbit"></div>
-    <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
-        <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
-    </div>
+        <div class="orbit saturn-orbit"></div>
+        <div class="saturn-spin" id="saturn-spin" style="z-index:92;">
+            <div id="saturn" onclick="objClicked('saturnInfo');closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-    <div class="orbit uranus-orbit"></div>
-    <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
-        <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
-    </div>
+        <div class="orbit uranus-orbit"></div>
+        <div class="uranus-spin" id="uranus-spin" style="z-index:91;">
+            <div id="uranus" onclick="objClicked('uranusInfo');closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
-    <div class="orbit neptune-orbit"></div>
-    <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
-        <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
-    </div>
+        <div class="orbit neptune-orbit"></div>
+        <div class="neptune-spin" id="neptune-spin" style="z-index:90;">
+            <div id="neptune" onclick="objClicked('neptuneInfo');closeSidepanel();" style="cursor:pointer;"></div>
+        </div>
 
     </div>
     <script src="{% static 'systemscripts.js' %}"></script>
