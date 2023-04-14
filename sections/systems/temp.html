@@ -3,9 +3,7 @@
 
 <head>
     {% load static %}
-    { head|safe }
-    <link rel="stylesheet" href="{% static 'systemstyles.css' %}">
-    <link rel="icon" href="{% static 'alternativeicon.ico' %}">
+    {{ head| safe }}
 </head>
 
 <body onload="onLoadAlpha();">
@@ -40,75 +38,8 @@
     <div class="accent-bar alpha"></div>
 
     <div id="systemInfo" class="left-panel">
-        <div class="normal-border alpha">
-            <h2 class="h2-system alpha">Alpha Centauri</h2>
-            <p class="p-solar">Alpha Centauri (Latinized from a Centauri and often abbreviated Alpha Cen or a Cen) is a
-                triple star system in the constellation of Centaurus. It consists of 3 stars: Alpha Centauri A
-                (officially Rigil Kentaurus), Alpha Centauri B (officially Toliman) and Alpha Centauri C
-                (officially Proxima Centauri). Proxima Centauri is also the closest star to the Sun at 4.2465
-                light-years (1.3020 pc).</p>
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/alphasystem1.jpg">
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/alphasystem2.jpg">
-        </div>
-        <div class="normal-border alpha hidden">
-            <div class="alphaSlide p-solar">
-                To the naked eye, Alpha Centauri AB appears to be a single star, the brightest in the southern
-                constellation of Centaurus. Their apparent angular separation varies over about 80 years between 2
-                and 22 arcsec (the naked eye has a resolution of 60 arcsec), but through much of the orbit, both are
-                easily resolved in binoculars or small telescopes. Alpha Centauri is a first-magnitude star.
-            </div>
-            <div class="alphaSlide p-solar">
-                Alpha Centauri is a triple star system, with its two main stars, Alpha Centauri A and Alpha Centauri B,
-                together comprising a binary component. The AB designation, or older AxB, denotes the mass centre of a
-                main binary system relative to companion star(s) in a multiple star system. AB-C refers to the
-                component of Proxima Centauri in relation to the central binary.
-            </div>
-            <button class="display-prev alpha" onclick="plusSlides(-1.,'alphaSlide');">&#10094;</button>
-            <button class="display-next alpha" onclick="plusSlides(+1.,'alphaSlide');">&#10095;</button>
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/alphasystem3.jpg">
-        </div>
-        <!-- <div class="normal-border alpha">
-            <iframe id='video' width="100%" height="315" src="https://www.youtube.com/embed/XKbQuNF0zPo?&enablejsapi=1"
-                title="" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div> -->
+        {{ mainpanels| safe }}
     </div>
-    <div id="alphaInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <a class="moreInfo alpha" href="https://en.wikipedia.org/wiki/Alpha_Centauri" target="_blank">&#9783;</a>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Alpha</h3>
-            <p class="p-solar">
-                Alpha Centauri A, also known as Rigil Kentaurus, is the principal member, or primary, of the binary
-                system. It is a solar-like main-sequence star with a similar yellowish colour, whose stellar
-                classification is spectral type G2-V; it is about 10% more massive than the Sun, with a radius
-                about 22% larger. When considered among the individual brightest stars in the night sky, it is the
-                fourth-brightest at an apparent magnitude of +0.01, being slightly fainter than Arcturus at an
-                apparent magnitude of -0.05.
-            </p>
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/alpha1.jpg">
-        </div>
-        <div class="normal-border alpha">
-            <p class="p-solar">
-                The type of magnetic activity on Alpha Centauri A is comparable to that of the Sun, showing coronal
-                variability due to star spots, as modulated by the rotation of the star. However, since 2005 the
-                activity level has fallen into a deep minimum that might be similar to the Sun's historical Maunder
-                Minimum. Alternatively, it may have a very long stellar activity cycle and is slowly recovering from a
-                minimum phase.
-            </p>
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/alpha2.gif">
-        </div>
 
     </div>
     <div id="betaInfo" class="left-panel" onclick="closeSidepanel();">
@@ -244,35 +175,6 @@
     </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="zeropoint" style="z-index:100;"></div>
-
-        <div class="orbit alpha-orbit"></div>
-        <div class="alpha-spin" id="alpha-spin" style="z-index:99;">
-            <div id="alpha" onclick="objClicked('alphaInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
-        <div class="orbit beta-orbit"></div>
-        <div class="beta-spin" id="beta-spin" style="z-index:98;">
-            <div id="beta" onclick="objClicked('betaInfo');closeSidepanel();" style="cursor:pointer;"></div>
-        </div>
-        <div class="orbit prox-orbit"></div>
-        <div class="prox-spin" id="prox-spin" style="z-index:97;">
-            <div id="prox" onclick="objClicked('proximaInfo');closeSidepanel();" style="cursor:pointer; z-index:96;">
-            </div>
-
-            <div class="orbit proxd-orbit"></div>
-            <div class="proxd-spin" id="proxd-spin" style="z-index:95;">
-                <div id="proxd" onclick="objClicked('proximadInfo');closeSidepanel();" style="cursor:pointer;"></div>
-            </div>
-
-            <div class="orbit proxb-orbit"></div>
-            <div class="proxb-spin" id="proxb-spin" style="z-index:94;">
-                <div id="proxb" onclick="objClicked('proximabInfo');closeSidepanel();" style="cursor:pointer;"></div>
-            </div>
-
-            <div class="orbit proxc-orbit"></div>
-            <div class="proxc-spin" id="proxc-spin">
-                <div id="proxc" onclick="objClicked('proximacInfo');closeSidepanel();" style="cursor:pointer;"></div>
-            </div>
-        </div>
     </div>
     <script src="{% static 'systemscripts.js' %}"></script>
 </body>

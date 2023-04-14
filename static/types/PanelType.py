@@ -1,11 +1,11 @@
-from static.classes.Style import Style
+from static.types.StyleType import Style
 
 
-class Panel:
+class BasePanel:
     def __init__(self, id):
         self.id = id
 
-class SimpleTextPanel(Panel):
+class SimpleTextPanel(BasePanel):
     def __init__(self, id, text, first_color, second_color, third_color):
         super().__init__(id)
         self.text = text
@@ -21,7 +21,7 @@ class TextPanel(SimpleTextPanel):
     def __str__(self):
         return f'<div {self.box_style}><h2 {self.header_style}> {self.header} </h2><p {self.text_style}> {self.text} </p></div>'
     
-class SimpleImagePanel(Panel):
+class SimpleImagePanel(BasePanel):
     def __init__(self, id, image, first_color, second_color, third_color):
         super().__init__(id)
         self.image = image
@@ -29,7 +29,7 @@ class SimpleImagePanel(Panel):
         self.image_style = Style.Image.ReturnImage()
     def __str__(self):
         return f'<div {self.box_style}><img src="{self.image}" {self.image_style}></div>'
-class SimpleVideoPanel(Panel):
+class SimpleVideoPanel(BasePanel):
     def __init__(self, id, url, first_color, second_color, third_color):
         super().__init__(id)
         self.url = url
