@@ -29,6 +29,20 @@ class Style:
             part_two = f'title="" frameborder="0"'
             part_thr = f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"'
             return f'{part+part_two+part_thr} allowfullscreen'
+    class Misc:
+        def ReturnHidden():
+            return f'style="overflow: hidden;"'
+    class Button:
+        def ReturnSliderLeft(fore_color):
+            part     = f'display: inline;color: #000;cursor: pointer;transition: .5s;background: transparent;border: none;'
+            part_one = f'font-size: 2vmin;background-color: {fore_color};margin: 0;padding: 0;overflow: hidden;'
+            part_two = f'float: left;width: 50%;'
+            return f'style="{part+part_one+part_two}"'
+        def ReturnSliderRight(fore_color):
+            part     = f'display: inline;color: #000;cursor: pointer;transition: .5s;background: transparent;border: none;'
+            part_one = f'font-size: 2vmin;background-color: {fore_color};margin: 0;padding: 0;overflow: hidden;'
+            part_two = f'float: right;width: 50%;'
+            return f'style="{part+part_one+part_two}"'
 
 class Visual:
     class Object:
@@ -49,8 +63,9 @@ class Visual:
             self.height = height
             self.margin_top = margin_top
             self.margin_left = margin_left
+            self.border = "border: 1px solid #39394e;"
         def __str__(self):
-            part     = f'width: {self.width};height: {self.height};'
+            part     = f'width: {self.width};height: {self.height};'+f'{self.border}'
             part_one = f'margin-top: {self.margin_top};margin-left: {self.margin_left};'
             return f'style="{part + part_one}"'            
     class Spin:
@@ -67,4 +82,10 @@ class Visual:
             part_two = f'animation: spin-right {self.period} linear infinite; border-radius: {self.radius};'
             return f'style="{part+part_one+part_two}"'
 
-            
+class EventHandlers:
+    class SlidesButton:
+        def __init__(self, args, slide_name):
+            self.args = args
+            self.slide_name = slide_name
+        def __str__(self):
+            return f'onclick="plusSlides({self.args},{self.slide_name})"'

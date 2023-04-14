@@ -1,4 +1,4 @@
-from static.types.StyleType import Style
+from static.Types.StyleType import Style, EventHandlers
 
 
 class BasePanel:
@@ -29,6 +29,7 @@ class SimpleImagePanel(BasePanel):
         self.image_style = Style.Image.ReturnImage()
     def __str__(self):
         return f'<div {self.box_style}><img src="{self.image}" {self.image_style}></div>'
+    
 class SimpleVideoPanel(BasePanel):
     def __init__(self, id, url, first_color, second_color, third_color):
         super().__init__(id)
@@ -37,3 +38,19 @@ class SimpleVideoPanel(BasePanel):
         self.video_style = Style.Video.ReturnVideo()
     def __str__(self):
         return f'<div {self.box_style}><iframe {self.video_style} src="{self.url}"></iframe></div>'
+
+class PanelSlider(BasePanel):
+    def __init__(self, id, all_panels, fore_color, back_color):
+        super().__init__(id)
+        self.hidden = Style.Misc.ReturnHidden()
+        self.box_style = Style.Box.ReturnText()
+        self.button_left = Style.Button.ReturnSliderLeft(fore_color)
+        self.button_right =Style.Button.ReturnSliderRight(back_color)
+        self.all_panels = all_panels
+    def __str__(self):
+        begin = f'<div class="{self.id}" {self.hidden} {self.box_style}>'
+        for panel in self.all_panels:
+            
+        end_one   = f'<button {self.button_left } {EventHandlers.SlidesButton(-1., "alphaSlide")}>&#10094;</button>'
+        end_two   = f'<button {self.button_right} {EventHandlers.SlidesButton(1.,  "alphaSlide")}>&#10094;</button>'
+        return f'{begin}'

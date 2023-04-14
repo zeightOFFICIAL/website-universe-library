@@ -1,4 +1,4 @@
-import static.types.PanelType as PanelType
+import static.Types.PanelType as PanelType
 
 class SystemClass:
     def __init__(self, id, name, main_panels, objects, page_icon):
