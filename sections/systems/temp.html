@@ -35,7 +35,7 @@
     <a class="openButton" onclick="openSidepanel();">&#9776;</a>
     <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
     <a class="openButton secondButton" href="space">&#8634;</a>
-    <div class="accent-bar alpha"></div>
+    {{ accentbar| safe }}
 
     <div id="systemInfo" class="left-panel">
         {{ mainpanels| safe }}
@@ -175,6 +175,7 @@
     </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="zeropoint" style="z-index:100;"></div>
+        {{ objects|safe }}
     </div>
     <script src="{% static 'systemscripts.js' %}"></script>
 </body>

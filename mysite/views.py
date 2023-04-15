@@ -20,4 +20,8 @@ def aboutPage(request):
     return render(request, "about.html")
 
 def tempSystem(request):
-    return render(request, "systems/temp.html", {'head': SystemObject.GetHead, 'mainpanels' : SystemObject.GetMainPanels})
+    return render(request, "systems/temp.html", 
+                  {'head': SystemObject.GetHead, 
+                   'mainpanels' : SystemObject.GetMainPanels,
+                   'accentbar': SystemObject.GetAccentBar,
+                   'objects': SystemObject.GetObjects})

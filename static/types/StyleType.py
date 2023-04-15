@@ -47,6 +47,12 @@ class Style:
     class Misc:
         def ReturnHidden():
             return f'style="overflow: hidden;"'
+        def ReturnAccentBar(fore_color, back_color):
+            sizes = f'top:0;left:0;width:10vmin;height:100vh;'
+            animations = f'transition:left .7s; transition:right .7s;'
+            position = f'position:absolute;'
+            color = f'background-color:{fore_color};background-image: linear-gradient(62deg, {fore_color} 0%, {back_color} 100%);box-shadow: 0 0 3vw {fore_color};'
+            return f'style="{sizes+animations+position+color}"'               
     class Button:
         def ReturnSliderLeft(fore_color):
             part     = f'display: inline;color: #000;cursor: pointer;transition: .5s;background: transparent;border: none;'
@@ -68,21 +74,19 @@ class Visual:
             self.second_color = second_color
             self.lumin = lumin
         def __str__(self):
-            part     = f'height: {self.size};width: {self.size};'
-            part_one = f'margin-top: {self.margins}; margin-left: {self.margins};'
-            part_two = f'background: {self.first_color}; background: radial-gradient(circle, {self.first_color} 0%, {self.second_color} 100%);'
-            return f'style="{part+part_one+part_two}"'
+            size = f'height: {self.size};width: {self.size};'
+            margins = f'margin-top: {self.margins}; margin-left: {self.margins};'
+            fill = f'background: {self.first_color}; background: radial-gradient(circle, {self.first_color} 0%, {self.second_color} 100%);'
+            return f'style="{size+margins+fill}"'
     class Orbit:
         def __init__(self, width, height, margin_top, margin_left):
             self.width = width
             self.height = height
             self.margin_top = margin_top
             self.margin_left = margin_left
-            self.border = "border: 1px solid #39394e;"
         def __str__(self):
-            part     = f'width: {self.width};height: {self.height};'+f'{self.border}'
-            part_one = f'margin-top: {self.margin_top};margin-left: {self.margin_left};'
-            return f'style="{part + part_one}"'            
+            size = f'width:{self.width};height:{self.height};margin-top:{self.margin_top};margin-left:{self.margin_left};'
+            return f'class="orbit" style="{size}"'            
     class Spin:
         def __init__(self, width, height, margin_top, margin_left, period, radius):
             self.width = width
@@ -92,10 +96,10 @@ class Visual:
             self.period = period
             self.radius = radius
         def __str__(self):
-            part     = f'width: {self.width};height: {self.height};'
-            part_one = f'margin-top: {self.margin_top};margin-left: {self.margin_left};'
-            part_two = f'animation: spin-right {self.period} linear infinite; border-radius: {self.radius};'
-            return f'style="{part+part_one+part_two}"'
+            size = f'width:{self.width};height:{self.height};'
+            margins = f'margin-top:{self.margin_top};margin-left:{self.margin_left};'
+            animation = f'animation: spin-right {self.period} linear infinite; border-radius: {self.radius};'
+            return f'style="{size+margins+animation}"'
 
 class EventHandlers:
     class SlidesButton:

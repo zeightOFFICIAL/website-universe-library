@@ -781,40 +781,9 @@ td {
     transition: .7s
 }
 
-.orbit {
-    border: 1px solid #39394e
-}
 
-#trebia,
-#zeropoint,
-#sun,
-#trapp,
-.orbit,
-.orbit+div,
-.orbit+div>div {
-    position: absolute
-}
 
-#trebia,
-#zeropoint,
-#sun,
-#trapp,
-.orbit,
-.orbit+div {
-    top: 50%;
-    left: 50%
-}
 
-.orbit+div>div {
-    top: 0;
-    left: 50%
-}
-
-.orbit,
-.orbit+div div,
-#earth {
-    border-radius: 50%
-}
 
 #sun {
     height: 8vh;
@@ -1062,11 +1031,7 @@ td {
     margin-top: -46vh
 }
 
-@keyframes spin-right {
-    100% {
-        transform: rotate(360deg)
-    }
-}
+
 
 .earth-spin {
     animation: spin-right 36.5s linear infinite;
@@ -1580,4 +1545,39 @@ td {
 .traph-spin {
     animation: spin-right 64s linear infinite;
     border-radius: 100%
+}
+
+
+/* -------------------------------------------- */
+
+.orbit {
+    border: 1px solid #39394e
+}
+
+.orbit,
+.orbit+div,
+.orbit+div>div {
+    position: absolute
+}
+
+.orbit,
+.orbit+div {
+    top: 50%;
+    left: 50%
+}
+
+.orbit+div>div {
+    top: 0;
+    left: 50%
+}
+
+.orbit,
+.orbit+div div {
+    border-radius: 50%
+}
+
+@keyframes spin-right {
+    100% {
+        transform: rotate(360deg)
+    }
 }
