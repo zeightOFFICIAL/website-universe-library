@@ -3,8 +3,14 @@ class Style:
         def ReturnText(a_color, b_color, c_color):
             part =     f'border-width: 3px; border-style: solid; margin: 40px 15px;'
             part_one = f'border-image: linear-gradient(to right,{a_color},{b_color}) 1;'
-            part_two = f'box-shadow: 0 0 20px {c_color}; padding-left: 20px; padding-right: 20px;'
+            part_two = f'box-shadow: 0 0 20px {c_color};'
             return f'style="{part+part_one+part_two}"'
+        def ReturnSliderText(a_color, b_color, c_color):
+            part =     f'border-width: 3px; border-style: solid; margin: 40px 15px;'
+            part_one = f'border-image: linear-gradient(to right,{a_color},{b_color}) 1;'
+            part_two = f'box-shadow: 0 0 20px {c_color};'
+            part_thr = f'overflow: hidden;'
+            return f'style="{part+part_one+part_two+part_thr}"'
         def ReturnImage(a_color, b_color, c_color):
             part =     f'border-width: 3px; border-style: solid; margin: 40px 15px;'
             part_one = f'border-image: linear-gradient(to right,{a_color},{b_color}) 1;'
@@ -13,15 +19,18 @@ class Style:
             return f'style="{part+part_one+part_two+part_thr}"'
     class Text:
         def ReturnNormal():
-            part = f'text-align: center;font-family: \'normal\';font-size: 3vmin; cursor: default; color: #fff;'
+            part = f'text-align: center;font-family: \'normal\';font-size: 3vmin; cursor: default; color: #fff;padding-left: 20px; padding-right: 20px;'
             return f'style="{part}"'
         def ReturnHeader(a_color, b_color):
-            part =     f'text-align: center;font-family: \'solar\';font-size: 7vmin;margin-bottom: 2.5vmin;cursor: default;'
+            part =     f'text-align: center;font-family: \'solar\';font-size: 7vmin;margin-bottom: 2.5vmin;cursor: default;padding-left: 20px; padding-right: 20px;'
             part_one = f'background-color: #FBAB7E;background-image: linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;'
             return f'style="{part+part_one}"'
     class Image:
         def ReturnImage():
             part = f'width: 100%;height: 45vmin;object-fit: cover;'
+            return f'style="{part}"'
+        def ReturnImageOriginal():
+            part = f'width: 100%;object-fit: cover;'
             return f'style="{part}"'
     class Video:
         def ReturnVideo():
@@ -88,4 +97,4 @@ class EventHandlers:
             self.args = args
             self.slide_name = slide_name
         def __str__(self):
-            return f'onclick="plusSlides({self.args},{self.slide_name})"'
+            return f'onclick="plusSlides({self.args},{self.slide_name});"'
