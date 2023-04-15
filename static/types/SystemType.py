@@ -26,3 +26,8 @@ class SystemClass:
         return objectsstr
     def GetAccentBar(self):
         return f'<div {self.accent_bar}></div>'
+    def GetPanels(self):
+        allInfo = ""
+        for panelsInfo in self.objects:
+            allInfo += panelsInfo.__str__()
+        return allInfo

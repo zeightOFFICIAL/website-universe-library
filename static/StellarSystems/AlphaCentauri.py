@@ -19,28 +19,45 @@ panel_middle4 = CombinedHeaderPanel("MPNL04", "Almost there", "There has been mu
 
 # OBJECT PANELS
 alpha_starter = HeaderTextPanel("APNL00", "Alpha", "Alpha Centauri A is one of the three stars in the Alpha Centauri star system, and it is the brightest and largest of the three. It is a yellow dwarf star, similar to our own Sun, with a mass of about 1.1 times that of the Sun and a radius of about 1.2 times that of the Sun.", MAIN_COLOR, ["orangered", "yellow"])
+beta_starter = HeaderTextPanel("BPNL00", "Beta", "", MAIN_COLOR, HEAD_COLOR)
+prox_starter = HeaderTextPanel("PPNL00", "Proxima", "", MAIN_COLOR, HEAD_COLOR)
+proxc_starter = HeaderTextPanel("PcPNL00", "Proxima C", "", MAIN_COLOR, HEAD_COLOR)
+proxb_starter = HeaderTextPanel("PbPNL00", "Proxima B", "", MAIN_COLOR, HEAD_COLOR)
+proxd_starter = HeaderTextPanel("PdPNL00", "Proxuma D", "", MAIN_COLOR, HEAD_COLOR)
 
 # OBJECTS
-pbetd = ObjectClass("PROXD", "Proxima D", 95,
-                    ['10vh', '-5vh', '#ffd000', '#f70', '30px'],
-                    ['2vh', '2vh', '-1vh', '-1vh'],
-                    ['2vh', '2vh', "-1vh", '-1vh', '10s', '100%'],
-                    [alpha_starter])
+proxc = ObjectClass("PROXC", "Proxima C", 93, 
+                    ['6vh', '-3vh', '#0051ff', '#1e00ff', '10px','#8a2be2'],
+                    ['30vh', '-15vh'],
+                    ['30vh', "-15vh", '1928s'],
+                    [proxc_starter])
+proxb = ObjectClass("PROXB", "Proxima B", 94, 
+                    ['4vh', '-2vh', '#ffadad;', '#ffd9a7', '10px'],
+                    ['18vh', '-9vh'],
+                    ['18vh', "-9vh", '11s'],
+                    [proxb_starter])
+proxd = ObjectClass("PROXD", "Proxima D", 95, 
+                    ['2vh', '-1vh', '#ffd0d0;', '#ff6363', '5px'],
+                    ['10vh', '-5vh'],
+                    ['10vh', "-5vh", '5s'],
+                    [proxd_starter])
+
 alpha = ObjectClass("ALPHA", "Alpha", 99, 
-                    ['10vh', '-5vh', '#ffd000', '#f70', '30px'],
-                    ['2vh', '2vh', '-1vh', '-1vh'],
-                    ['2vh', '2vh', "-1vh", '-1vh', '10s', '100%'],
+                    ['10vh', '-5vh', '#ffd000', '#f70', '30px', '#fff'],
+                    ['2vh', '-1vh'],
+                    ['2vh', "-1vh", '10s'],
                     [alpha_starter])
-beta  = ObjectClass("BETA", "Beta", 98,
-                    ['7vh', '-3.5vh', '#ff9100', '#f70', '20px'],
-                    ['20vh', '20vh', '-10vh', '-10vh'],
-                    ['20vh', '20vh', "-10vh", '-10vh', '45s', '100%'],
-                    [alpha_starter])
-prox  = ObjectClass("PROX", "Proxima", 97,
-                    ['4vh', '-2vh', 'red', '#61', '20px'],
-                    ['64vh', '64vh', '-32vh', '-32vh'],
-                    ['64vh', '64vh', "-32vh", '-32vh', '325s', '100%'],
-                    [alpha_starter])
+beta =  ObjectClass("BETA", "Beta", 98,
+                    ['7vh', '-3.5vh', '#ff9100', '#f70', "20px", "#ff0"],
+                    ['20vh', "-10vh"],
+                    ['20vh', '-10vh', '45s'],
+                    [beta_starter])
+prox =  ObjectClass("PROX", "Proxima", 97,
+                    ['4vh', '-2vh', 'red', '#61', "35px", "red"],
+                    ['64vh', "-32vh"],
+                    ['64vh', '-32vh', '325s'],
+                    [prox_starter], [proxd, proxc, proxb])
+
 
 # SYSTEM
 SystemObject = SystemClass(1, "Alpha Centauri", [panel_starter, panel_middle1, panel_middle2, panel_middle3, panel_middle4], [alpha, beta, prox], "alternativeicon.ico", MAIN_COLOR) 

@@ -11,7 +11,7 @@
     <div class="sidepanel alpha" id="solarSidepanel">
         <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
         <hr>
-        <a class="p-solar-side alphaalpha" onclick="objClicked('alphaInfo');closeSidepanel();">Alpha</a>
+        <a class="p-solar-side alphaalpha" onclick="objClicked('ALPHA_INFO');closeSidepanel();">Alpha</a>
         <a class="p-solar-side alphabeta" onclick="objClicked('betaInfo');closeSidepanel();">Beta</a>
         <a class="p-solar-side alphaprox" onclick="objClicked('proximaInfo');closeSidepanel();">Proxima</a>
         <a class="p-solar-side alphaproxd" onclick="objClicked('proximadInfo');closeSidepanel();">Proxima D</a>
@@ -40,139 +40,8 @@
     <div id="systemInfo" class="left-panel">
         {{ mainpanels| safe }}
     </div>
+    {{ panels| safe}}
 
-    </div>
-    <div id="betaInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Beta</h3>
-            <p class="p-solar">
-                Alpha Centauri B, also known as Toliman, is the secondary star of the binary system. It is a
-                main-sequence star of spectral type K1-V, making it more an orange colour than Alpha Centauri A; it
-                has around 90% of the mass of the Sun and a 14% smaller diameter. Although it has a lower luminosity
-                than A, Alpha Centauri B emits more energy in the X-ray band. Its light curve varies on a short time
-                scale, and there has been at least one observed flare. It is more magnetically active than Alpha
-                Centauri A, showing a cycle of 8.2±0.2 yr compared to 11 years for the Sun, and has about half the
-                minimum-to-peak variation in coronal luminosity of the Sun. Alpha Centauri B has an apparent
-                magnitude of +1.35, slightly dimmer than Mimosa.
-            </p>
-        </div>
-        <div class="normal-border alpha alpha-filling">
-            <img src="../static/jpg/alphasystem/beta1.jpg">
-        </div>
-    </div>
-    <div id="proximaInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <a class="moreInfo alpha" href="https://en.wikipedia.org/wiki/Proxima_Centauri" target="_blank">&#9783;</a>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Proxima</h3>
-            <p class="p-solar">
-                Alpha Centauri C, better known as Proxima Centauri, is a small main-sequence red dwarf of spectral class
-                M6-Ve. It has an absolute magnitude of +15.60, over 20,000 times fainter than the Sun. Its mass is
-                calculated to be 0.1221 M of sol. It is the closest star to the Sun but is too faint to be visible to
-                the
-                naked eye.
-            </p>
-        </div>
-        <div class="normal-border alpha alpha-filling hidden">
-            <div class="proxSlide">
-                <img src="../static/jpg/alphasystem/prox1.jpg">
-            </div>
-            <div class="proxSlide">
-                <img src="../static/jpg/alphasystem/prox2.jpg">
-            </div>
-            <div class="proxSlide">
-                <img src="../static/jpg/alphasystem/prox3.jpg">
-            </div>
-            <button class="display-prev alpha" onclick="plusSlides(-1.,'proxSlide');">&#10094;</button>
-            <button class="display-next alpha" onclick="plusSlides(+1.,'proxSlide');">&#10095;</button>
-        </div>
-        <div class="normal-border alpha p-solar">
-            Proxima Centauri has two known exoplanets and one candidate exoplanet: Proxima Centauri b, Proxima Centauri
-            d and the disputed Proxima Centauri c. Proxima Centauri b orbits the star at a distance of roughly
-            0.05 AU (7.5 million km) with an orbital period of approximately 11.2 Earth days. Its estimated mass is at
-            least 1.17 times that of Earth. Proxima b orbits within Proxima Centauri's habitable zone-the range
-            where temperatures are right for liquid water to exist on its surface-but, because Proxima Centauri is a red
-            dwarf and a flare star, the planet's habitability is highly uncertain.
-        </div>
-        <div class="normal-border alpha p-solar">
-            Proxima Centauri is a red dwarf, because it belongs to the main sequence on the Hertzsprung–Russell diagram
-            and is of spectral class M5.5. The M5.5 class means that it falls in the low-mass end of M-type dwarf
-            stars, with its hue shifted toward red-yellow by an effective temperature of ~3,000 K.
-        </div>
-    </div>
-    <div id="proximabInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Proxima B</h3>
-            <p class="p-solar">
-                Proxima Centauri b (or Proxima b), sometimes referred to as Alpha Centauri Cb, is an exoplanet
-                orbiting in the habitable zone of the red dwarf star Proxima Centauri, which is the closest star to the
-                Sun and part of the triple star system Alpha Centauri. It is approximately 4.2 ly (1.3 pc) from Earth in
-                the constellation Centaurus, making it, along with the disputed Proxima c, and Proxima d the closest
-                known exoplanets to the Solar System.
-            </p>
-        </div>
-        <div class="normal-border alpha">
-            <img src="../static/jpg/alphasystem/proxb1.jpg">
-            <p class="p-solar">
-                Proxima Centauri b orbits its parent star at a distance of roughly 0.05 AU (7.5 million km; 4.6 million
-                mi) with an orbital period of approximately 11.2 Earth days. Its other properties are only poorly
-                understood, but it is believed to be a potentially Earth-like planet with a minimum mass of at least
-                1.07 M. The planet orbits within the habitable zone of its star. It is, however, not known whether or
-                not it has an atmosphere. Proxima Centauri is a flare star with intense emission of electromagnetic
-                radiation that could strip an atmosphere off the planet. The planet's proximity to Earth offers an
-                opportunity for robotic space exploration, for example, with the Breakthrough Starshot project.
-            </p>
-        </div>
-    </div>
-    <div id="proximacInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Proxima C</h3>
-            <p class="p-solar">
-                Proxima Centauri c (also called Proxima c or Alpha Centauri Cc) is a controversial exoplanet
-                candidate claimed to be orbiting the red dwarf star Proxima Centauri, which is the closest star to the
-                Sun and part of a triple star system. It is located approximately 4.2 light-years (1.3 parsecs; 40
-                trillion kilometres; 25 trillion miles) from Earth in the constellation of Centaurus, making it, Proxima
-                b, and Proxima d the closest known exoplanets to the Solar System.
-            </p>
-        </div>
-        <div class="normal-border alpha">
-            <img src="../static/jpg/alphasystem/proxc1.jpg">
-            <p class="p-solar">
-                Proxima Centauri c is a super-Earth or mini-Neptune about 7 times as massive as Earth, orbiting at
-                roughly 1.49 AU (223 million km; 139 million mi) every 1,928 days (5.28 yr). Due to its large mass
-                and its distance from Proxima Centauri, the exoplanet is uninhabitable, with an equilibrium temperature
-                of approximately 39 K (-234.2 °C; -389.5 °F). The planet is not transiting its parent star from the
-                point of view of an Earth-based observer.
-            </p>
-        </div>
-    </div>
-    <div id="proximadInfo" class="left-panel" onclick="closeSidepanel();">
-        <button class="closeInfo alpha" onclick="objClicked('systemInfo');closeSidepanel();">&#10006;</button>
-        <div class="normal-border alpha">
-            <h3 class="h3-solar">Proxima D</h3>
-            <p class="p-solar">
-                Proxima Centauri d (also called Proxima d) is a candidate exoplanet orbiting the red dwarf star Proxima
-                Centauri, the closest star to the Sun and part of the Alpha Centauri triple star system. Together with
-                two other planets in the Proxima Centauri system, it is the closest known exoplanet to the Solar System,
-                located approximately 4.2 light-years (1.3 parsecs; 40 trillion kilometres; 25 trillion miles) away in
-                the constellation of Centaurus.
-            </p>
-        </div>
-        <div class="normal-border alpha">
-            <img src="../static/jpg/alphasystem/proxd1.jpg">
-            <p class="p-solar">
-                Proxima d is a sub-Earth at least one-quarter of the mass of Earth (or twice the mass of Mars), orbiting
-                at roughly 0.029 AU (4.3 million km; 2.7 million mi) every 5.1 days. It is the least massive and
-                innermost known planet of the Proxima Centauri system. It is the least massive exoplanet detected with
-                the radial velocity method as of 2022. Proxima d orbits too close to its star to be habitable, and
-                receives about 190% of Earth's irradiation—assuming an Earth-like reflectivity, its equilibrium
-                temperature may reach 360 K (87 °C; 188 °F).
-            </p>
-        </div>
-    </div>
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="zeropoint" style="z-index:100;"></div>
         {{ objects|safe }}

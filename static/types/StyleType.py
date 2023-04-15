@@ -67,39 +67,39 @@ class Style:
 
 class Visual:
     class Object:
-        def __init__(self, size, margins, first_color, second_color, lumin):
-            self.size = size
-            self.margins = margins
-            self.first_color = first_color
-            self.second_color = second_color
-            self.lumin = lumin
+        def __init__(self, args, z_index):
+            self.size = args[0]
+            self.margins = args[1]
+            self.first_color = args[2]
+            self.second_color = args[3]
+            self.lumin = args[4]
+            self.z_index = z_index            
+            self.lumin_color = self.second_color if len(args) < 6 else args[5]
         def __str__(self):
             size = f'height: {self.size};width: {self.size};'
             margins = f'margin-top: {self.margins}; margin-left: {self.margins};'
-            fill = f'background: {self.first_color}; background: radial-gradient(circle, {self.first_color} 0%, {self.second_color} 100%);'
-            return f'style="{size+margins+fill}"'
+            fill = f'background: {self.first_color}; background: radial-gradient(circle, {self.first_color} 0%, {self.second_color} 100%);cursor:pointer;'
+            lumin = f'box-shadow 0 0 {self.lumin} {self.lumin_color};'
+            zindex = f'z-index:{self.z_index};' if self.z_index != -998 else ""
+            return f'style="{size+margins+fill+lumin+zindex}"'
     class Orbit:
-        def __init__(self, width, height, margin_top, margin_left):
-            self.width = width
-            self.height = height
-            self.margin_top = margin_top
-            self.margin_left = margin_left
+        def __init__(self, args):
+            self.size = args[0]
+            self.margins = args[1]
         def __str__(self):
-            size = f'width:{self.width};height:{self.height};margin-top:{self.margin_top};margin-left:{self.margin_left};'
+            size = f'width:{self.size};height:{self.size};margin-top:{self.margins};margin-left:{self.margins};'
             return f'class="orbit" style="{size}"'            
     class Spin:
-        def __init__(self, width, height, margin_top, margin_left, period, radius):
-            self.width = width
-            self.height = height
-            self.margin_top = margin_top
-            self.margin_left = margin_left
-            self.period = period
-            self.radius = radius
+        def __init__(self, args, zindex):
+            self.size = args[0]
+            self.margins = args[1]
+            self.period = args[2]
+            self.zindex = zindex
         def __str__(self):
-            size = f'width:{self.width};height:{self.height};'
-            margins = f'margin-top:{self.margin_top};margin-left:{self.margin_left};'
-            animation = f'animation: spin-right {self.period} linear infinite; border-radius: {self.radius};'
-            return f'style="{size+margins+animation}"'
+            size = f'width:{self.size};height:{self.size};'
+            margins = f'margin-top:{self.margins};margin-left:{self.margins};'
+            animation = f'animation: spin-right {self.period} linear infinite; border-radius: 100%;'
+            return f'style="{size+margins+animation};z-index:{self.zindex};"'
 
 class EventHandlers:
     class SlidesButton:

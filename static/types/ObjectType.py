@@ -1,5 +1,5 @@
 from static.Types.StyleType import Visual
-import static.Types.PanelType
+from static.Types.PanelType import *
 
 class ObjectClass:
     def __init__(self, id, name, z_index, object_args, orbit_args, spin_args, panels, subobjects = []):
@@ -7,12 +7,24 @@ class ObjectClass:
         self.name = name
         self.subobjects = subobjects
         self.panels = panels
-        self.z_index = z_index
-        self.obj_description = Visual.Object(object_args[0], object_args[1], object_args[2], object_args[3], object_args[4])
-        self.orb_description = Visual.Orbit(orbit_args[0], orbit_args[1], orbit_args[2], orbit_args[3])
-        self.spn_description = Visual.Spin(spin_args[0], spin_args[1], spin_args[2], spin_args[3], spin_args[4], spin_args[5])
+        self.z_index = -998
+        if len(self.subobjects) > 1:
+            self.z_index = z_index - 1
+        self.obj_description = Visual.Object(object_args, self.z_index)
+        self.orb_description = Visual.Orbit(orbit_args)
+        self.spn_description = Visual.Spin(spin_args, z_index)
     def __str__(self):
+        objectstr = ""
+        for object in self.subobjects:
+            objectstr += object.__str__()
         div_orbit = f'<div {self.orb_description}></div>'
-        div_spin  = f'<div {self.spn_description} z-index:{self.z_index};">'
-        div_obj   = f'<div {self.obj_description}></div></div>'
+        div_spin  = f'<div {self.spn_description};">'
+        div_obj   = f'<div {self.obj_description}></div>{objectstr}</div>'
         return f'{div_orbit}{div_spin}{div_obj}'
+    def GetPanels(self):
+        combined = f'<div id="{self.id}_INFO" class="left-panel" onclick="closeSidepanel();">'
+        for panelInfo in self.panels:
+            combined += panelInfo.__str__()
+        for panelInfo in self.subobjects.panels:
+            combined += panelInfo.__str__()
+        combined += "</div>"
