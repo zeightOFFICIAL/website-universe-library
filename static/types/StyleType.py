@@ -1,6 +1,7 @@
 class Style:
     class Box:
-        def ReturnText(a_color, b_color, c_color):
+        def ReturnText(a_color, b_color, c_color, slider = False):
+            if slider == True: return ""            
             part =     f'border-width: 3px; border-style: solid; margin: 40px 15px;'
             part_one = f'border-image: linear-gradient(to right,{a_color},{b_color}) 1;'
             part_two = f'box-shadow: 0 0 20px {c_color};'
@@ -11,7 +12,8 @@ class Style:
             part_two = f'box-shadow: 0 0 20px {c_color};'
             part_thr = f'overflow: hidden;'
             return f'style="{part+part_one+part_two+part_thr}"'
-        def ReturnImage(a_color, b_color, c_color):
+        def ReturnImage(a_color, b_color, c_color, slider = False):
+            if slider == True: return ""      
             part =     f'border-width: 3px; border-style: solid; margin: 40px 15px;'
             part_one = f'border-image: linear-gradient(to right,{a_color},{b_color}) 1;'
             part_two = f'box-shadow: 0 0 20px {c_color};'
@@ -23,7 +25,11 @@ class Style:
             return f'style="{part}"'
         def ReturnHeader(a_color, b_color):
             part =     f'text-align: center;font-family: \'solar\';font-size: 7vmin;margin-bottom: 2.5vmin;cursor: default;padding-left: 20px; padding-right: 20px;'
-            part_one = f'background-color: #FBAB7E;background-image: linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;'
+            part_one = f'background-color: {a_color};background-image: linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;'
+            return f'style="{part+part_one}"'
+        def ReturnTitle(a_color, b_color):
+            part =     f'text-align: center;font-family: \'solar\';font-size: 5.5vmin;margin-bottom: 2.5vmin;cursor: default;padding-left: 20px; padding-right: 20px;'
+            part_one = f'background-color: {a_color};background-image: linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;'
             return f'style="{part+part_one}"'
     class Image:
         def ReturnImage():
