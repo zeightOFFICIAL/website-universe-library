@@ -12,7 +12,7 @@
         <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
         <hr>
         <a class="p-solar-side alphaalpha" onclick="objClicked('ALPHA_INFO');closeSidepanel();">Alpha</a>
-        <a class="p-solar-side alphabeta" onclick="objClicked('betaInfo');closeSidepanel();">Beta</a>
+        <a class="p-solar-side alphabeta" onclick="objClicked('BETA_INFO');closeSidepanel();">Beta</a>
         <a class="p-solar-side alphaprox" onclick="objClicked('proximaInfo');closeSidepanel();">Proxima</a>
         <a class="p-solar-side alphaproxd" onclick="objClicked('proximadInfo');closeSidepanel();">Proxima D</a>
         <a class="p-solar-side alphaproxb" onclick="objClicked('proximabInfo');closeSidepanel();">Proxima B</a>
@@ -40,12 +40,14 @@
     <div id="systemInfo" class="left-panel">
         {{ mainpanels| safe }}
     </div>
-    {{ panels| safe}}
+
+    {{ panels| safe }}
 
     <div class="star-system" onclick="closeSidepanel();closeSystempanel();">
         <div id="zeropoint" style="z-index:100;"></div>
         {{ objects|safe }}
     </div>
+
     <script src="{% static 'systemscripts.js' %}"></script>
 </body>
 
