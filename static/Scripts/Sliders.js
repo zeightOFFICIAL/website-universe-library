@@ -5,12 +5,12 @@ function onLoadAny() {
 }
 
 function showSlides(index, name) {
-    let i;
+    let index;
     let slides = document.getElementsByClassName(name);
     if (index > slides.length) { slideIndex = 1 }
     if (index < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    for (index = 0; index < slides.length; index++) {
+        slides[index].style.display = "none";
     }
     slides[slideIndex - 1].style.display = "block";
 }

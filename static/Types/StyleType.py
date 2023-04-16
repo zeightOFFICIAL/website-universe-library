@@ -1,5 +1,6 @@
 import random
 
+
 class Style:
     class Box:
         @staticmethod
@@ -43,15 +44,14 @@ class Style:
             style = f'text-align:center;font-family:\'solar\';font-size:5.5vmin;margin-bottom:2.5vmin;cursor:default;padding-left:20px;padding-right:20px;'
             font = f'background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style+font}"'
-        
+
         @staticmethod
         def sidepanel():
             style = f"display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;"
-            font =  f"font-family:'side';font-size:3.5vmin;font-weight:900;"
-            size =  f"padding-bottom:1vmin;padding-left:15%;height:4vmin;"
-            animation = f'transition:.15s;'
+            font = f"font-family:'side';font-size:3.5vmin;font-weight:900;"
+            size = f"padding-bottom:1vmin;padding-left:15%;height:4vmin;"
+            animation = f'transition: .15s;'
             return f'style="{style+font+size+animation}"'
-            
 
     class Image:
         @staticmethod
@@ -115,7 +115,7 @@ class Visual:
             size = f'height:{self.size};width:{self.size};'
             margins = f'margin-top:{self.margins};margin-left:{self.margins};'
             fill = f'background:{self.a_color};background:radial-gradient(circle, {self.a_color} 0%, {self.b_color} 100%);cursor:pointer;'
-            lumin = f'box-shadow 0 0 {self.lumin} {self.c_color};'
+            lumin = f'box-shadow: 0 0 {self.lumin} {self.c_color};'
             zindex = f'z-index:{self.z_index};' if self.z_index != -998 else ""
             return f'style="{size+margins+fill+lumin+zindex}"'
 
@@ -152,3 +152,7 @@ class EventHandlers:
 
         def __str__(self):
             return f'onclick="plusSlides({self.args},{self.name});"'
+    @staticmethod
+    def object_click(id):
+        call = f'onclick="objClicked(\'{id}\');closeSidepanel();"'
+        return call

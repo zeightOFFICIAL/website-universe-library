@@ -21,9 +21,9 @@ def aboutPage(request):
 
 def tempSystem(request):
     return render(request, "systems/temp.html", 
-                  {'head': SystemObject.get_head, 
-                   'mainpanels' : SystemObject.main_panels,
-                   'accentbar': SystemObject.GetAccentBar,
-                   'objects': SystemObject.GetObjects,
-                   'panels': SystemObject.GetPanels,
-                   'sidepanel_objects': SystemObject.GetObjectsSidePanel})
+                  {'head':              SystemObject.get_head, 
+                   'mainpanels' :       SystemObject.get_main_panels,
+                   'accentbar':         SystemObject.get_accent_bar,
+                   'objects':           SystemObject.get_objects,
+                   'panels':            SystemObject.get_panels,
+                   'sidepanel_objects': SystemObject.get_side_panel_obj})
