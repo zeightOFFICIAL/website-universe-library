@@ -466,7 +466,7 @@ td {
 
 .p-solar-side:hover.sun:hover {
     color: #ff0;
-    text-shadow: 0 0 2vh #ff0
+    text-shadow: 0 0 2vh #ff0;
 }
 
 .p-solar-side:hover.earth:hover {

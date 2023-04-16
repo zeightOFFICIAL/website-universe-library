@@ -30,11 +30,10 @@
     <a class="openButton" onclick="openSidepanel();">&#9776;</a>
     <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
     <a class="openButton secondButton" href="space">&#8634;</a>
+
     {{ accentbar| safe }}
 
-    <div id="SYSTEM_INFO" class="left-panel">
-        {{ mainpanels| safe }}
-    </div>
+    {{ mainpanels| safe }}
 
     {{ panels| safe }}
 
@@ -45,7 +44,7 @@
 
 
     <script src="{% static 'systemscripts.js' %}"></script>
-    <!-- <script src="{% static '/Scripts/System.js' %}"></script> -->
+    <script src="{% static '/Scripts/System.js' %}"></script>
 </body>
 
 </html>

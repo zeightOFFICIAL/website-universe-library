@@ -56,7 +56,7 @@ class HeaderTextPanel(SimpleTextPanel):
 class CombinedHeaderPanel(HeaderTextPanel):
     def __init__(self, id, header, text, image, box_color, title_color, order=1, slider=False):
         super().__init__(id, header, text, box_color, title_color, slider)
-        self.style_image = Style.Image.Original()
+        self.style_image = Style.Image.original()
         self.image = image
         self.order = order
 
@@ -74,7 +74,7 @@ class SimpleImagePanel(BasePanel):
         super().__init__(id)
         self.style_box = Style.Box.image_info(
             box_color[0], box_color[1], box_color[2], slider)
-        self.style_image = Style.Image.Default()
+        self.style_image = Style.Image.default()
         self.image = image
 
     def __str__(self):
@@ -84,7 +84,7 @@ class SimpleImagePanel(BasePanel):
 class CombinedSimplePanel(SimpleTextPanel):
     def __init__(self, id, text, image, box_color, order=1, slider=False):
         super().__init__(id, text, box_color, slider)
-        self.style_image = Style.Image.Original()
+        self.style_image = Style.Image.original()
         self.image = image
         self.order = order
 
@@ -100,7 +100,7 @@ class SimpleVideoPanel(BasePanel):
         super().__init__(id)
         self.style_box = Style.Box.image_info(
             box_color[0], box_color[1], box_color[2])
-        self.style_video = Style.Video.Normal()
+        self.style_video = Style.Video.normal()
         self.url = url
 
     def __str__(self):
@@ -110,11 +110,11 @@ class SimpleVideoPanel(BasePanel):
 class PanelSlider(BasePanel):
     def __init__(self, id, all_panels, box_color):
         super().__init__(id)
-        self.hidden = Style.Misc.OverflowHidden()
+        self.hidden = Style.Misc.overflow_hidden()
         self.box_style = Style.Box.slider_info(
             box_color[0], box_color[1], box_color[2])
-        self.button_left = Style.Button.ReturnSliderLeft(box_color[0])
-        self.button_right = Style.Button.ReturnSliderRight(box_color[1])
+        self.button_left = Style.Button.slider_left(box_color[0])
+        self.button_right = Style.Button.slider_right(box_color[1])
         self.all_panels = all_panels
 
     def __str__(self):

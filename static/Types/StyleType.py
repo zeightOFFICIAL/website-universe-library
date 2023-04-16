@@ -1,3 +1,5 @@
+import random
+
 class Style:
     class Box:
         @staticmethod
@@ -53,29 +55,29 @@ class Style:
 
     class Image:
         @staticmethod
-        def Default():
+        def default():
             style = f'width:100%;height:45vmin;object-fit:cover;'
             return f'style="{style}"'
 
         @staticmethod
-        def Original():
+        def original():
             style = f'width:100%;object-fit:cover;'
             return f'style="{style}"'
 
     class Video:
         @staticmethod
-        def Normal():
+        def normal():
             arg = f'id="video" width="100%" height="315"'
             specifics = f'title="" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"'
             return f'{arg+specifics} allowfullscreen'
 
     class Misc:
         @staticmethod
-        def OverflowHidden():
+        def overflow_hidden():
             return f'style="overflow:hidden;"'
 
         @staticmethod
-        def AccentBar(a_color, b_color):
+        def accent_bar(a_color, b_color):
             sizes = f'top:0;left:0;width:10vmin;height:100vh;'
             animations = f'transition:left .7s;transition:right .7s;'
             position = f'position:absolute;'
@@ -84,14 +86,14 @@ class Style:
 
     class Button:
         @staticmethod
-        def ReturnSliderLeft(a_color):
+        def slider_left(a_color):
             interactive = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;'
             text = f'font-size:2vmin;background-color:{a_color};margin:0;padding:0;overflow:hidden;'
             position = f'float:left;width:50%;'
             return f'style="{interactive+text+position}"'
 
         @staticmethod
-        def ReturnSliderRight(a_color):
+        def slider_right(a_color):
             interactive = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;'
             text = f'font-size:2vmin;background-color:{a_color};margin:0;padding:0;overflow:hidden;'
             position = f'float:right;width:50%;'
@@ -136,8 +138,10 @@ class Visual:
         def __str__(self):
             size = f'width:{self.size};height:{self.size};'
             margins = f'margin-top:{self.margins};margin-left:{self.margins};'
-            animation = f'animation:spin-right {self.period} linear infinite;border-radius:100%;'
-            return f'style="{size+margins+animation};z-index:{self.z_index};"'
+            animation = f'animation:spin-right {self.period}s linear infinite;border-radius:100%;'
+            shift = random.randint(0, int(self.period))
+            animation_random = f'animation-delay:-{shift}s'
+            return f'style="{size+margins+animation+animation_random};z-index:{self.z_index};"'
 
 
 class EventHandlers:
