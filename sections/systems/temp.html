@@ -6,7 +6,7 @@
     {{ head| safe }}
 </head>
 
-<body onload="onLoadAlpha();">
+<body onload="onLoadAny();">
 
     <div class="sidepanel alpha" id="solarSidepanel">
         <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
@@ -37,7 +37,7 @@
     <a class="openButton secondButton" href="space">&#8634;</a>
     {{ accentbar| safe }}
 
-    <div id="systemInfo" class="left-panel">
+    <div id="SYSTEM_INFO" class="left-panel">
         {{ mainpanels| safe }}
     </div>
 
@@ -48,7 +48,9 @@
         {{ objects|safe }}
     </div>
 
+
     <script src="{% static 'systemscripts.js' %}"></script>
+    <script src="{% static '/Scripts/System.js' %}"></script>
 </body>
 
 </html>

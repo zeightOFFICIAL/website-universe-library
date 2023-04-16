@@ -1,32 +1,3 @@
-let slideIndex = 1;
-
-try {
-    showSlides(slideIndex, 'solarSlide');
-    showSlides(slideIndex, 'sunSlide');
-    showSlides(slideIndex, 'earthSlide');
-    showSlides(slideIndex, 'marsSlide');
-    showSlides(slideIndex, 'venusSlide');
-    showSlides(slideIndex, 'saturnSlide');
-    showSlides(slideIndex, 'phobosSlide');
-}
-catch (TypeError) {
-    console.log("Solar slides were not found");
-}
-
-try {
-    showSlides(slideIndex, 'alphaSlide');
-    showSlides(slideIndex, 'proxSlide');
-}
-catch (TypeError) {
-    console.log("Alpha slides were not found");
-}
-
-try {
-    showSlides(slideIndex, 'trappSlide');
-}
-catch (TypeError) {
-    console.log("Trapp slides were not found");
-}
 
 function onLoadSolar() {
     objClicked("systemInfo");
@@ -98,23 +69,6 @@ function onLoadTrapp() {
     document.getElementById('traph-spin').style.animationDelay = "-" + randomShift + "s";
 }
 
-function plusSlides(n, name) {
-    showSlides(slideIndex += n, name);
-}
-function currentSlide(n, name) {
-    showSlides(n, name);
-}
-
-function showSlides(n, name) {
-    let i;
-    let slides = document.getElementsByClassName(name);
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-}
 
 function objClicked(revealName) {
     hideAllInfo();
