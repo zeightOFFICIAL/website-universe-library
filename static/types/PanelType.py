@@ -24,9 +24,9 @@ class BasePanel:
 class SimpleTextPanel(BasePanel):
     def __init__(self, id, text, box_color, slider=False):
         super().__init__(id)
-        self.style_box = Style.Box.TextInfo(
+        self.style_box = Style.Box.text_info(
             box_color[0], box_color[1], box_color[2], slider)
-        self.style_text = Style.Text.Normal()
+        self.style_text = Style.Text.normal()
         self.text = text
 
     def __str__(self):
@@ -36,7 +36,7 @@ class SimpleTextPanel(BasePanel):
 class TopHeaderTextPanel(SimpleTextPanel):
     def __init__(self, id, header, text, box_color, title_color, slider=False):
         super().__init__(id, text, box_color, slider)
-        self.style_header = Style.Text.Header1(title_color[0], title_color[1])
+        self.style_header = Style.Text.header_one(title_color[0], title_color[1])
         self.header = header
 
     def __str__(self):
@@ -46,7 +46,7 @@ class TopHeaderTextPanel(SimpleTextPanel):
 class HeaderTextPanel(SimpleTextPanel):
     def __init__(self, id, header, text, box_color, title_color, slider=False):
         super().__init__(id, text, box_color, slider)
-        self.style_header = Style.Text.Header2(title_color[0], title_color[1])
+        self.style_header = Style.Text.header_two(title_color[0], title_color[1])
         self.header = header
 
     def __str__(self):
@@ -72,7 +72,7 @@ class CombinedHeaderPanel(HeaderTextPanel):
 class SimpleImagePanel(BasePanel):
     def __init__(self, id, image, box_color, slider=False):
         super().__init__(id)
-        self.style_box = Style.Box.ImageInfo(
+        self.style_box = Style.Box.image_info(
             box_color[0], box_color[1], box_color[2], slider)
         self.style_image = Style.Image.Default()
         self.image = image
@@ -98,7 +98,7 @@ class CombinedSimplePanel(SimpleTextPanel):
 class SimpleVideoPanel(BasePanel):
     def __init__(self, id, url, box_color):
         super().__init__(id)
-        self.style_box = Style.Box.ImageInfo(
+        self.style_box = Style.Box.image_info(
             box_color[0], box_color[1], box_color[2])
         self.style_video = Style.Video.Normal()
         self.url = url
@@ -111,7 +111,7 @@ class PanelSlider(BasePanel):
     def __init__(self, id, all_panels, box_color):
         super().__init__(id)
         self.hidden = Style.Misc.OverflowHidden()
-        self.box_style = Style.Box.SliderInfo(
+        self.box_style = Style.Box.slider_info(
             box_color[0], box_color[1], box_color[2])
         self.button_left = Style.Button.ReturnSliderLeft(box_color[0])
         self.button_right = Style.Button.ReturnSliderRight(box_color[1])
@@ -130,7 +130,7 @@ class PanelSlider(BasePanel):
 class ImagePanelSlider(PanelSlider):
     def __init__(self, id, all_panels, box_color):
         super().__init__(id, all_panels, box_color)
-        self.box_style = Style.Box.ImageInfo(
+        self.box_style = Style.Box.image_info(
             box_color[0], box_color[1], box_color[2])
 
     def __str__(self):

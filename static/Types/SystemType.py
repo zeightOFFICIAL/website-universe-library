@@ -8,6 +8,13 @@ class SystemClass:
         self.objects = objects
         self.icon = page_icon
         self.accent = PanelType.Style.Misc.AccentBar(coloring[0], coloring[1])
+    def GetAllObjects(self):
+        all = []
+        for object in self.objects:
+            all.append(object)
+            all += object.GetSubObj()
+        return all
+        
     def GetHead(self):
         title =      f"Hello, {self.name}!"
         meta =       f'charset="utf-8"'
@@ -30,4 +37,11 @@ class SystemClass:
         allInfo = ""
         for panel in self.objects:
             allInfo += panel.GetPanels()
+        return allInfo
+    def GetObjectsSidePanel(self):
+        allInfo = ""
+        allObjects = self.GetAllObjects()
+        for object in allObjects:
+            info = f'<a {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();">{object.name}</a>'
+            allInfo += info
         return allInfo

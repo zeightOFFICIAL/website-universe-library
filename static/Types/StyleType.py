@@ -1,7 +1,7 @@
 class Style:
     class Box:
         @staticmethod
-        def TextInfo(a_color, b_color, c_color, slider=False):
+        def text_info(a_color, b_color, c_color, slider=False):
             if slider == True:
                 return ""
             border = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;'
@@ -9,14 +9,14 @@ class Style:
             return f'style="{border+shadow}"'
 
         @staticmethod
-        def SliderInfo(a_color, b_color, c_color):
+        def slider_info(a_color, b_color, c_color):
             border = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;'
             shadow = f'box-shadow:0 0 20px {c_color};'
             overflow = f'overflow:hidden;'
             return f'style="{border+shadow+overflow}"'
 
         @staticmethod
-        def ImageInfo(a_color, b_color, c_color, slider=False):
+        def image_info(a_color, b_color, c_color, slider=False):
             if slider == True:
                 return ""
             border = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;'
@@ -26,21 +26,30 @@ class Style:
 
     class Text:
         @staticmethod
-        def Normal():
+        def normal():
             style = f'text-align:center;font-family:\'normal\';font-size:3vmin;cursor:default;color:#fff;padding-left:20px;padding-right:20px;'
             return f'style="{style}"'
 
         @staticmethod
-        def Header1(a_color, b_color):
+        def header_one(a_color, b_color):
             style = f'text-align:center;font-family:\'solar\';font-size:7vmin;margin-bottom:2.5vmin;cursor:default;padding-left:20px;padding-right:20px;'
             font = f'background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style+font}"'
 
         @staticmethod
-        def Header2(a_color, b_color):
+        def header_two(a_color, b_color):
             style = f'text-align:center;font-family:\'solar\';font-size:5.5vmin;margin-bottom:2.5vmin;cursor:default;padding-left:20px;padding-right:20px;'
             font = f'background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style+font}"'
+        
+        @staticmethod
+        def sidepanel():
+            style = f"display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;"
+            font =  f"font-family:'side';font-size:3.5vmin;font-weight:900;"
+            size =  f"padding-bottom:1vmin;padding-left:15%;height:4vmin;"
+            animation = f'transition:.15s;'
+            return f'style="{style+font+size+animation}"'
+            
 
     class Image:
         @staticmethod

@@ -25,4 +25,5 @@ def tempSystem(request):
                    'mainpanels' : SystemObject.GetMainPanels,
                    'accentbar': SystemObject.GetAccentBar,
                    'objects': SystemObject.GetObjects,
-                   'panels': SystemObject.GetPanels })
+                   'panels': SystemObject.GetPanels,
+                   'sidepanel_objects': SystemObject.GetObjectsSidePanel})

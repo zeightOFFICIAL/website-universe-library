@@ -26,4 +26,13 @@ class ObjectClass:
         for panel in self.panels:
             combined += panel.__str__()
         combined += "</div>"
+        for subobj in self.subobjects:
+            combined += subobj.GetPanels()
         return combined
+    def GetSubObj(self):
+        all = []
+        for subobject in self.subobjects:
+            all.append(subobject)
+            all += subobject.GetSubObj()
+        return all
+                

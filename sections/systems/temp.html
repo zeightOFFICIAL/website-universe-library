@@ -11,12 +11,7 @@
     <div class="sidepanel alpha" id="solarSidepanel">
         <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
         <hr>
-        <a class="p-solar-side alphaalpha" onclick="objClicked('ALPHA_INFO');closeSidepanel();">Alpha</a>
-        <a class="p-solar-side alphabeta" onclick="objClicked('BETA_INFO');closeSidepanel();">Beta</a>
-        <a class="p-solar-side alphaprox" onclick="objClicked('proximaInfo');closeSidepanel();">Proxima</a>
-        <a class="p-solar-side alphaproxd" onclick="objClicked('proximadInfo');closeSidepanel();">Proxima D</a>
-        <a class="p-solar-side alphaproxb" onclick="objClicked('proximabInfo');closeSidepanel();">Proxima B</a>
-        <a class="p-solar-side alphaproxc" onclick="objClicked('proximacInfo');closeSidepanel();">Proxima C</a>
+        {{ sidepanel_objects| safe }}
     </div>
 
     <div class="sidepanel alpha" id="starSidepanel">
@@ -50,7 +45,7 @@
 
 
     <script src="{% static 'systemscripts.js' %}"></script>
-    <script src="{% static '/Scripts/System.js' %}"></script>
+    <!-- <script src="{% static '/Scripts/System.js' %}"></script> -->
 </body>
 
 </html>
