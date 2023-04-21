@@ -8,13 +8,13 @@
 
 <body onload="onLoadAny();">
 
-    <div class="sidepanel alpha" id="starSidepanel">
+    <div id="STAR_SIDEPANEL" class="SidePanel alpha">
         <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
         <hr>
         {{ sidepanel_objects| safe }}
     </div>
 
-    <div class="sidepanel alpha" id="universePanel">
+    <div id="UNIVERSE_SIDEPANEL" class="SidePanel alpha">
         <a class="closeButton firstButton alpha" onclick="closeSystempanel();">&#9733; Sys</a>
         <p></p>
         <a class="solar-button" href="solarsystem">Solar<br>system<img class="short-image firstImg"
@@ -38,9 +38,6 @@
 
     <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
     <script src="{% static 'Scripts\Sliders.js' %}"></script>
-    <!-- <script src="{% static 'SystemScripts.js' %}"></script> -->
-    <!-- <script src="{% static 'Sidepanels.js' %}"></script>
-    <script src="{% static 'Sliders.js' %}"></script> -->
 </body>
 
 </html>

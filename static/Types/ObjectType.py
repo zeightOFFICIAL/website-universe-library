@@ -22,7 +22,7 @@ class ObjectClass:
         div_obj   = f'<div {self.obj_description} {self.obj_click}></div>{objectstr}</div>'
         return f'{div_orbit}{div_spin}{div_obj}'
     def get_panels(self):
-        combined = f'<div id="{self.id}_INFO" class="left-panel" onclick="closeSidepanel();">'
+        combined = f'<div id="{self.id}_INFO" class="LeftPanel" onclick="closeSidepanel();">'
         for panel in self.panels:
             combined += panel.__str__()
         combined += "</div>"

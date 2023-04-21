@@ -30,7 +30,7 @@ class SystemClass:
         panels_str = ""
         for panel in self.panels:
             panels_str += f'{panel.__str__()}'
-        panels_str = f'<div id=\"SYSTEM_INFO\" class=\"left-panel\">{panels_str}</div>'
+        panels_str = f'<div id=\"SYSTEM_INFO\" class=\"LeftPanel\">{panels_str}</div>'
         return panels_str
 
     def get_objects(self):
@@ -53,5 +53,5 @@ class SystemClass:
         side_str = ""
         for object in self.get_all_objects():
             side_str += f'<a {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();">{object.name}</a>'
-        # side_str = f'<div class="sidepanel" id="sidepanel"><'
+        # side_str = f'<div class="SidePanel" id="sidepanel"><'
         return side_str
