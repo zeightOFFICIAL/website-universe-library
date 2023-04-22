@@ -2,42 +2,26 @@
 <html lang="en">
 
 <head>
-    {% load static %}
-    {{ head| safe }}
+        {% load static %}
+
+        {{ head| safe }}
 </head>
 
 <body onload="onLoadAny();">
 
-    <div id="STAR_SIDEPANEL" class="SidePanel alpha">
-        <a class="closeButton alpha" onclick="closeSidepanel();">&#9776; Obj</a>
-        <hr>
+        {{ sidepanel_buttons| safe}}
         {{ sidepanel_objects| safe }}
-    </div>
+        {{ sidepanel_all| safe}}
+        {{ accentbar| safe }}
 
-    <div id="UNIVERSE_SIDEPANEL" class="SidePanel alpha">
-        <a class="closeButton firstButton alpha" onclick="closeSystempanel();">&#9733; Sys</a>
-        <p></p>
-        <a class="solar-button" href="solarsystem">Solar<br>system<img class="short-image firstImg"
-                src="../static/jpg/shorts/solarshort.png" alt="sun"></a>
-        <a class="alpha-button">Alpha<br>Centauri<img class="short-image secondImg"
-                src="../static/jpg/shorts/alphashort.png"></a>
-        <a class="trapp-button" href="trappist">Trappist<br>system<img class="short-image thirdImg"
-                src="../static/jpg/shorts/trappistshort.png"></a>
-        <a class="trebi-button" href="trebia">Trebia<br>system<img class="short-image fourthImg"
-                src="../static/jpg/shorts/trebiashort.png"></a>
-    </div>
+        {{ mainpanels| safe }}
 
-    <a class="openButton" onclick="openSidepanel();">&#9776;</a>
-    <a class="openButton firstButton" onclick="openSystempanel();">&#9733;</a>
-    <a class="openButton secondButton" href="space">&#8634;</a>
+        {{ panels| safe }}
 
-    {{ accentbar| safe }}
-    {{ mainpanels| safe }}
-    {{ panels| safe }}
-    {{ objects| safe }}
+        {{ objects| safe }}
 
-    <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
-    <script src="{% static 'Scripts\Sliders.js' %}"></script>
+        <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
+        <script src="{% static 'Scripts\Sliders.js' %}"></script>
 </body>
 
 </html>
