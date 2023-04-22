@@ -122,26 +122,7 @@ td {
     font-size: 2vmin
 }
 
-.LeftPanel {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 10%;
-    width: 35%;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-indent: -1000em;
-    transition: left .7s;
-    top: 200vh;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-behavior: smooth
-}
 
-.LeftPanel::-webkit-scrollbar {
-    display: none
-}
 
 .accent-bar {
     position: absolute;
@@ -1088,144 +1069,6 @@ td {
     border-radius: 100%
 }
 
-#alpha {
-    height: 10vh;
-    width: 10vh;
-    margin-top: -5vh;
-    margin-left: -5vh;
-    background: #ffd000;
-    background: radial-gradient(circle, rgba(255, 208, 0) 0%, #f70 100%);
-    box-shadow: 0 0 30px #fff
-}
-
-#beta {
-    height: 7vh;
-    width: 7vh;
-    margin-top: -3.5vh;
-    margin-left: -3.5vh;
-    background: #ff9100;
-    background: radial-gradient(circle, #ff9100 0%, #f70 100%);
-    box-shadow: 0 0 20px #ff0
-}
-
-#prox {
-    height: 4vh;
-    width: 4vh;
-    margin-top: -2vh;
-    margin-left: -2vh;
-    background: red;
-    background: radial-gradient(circle, red 0%, #610000 100%);
-    box-shadow: 0 0 20px red
-}
-
-#proxb {
-    height: 4vh;
-    width: 4vh;
-    margin-top: -2vh;
-    margin-left: -2vh;
-    background: #ffadad;
-    background: radial-gradient(circle, #ffadad 0%, #ffd9a7 100%);
-    box-shadow: 0 0 10px #ffe09e
-}
-
-#proxc {
-    height: 6vh;
-    width: 6vh;
-    margin-top: -3vh;
-    margin-left: -3vh;
-    background: #0051ff;
-    background: radial-gradient(circle, #0051ff, #1e00ff 100%);
-    box-shadow: 0 0 10px #8a2be2
-}
-
-#proxd {
-    height: 2vh;
-    width: 2vh;
-    margin-top: -1vh;
-    margin-left: -1vh;
-    background: #ffd0d0;
-    background: radial-gradient(circle, #ffd0d0, #ff6363 100%);
-    box-shadow: 0 0 5px #ffc0cb
-}
-
-.alpha-orbit,
-.alpha-spin {
-    width: 2vh;
-    height: 2vh;
-    margin-top: -1vh;
-    margin-left: -1vh
-}
-
-.beta-spin,
-.beta-orbit {
-    width: 20vh;
-    height: 20vh;
-    margin-top: -10vh;
-    margin-left: -10vh
-}
-
-.prox-spin,
-.prox-orbit {
-    width: 64vh;
-    height: 64vh;
-    margin-top: -32vh;
-    margin-left: -32vh
-}
-
-.proxb-spin,
-.proxb-orbit {
-    width: 18vh;
-    height: 18vh;
-    margin-top: -9vh;
-    margin-left: -9vh
-}
-
-.proxc-spin,
-.proxc-orbit {
-    width: 30vh;
-    height: 30vh;
-    margin-top: -15vh;
-    margin-left: -15vh
-}
-
-.proxd-spin,
-.proxd-orbit {
-    width: 10vh;
-    height: 10vh;
-    margin-top: -5vh;
-    margin-left: -5vh
-}
-
-.alpha-spin {
-    animation: spin-right 10s linear infinite;
-    border-radius: 100%
-}
-
-.beta-spin {
-    animation: spin-right 45s linear infinite;
-    border-radius: 100%
-}
-
-.prox-spin {
-    animation: spin-right 325s linear infinite;
-    border-radius: 100%
-}
-
-.proxb-spin {
-    animation: spin-right 11s linear infinite;
-    border-radius: 100%
-}
-
-.proxc-spin {
-    animation: spin-right 1928s linear infinite;
-    border-radius: 100%
-}
-
-.proxd-spin {
-    animation: spin-right 5s linear infinite;
-    border-radius: 100%
-}
-
 #aventen {
     height: 2vh;
     width: 2vh;
@@ -1550,17 +1393,26 @@ td {
 
 /* -------------------------------------------- */
 
-.TITLED_HREF_TEXT:hover {
-    height: 10vmin;
-    padding-top: 5.25vmin;
-    padding-left: 0;
-    padding-right: 25%
+.LeftPanel {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 6%;
+    width: 35%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-indent: -1000em;
+    transition: left .7s;
+    top: 200vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth
 }
 
-.TITLED_HREF_IMG:hover {
-    left: 67%
+.LeftPanel::-webkit-scrollbar {
+    display: none
 }
-
 
 /* -------------------------------------------- */
 

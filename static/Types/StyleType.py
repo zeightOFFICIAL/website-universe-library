@@ -6,8 +6,8 @@ class Style:
         @staticmethod
         def text_info(a_color, b_color, c_color, slider=False):
             if slider == True:
-                return ""
-            style = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};'
+                return "style=\"display:none;\" class=\"Slider\""
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};'
             return f'style="{style}"'
 
         @staticmethod
@@ -18,8 +18,8 @@ class Style:
         @staticmethod
         def image_info(a_color, b_color, c_color, slider=False):
             if slider == True:
-                return ""
-            style = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});'
+                return f"style=\"display:none;background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});\" class=\"Slider\""
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});'
             return f'style="{style}"'
 
     class Text:
@@ -97,9 +97,9 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def open_sidepanel(position=""):
+        def open_sidepanel(position="0"):
             style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;transition:left .7s;padding:2vmin 3.5vmin;width:1em;cursor:pointer;background-color:rgba(255,255,255,0);'
-            return f'style="{style+position}"'
+            return f'style="{style}"'
 
 
 class Visual:

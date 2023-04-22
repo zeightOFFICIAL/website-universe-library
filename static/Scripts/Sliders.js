@@ -1,17 +1,8 @@
 let slideIndex = 1
 
-function onLoadAny() {
-    objClicked("SYSTEM_INFO");
-    let sliders = document.querySelectorAll(".Slider");
-    sliders.forEach((item) => {
-        showSlides(item.id, 1);
-    })
-    return;
-}
-
 function showSlides(index, name) {
     let i;
-    let slides = document.getElementsByClassName(name);
+    let slides = document.querySelectorAll("#" + name);
     if (index > slides.length) { slideIndex = 1 }
     if (index < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {

@@ -30,7 +30,7 @@ class SimpleTextPanel(BasePanel):
         self.text = text
 
     def __str__(self):
-        return f'<div {self.style_box} class="{self.id}"><p {self.style_text}> {self.text} </p></div>'
+        return f'<div {self.style_box} id="{self.id}"><p {self.style_text}> {self.text} </p></div>'
 
 
 class TopHeaderTextPanel(SimpleTextPanel):
@@ -41,7 +41,7 @@ class TopHeaderTextPanel(SimpleTextPanel):
         self.header = header
 
     def __str__(self):
-        return f'<div {self.style_box} class="{self.id}"><h2 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p></div>'
+        return f'<div {self.style_box} id="{self.id}"><h2 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p></div>'
 
 
 class HeaderTextPanel(SimpleTextPanel):
@@ -52,7 +52,7 @@ class HeaderTextPanel(SimpleTextPanel):
         self.header = header
 
     def __str__(self):
-        return f'<div {self.style_box} class="{self.id}"><h3 {self.style_header}> {self.header} </h3><p {self.style_text}> {self.text} </p></div>'
+        return f'<div {self.style_box} id="{self.id}"><h3 {self.style_header}> {self.header} </h3><p {self.style_text}> {self.text} </p></div>'
 
 
 class CombinedHeaderPanel(HeaderTextPanel):
@@ -64,11 +64,11 @@ class CombinedHeaderPanel(HeaderTextPanel):
 
     def __str__(self):
         if self.order == 1:
-            return f'<div {self.style_box} class="{self.id}"><h3 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p><img src="{self.image}" {self.style_image}></div>'
+            return f'<div {self.style_box} id="{self.id}"><h3 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p><img src="{self.image}" {self.style_image}></div>'
         elif self.order == 2:
-            return f'<div {self.style_box} class="{self.id}"><h3 {self.style_header}> {self.header} </h2><img src="{self.image}" {self.style_image}><p {self.style_text}> {self.text} </p></div>'
+            return f'<div {self.style_box} id="{self.id}"><h3 {self.style_header}> {self.header} </h2><img src="{self.image}" {self.style_image}><p {self.style_text}> {self.text} </p></div>'
         else:
-            return f'<div {self.style_box} class="{self.id}"><img src="{self.image}" {self.style_image}><h3 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p></div>'
+            return f'<div {self.style_box} id="{self.id}"><img src="{self.image}" {self.style_image}><h3 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p></div>'
 
 
 class SimpleImagePanel(BasePanel):
@@ -80,7 +80,7 @@ class SimpleImagePanel(BasePanel):
         self.image = image
 
     def __str__(self):
-        return f'<div {self.style_box} class="{self.id}"><img src="{self.image}" {self.style_image}></div>'
+        return f'<div {self.style_box} id="{self.id}"><img src="{self.image}" {self.style_image}></div>'
 
 
 class CombinedSimplePanel(SimpleTextPanel):
@@ -92,9 +92,9 @@ class CombinedSimplePanel(SimpleTextPanel):
 
     def __str__(self):
         if self.order == 1:
-            return f'<div {self.style_box} class="{self.id}"><p {self.style_text}> {self.text} </p><img src="{self.image}" {self.style_image}></div>'
+            return f'<div {self.style_box} id="{self.id}"><p {self.style_text}> {self.text} </p><img src="{self.image}" {self.style_image}></div>'
         else:
-            return f'<div {self.style_box} class="{self.id}"><img src="{self.image}" {self.style_image}><p {self.style_text}> {self.text} </p></div>'
+            return f'<div {self.style_box} id="{self.id}"><img src="{self.image}" {self.style_image}><p {self.style_text}> {self.text} </p></div>'
 
 
 class SimpleVideoPanel(BasePanel):
@@ -106,7 +106,7 @@ class SimpleVideoPanel(BasePanel):
         self.url = url
 
     def __str__(self):
-        return f'<div {self.style_box} class="{self.id}"><iframe {self.style_video} src="{self.url}"></iframe></div>'
+        return f'<div {self.style_box} id="{self.id}"><iframe {self.style_video} src="{self.url}"></iframe></div>'
 
 
 class PanelSlider(BasePanel):
@@ -120,7 +120,7 @@ class PanelSlider(BasePanel):
         self.all_panels = all_panels
 
     def __str__(self):
-        prefix = f'<div {self.box_style} class="SLIDER">'
+        prefix = f'<div {self.box_style}>'
         panels_str = ""
         for panel in self.all_panels:
             panels_str += panel.__str__()
@@ -136,7 +136,7 @@ class ImagePanelSlider(PanelSlider):
             box_color[0], box_color[1], box_color[2])
 
     def __str__(self):
-        prefix = f'<div {self.box_style} class="Slider">'
+        prefix = f'<div {self.box_style}>'
         panels_str = ""
         for panel in self.all_panels:
             panels_str += panel.__str__()

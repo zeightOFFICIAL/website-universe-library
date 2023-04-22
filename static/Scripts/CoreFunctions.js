@@ -1,3 +1,8 @@
+function onLoadAny() {
+    objClicked("SYSTEM_INFO");
+    let sliders = document.querySelectorAll();
+}
+
 function objClicked(idToReveal) {
     hideAllObjects();
     let object = document.getElementById(idToReveal);
@@ -6,7 +11,7 @@ function objClicked(idToReveal) {
 }
 
 function hideAllObjects() {
-    let leftPanels = document.querySelectorAll(".LeftPanel")
+    let leftPanels = document.querySelectorAll(".LeftPanel");
     leftPanels.forEach((panel) => {
         panel.style.textIndent = '-1000em';
         panel.style.top = '200vh';
@@ -17,7 +22,7 @@ function hideAllObjects() {
 function openSidepanel() {
     document.getElementById("STAR_SIDEPANEL").style.width = "16%";
     let left_side = document.querySelectorAll(".LeftPanel");
-    movePanel(left_side, "20%");
+    movePanel(left_side, "17%");
     let right_side = document.querySelector(".star-system");
     right_side.style.left = "46%";
     right_side.style.width = "54%";
@@ -25,7 +30,7 @@ function openSidepanel() {
 function closeSidepanel() {
     document.getElementById("STAR_SIDEPANEL").style.width = "0";
     let left_side = document.querySelectorAll(".LeftPanel");
-    movePanel(left_side, "10%");
+    movePanel(left_side, "6%");
     let right_side = document.querySelector(".star-system");
     right_side.style.left = "40%";
     right_side.style.width = "57%";
@@ -33,7 +38,7 @@ function closeSidepanel() {
 function openSystempanel() {
     document.getElementById("UNIVERSE_SIDEPANEL").style.width = "16%";
     let left_side = document.querySelectorAll(".LeftPanel");
-    movePanel(left_side, "20%");
+    movePanel(left_side, "17%");
     let right_side = document.querySelector(".star-system");
     right_side.style.left = "46%";
     right_side.style.width = "54%";
@@ -41,7 +46,7 @@ function openSystempanel() {
 function closeSystempanel() {
     document.getElementById("UNIVERSE_SIDEPANEL").style.width = "0";
     let left_side = document.querySelectorAll(".LeftPanel");
-    movePanel(left_side, "10%");
+    movePanel(left_side, "6%");
     let right_side = document.querySelector(".star-system");
     right_side.style.left = "40%";
     right_side.style.width = "57%";
