@@ -36,7 +36,8 @@ class SimpleTextPanel(BasePanel):
 class TopHeaderTextPanel(SimpleTextPanel):
     def __init__(self, id, header, text, box_color, title_color, slider=False):
         super().__init__(id, text, box_color, slider)
-        self.style_header = Style.Text.header_one(title_color[0], title_color[1])
+        self.style_header = Style.Text.header_one(
+            title_color[0], title_color[1])
         self.header = header
 
     def __str__(self):
@@ -46,7 +47,8 @@ class TopHeaderTextPanel(SimpleTextPanel):
 class HeaderTextPanel(SimpleTextPanel):
     def __init__(self, id, header, text, box_color, title_color, slider=False):
         super().__init__(id, text, box_color, slider)
-        self.style_header = Style.Text.header_two(title_color[0], title_color[1])
+        self.style_header = Style.Text.header_two(
+            title_color[0], title_color[1])
         self.header = header
 
     def __str__(self):
@@ -118,7 +120,7 @@ class PanelSlider(BasePanel):
         self.all_panels = all_panels
 
     def __str__(self):
-        prefix = f'<div {self.box_style}>'
+        prefix = f'<div {self.box_style} class="SLIDER">'
         panels_str = ""
         for panel in self.all_panels:
             panels_str += panel.__str__()
@@ -134,7 +136,7 @@ class ImagePanelSlider(PanelSlider):
             box_color[0], box_color[1], box_color[2])
 
     def __str__(self):
-        prefix = f'<div {self.box_style}>'
+        prefix = f'<div {self.box_style} class="Slider">'
         panels_str = ""
         for panel in self.all_panels:
             panels_str += panel.__str__()

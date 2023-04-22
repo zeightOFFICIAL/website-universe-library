@@ -1,7 +1,12 @@
 let slideIndex = 1
 
 function onLoadAny() {
-    objClicked("SYSTEM_INFO")
+    objClicked("SYSTEM_INFO");
+    let sliders = document.querySelectorAll(".Slider");
+    sliders.forEach((item) => {
+        showSlides(item.id, 1);
+    })
+    return;
 }
 
 function showSlides(index, name) {

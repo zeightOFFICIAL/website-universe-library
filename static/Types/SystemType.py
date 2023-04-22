@@ -1,6 +1,6 @@
 import static.Types.PanelType as PanelType
 import static.Types.StyleType as StyleType
-
+import static.Types.QueryMimic as QueryMimic
 
 class SystemClass:
     def __init__(self, id, name, panels, objects, icon, coloring):
@@ -9,7 +9,8 @@ class SystemClass:
         self.panels = panels
         self.objects = objects
         self.icon = icon
-        self.accent_bar = StyleType.Style.Misc.accent_bar(coloring[0], coloring[1])
+        self.coloring = coloring
+        self.accent_bar = StyleType.Style.Misc.accent_bar(self.coloring[0], self.coloring[1])
 
     def get_all_objects(self):
         object_list = []
@@ -53,5 +54,16 @@ class SystemClass:
         side_str = ""
         for object in self.get_all_objects():
             side_str += f'<a {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();">{object.name}</a>'
-        # side_str = f'<div class="SidePanel" id="sidepanel"><'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel"><a {PanelType.Style.Button.close_sidepanel(self.coloring)} onclick="closeSidepanel();">&#9776; Object</a><hr>{side_str}</div>'
+        return side_str
+    
+    def get_side_panels(self):
+        side_btn_1 = f"<a {PanelType.Style.Button.open_sidepanel()} onclick=\"openSidepanel();\">&#9776;</a>"
+        side_btn_2 = f'<a {PanelType.Style.Button.open_sidepanel("7.5vmin")} onclick="openSystempanel();">&#9733;</a>"'
+        side_btn_3 = f'<a {PanelType.Style.Button.open_sidepanel("95vh")} href="space">&#8634;</a>'
+        return side_btn_1+side_btn_2+side_btn_3
+
+    def get_start_panel(self):
+        side_str = f'<a {PanelType.Style.Button.close_sidepanel(self.coloring, "7.5vmin")} onclick="closeSystempanel();">&#9733; Systems</a><p></p>'
+        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return side_str

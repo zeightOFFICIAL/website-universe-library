@@ -27,22 +27,24 @@ function closeSidepanel() {
     let left_side = document.querySelectorAll(".LeftPanel");
     movePanel(left_side, "10%");
     let right_side = document.querySelector(".star-system");
-    right_side.style.left = "46%";
-    right_side.style.width = "54%";
+    right_side.style.left = "40%";
+    right_side.style.width = "57%";
 }
 function openSystempanel() {
     document.getElementById("UNIVERSE_SIDEPANEL").style.width = "16%";
     let left_side = document.querySelectorAll(".LeftPanel");
     movePanel(left_side, "20%");
-    document.querySelector(".star-system").style.left = "57%";
-    document.querySelector(".star-system").style.width = "40%";
-}
-function closeSystempanel() {
-    document.getElementById("UNIVERSE_SIDEPANEL").style.width = "0";
-    movePanel("10%");
     let right_side = document.querySelector(".star-system");
     right_side.style.left = "46%";
     right_side.style.width = "54%";
+}
+function closeSystempanel() {
+    document.getElementById("UNIVERSE_SIDEPANEL").style.width = "0";
+    let left_side = document.querySelectorAll(".LeftPanel");
+    movePanel(left_side, "10%");
+    let right_side = document.querySelector(".star-system");
+    right_side.style.left = "40%";
+    right_side.style.width = "57%";
 }
 
 function movePanel(panels, percent) {

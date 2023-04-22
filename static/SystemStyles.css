@@ -375,15 +375,15 @@ td {
     font-size: 3vmin;
     font-weight: bolder;
     text-decoration: none;
-    width: 1em;
-    cursor: pointer;
     color: #000;
-    padding: 2vmin 3.5vmin;
-    transition: .7s;
     position: absolute;
     top: 0;
     left: 0;
-    border: none
+    border: none;
+    transition: left .7s;
+    padding: 2vmin 3.5vmin;
+    width: 1em;
+    cursor: pointer;
 }
 
 .openButton.firstButton,
@@ -774,8 +774,8 @@ td {
 .star-system {
     position: absolute;
     top: 0;
-    left: 46%;
-    width: 54%;
+    left: 40%;
+    width: 57%;
     height: 100%;
     overflow: hidden;
     transition: .7s
@@ -1545,6 +1545,20 @@ td {
 .traph-spin {
     animation: spin-right 64s linear infinite;
     border-radius: 100%
+}
+
+
+/* -------------------------------------------- */
+
+.TITLED_HREF_TEXT:hover {
+    height: 10vmin;
+    padding-top: 5.25vmin;
+    padding-left: 0;
+    padding-right: 25%
+}
+
+.TITLED_HREF_IMG:hover {
+    left: 67%
 }
 
 
