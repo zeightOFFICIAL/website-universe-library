@@ -54,16 +54,16 @@ class SystemClass:
         side_str = ""
         for object in self.get_all_objects():
             side_str += f'<a id="{object.id+"_LABEL"}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();" onmouseover="onHoverEnter(\'{object.id+"_LABEL"}\',\'{object.main_color}\');" onmouseout="onHoverLeave(\'{object.id+"_LABEL"}\');">   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a {PanelType.Style.Button.close_sidepanel(self.coloring)} onclick="closeSidepanel();">&#9776; Object</a><hr>{side_str}</div>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring)} onclick="closeSidepanel();" onmouseover=\"onHoverEnterSidepanelButton(\'STAR_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'STAR_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9776; Object</a><hr>{side_str}</div>'
         return side_str
     
     def get_side_panels(self):
-        side_btn_1 = f"<a {PanelType.Style.Button.open_sidepanel()} onclick=\"openSidepanel();\">&#9776;</a>"
-        side_btn_2 = f'<a {PanelType.Style.Button.open_sidepanel("7.5vmin")} onclick="openSystempanel();">&#9733;</a>"'
-        side_btn_3 = f'<a {PanelType.Style.Button.open_sidepanel("92vh")} href="space">&#8634;</a>'
+        side_btn_1 = f"<a id=\"STAR_BUTTON\" {PanelType.Style.Button.open_sidepanel()} onclick=\"openSidepanel();\" onmouseover=\"onHoverEnterButton(\'STAR_BUTTON\');\" onmouseout=\"onHoverLeaveButton(\'STAR_BUTTON\');\">&#9776;</a>"
+        side_btn_2 = f'<a id=\"UNIV_BUTTON\" {PanelType.Style.Button.open_sidepanel("8vmin")} onclick="openSystempanel();" onmouseover=\"onHoverEnterButton(\'UNIV_BUTTON\');\" onmouseout=\"onHoverLeaveButton(\'UNIV_BUTTON\');\">&#9733;</a>"'
+        side_btn_3 = f'<a id=\"BACK_BUTTON\" {PanelType.Style.Button.open_sidepanel("92.5vh")} href="space" onmouseover=\"onHoverEnterButton(\'BACK_BUTTON\');\" onmouseout=\"onHoverLeaveButton(\'BACK_BUTTON\');\">&#8634;</a>'
         return side_btn_1+side_btn_2+side_btn_3
 
     def get_start_panel(self):
-        side_str = f'<a {PanelType.Style.Button.close_sidepanel(self.coloring, "7.5vmin")} onclick="closeSystempanel();">&#9733; Systems</a><p></p>'
+        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel("8vmin")} onclick="closeSystempanel();" onmouseover=\"onHoverEnterSidepanelButton(\'UNIV_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'UNIV_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9733; Systems</a><p></p>'
         side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return side_str

@@ -28,12 +28,33 @@ function onHoverLeave(id) {
     object.style.fontSize = "3.5vmin";
 }
 
-function onHoverEnterButton(id, fore_color, back_color) {
-
+function onHoverEnterButton(id) {
+    let object = document.getElementById(id);
+    object.style.backgroundColor = "white";
 }
 
-function onHoverLeaveButton(id, fore_color, back_color) {
+function onHoverLeaveButton(id) {
+    let object = document.getElementById(id);
+    object.style.backgroundColor = "rgb(0, 0, 0, 0)";
+}
 
+function onHoverEnterSidepanelButton(id) {
+    let object = document.getElementById(id);
+    let sidepanels = document.querySelectorAll(".SidePanel");
+    object.style.backgroundColor = "white";
+    object.style.boxShadow = "rgb(255, 255, 255) 0px 0px 70px"
+    sidepanels.forEach((panel) => {
+        panel.style.boxShadow = "rgb(255, 255, 255) 4px 0px 4px";
+    })
+}
+
+function onHoverLeaveSidepanelButton(id, color) {
+    let object = document.getElementById(id);
+    let sidepanels = document.querySelectorAll(".SidePanel");
+    object.style.backgroundColor = `${color}`;
+    sidepanels.forEach((panel) => {
+        panel.style.boxShadow = `${color} 4px 0px 4px`
+    })
 }
 
 function objClicked(idToReveal) {
@@ -62,6 +83,7 @@ function openSidepanel() {
 }
 function closeSidepanel() {
     document.getElementById("STAR_SIDEPANEL").style.width = "0";
+    document.getElementById("STAR_CLOSEBUTTON").style.background = "white";
     let left_side = document.querySelectorAll(".LeftPanel");
     movePanel(left_side, "6%");
     let right_side = document.querySelector(".star-system");
@@ -78,6 +100,7 @@ function openSystempanel() {
 }
 function closeSystempanel() {
     document.getElementById("UNIVERSE_SIDEPANEL").style.width = "0";
+    document.getElementById("UNIV_CLOSEBUTTON").style.background = "white";
     let left_side = document.querySelectorAll(".LeftPanel");
     movePanel(left_side, "6%");
     let right_side = document.querySelector(".star-system");

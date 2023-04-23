@@ -92,13 +92,13 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def close_sidepanel(color_scheme, position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:{color_scheme[0]};background: linear-gradient(270deg, {color_scheme[0]} 0%, {color_scheme[1]} 100%);box-shadow:0px 0px 70px {color_scheme[2]};transition:none;overflow:hidden;padding-left:1.5vmax;'
+        def close_sidepanel(position="0"):
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:white;box-shadow:0px 0px 70px white;transition:.7s;overflow:hidden;padding-left:1.5vmax;'
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:none;overflow:hidden;width:5%;padding-left:1.5vmax;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:.7s;overflow:hidden;padding-left:1.5vmax;width:3.5%;'
             return f'style="{style}"'
         
         @staticmethod
