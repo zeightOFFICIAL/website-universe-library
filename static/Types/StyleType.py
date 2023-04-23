@@ -40,7 +40,7 @@ class Style:
 
         @staticmethod
         def sidepanel():
-            style = f'display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:\'side\';font-size:3.5vmin;font-weight:900;padding-bottom:1vmin;padding-left:15%;height:4vmin;transition: .15s;'
+            style = f'min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:\'side\';font-size:3.5vmin;font-weight:900;padding-bottom:1vmin;height:4vmin;transition:none;'
             return f'style="{style}"'
 
     class Image:
@@ -72,7 +72,7 @@ class Style:
 
         @staticmethod
         def accent_bar(a_color, b_color):
-            style = f'top:0;left:0;width:10vmin;height:100vh;transition:left .7s;transition:right .7s;position:absolute;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);box-shadow:0 0 3vw {a_color};'
+            style = f'top:0;left:0;width:5%;height:100vh;transition:left .7s;transition:right .7s;position:absolute;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);box-shadow:0 0 3vw {a_color};'
             return f'style="{style}"'
 
         @staticmethod
@@ -93,12 +93,17 @@ class Style:
 
         @staticmethod
         def close_sidepanel(color_scheme, position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;transition:left .7s;padding:2vmin 3.5vmin;width:1em;cursor:pointer;width:100%;overflow:hidden;min-width:50vmin;text-align:left;background:{color_scheme[0]};background: linear-gradient(270deg, {color_scheme[0]} 0%, {color_scheme[1]} 100%);box-shadow:0 0 3vw {color_scheme[2]};'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding: 2vmin 14%;width:1em;cursor:pointer;width:100%;overflow:hidden;min-width:50vmin;text-align:left;background:{color_scheme[0]};background: linear-gradient(270deg, {color_scheme[0]} 0%, {color_scheme[1]} 100%);box-shadow:0 0 3vw {color_scheme[2]};transition:none;overflow:hidden;'
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;transition:left .7s;padding:2vmin 3.5vmin;width:1em;cursor:pointer;background-color:rgba(255,255,255,0);'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding: 2vmin 1.75%;width:6%;cursor:pointer;background-color:rgba(255,255,255,0);transition:none;overflow:hidden;'
+            return f'style="{style}"'
+        
+        @staticmethod
+        def on_border_button(a_color, b_color, position_y = 30, position_x = "5.5%"):
+            style = f'position:absolute;top:{position_y}px;padding:0 3vmin;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{position_x};text-decoration:none;color:#000;'
             return f'style="{style}"'
 
 

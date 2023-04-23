@@ -1,6 +1,15 @@
 function onLoadAny() {
     objClicked("SYSTEM_INFO");
-    let sliders = document.querySelectorAll();
+    let sliders = document.querySelectorAll(".Slider");
+    let slidersIdList = []
+    sliders.forEach((slider) => {
+        if (!slidersIdList.includes(slider.id)) {
+            slidersIdList.push(slider.id);
+        }
+    })
+    slidersIdList.forEach((slider) => {
+        showSlides(1, slider);
+    })
 }
 
 function objClicked(idToReveal) {

@@ -12,6 +12,7 @@ from static.Types.StyleType import Style, EventHandlers
         SIMPLE_VIDEO
         SLIDER
         IMAGE_SLIDER
+        SIMPLE_AUDIO
 }
 '''
 
@@ -39,20 +40,28 @@ class TopHeaderTextPanel(SimpleTextPanel):
         self.style_header = Style.Text.header_one(
             title_color[0], title_color[1])
         self.header = header
+        self.close_button = Style.Button.on_border_button(box_color[0], box_color[1])
 
     def __str__(self):
         return f'<div {self.style_box} id="{self.id}"><h2 {self.style_header}> {self.header} </h2><p {self.style_text}> {self.text} </p></div>'
 
 
 class HeaderTextPanel(SimpleTextPanel):
-    def __init__(self, id, header, text, box_color, title_color, slider=False):
+    def __init__(self, id, header, text, box_color, title_color, slider=False, object_header=False, extra_buttons=[]):
         super().__init__(id, text, box_color, slider)
         self.style_header = Style.Text.header_two(
             title_color[0], title_color[1])
         self.header = header
-
+        self.button1 = ""
+        value = 5.5
+        self.button2 = ""
+        if object_header:
+            self.button1 = f'<button {Style.Button.on_border_button(box_color[0], box_color[1])} {EventHandlers.object_click("SYSTEM_INFO")}>&#10006;</button>'
+        for href in extra_buttons:
+            value += 14
+            self.button2 = f'<a {Style.Button.on_border_button(box_color[0], box_color[1], 30, str(value)+"%")} href="{href}" target="_blank">&#9783;</a>'
     def __str__(self):
-        return f'<div {self.style_box} id="{self.id}"><h3 {self.style_header}> {self.header} </h3><p {self.style_text}> {self.text} </p></div>'
+        return f'{self.button1}{self.button2}<div {self.style_box} id="{self.id}"><h3 {self.style_header}> {self.header} </h3><p {self.style_text}> {self.text} </p></div>'
 
 
 class CombinedHeaderPanel(HeaderTextPanel):
@@ -143,3 +152,14 @@ class ImagePanelSlider(PanelSlider):
         embed_ID = f"'{self.id}'"
         postfix = f'<button {self.button_left } {EventHandlers.SlidesButton(-1., embed_ID)}>&#10094;</button><button {self.button_right} {EventHandlers.SlidesButton(1.,  embed_ID)}>&#10095;</button></div>'
         return f'{prefix}{panels_str}{postfix}'
+
+class SimpleMusicSlider(BasePanel):
+    def __init__(self, id, src, box_color):
+        super().__init__(id)
+        self.style_box = Style.Box.text_info(
+            box_color[0], box_color[1], box_color[2]
+        )
+        self.src = src
+        
+    def __str__(self):
+        return f'<div {self.style_box} id="{self.id}" class="Audio"><audio controls><source src="{self.src}">Your browser does not support the audio element.</audio>'

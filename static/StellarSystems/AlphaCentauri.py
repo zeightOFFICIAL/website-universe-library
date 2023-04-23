@@ -20,14 +20,15 @@ panel_middle5_1 = SimpleImagePanel("MPNL05", "https://i.pinimg.com/originals/35/
 panel_middle5_2 = SimpleImagePanel("MPNL05", "https://www.mirf.ru/wp-content/uploads/2016/09/Proxima-b-3-2048x1330.jpg", MAIN_COLOR, True)
 panel_middle5_3 = SimpleImagePanel("MPNL05", "https://i.ytimg.com/vi/p0jVtw2UiO0/maxresdefault.jpg", MAIN_COLOR, True)
 panel_middle5 = PanelSlider("MPNL05", [panel_middle5_1, panel_middle5_2, panel_middle5_3], MAIN_COLOR)
+panel_middle6 = SimpleImagePanel("MPNL06", "https://qph.cf2.quoracdn.net/main-qimg-eaa83733f851357753819fa41973b423", MAIN_COLOR)
 
 # OBJECT PANELS
-alpha_starter = HeaderTextPanel("APNL00", "Alpha", "Alpha Centauri A is one of the three stars in the Alpha Centauri star system, and it is the brightest and largest of the three. It is a yellow dwarf star, similar to our own Sun, with a mass of about 1.1 times that of the Sun and a radius of about 1.2 times that of the Sun.", MAIN_COLOR, ["orangered", "yellow"])
-beta_starter = HeaderTextPanel("BPNL00", "Beta", "", MAIN_COLOR, HEAD_COLOR)
-prox_starter = HeaderTextPanel("PPNL00", "Proxima", "", MAIN_COLOR, HEAD_COLOR)
-proxc_starter = HeaderTextPanel("PcPNL00", "Proxima C", "", MAIN_COLOR, HEAD_COLOR)
-proxb_starter = HeaderTextPanel("PbPNL00", "Proxima B", "", MAIN_COLOR, HEAD_COLOR)
-proxd_starter = HeaderTextPanel("PdPNL00", "Proxuma D", "", MAIN_COLOR, HEAD_COLOR)
+alpha_starter = HeaderTextPanel("APNL00", "Alpha", "Alpha Centauri A is one of the three stars in the Alpha Centauri star system, and it is the brightest and largest of the three. It is a yellow dwarf star, similar to our own Sun, with a mass of about 1.1 times that of the Sun and a radius of about 1.2 times that of the Sun.", MAIN_COLOR, ["orangered", "yellow"], False, True, ["https://en.wikipedia.org/wiki/Alpha_Centauri"])
+beta_starter = HeaderTextPanel("BPNL00", "Beta", "", MAIN_COLOR, HEAD_COLOR, False, True)
+prox_starter = HeaderTextPanel("PPNL00", "Proxima", "", MAIN_COLOR, HEAD_COLOR, False, True)
+proxc_starter = HeaderTextPanel("PcPNL00", "Proxima C", "", MAIN_COLOR, HEAD_COLOR, False, True)
+proxb_starter = HeaderTextPanel("PbPNL00", "Proxima B", "", MAIN_COLOR, HEAD_COLOR, False, True)
+proxd_starter = HeaderTextPanel("PdPNL00", "Proxuma D", "", MAIN_COLOR, HEAD_COLOR, False, True)
 
 # OBJECTS
 proxc = ObjectClass("PROXC", "Proxima C", 93, 
@@ -65,6 +66,6 @@ prox =  ObjectClass("PROX", "Proxima", 97,
 
 # SYSTEM
 SystemObject = SystemClass(1, "Alpha Centauri", 
-                            [panel_starter, panel_middle1, panel_middle2, panel_middle3, panel_middle4, panel_middle5], 
+                            [panel_starter, panel_middle1, panel_middle2, panel_middle3, panel_middle4, panel_middle5, panel_middle6], 
                             [alpha, beta, prox], 
                             "alternativeicon.ico", MAIN_COLOR) 
