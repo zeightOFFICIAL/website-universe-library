@@ -7,6 +7,7 @@ class ObjectClass:
         self.subobjects = subobjects
         self.panels = panels
         self.z_index = -998
+        self.main_color = object_args[2]
         if len(self.subobjects) > 1:
             self.z_index = z_index - 1
         self.obj_description = Visual.Object(object_args, self.z_index)

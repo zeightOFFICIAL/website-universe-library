@@ -37,12 +37,12 @@ proxc = ObjectClass("PROXC", "Proxima C", 93,
                     ['30vh', '-15vh', '1928'],
                     [proxc_starter])
 proxb = ObjectClass("PROXB", "Proxima B", 94, 
-                    ['4vh', '-2vh', '#ffadad;', '#ffd9a7', '10px'],
+                    ['4vh', '-2vh', '#ffadad', '#ffd9a7', '10px'],
                     ['18vh', '-9vh'],
                     ['18vh', '-9vh', '11'],
                     [proxb_starter])
 proxd = ObjectClass("PROXD", "Proxima D", 95, 
-                    ['2vh', '-1vh', '#ffd0d0;', '#ff6363', '5px'],
+                    ['2vh', '-1vh', '#ffd0d0', '#ff6363', '5px'],
                     ['10vh', '-5vh'],
                     ['10vh', '-5vh', '5'],
                     [proxd_starter])
@@ -61,7 +61,7 @@ prox =  ObjectClass("PROX", "Proxima", 97,
                     ['4vh', '-2vh', 'red', '#61', "35px", "red"],
                     ['64vh', '-32vh'],
                     ['64vh', '-32vh', '325'],
-                    [prox_starter], [proxd, proxc, proxb])
+                    [prox_starter], [proxd, proxb, proxc])
 
 
 # SYSTEM

@@ -53,7 +53,7 @@ class SystemClass:
     def get_side_panel_obj(self):
         side_str = ""
         for object in self.get_all_objects():
-            side_str += f'<a {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();">{object.name}</a>'
+            side_str += f'<a id="{object.id+"_LABEL"}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();" onmouseover="onHoverEnter(\'{object.id+"_LABEL"}\',\'{object.main_color}\');" onmouseout="onHoverLeave(\'{object.id+"_LABEL"}\');">   {object.name}</a>'
         side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a {PanelType.Style.Button.close_sidepanel(self.coloring)} onclick="closeSidepanel();">&#9776; Object</a><hr>{side_str}</div>'
         return side_str
     

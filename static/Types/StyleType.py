@@ -40,7 +40,7 @@ class Style:
 
         @staticmethod
         def sidepanel():
-            style = f'min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:\'side\';font-size:3.5vmin;font-weight:900;padding-bottom:1vmin;height:4vmin;transition:none;'
+            style = f'min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:\'side\';font-size:3.5vmin;padding-bottom:1vmin;height:4vmin;transition:.3s;font-weight:bolder;'
             return f'style="{style}"'
 
     class Image:
@@ -93,12 +93,12 @@ class Style:
 
         @staticmethod
         def close_sidepanel(color_scheme, position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding: 2vmin 14%;width:1em;cursor:pointer;width:100%;overflow:hidden;min-width:50vmin;text-align:left;background:{color_scheme[0]};background: linear-gradient(270deg, {color_scheme[0]} 0%, {color_scheme[1]} 100%);box-shadow:0 0 3vw {color_scheme[2]};transition:none;overflow:hidden;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:{color_scheme[0]};background: linear-gradient(270deg, {color_scheme[0]} 0%, {color_scheme[1]} 100%);box-shadow:0px 0px 70px {color_scheme[2]};transition:none;overflow:hidden;padding-left:1.5vmax;'
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding: 2vmin 1.75%;width:6%;cursor:pointer;background-color:rgba(255,255,255,0);transition:none;overflow:hidden;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:none;overflow:hidden;width:5%;padding-left:1.5vmax;'
             return f'style="{style}"'
         
         @staticmethod
