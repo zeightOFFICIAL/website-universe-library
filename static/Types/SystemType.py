@@ -38,7 +38,7 @@ class SystemClass:
         objects_str = ""
         for object in self.objects:
             objects_str += f'{object.__str__()}'
-        objects_str = f'<div class="star-system" onclick="closeSidepanel();closeSystempanel();"><div id="zeropoint" style="z-index:100;"></div>{objects_str}</div>'
+        objects_str = f'<div class="star-system" onclick="closeSidepanel();closeSystempanel();onHoverLeaveSidepanelButton(\'UNIV_CLOSEBUTTON\',\'{self.coloring[0]}\');onHoverLeaveSidepanelButton(\'STAR_CLOSEBUTTON\',\'{self.coloring[0]}\');"><div id="zeropoint" style="z-index:100;"></div>{objects_str}</div>'
         return objects_str
 
     def get_accent_bar(self):
@@ -53,8 +53,8 @@ class SystemClass:
     def get_side_panel_obj(self):
         side_str = ""
         for object in self.get_all_objects():
-            side_str += f'<a id="{object.id+"_LABEL"}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();" onmouseover="onHoverEnter(\'{object.id+"_LABEL"}\',\'{object.main_color}\');" onmouseout="onHoverLeave(\'{object.id+"_LABEL"}\');">   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring)} onclick="closeSidepanel();" onmouseover=\"onHoverEnterSidepanelButton(\'STAR_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'STAR_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9776; Object</a><hr>{side_str}</div>'
+            side_str += f'<a id="{object.id+"_LABEL"}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id+"_INFO"}\');closeSidepanel();onHoverLeaveSidepanelButton(\'UNIV_CLOSEBUTTON\',\'{self.coloring[0]}\');onHoverLeaveSidepanelButton(\'STAR_CLOSEBUTTON\',\'{self.coloring[0]}\');" onmouseover="onHoverEnter(\'{object.id+"_LABEL"}\',\'{object.color}\');" onmouseout="onHoverLeave(\'{object.id+"_LABEL"}\');">   {object.name}</a>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0])} onclick="closeSidepanel();" onmouseover=\"onHoverEnterSidepanelButton(\'STAR_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'STAR_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9776; Objects</a><hr>{side_str}</div>'
         return side_str
     
     def get_side_panels(self):
@@ -64,6 +64,6 @@ class SystemClass:
         return side_btn_1+side_btn_2+side_btn_3
 
     def get_start_panel(self):
-        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel("8vmin")} onclick="closeSystempanel();" onmouseover=\"onHoverEnterSidepanelButton(\'UNIV_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'UNIV_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9733; Systems</a><p></p>'
+        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" onmouseover=\"onHoverEnterSidepanelButton(\'UNIV_CLOSEBUTTON\');\" onmouseout=\"onHoverLeaveSidepanelButton(\'UNIV_CLOSEBUTTON\',\'{self.coloring[0]}\');\">&#9733; Systems</a><p></p>'
         side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return side_str

@@ -62,7 +62,7 @@ class Style:
     class Video:
         @staticmethod
         def normal():
-            args = f'id="video" width="100%" height="315"title="" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"'
+            args = f'width="100%"height="315"title=""frameborder="0"allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"'
             return f'{args} allowfullscreen'
 
     class Misc:
@@ -76,7 +76,7 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def sidepanel_href(extra_directives=""):
+        def sidepanel_univ_href(extra_directives=""):
             style = f'text-align:center;font-family:\'solar\';font-size:4vmin;font-weight:bolder;display:block;overflow:hidden;padding:1.5vmin 0; height:7vmin;cursor:block;transition:.5s;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style+extra_directives}"'
 
@@ -92,18 +92,18 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def close_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:white;box-shadow:0px 0px 70px white;transition:.7s;overflow:hidden;padding-left:1.5vmax;'
+        def close_sidepanel(color, position="0"):
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;overflow:hidden;padding-left:1.5vmax;'
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:.7s;overflow:hidden;padding-left:1.5vmax;width:3.5%;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:.5s;overflow:hidden;padding-left:1.5vmax;width:3.5%;'
             return f'style="{style}"'
-        
+
         @staticmethod
-        def on_border_button(a_color, b_color, position_y = 30, position_x = "5.5%"):
-            style = f'position:absolute;top:{position_y}px;padding:0 3vmin;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{position_x};text-decoration:none;color:#000;'
+        def on_border(a_color, b_color, y=30, x="5.5%"):
+            style = f'position:absolute;top:{y}px;padding:0 3vmin;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{x};text-decoration:none;color:#000;'
             return f'style="{style}"'
 
 
@@ -152,15 +152,17 @@ class Visual:
 
 
 class EventHandlers:
-    class SlidesButton:
-        def __init__(self, args, slider_name):
-            self.args = args
-            self.name = slider_name
-
-        def __str__(self):
-            return f'onclick="plusSlides({self.args},{self.name});"'
+    @staticmethod
+    def slider_click(arg, slider_name):
+        call = f'onclick="plusSlides({arg},\'{slider_name}\');"'
+        return call
 
     @staticmethod
     def object_click(id):
         call = f'onclick="objClicked(\'{id}\');closeSidepanel();"'
+        return call
+
+    @staticmethod
+    def hover(id, class_name):
+        call = f'onmouseover="onHoverEnterAddClass({id},{class_name});" onmouseout="onHoverLeaveRemoveClass({id},{class_name});"'
         return call

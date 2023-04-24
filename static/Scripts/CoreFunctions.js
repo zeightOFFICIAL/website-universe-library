@@ -11,6 +11,21 @@ function onLoadAny() {
         showSlides(1, slider);
     })
 }
+function objClicked(idToReveal) {
+    hideAllObjects();
+    let object = document.getElementById(idToReveal);
+    object.style.textIndent = '0';
+    object.style.top = '0';
+}
+
+function onHoverEnterAddClass(id, className) {
+    document.getElementById(id).classList.add(className);
+}
+
+function onHoverLeaveRemoveClass(id, className) {
+    document.getElementById(id).classList.remove(className);
+}
+
 
 function onHoverEnter(id, color) {
     let object = document.getElementById(id);
@@ -42,7 +57,7 @@ function onHoverEnterSidepanelButton(id) {
     let object = document.getElementById(id);
     let sidepanels = document.querySelectorAll(".SidePanel");
     object.style.backgroundColor = "white";
-    object.style.boxShadow = "rgb(255, 255, 255) 0px 0px 70px"
+    object.style.boxShadow = "rgb(255, 255, 255) 0px 0px 70px";
     sidepanels.forEach((panel) => {
         panel.style.boxShadow = "rgb(255, 255, 255) 4px 0px 4px";
     })
@@ -52,17 +67,22 @@ function onHoverLeaveSidepanelButton(id, color) {
     let object = document.getElementById(id);
     let sidepanels = document.querySelectorAll(".SidePanel");
     object.style.backgroundColor = `${color}`;
+    object.style.boxShadow = `${color} 0px 0px 70px`;
     sidepanels.forEach((panel) => {
-        panel.style.boxShadow = `${color} 4px 0px 4px`
+        panel.style.boxShadow = `${color} 4px 0px 4px`;
     })
 }
 
-function objClicked(idToReveal) {
-    hideAllObjects();
-    let object = document.getElementById(idToReveal);
-    object.style.textIndent = '0';
-    object.style.top = '0';
+function onHoverEnterExtraButton(id) {
+    let object = document.getElementById(id);
+    object.classList.add("HoveredButton");
 }
+
+function onHoverLeaveExtraButton(id) {
+    let object = document.getElementById(id);
+    object.classList.remove("HoveredButton");
+}
+
 
 function hideAllObjects() {
     let leftPanels = document.querySelectorAll(".LeftPanel");

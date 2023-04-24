@@ -21,7 +21,7 @@
 
 html,
 body {
-    background-color: #00071b;
+    background-color: #000209;
     height: 100vh;
     overflow: hidden;
     -ms-overflow-style: none;
@@ -146,7 +146,7 @@ td {
     top: 0;
     left: 0;
     background-color: #000;
-    transition: .7s;
+    transition: .5s;
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -193,7 +193,7 @@ td {
     top: 0;
     left: 0;
     border: none;
-    transition: left .7s;
+    transition: left .5s;
     padding: 2vmin 3.5vmin;
     width: 1em;
     cursor: pointer;
@@ -395,7 +395,7 @@ td {
     width: 57%;
     height: 100%;
     overflow: hidden;
-    transition: .7s
+    transition: .5s
 }
 
 
@@ -1039,7 +1039,7 @@ td {
     overflow-x: hidden;
     overflow-y: auto;
     text-indent: -1000em;
-    transition: left .7s;
+    transition: left .5s;
     top: 200vh;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -1082,4 +1082,12 @@ td {
     100% {
         transform: rotate(360deg)
     }
+}
+
+/* ----------------------------------------------------------- */
+
+.HoveredBorderButton {
+    box-shadow: white 0px 0px 70px;
+    background-color: white !important;
+    background-image: none !important;
 }

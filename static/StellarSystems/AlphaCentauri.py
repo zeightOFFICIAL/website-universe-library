@@ -31,37 +31,37 @@ proxb_starter = HeaderTextPanel("PbPNL00", "Proxima B", "", MAIN_COLOR, HEAD_COL
 proxd_starter = HeaderTextPanel("PdPNL00", "Proxuma D", "", MAIN_COLOR, HEAD_COLOR, False, True)
 
 # OBJECTS
-proxc = ObjectClass("PROXC", "Proxima C", 93, 
+proxc = ObjectClass("PROXC", "Proxima C",  
                     ['6vh', '-3vh', '#0051ff', '#1e00ff', '10px','#8a2be2'],
                     ['30vh', '-15vh'],
                     ['30vh', '-15vh', '1928'],
-                    [proxc_starter])
-proxb = ObjectClass("PROXB", "Proxima B", 94, 
+                    [proxc_starter], 93)
+proxb = ObjectClass("PROXB", "Proxima B", 
                     ['4vh', '-2vh', '#ffadad', '#ffd9a7', '10px'],
                     ['18vh', '-9vh'],
-                    ['18vh', '-9vh', '11'],
-                    [proxb_starter])
-proxd = ObjectClass("PROXD", "Proxima D", 95, 
+                    ['18vh', '-9vh', '11'], 
+                    [proxb_starter], 94)
+proxd = ObjectClass("PROXD", "Proxima D", 
                     ['2vh', '-1vh', '#ffd0d0', '#ff6363', '5px'],
                     ['10vh', '-5vh'],
-                    ['10vh', '-5vh', '5'],
-                    [proxd_starter])
+                    ['10vh', '-5vh', '5'], 
+                    [proxd_starter], 95)
 
-alpha = ObjectClass("ALPHA", "Alpha", 99, 
+alpha = ObjectClass("ALPHA", "Alpha", 
                     ['10vh', '-5vh', '#ffd000', '#f70', '30px', '#fff'],
                     ['2vh', '-1vh'],
-                    ['2vh', '-1vh', '10'],
-                    [alpha_starter])
-beta =  ObjectClass("BETA", "Beta", 98,
+                    ['2vh', '-1vh', '10'],  
+                    [alpha_starter], 99)
+beta =  ObjectClass("BETA", "Beta", 
                     ['7vh', '-3.5vh', '#ff9100', '#f70', "20px", "#ff0"],
                     ['20vh', '-10vh'],
-                    ['20vh', '-10vh', '45'],
-                    [beta_starter])
-prox =  ObjectClass("PROX", "Proxima", 97,
+                    ['20vh', '-10vh', '45'], 
+                    [beta_starter], 98)
+prox =  ObjectClass("PROX", "Proxima",
                     ['4vh', '-2vh', 'red', '#61', "35px", "red"],
                     ['64vh', '-32vh'],
-                    ['64vh', '-32vh', '325'],
-                    [prox_starter], [proxd, proxb, proxc])
+                    ['64vh', '-32vh', '325'], 
+                    [prox_starter], 97, [proxd, proxb, proxc])
 
 
 # SYSTEM
