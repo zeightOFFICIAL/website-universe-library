@@ -31,7 +31,8 @@ class SimpleTextPanel(BasePanel):
         self.p_style = Style.Text.normal()
         self.text = text
         self.hover = ""
-        self.hover = EventHandlers.hover(self.id, "HoveredBorder")
+        if not slider:
+            self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
     def __str__(self):
         return f'<div {self.div_style} {self.embed_id} {self.hover}><p {self.p_style}> {self.text} </p></div>'
@@ -106,7 +107,7 @@ class SimpleImagePanel(BasePanel):
         self.image = f'src="{image_url}"'
         self.hover = ""
         if not slider:
-            self.hover = EventHandlers.hover(self.id, "HoveredBorder")
+            self.hover = EventHandlers.hover(self.id, "HoveredBorderFilled")
 
     def __str__(self):
         return f'<div {self.div_style} {self.embed_id} {self.hover}><img {self.image} {self.img_style}></div>'
@@ -151,14 +152,14 @@ class PanelSlider(BasePanel):
         self.button_left = Style.Button.slider_left(colors[0])
         self.button_right = Style.Button.slider_right(colors[1])
         self.panels = panels
-        self.hover = EventHandlers.hover(self.id, "HoveredBorder")
+        self.hover = EventHandlers.hover(self.id+"_FACADE", "HoveredBorder")
 
     def __str__(self):
         panels_str = ""
         for panel in self.panels:
             panels_str += panel.__str__()
-        buttons_postfix = f'<button {self.button_left} {EventHandlers.slider_click(-1, self.id)}>&#10094;</button><button {self.button_right} {EventHandlers.slider_click(1, self.id)}>&#10095;</button></div>'
-        return f'<div {self.div_style}>{panels_str}{buttons_postfix}'
+        buttons_postfix = f'<button id="{self.id}_LBUTTON" {self.button_left} {EventHandlers.slider_click(-1, self.id)} {EventHandlers.hover(self.id+"_LBUTTON", "HoveredBorderButton")}>&#10094;</button><button id="{self.id}_RBUTTON" {self.button_right} {EventHandlers.slider_click(1, self.id)} {EventHandlers.hover(self.id+"_RBUTTON", "HoveredBorderButton")}>&#10095;</button></div>'
+        return f'<div id="{self.id}_FACADE" {self.div_style} {self.hover}>{panels_str}{buttons_postfix}'
 
 
 class ImagePanelSlider(PanelSlider):

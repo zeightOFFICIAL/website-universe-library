@@ -19,7 +19,7 @@ class Style:
         def image_info(a_color, b_color, c_color, slider=False):
             if slider == True:
                 return f"style=\"display:none;background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s'
             return f'style="{style}"'
 
     class Text:
@@ -72,7 +72,7 @@ class Style:
 
         @staticmethod
         def accent_bar(a_color, b_color):
-            style = f'top:0;left:0;width:5%;height:100vh;transition:left .7s;transition:right .7s;position:absolute;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);box-shadow:0 0 3vw {a_color};'
+            style = f'top:0;left:0;width:5%;height:100vh;transition:left .7s,right .7s;position:absolute;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);box-shadow:0 0 3vw {a_color};'
             return f'style="{style}"'
 
         @staticmethod
@@ -83,17 +83,17 @@ class Style:
     class Button:
         @staticmethod
         def slider_left(a_color):
-            style = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0;overflow:hidden;float:left;width:50%;'
+            style = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:left;width:50%;'
             return f'style="{style}"'
 
         @staticmethod
         def slider_right(a_color):
-            style = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0;overflow:hidden;float:right;width:50%;'
+            style = f'display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:right;width:50%;'
             return f'style="{style}"'
 
         @staticmethod
         def close_sidepanel(color, position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;overflow:hidden;padding-left:1.8vmax;min-width:60vh;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;padding-left:1.8vmax;min-width:60vh;'
             return f'style="{style}"'
 
         @staticmethod

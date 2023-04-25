@@ -68,4 +68,4 @@ prox =  ObjectClass("PROX", "Proxima",
 SystemObject = SystemClass(1, "Alpha Centauri", 
                             [panel_starter, panel_middle1, panel_middle2, panel_middle3, panel_middle4, panel_middle5, panel_middle6], 
                             [alpha, beta, prox], 
-                            "alternativeicon.ico", MAIN_COLOR) 
+                            "icons/alternativeicon.ico", MAIN_COLOR) 

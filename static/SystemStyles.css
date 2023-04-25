@@ -56,13 +56,7 @@ td {
     -webkit-text-fill-color: transparent
 }
 
-.h2-system.alpha {
-    background-color: rgba(255, 117, 0, 1);
-    background-image: linear-gradient(62deg, #fa0 0%, red 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
-}
+
 
 .h2-system.trebia {
     background-color: #09b100;
@@ -207,11 +201,7 @@ td {
     box-shadow: 0 0 3vw #FBAB7E
 }
 
-.closeButton.alpha {
-    background: #6b2323;
-    background: linear-gradient(270deg, rgba(107, 35, 35, 1) 0%, rgba(255, 0, 0, 1) 100%);
-    box-shadow: 0 0 3vw red
-}
+
 
 .closeButton.trebia {
     background: #067900;
@@ -241,7 +231,6 @@ td {
 }
 
 .solar-button,
-.alpha-button,
 .trebi-button,
 .trapp-button {
     text-align: center;
@@ -263,7 +252,6 @@ td {
 }
 
 .solar-button:hover,
-.alpha-button:hover,
 .trapp-button:hover,
 .trebi-button:hover {
     height: 10vmin;
@@ -276,14 +264,6 @@ td {
     left: 67%
 }
 
-.alpha-button {
-    background-color: #ffe900;
-    background-image: linear-gradient(62deg, #ffe900 35%, #9a0000 65%)
-}
-
-.alpha-button:hover .short-image {
-    left: 67%
-}
 
 .trapp-button {
     background-color: #31fff4;
@@ -1075,4 +1055,12 @@ td {
     box-shadow: 0 0 20px white !important;
     border-image: unset !important;
     border-color: white !important;
+}
+
+.HoveredBorderFilled {
+    box-shadow: 0 0 20px white !important;
+    border-image: unset !important;
+    border-color: white !important;
+    background-color: white !important;
+    background-image: none !important;
 }
