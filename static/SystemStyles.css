@@ -153,22 +153,6 @@ td {
     scrollbar-width: none;
 }
 
-.SidePanel.solar {
-    box-shadow: 3px 0 3px #FBAB7E
-}
-
-.SidePanel.alpha {
-    box-shadow: 3px 0 3px red
-}
-
-.SidePanel.trebia {
-    box-shadow: 3px 0 3px #067900
-}
-
-.SidePanel.trapp {
-    box-shadow: 3px 0 3px #00fff2
-}
-
 .SidePanel hr {
     height: 12vmin;
     border: none
@@ -363,15 +347,6 @@ td {
     width: 50%
 }
 
-.display-next.alpha,
-.display-prev.alpha {
-    background-color: rgba(255, 117, 0, 1)
-}
-
-.display-next.trapp,
-.display-prev.trapp {
-    background-color: #00fff2
-}
 
 .display-prev {
     float: left;
@@ -388,10 +363,10 @@ td {
     padding: 20px 30px
 }
 
-.star-system {
+.StarSystem {
     position: absolute;
     top: 0;
-    left: 40%;
+    left: 43%;
     width: 57%;
     height: 100%;
     overflow: hidden;
@@ -1087,7 +1062,17 @@ td {
 /* ----------------------------------------------------------- */
 
 .HoveredBorderButton {
-    box-shadow: white 0px 0px 70px;
+    box-shadow: white 0px 0px 70px !important;
     background-color: white !important;
     background-image: none !important;
+}
+
+.HoveredSidepanel {
+    box-shadow: white 4px 0px 4px !important;
+}
+
+.HoveredBorder {
+    box-shadow: 0 0 20px white !important;
+    border-image: unset !important;
+    border-color: white !important;
 }

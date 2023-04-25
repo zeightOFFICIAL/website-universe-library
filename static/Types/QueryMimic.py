@@ -1,5 +1,6 @@
 import static.Types.StyleType as Style
 
+
 class Mimic:
     @staticmethod
     def get_falseborne_stars():

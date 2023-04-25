@@ -7,19 +7,19 @@ class Style:
         def text_info(a_color, b_color, c_color, slider=False):
             if slider == True:
                 return "style=\"display:none;\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};'
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
             return f'style="{style}"'
 
         @staticmethod
         def slider_info(a_color, b_color, c_color):
-            style = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};overflow:hidden;'
+            style = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
             return f'style="{style}"'
 
         @staticmethod
         def image_info(a_color, b_color, c_color, slider=False):
             if slider == True:
                 return f"style=\"display:none;background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});'
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
             return f'style="{style}"'
 
     class Text:
@@ -30,12 +30,12 @@ class Style:
 
         @staticmethod
         def header_one(a_color, b_color):
-            style = f'text-align:center;font-family:\'solar\';font-size:7vmin;margin-bottom:2.5vmin;cursor:default;padding-left:20px;padding-right:20px;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
+            style = f'text-align:center;font-family:\'solar\';font-size:7vmin;margin-bottom:2.5vmin;cursor:default;padding-left:2vmin;padding-right:2vmin;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style}"'
 
         @staticmethod
         def header_two(a_color, b_color):
-            style = f'text-align:center;font-family:\'solar\';font-size:5.5vmin;margin-bottom:2.5vmin;cursor:default;padding-left:20px;padding-right:20px;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
+            style = f'text-align:center;font-family:\'solar\';font-size:5.5vmin;margin-bottom:2.5vmin;cursor:default;padding-left:2vmin;padding-right:2vmin;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;'
             return f'style="{style}"'
 
         @staticmethod
@@ -93,17 +93,17 @@ class Style:
 
         @staticmethod
         def close_sidepanel(color, position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;padding-left:0;overflow:hidden;min-width:50vmin;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;overflow:hidden;padding-left:1.5vmax;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;overflow:hidden;padding-left:1.8vmax;min-width:60vh;'
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;padding-left:0;background-color:rgba(255,255,255,0);transition:.5s;overflow:hidden;padding-left:1.5vmax;width:3.5%;'
+            style = f'font-family:\'solar\';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;background-color:rgba(255,255,255,0);transition:background.5s, box-shadow.5s;overflow:hidden;padding-left:1.8%;width:3.2%;'
             return f'style="{style}"'
 
         @staticmethod
         def on_border(a_color, b_color, y=30, x="5.5%"):
-            style = f'position:absolute;top:{y}px;padding:0 3vmin;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{x};text-decoration:none;color:#000;'
+            style = f'position:absolute;top:{y}px;padding:0 1.2vmax;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{x};text-decoration:none;color:#000;'
             return f'style="{style}"'
 
 
@@ -164,5 +164,15 @@ class EventHandlers:
 
     @staticmethod
     def hover(id, class_name):
-        call = f'onmouseover="onHoverEnterAddClass({id},{class_name});" onmouseout="onHoverLeaveRemoveClass({id},{class_name});"'
+        call = f'onmouseover="onHoverEnterAddClass(\'{id}\',\'{class_name}\');" onmouseout="onHoverLeaveRemoveClass(\'{id}\',\'{class_name}\');"'
+        return call
+
+    @staticmethod
+    def hover_2d(id, id2, class_name, class_name2):
+        call = f'onmouseover="onHoverEnterAddClass(\'{id}\',\'{class_name}\');onHoverEnterAddClass(\'{id2}\',\'{class_name2}\');" onmouseout="onHoverLeaveRemoveClass(\'{id}\',\'{class_name}\');onHoverLeaveRemoveClass(\'{id2}\',\'{class_name2}\');"'
+        return call
+
+    @staticmethod
+    def hover_side_name(id, color):
+        call = f'onmouseover="onHoverSidepanelTitle(\'{id}\',\'{color}\');" onmouseout="onHoverSidepanelTitleLeave(\'{id}\',\'{color}\');"'
         return call

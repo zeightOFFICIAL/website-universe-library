@@ -24,8 +24,8 @@ def tempSystem(request):
                   {'head':              SystemObject.get_head, 
                    'mainpanels' :       SystemObject.get_main_panels,
                    'accentbar':         SystemObject.get_accent_bar,
-                   'objects':           SystemObject.get_objects,
-                   'panels':            SystemObject.get_panels,
-                   'sidepanel_objects': SystemObject.get_side_panel_obj,
-                   'sidepanel_buttons': SystemObject.get_side_panels,
-                   'sidepanel_all':     SystemObject.get_start_panel})
+                   'objects':           SystemObject.get_objects_str,
+                   'panels':            SystemObject.get_object_panels,
+                   'sidepanel_objects': SystemObject.get_star_sidepanel,
+                   'sidepanel_buttons': SystemObject.get_side_buttons,
+                   'sidepanel_all':     SystemObject.get_univ_sidepanel})
