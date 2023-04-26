@@ -38,9 +38,12 @@ class SystemClass:
 
     def get_objects_str(self):
         objects_str = ""
+        tooltip_str = ""
         for object in self.objects:
             objects_str += f'{object.__str__()}'
-        objects_str = f'<div class="StarSystem" onclick="closeSidepanel();closeSystempanel();onHoverLeaveForced();"><div id="zeropoint" style="z-index:100;"></div>{objects_str}</div>'
+        for object in self.get_objects_list():
+            tooltip_str += f'{object.get_tooltip()}'
+        objects_str = f'<div class="StarSystem" onclick="closeSidepanel();closeSystempanel();onHoverLeaveForced();"><div id="zeropoint" style="z-index:100;"></div>{tooltip_str}{objects_str}</div>'
         return objects_str
 
     def get_accent_bar(self):

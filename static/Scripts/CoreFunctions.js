@@ -16,6 +16,12 @@ function objClicked(idToReveal) {
     let object = document.getElementById(idToReveal);
     object.style.textIndent = '0';
     object.style.top = '0';
+
+    if (idToReveal != "SYSTEM_INFO") {
+        idToHover = idToReveal.split("_")[0] + "_OBJ";
+        console.log(idToHover);
+        onHoverEnterAddClass(idToHover, "HoveredObjectForced");
+    }
 }
 
 function onHoverEnterAddClass(id, className) {
@@ -39,6 +45,8 @@ function onHoverSidepanelTitle(id, color) {
     object.style.textShadow = `${color} 1px 1px 10px`;
     object.style.paddingLeft = "1.5%";
     object.style.fontSize = "4.5vmin";
+    let idObjToHover = id.split("_")[0] + "_OBJ";
+    onHoverEnterAddClass(idObjToHover, "HoveredObject");
 }
 
 function onHoverSidepanelTitleLeave(id) {
@@ -47,8 +55,9 @@ function onHoverSidepanelTitleLeave(id) {
     object.style.textShadow = `#000 0px 0px 0px`;
     object.style.paddingLeft = "0%";
     object.style.fontSize = "3.5vmin";
+    let idObjToHover = id.split("_")[0] + "_OBJ";
+    onHoverLeaveRemoveClass(idObjToHover, "HoveredObject");
 }
-
 
 function hideAllObjects() {
     let leftPanels = document.querySelectorAll(".LeftPanel");
@@ -56,6 +65,10 @@ function hideAllObjects() {
         panel.style.textIndent = '-1000em';
         panel.style.top = '200vh';
         panel.scrollTop = '0';
+    })
+    let objects = document.querySelectorAll(".Object");
+    objects.forEach((obj) => {
+        obj.classList.remove("HoveredObjectForced");
     })
 }
 

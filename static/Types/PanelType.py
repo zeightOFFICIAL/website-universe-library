@@ -1,4 +1,5 @@
-from static.Types.StyleType import Style, EventHandlers
+from static.Types.StyleType import Style
+from static.Types.StyleType import EventHandlers
 
 '''
 {
@@ -73,8 +74,7 @@ class HeaderTextPanel(SimpleTextPanel):
             href_str = f'href="{href}"'
             button_id = f'EXTRA_INFO{(int)(top_start*10)}'
             self.extra_buttons = f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], colors[1], 30, str(top_start)+"vmax")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
-        
-        
+
     def __str__(self):
         return f'{self.close_button}{self.extra_buttons}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>'
 

@@ -22,6 +22,11 @@ class Style:
             style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s'
             return f'style="{style}"'
 
+        @staticmethod
+        def tooltip_info(a_color, b_color, c_color):
+            style = f'width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:3px;border-style:solid;margin:40px 0px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};visibility:hidden;z-index:999;'
+            return f'style="{style}"'
+
     class Text:
         @staticmethod
         def normal():
@@ -41,6 +46,16 @@ class Style:
         @staticmethod
         def sidepanel():
             style = f'min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:\'side\';font-size:3.5vmin;padding-bottom:1vmin;height:4vmin;transition:.3s;font-weight:bolder;'
+            return f'style="{style}"'
+
+        @staticmethod
+        def tooltip_h(a_color, b_color):
+            style = f'display:block;width:100%;font-weight:bolder;text-align:center;font-family:\'solar\';font-size:4vmin;cursor:default;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding-top:5%;'
+            return f'style="{style}"'
+
+        @staticmethod
+        def tooltip_h2():
+            style = f'display:block;width:100%;font-style:italic;text-align:center;font-family:\'solar\';font-size:2vmin;cursor:default;color:white;'
             return f'style="{style}"'
 
     class Image:
@@ -175,4 +190,9 @@ class EventHandlers:
     @staticmethod
     def hover_side_name(id, color):
         call = f'onmouseover="onHoverSidepanelTitle(\'{id}\',\'{color}\');" onmouseout="onHoverSidepanelTitleLeave(\'{id}\',\'{color}\');"'
+        return call
+
+    @staticmethod
+    def hover_object(id, class_name, id_tooltip):
+        call = f'onmouseover="onHoverEnterAddClass(\'{id}\',\'{class_name}\');onHoverEnterAddClass(\'{id_tooltip}\',\'TooltipVisible\');" onmouseout="onHoverLeaveRemoveClass(\'{id}\',\'{class_name}\');onHoverLeaveRemoveClass(\'{id_tooltip}\',\'TooltipVisible\');"'
         return call

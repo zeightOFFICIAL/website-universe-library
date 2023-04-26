@@ -3,7 +3,6 @@
 
 <head>
         {% load static %}
-
         {{ head| safe }}
 </head>
 
@@ -11,7 +10,7 @@
 
         {{ sidepanel_buttons| safe}}
         {{ sidepanel_objects| safe }}
-        {{ sidepanel_all| safe}}
+        {{ sidepanel_univ| safe}}
         {{ accentbar| safe }}
 
         {{ mainpanels| safe }}
@@ -20,9 +19,9 @@
 
         {{ objects| safe }}
 
-
         <script src="{% static 'Scripts\Sliders.js' %}"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
+
 </body>
 
 </html>

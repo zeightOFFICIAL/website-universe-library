@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'solar';
-    src: url(../static/fonts/earthorbiter.ttf);
+    src: url(../static/Fonts/earthorbiter.ttf);
     font-weight: 400;
     font-style: normal
 }
 
 @font-face {
     font-family: 'normal';
-    src: url(../static/fonts/vanadine.ttf);
+    src: url(../static/Fonts/vanadine.ttf);
     font-weight: bolder;
     font-style: normal
 }
 
 @font-face {
     font-family: 'side';
-    src: url(../static/fonts/alienleague.ttf);
+    src: url(../static/Fonts/alienleague.ttf);
     font-weight: 400;
     font-style: normal
 }
@@ -25,7 +25,8 @@ body {
     height: 100vh;
     overflow: hidden;
     -ms-overflow-style: none;
-    scrollbar-width: none
+    scrollbar-width: none;
+    user-select: none;
 }
 
 h3 {
@@ -1063,4 +1064,22 @@ td {
     border-color: white !important;
     background-color: white !important;
     background-image: none !important;
+}
+
+.HoveredObject {
+    box-shadow: 0 0 60px white !important;
+    border: white !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+}
+
+.HoveredObjectForced {
+    box-shadow: 0 0 25px white !important;
+    border: white !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+}
+
+.TooltipVisible {
+    visibility: visible !important;
 }
