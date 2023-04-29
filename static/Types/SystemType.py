@@ -43,7 +43,7 @@ class SystemClass:
             objects_str += f'{object.__str__()}'
         for object in self.get_objects_list():
             tooltip_str += f'{object.get_tooltip()}'
-        objects_str = f'<div class="StarSystem" onclick="closeSidepanel();closeSystempanel();onHoverLeaveForced();"><div id="zeropoint" style="z-index:100;"></div>{tooltip_str}{objects_str}</div>'
+        objects_str = f'<div class="StarSystem" onclick="closeSidepanel();closeSystempanel();"><div id="zeropoint" style="z-index:100;"></div>{tooltip_str}{objects_str}</div>'
         return objects_str
 
     def get_accent_bar(self):
@@ -59,8 +59,8 @@ class SystemClass:
         side_str = ""
         for object in self.get_objects_list():
             object_id = f'{object.id}_LABEL'
-            side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();onHoverLeaveForced();" {StyleType.EventHandlers.hover_side_name(object_id, object.color)}>   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0])} onclick="closeSidepanel();onHoverLeaveForced();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
+            side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.color)}>   {object.name}</a>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0])} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
         return side_str
 
     def get_side_buttons(self):
@@ -70,6 +70,6 @@ class SystemClass:
         return star_button+univ_button+back_button
 
     def get_univ_sidepanel(self):
-        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();onHoverLeaveForced();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
+        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
         side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return side_str

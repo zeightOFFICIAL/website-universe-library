@@ -19,24 +19,16 @@ function objClicked(idToReveal) {
 
     if (idToReveal != "SYSTEM_INFO") {
         idToHover = idToReveal.split("_")[0] + "_OBJ";
-        console.log(idToHover);
         onHoverEnterAddClass(idToHover, "HoveredObjectForced");
     }
 }
 
 function onHoverEnterAddClass(id, className) {
-    document.getElementById(id).classList.add(className);
+    document.getElementById(id).classList.toggle(className);
 }
 
 function onHoverLeaveRemoveClass(id, className) {
-    document.getElementById(id).classList.remove(className);
-}
-
-function onHoverLeaveForced() {
-    let firstObject = document.getElementById("UNIV_CLOSEBUTTON");
-    let secondObject = document.getElementById("STAR_CLOSEBUTTON");
-    firstObject.classList.remove("HoveredBorderButton");
-    secondObject.classList.remove("HoveredBorderButton");
+    document.getElementById(id).classList.toggle(className);
 }
 
 function onHoverSidepanelTitle(id, color) {

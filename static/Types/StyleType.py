@@ -4,22 +4,22 @@ import random
 class Style:
     class Box:
         @staticmethod
-        def text_info(a_color, b_color, c_color, slider=False):
+        def text_info(a_color, c_color, slider=False):
             if slider == True:
                 return "style=\"display:none;\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
             return f'style="{style}"'
 
         @staticmethod
-        def slider_info(a_color, b_color, c_color):
-            style = f'border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
+        def slider_info(a_color, c_color):
+            style = f'border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;'
             return f'style="{style}"'
 
         @staticmethod
-        def image_info(a_color, b_color, c_color, slider=False):
+        def image_info(a_color, c_color, slider=False):
             if slider == True:
-                return f"style=\"display:none;background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};background-color:{a_color};background-image:linear-gradient(to right, {a_color}, {b_color});border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s'
+                return f"style=\"display:none;background-color:{a_color};\" class=\"Slider\""
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s'
             return f'style="{style}"'
 
         @staticmethod
@@ -117,8 +117,8 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def on_border(a_color, b_color, y=30, x="5.5%"):
-            style = f'position:absolute;top:{y}px;padding:0 1.2vmax;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);left:{x};text-decoration:none;color:#000;'
+        def on_border(a_color, top=27, left="5.5%"):
+            style = f'position:absolute;top:{top}px;padding:0 1.2vmax;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};left:{left};text-decoration:none;color:#000;'
             return f'style="{style}"'
 
 
