@@ -22,5 +22,6 @@ urlpatterns = [
     path('', indexPage),
     path('space', indexPage),
     path('about', aboutPage),
-    path('AlphaCentauri', alphaSystem)
+    path('AlphaCentauri', alphaSystem),
+    path('SolarSystem', solarSystem)
 ]

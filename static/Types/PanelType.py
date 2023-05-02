@@ -66,9 +66,9 @@ class HeaderTextPanel(SimpleTextPanel):
         count = 1
         self.h_style = Style.Text.header_two(
             colors[0], colors[1])
-        if (len(h_colors) != 2):
+        if (len(h_colors) >= 2):
             self.h_style = Style.Text.header_two(
-            colors[0], colors[1])
+            h_colors[0], h_colors[1])
         if not slider:
             self.hover = EventHandlers.hover(self.id, "HoveredBorder")
         if close_button:
@@ -92,6 +92,8 @@ class CombinedHeaderPanel(HeaderTextPanel):
         self.image = f'src="{image_url}"'
         self.layout = layout
         self.hover = ""
+        if len(h_colors) >= 2:
+            self.h_style = Style.Text.header_two(h_colors[0], h_colors[1])
         if not slider:
             self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
@@ -166,22 +168,6 @@ class PanelSlider(BasePanel):
             panels_str += panel.__str__()
         buttons_postfix = f'<button id="{self.id}_LBUTTON" {self.button_left} {EventHandlers.slider_click(-1, self.id)} {EventHandlers.hover(self.id+"_LBUTTON", "HoveredBorderButton")}>&#10094;</button><button id="{self.id}_RBUTTON" {self.button_right} {EventHandlers.slider_click(1, self.id)} {EventHandlers.hover(self.id+"_RBUTTON", "HoveredBorderButton")}>&#10095;</button></div>'
         return f'<div id="{self.id}_FACADE" {self.div_style} {self.hover}>{panels_str}{buttons_postfix}'
-
-
-class ImagePanelSlider(PanelSlider):
-    def __init__(self, id, panels, colors):
-        super().__init__(id, panels, colors)
-        self.div_style = Style.Box.image_info(
-            colors[0],  colors[2])
-
-    def __str__(self):
-        panels_str = ""
-        for panel in self.panels:
-            panels_str += panel.__str__()
-        embed_ID = f"'{self.id}'"
-        buttons_postfix = f'<button {self.button_left } {EventHandlers.slider_click(-1, embed_ID)}>&#10094;</button><button {self.button_right} {EventHandlers.slider_click(-1, embed_ID)}>&#10095;</button></div>'
-        return f'<div {self.div_style} {self.hover}>{panels_str}{buttons_postfix}'
-
 
 class SimpleMusicSlider(BasePanel):
     def __init__(self, id, src, colors):
