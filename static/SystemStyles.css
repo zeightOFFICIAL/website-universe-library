@@ -41,195 +41,12 @@ td {
     padding: 0 10px
 }
 
-.h2-system {
-    text-align: center;
-    font-family: 'solar';
-    font-size: 7vmin;
-    margin-bottom: 2.5vmin;
-    cursor: default
-}
-
-.h2-system.solar {
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
-}
 
 
 
-.h2-system.trebia {
-    background-color: #09b100;
-    background: linear-gradient(180deg, #09b100 0%, #53824f 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
-}
-
-.h2-system.trapp {
-    background-color: #00fff2;
-    background: linear-gradient(0deg, #00fff2 0%, #0800ff 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent
-}
-
-.h3-solar {
-    font-family: 'solar';
-    font-size: 6vmin;
-    margin-bottom: 2.5vmin;
-    cursor: default;
-    color: #fff
-}
-
-.h3-special {
-    font-family: 'solar';
-    font-size: 6vmin;
-    margin-bottom: 2.5vmin;
-    cursor: default;
-    color: #00fff2;
-    text-shadow: 0 0 10px #87cefa
-}
-
-.h3-vitte {
-    background-color: #15ff00;
-    text-shadow: 0 0 10px #15ff00;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'solar';
-    font-size: 6vmin;
-    margin-bottom: 2.5vmin;
-    cursor: default
-}
-
-.p-solar {
-    text-align: center;
-    font-family: 'normal';
-    font-size: 3vmin;
-    cursor: default;
-    color: #fff
-}
-
-
-.p-solar table {
-    font-size: 2vmin
-}
-
-.classified {
-    text-align: left;
-    color: #fff;
-    background-color: #720000
-}
-
-.value {
-    text-align: left;
-    color: #fff
-}
-
-.type {
-    color: #fff;
-    text-align: right
-}
-
-.SidePanel {
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    transition: .5s;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.SidePanel hr {
-    height: 12vmin;
-    border: none
-}
-
-.SidePanel p {
-    font-size: 20vmin
-}
-
-.SidePanel::-webkit-scrollbar {
-    display: none
-}
-
-.closeButton,
-.openButton {
-    font-family: 'solar';
-    font-size: 3vmin;
-    font-weight: bolder;
-    text-decoration: none;
-    color: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: none;
-    transition: left .5s;
-    padding: 2vmin 3.5vmin;
-    width: 1em;
-    cursor: pointer;
-}
-
-.openButton.firstButton,
-.closeButton.firstButton {
-    top: 7.5vmin
-}
-
-.openButton.secondButton,
-.closeButton.secondButton {
-    top: 92vh
-}
-
-.closeButton {
-    width: 100%;
-    color: #000;
-    overflow: hidden;
-    min-width: 50vmin;
-    text-align: left
-}
-
-.closeButton.solar {
-    background-color: #FBAB7E;
-    background-image: linear-gradient(60deg, #FBAB7E 0%, #F7CE68 100%);
-    box-shadow: 0 0 3vw #FBAB7E
-}
 
 
 
-.closeButton.trebia {
-    background: #067900;
-    background: linear-gradient(270deg, #067900 0%, #0be300 100%);
-    box-shadow: 0 0 3vw green
-}
-
-.closeButton.trapp {
-    background: #00fff2;
-    background: linear-gradient(270deg, #00fff2 0%, #5148ff 100%);
-    box-shadow: 0 0 3vw #00fff2
-}
-
-.openButton {
-    background-color: rgba(255, 255, 255, 0);
-    z-index: 1
-}
-
-.openButton:hover {
-    background-color: #fff;
-    transition: .75s
-}
-
-.closeButton:hover {
-    color: #fff;
-    transition: .75s
-}
 
 .solar-button,
 .trebi-button,
@@ -307,67 +124,19 @@ td {
     top: 50vmin
 }
 
-.display-prev,
-.display-next {
-    display: inline;
-    color: #000;
-    cursor: pointer;
-    transition: .5s;
-    background: transparent;
-    border: none;
-    font-size: 2vmin;
-    background-color: #FBAB7E;
-    margin: 0;
-    padding: 0;
-    overflow: hidden
-}
 
-.display-next {
-    background-color: #F7CE68;
-    float: right;
-    width: 50%
-}
-
-
-.display-prev {
-    float: left;
-    width: 50%
-}
-
-.display-next:hover,
-.display-prev:hover {
-    background-color: #fff
-}
 
 .solarSlide {
     text-align: center;
     padding: 20px 30px
 }
 
-.StarSystem {
-    position: absolute;
-    top: 0;
-    left: 43%;
-    width: 57%;
-    height: 100%;
-    overflow: hidden;
-    transition: .5s
-}
 
 
 
 
 
-#sun {
-    height: 8vh;
-    width: 8vh;
-    background: #fbff00;
-    background: radial-gradient(circle, rgba(251, 255, 0, 1) 39%, rgba(255, 0, 0, 1) 100%);
-    margin-top: -4vh;
-    margin-left: -4vh;
-    border-radius: 50%;
-    box-shadow: 0 0 20px #ffa600
-}
+
 
 #trebia {
     height: 8vh;
@@ -398,268 +167,7 @@ td {
     box-shadow: 0 0 20px 2px red
 }
 
-#mercury {
-    margin-top: -1vh;
-    margin-left: -1vh;
-    height: 2vh;
-    width: 2vh;
-    background: #964747;
-    background: radial-gradient(circle, rgba(150, 71, 71, 1) 0%, rgba(107, 72, 72, 1) 58%)
-}
 
-.mercury-orbit,
-.mercury-spin {
-    width: 11vh;
-    height: 11vh;
-    margin-left: -5.5vh;
-    margin-top: -5.5vh
-}
-
-#venus {
-    margin-top: -2vh;
-    margin-left: -2vh;
-    height: 4vh;
-    width: 4vh;
-    background: #ffe2b0;
-    background: radial-gradient(circle, rgba(255, 226, 176, 1) 0%, rgba(255, 230, 255, 1) 100%);
-    box-shadow: 0 0 5px #ffee90
-}
-
-.venus-orbit,
-.venus-spin {
-    margin-top: -9vh;
-    margin-left: -9vh;
-    width: 18vh;
-    height: 18vh
-}
-
-#earth {
-    margin-top: -2vh;
-    margin-left: -2vh;
-    height: 4vh;
-    width: 4vh;
-    background: #1afcff;
-    background: radial-gradient(circle, rgba(26, 252, 255, 1) 0%, rgba(122, 128, 255, 1) 100%);
-    box-shadow: 0 0 5px #d7d9f5
-}
-
-.earth-orbit,
-.earth-spin {
-    width: 29vh;
-    height: 29vh;
-    margin-left: -14.5vh;
-    margin-top: -14.5vh
-}
-
-#moon {
-    margin-top: -.5vh;
-    margin-left: -.5vh;
-    height: 1vh;
-    width: 1vh;
-    background-color: #aaa
-}
-
-.moon-orbit,
-.moon-spin {
-    height: 6vh;
-    width: 6vh;
-    margin-top: -3vh;
-    margin-left: -3vh;
-    border-color: #39394e
-}
-
-#mars {
-    margin-top: -1.5vh;
-    margin-left: -1.5vh;
-    height: 3vh;
-    width: 3vh;
-    background: red;
-    background: radial-gradient(circle, rgba(255, 0, 0, 1) 0%, rgba(179, 73, 0, 1) 100%);
-    box-shadow: 0 0 5px #be1616
-}
-
-.mars-orbit,
-.mars-spin {
-    width: 44vh;
-    height: 44vh;
-    margin-left: -22vh;
-    margin-top: -22vh
-}
-
-#deimos {
-    margin-top: -.5vh;
-    margin-left: -.5vh;
-    height: 1vh;
-    width: 1vh;
-    background-color: #aaa
-}
-
-.deimos-orbit,
-.deimos-spin {
-    height: 5vh;
-    width: 5vh;
-    margin-top: -2.5vh;
-    margin-left: -2.5vh;
-    border-color: #39394e
-}
-
-#phobos {
-    margin-top: -.5vh;
-    margin-left: -.5vh;
-    height: 1vh;
-    width: 1vh;
-    background-color: #aaa
-}
-
-.phobos-orbit,
-.phobos-spin {
-    height: 7vh;
-    width: 7vh;
-    margin-top: -3.5vh;
-    margin-left: -3.5vh;
-    border-color: #39394e
-}
-
-.asteroids-orbit,
-.asteroids-spin {
-    width: 52vh;
-    height: 52vh;
-    margin-left: -26vh;
-    margin-top: -26vh;
-    border-radius: 50%;
-    border-width: 0;
-    box-shadow: 0 0 7vh #4b4b4b;
-    border-color: #292929
-}
-
-#jupiter {
-    margin-top: -3.5vh;
-    margin-left: -3.5vh;
-    height: 7vh;
-    width: 7vh;
-    background: #ff8200;
-    background: radial-gradient(circle, rgba(255, 130, 0, 1) 0%, rgba(99, 46, 0, 1) 100%);
-    box-shadow: 0 0 10px #c5a572
-}
-
-.jupiter-orbit,
-.jupiter-spin {
-    width: 59vh;
-    height: 59vh;
-    margin-left: -29.5vh;
-    margin-top: -29.5vh
-}
-
-#saturn {
-    margin-top: -3vh;
-    margin-left: -3vh;
-    height: 6vh;
-    width: 6vh;
-    background: #b67335;
-    background: radial-gradient(circle, rgba(182, 115, 53, 1) 0%, rgba(255, 185, 151, 1) 100%);
-    box-shadow: 0 0 15px #9c7a48
-}
-
-.saturn-orbit,
-.saturn-spin {
-    width: 73vh;
-    height: 73vh;
-    margin-left: -36.5vh;
-    margin-top: -36.5vh
-}
-
-#uranus {
-    margin-top: -1.5vh;
-    margin-left: -1.5vh;
-    height: 3vh;
-    width: 3vh;
-    background: #86c4ff;
-    background: radial-gradient(circle, rgba(134, 196, 255, 1) 0%, rgba(213, 206, 255, 1) 100%);
-    box-shadow: 0 0 25px #a490ff
-}
-
-.uranus-orbit,
-.uranus-spin {
-    width: 83vh;
-    height: 83vh;
-    margin-left: -41.5vh;
-    margin-top: -41.5vh
-}
-
-#neptune {
-    margin-top: -1.5vh;
-    margin-left: -1.5vh;
-    height: 3vh;
-    width: 3vh;
-    background: #63b3ff;
-    background: radial-gradient(circle, rgba(99, 179, 255, 1) 0%, rgba(36, 0, 255, 1) 100%);
-    box-shadow: 0 0 25px #2f00ff
-}
-
-.neptune-orbit,
-.neptune-spin {
-    width: 92vh;
-    height: 92vh;
-    margin-left: -46vh;
-    margin-top: -46vh
-}
-
-
-
-.earth-spin {
-    animation: spin-right 36.5s linear infinite;
-    border-radius: 100%
-}
-
-.moon-spin {
-    animation: spin-right 2.7s linear infinite;
-    border-radius: 100%
-}
-
-.venus-spin {
-    animation: spin-right 22.4s linear infinite;
-    border-radius: 100%
-}
-
-.mercury-spin {
-    animation: spin-right 8.7s linear infinite;
-    border-radius: 100%
-}
-
-.mars-spin {
-    animation: spin-right 68.7s linear infinite;
-    border-radius: 100%
-}
-
-.deimos-spin {
-    animation: spin-right .12s linear infinite;
-    border-radius: 100%
-}
-
-.phobos-spin {
-    animation: spin-right .31s linear infinite;
-    border-radius: 100%
-}
-
-.saturn-spin {
-    animation: spin-right 1075.9s linear infinite;
-    border-radius: 100%
-}
-
-.jupiter-spin {
-    animation: spin-right 433.2s linear infinite;
-    border-radius: 100%
-}
-
-.uranus-spin {
-    animation: spin-right 3068.8s linear infinite;
-    border-radius: 100%
-}
-
-.neptune-spin {
-    animation: spin-right 6000s linear infinite;
-    border-radius: 100%
-}
 
 #aventen {
     height: 2vh;
@@ -1008,8 +516,47 @@ td {
 
 /* -------------------------------------------- */
 
+.SidePanel {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    transition: .5s;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.SidePanel hr {
+    height: 12vmin;
+    border: none
+}
+
+.SidePanel p {
+    font-size: 20vmin
+}
+
+.SidePanel::-webkit-scrollbar {
+    display: none
+}
+
+.StarSystem {
+    position: absolute;
+    top: 0;
+    left: 43%;
+    width: 57%;
+    height: 100%;
+    overflow: hidden;
+    transition: .5s
+}
+
 .orbit {
-    border: 1px solid #39394e
+    border: 1px solid #39394e;
+    pointer-events: none;
 }
 
 .orbit,

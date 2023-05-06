@@ -1,18 +1,20 @@
 import static.Types.PanelType as PanelType
 import static.Types.StyleType as StyleType
 import static.Types.QueryMimic as QueryMimic
+import static.Types.ObjectType as ObjectType
 
 
 class SystemClass:
-    def __init__(self, id, name, panels, objects, icon, coloring):
+    def __init__(self, id: int, name: str,
+                 panels: list[PanelType.BasePanel], objects: list[ObjectType.ObjectClass],
+                 icon: str, coloring: list[str]):
         self.id = id
         self.name = name
+
         self.panels = panels
         self.objects = objects
         self.icon = icon
         self.coloring = coloring
-        self.accent_bar = StyleType.Style.Misc.accent_bar(
-            self.coloring[0], self.coloring[1])
 
     def get_objects_list(self):
         object_list = []
@@ -33,7 +35,7 @@ class SystemClass:
         panels_str = ""
         for panel in self.panels:
             panels_str += f'{panel.__str__()}'
-        panels_str = f'<div id=\"SYSTEM_INFO\" class=\"LeftPanel\"> {panels_str} </div>'
+        panels_str = f'<div id=\"SYSTEM_INFO\" class=\"LeftPanel\" onclick=\"closeSidepanel();closeSystempanel();\"> {panels_str} </div>'
         return panels_str
 
     def get_objects_str(self):
@@ -47,6 +49,8 @@ class SystemClass:
         return objects_str
 
     def get_accent_bar(self):
+        self.accent_bar = StyleType.Style.Misc.accent_bar(
+            self.coloring[0], self.coloring[1])
         return f'<div {self.accent_bar}></div>'
 
     def get_object_panels(self):
@@ -59,7 +63,7 @@ class SystemClass:
         side_str = ""
         for object in self.get_objects_list():
             object_id = f'{object.id}_LABEL'
-            side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.color)}>   {object.name}</a>'
+            side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.main_color)}>   {object.name}</a>'
         side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id=\"STAR_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0])} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
         return side_str
 
@@ -73,3 +77,6 @@ class SystemClass:
         side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
         side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return side_str
+
+    def add_object(self, object: ObjectType.ObjectClass):
+        self.objects.append(object)

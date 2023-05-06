@@ -19,12 +19,12 @@ class Style:
         def image_info(a_color, c_color, slider=False):
             if slider == True:
                 return f"style=\"display:none;background-color:{a_color};\" class=\"Slider\""
-            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s'
+            style = f'display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s;justify-content:center;display:flex;'
             return f'style="{style}"'
 
         @staticmethod
         def tooltip_info(a_color, b_color, c_color):
-            style = f'width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:3px;border-style:solid;margin:40px 0px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};visibility:hidden;z-index:999;'
+            style = f'left:5%;width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:3px;border-style:solid;margin:40px 0px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};visibility:hidden;z-index:999;'
             return f'style="{style}"'
 
     class Text:
@@ -124,22 +124,20 @@ class Style:
 
 class Visual:
     class Object:
-        def __init__(self, args, z_index):
+        def __init__(self, args):
             self.size = args[0]
             self.margins = args[1]
             self.a_color = args[2]
             self.b_color = args[3]
             self.lumin = args[4]
-            self.z_index = z_index
             self.c_color = self.b_color if len(args) < 6 else args[5]
 
         def __str__(self):
             size = f'height:{self.size};width:{self.size};'
-            margins = f'margin-top:{self.margins};margin-left:{self.margins};'
+            margins = f'margin-top:{self.margins};margin-left:{self.margins};pointer-events:all;'
             fill = f'background:{self.a_color};background:radial-gradient(circle, {self.a_color} 0%, {self.b_color} 100%);cursor:pointer;'
             lumin = f'box-shadow: 0 0 {self.lumin} {self.c_color};'
-            zindex = f'z-index:{self.z_index};' if self.z_index != -998 else ""
-            return f'style="{size+margins+fill+lumin+zindex}"'
+            return f'style="{size+margins+fill+lumin}"'
 
     class Orbit:
         def __init__(self, args):
@@ -147,23 +145,22 @@ class Visual:
             self.margins = args[1]
 
         def __str__(self):
-            size = f'width:{self.size};height:{self.size};margin-top:{self.margins};margin-left:{self.margins};'
+            size = f'width:{self.size};height:{self.size};margin-top:{self.margins};margin-left:{self.margins};pointer-events: none;'
             return f'class="orbit" style="{size}"'
 
     class Spin:
-        def __init__(self, args, z_index):
+        def __init__(self, args):
             self.size = args[0]
             self.margins = args[1]
             self.period = args[2]
-            self.z_index = z_index
 
         def __str__(self):
-            size = f'width:{self.size};height:{self.size};'
+            size = f'width:{self.size};height:{self.size};pointer-events: none;'
             margins = f'margin-top:{self.margins};margin-left:{self.margins};'
             animation = f'animation:spin-right {self.period}s linear infinite;border-radius:100%;'
             shift = random.randint(0, int(self.period))
             animation_random = f'animation-delay:-{shift}s'
-            return f'style="{size+margins+animation+animation_random};z-index:{self.z_index};"'
+            return f'style="{size+margins+animation+animation_random};"'
 
 
 class EventHandlers:

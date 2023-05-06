@@ -52,6 +52,10 @@ function onHoverSidepanelTitleLeave(id) {
 }
 
 function hideAllObjects() {
+    let allAudio = document.querySelectorAll(".Audio");
+    allAudio.forEach((audio) => {
+        audio.pause();
+    })
     let leftPanels = document.querySelectorAll(".LeftPanel");
     leftPanels.forEach((panel) => {
         panel.style.textIndent = '-1000em';
