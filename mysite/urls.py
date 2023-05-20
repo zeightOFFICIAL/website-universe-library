@@ -23,5 +23,6 @@ urlpatterns = [
     path('space', indexPage),
     path('about', aboutPage),
     path('AlphaCentauri', alphaSystem),
-    path('SolarSystem', solarSystem)
+    path('SolarSystem', solarSystem),
+    path('StellarSystem', templateSystem)
 ]
