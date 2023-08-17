@@ -2,8 +2,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('Alpha_Centauri', alphaSystem),
-    path('Solar_System', solarSystem)
+    path('AlphaCentauri', alphaSystem),
+    path('Solar', solarSystem)
 ]
 
 
