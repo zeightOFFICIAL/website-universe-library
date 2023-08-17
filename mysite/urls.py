@@ -15,14 +15,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-from .views import *
+from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('', indexPage),
-    path('space', indexPage),
-    path('about', aboutPage),
-    path('AlphaCentauri', alphaSystem),
-    path('SolarSystem', solarSystem),
-    path('StellarSystem', templateSystem)
+    path('', views.indexPage),
+    path('Universe', views.indexPage),
+    path('About', views.aboutPage),
+    path('Star/', include("starsystems.urls"))
 ]

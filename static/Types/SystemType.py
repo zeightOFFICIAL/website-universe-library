@@ -1,6 +1,5 @@
 import static.Types.PanelType as PanelType
 import static.Types.StyleType as StyleType
-import static.Types.QueryMimic as QueryMimic
 import static.Types.ObjectType as ObjectType
 
 
@@ -26,8 +25,8 @@ class SystemClass:
     def get_head(self):
         title = f'Hello, {self.name}!'
         meta = f'charset="utf-8"'
-        link_icon = f'rel="icon" href="static/{self.icon}"'
-        link_style = f'rel="stylesheet" href="static/SystemStyles.css"'
+        link_icon = f'rel="icon" href="../static/{self.icon}"'
+        link_style = f'rel="stylesheet" href="../static/SystemStyles.css"'
         head = f'<meta {meta}/><title> {title} </title><link {link_icon}><link {link_style}>'
         return head
 
@@ -74,9 +73,9 @@ class SystemClass:
         return star_button+univ_button+back_button
 
     def get_univ_sidepanel(self):
-        side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
-        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
-        return side_str
+        # side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
+        # # side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
+        return " "
 
     def add_object(self, object: ObjectType.ObjectClass):
         self.objects.append(object)

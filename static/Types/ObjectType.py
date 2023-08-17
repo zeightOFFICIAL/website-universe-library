@@ -56,6 +56,6 @@ class ObjectClass:
     def get_tooltip(self):
         div = f'<div id="{self.id}_TOOLTIP" {Style.Box.tooltip_info(self.main_color, self.second_color, self.main_color)}><h {Style.Text.tooltip_h(self.main_color, self.second_color)}>{self.name}</h><p {Style.Text.tooltip_h2()}>{self.type}</p></div>'
         return div
-    
+
     def add_subobj(self, object):
         self.subobjects.append(object)
