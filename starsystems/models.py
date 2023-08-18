@@ -68,6 +68,7 @@ class ValueRow(models.Model):
     color_a = models.TextField(blank=True, null=True)
     color_b = models.TextField(blank=True, null=True)
     color_c = models.TextField(blank=True, null=True)
+    is_slider = models.TextField(blank=True, null=True)
     h_color_a = models.TextField(blank=True, null=True)
     h_color_b = models.TextField(blank=True, null=True)
     h_color_c = models.TextField(blank=True, null=True)

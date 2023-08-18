@@ -2,6 +2,8 @@ from static.Types.SystemType import SystemClass
 from static.Types.ObjectType import ObjectClass
 from static.Types.PanelType import *
 
+from static.ServerScripts import get_sql_panel
+
 # COLORS
 MAIN_COLORS = ["#FF0000","#FF5000","#FF0000"]
 
@@ -88,6 +90,6 @@ prox =  ObjectClass("PROX", "Proxima", "Star - Red Dwarf",
 
 # SYSTEM
 SystemObject = SystemClass(2, "Alpha Centauri", 
-                            [main0, main1, main2, main3, main4, main5, main6], 
+                            [main0, main1, main2, main3, main4, main5, main6, get_sql_panel(1)], 
                             [alpha, beta, prox], 
                             "icons/alternativeicon.ico", MAIN_COLORS) 

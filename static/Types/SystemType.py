@@ -15,6 +15,7 @@ class SystemClass:
         self.icon = icon
         self.coloring = coloring
 
+
     def get_objects_list(self):
         object_list = []
         for object in self.objects:
@@ -24,7 +25,7 @@ class SystemClass:
 
     def get_head(self):
         title = f'Hello, {self.name}!'
-        meta = f'charset="utf-8"'
+        meta = f'charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"'
         link_icon = f'rel="icon" href="../static/{self.icon}"'
         link_style = f'rel="stylesheet" href="../static/SystemStyles.css"'
         head = f'<meta {meta}/><title> {title} </title><link {link_icon}><link {link_style}>'
@@ -79,3 +80,6 @@ class SystemClass:
 
     def add_object(self, object: ObjectType.ObjectClass):
         self.objects.append(object)
+        
+    def add_panel(self, panel: PanelType.BasePanel):
+        self.panels.append(panel)

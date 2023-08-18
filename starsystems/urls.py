@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('AlphaCentauri', alphaSystem),
-    path('Solar', solarSystem)
+    path('Sun', solarSystem)
 ]
 
 
