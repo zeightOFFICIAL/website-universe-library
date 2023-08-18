@@ -43,6 +43,8 @@ class Panels(models.Model):
     div_id = models.TextField()
     type = models.ForeignKey(PanelTypes, models.DO_NOTHING)
     values = models.ForeignKey('ValueRow', models.DO_NOTHING)
+    parent_object = models.ForeignKey('Objects', models.DO_NOTHING)
+    parent_system = models.ForeignKey('Systems', models.DO_NOTHING)
 
     class Meta:
         managed = False

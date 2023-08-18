@@ -15,7 +15,6 @@ class SystemClass:
         self.icon = icon
         self.coloring = coloring
 
-
     def get_objects_list(self):
         object_list = []
         for object in self.objects:
@@ -80,6 +79,6 @@ class SystemClass:
 
     def add_object(self, object: ObjectType.ObjectClass):
         self.objects.append(object)
-        
+
     def add_panel(self, panel: PanelType.BasePanel):
         self.panels.append(panel)
