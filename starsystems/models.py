@@ -74,6 +74,7 @@ class ValueRow(models.Model):
     h_color_c = models.TextField(blank=True, null=True)
     close_button = models.TextField(blank=True, null=True)
     extra_hrefs = models.TextField(blank=True, null=True)
+    layout = models.IntegerField()
 
     class Meta:
         managed = False

@@ -90,6 +90,6 @@ prox =  ObjectClass("PROX", "Proxima", "Star - Red Dwarf",
 
 # SYSTEM
 SystemObject = SystemClass(2, "Alpha Centauri", 
-                            [main0, main1, main2, main3, main4, main5, main6, get_sql_panel(1)], 
+                            [main0, main1, main2, main3, main4, main5, main6], 
                             [alpha, beta, prox], 
                             "icons/alternativeicon.ico", MAIN_COLORS) 
