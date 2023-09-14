@@ -2,6 +2,7 @@ from static.Types.SystemType import *
 from static.Types.ObjectType import *
 from static.Types.PanelType import *
 from starsystems.models import *
+
 from operator import attrgetter
 
 
@@ -120,7 +121,6 @@ def get_sql_panel(f_id: int) -> BasePanel:
                 l_is_slider,
             )
         case 7:
-            print(l_values_id.extra_hrefs.split(" "))
             n_panel = HeaderTextPanel(
                 l_div_id,
                 l_values_id.title,

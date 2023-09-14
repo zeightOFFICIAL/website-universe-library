@@ -1,7 +1,7 @@
 from static.Types.StyleType import Style
 from static.Types.StyleType import EventHandlers
 
-'''
+"""
 {
     BASE
         SIMPLE_TEXT
@@ -15,7 +15,7 @@ from static.Types.StyleType import EventHandlers
         IMAGE_SLIDER
         SIMPLE_AUDIO
 }
-'''
+"""
 
 
 class BasePanel:
@@ -27,8 +27,7 @@ class BasePanel:
 class SimpleTextPanel(BasePanel):
     def __init__(self, id: str, text: str, colors: list[str], slider=False):
         super().__init__(id)
-        self.div_style = Style.Box.text_info(
-            colors[0], colors[2], slider)
+        self.div_style = Style.Box.text_info(colors[0], colors[2], slider)
         self.p_style = Style.Text.normal()
         self.text = text
         if not slider:
@@ -37,14 +36,21 @@ class SimpleTextPanel(BasePanel):
             self.hover = ""
 
     def __str__(self):
-        return f'<div {self.div_style} {self.embed_id} {self.hover}><p {self.p_style}> {self.text} </p></div>'
+        return f"<div {self.div_style} {self.embed_id} {self.hover}><p {self.p_style}> {self.text} </p></div>"
 
 
 class TopHeaderTextPanel(SimpleTextPanel):
-    def __init__(self, id: str, title: str, text: str, colors: list[str], h_colors: list[str], slider=False):
+    def __init__(
+        self,
+        id: str,
+        title: str,
+        text: str,
+        colors: list[str],
+        h_colors: list[str],
+        slider=False,
+    ):
         super().__init__(id, text, colors, slider)
-        self.h_style = Style.Text.header_one(
-            h_colors[0], h_colors[1])
+        self.h_style = Style.Text.header_one(h_colors[0], h_colors[1])
         self.title = title
         if not slider:
             self.hover = EventHandlers.hover(self.id, "HoveredBorder")
@@ -52,27 +58,34 @@ class TopHeaderTextPanel(SimpleTextPanel):
             self.hover = ""
 
     def __str__(self):
-        return f'<div {self.div_style} {self.embed_id} {self.hover}><h2 {self.h_style}> {self.title} </h2><p {self.p_style}> {self.text} </p></div>'
+        return f"<div {self.div_style} {self.embed_id} {self.hover}><h2 {self.h_style}> {self.title} </h2><p {self.p_style}> {self.text} </p></div>"
 
 
 class HeaderTextPanel(SimpleTextPanel):
-    def __init__(self, id: str, title: str, text: str, colors: list[str], h_colors: list[str] = [],
-                 slider: bool = False, close_button: bool = False, extra_buttons: list[str] = []):
+    def __init__(
+        self,
+        id: str,
+        title: str,
+        text: str,
+        colors: list[str],
+        h_colors: list[str] = [],
+        slider: bool = False,
+        close_button: bool = False,
+        extra_buttons: list[str] = [],
+    ):
         super().__init__(id, text, colors, slider)
         self.title = title
-        if (len(h_colors) >= 2):
-            self.h_style = Style.Text.header_two(
-                h_colors[0], h_colors[1])
+        if len(h_colors) >= 2:
+            self.h_style = Style.Text.header_two(h_colors[0], h_colors[1])
         else:
-            self.h_style = Style.Text.header_two(
-                colors[0], colors[1])
+            self.h_style = Style.Text.header_two(colors[0], colors[1])
         if not slider:
             self.hover = EventHandlers.hover(self.id, "HoveredBorder")
         else:
             self.hover = ""
         self.close_button = ""
         if close_button:
-            button_id = f'CLOSE_{self.id}'
+            button_id = f"CLOSE_{self.id}"
             self.close_button = f'<button class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0])} {EventHandlers.object_click("SYSTEM_INFO")} {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#10006;</button>'
         button_pos_start = 5.5
         button_pos_increment = 15
@@ -81,28 +94,34 @@ class HeaderTextPanel(SimpleTextPanel):
         for href in extra_buttons:
             button_pos_start += button_pos_increment
             href_str = f'href="{href}"'
-            button_id = f'EXTRA_INFO{self.id}{count}'
+            button_id = f"EXTRA_INFO{self.id}{count}"
             self.extra_buttons += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 27, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
             count += 1
 
     def __str__(self):
-        return f'{self.close_button}{self.extra_buttons}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>'
+        return f"{self.close_button}{self.extra_buttons}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>"
 
 
 class CombinedHeaderPanel(HeaderTextPanel):
-    def __init__(self, id: str, title: str, text: str, image_url: str,
-                 colors: list[str], h_colors: list[str],
-                 layout: int = 1, slider: bool = False):
+    def __init__(
+        self,
+        id: str,
+        title: str,
+        text: str,
+        image_url: str,
+        colors: list[str],
+        h_colors: list[str],
+        layout: int = 1,
+        slider: bool = False,
+    ):
         super().__init__(id, title, text, colors, h_colors, slider)
         self.img_style = Style.Image.original()
         self.image = f'src="{image_url}"'
         self.layout = layout
-        if (len(h_colors) >= 2):
-            self.h_style = Style.Text.header_two(
-                h_colors[0], h_colors[1])
+        if len(h_colors) >= 2:
+            self.h_style = Style.Text.header_two(h_colors[0], h_colors[1])
         else:
-            self.h_style = Style.Text.header_two(
-                colors[0], colors[1])
+            self.h_style = Style.Text.header_two(colors[0], colors[1])
         if not slider:
             self.hover = EventHandlers.hover(self.id, "HoveredBorder")
         else:
@@ -118,10 +137,11 @@ class CombinedHeaderPanel(HeaderTextPanel):
 
 
 class SimpleImagePanel(BasePanel):
-    def __init__(self, id: str, image_url: str, colors: list[str], slider: bool = False):
+    def __init__(
+        self, id: str, image_url: str, colors: list[str], slider: bool = False
+    ):
         super().__init__(id)
-        self.div_style = Style.Box.image_info(
-            colors[0],  colors[2], slider)
+        self.div_style = Style.Box.image_info(colors[0], colors[2], slider)
         self.img_style = Style.Image.default()
         self.image = f'src="{image_url}"'
         if not slider:
@@ -134,7 +154,15 @@ class SimpleImagePanel(BasePanel):
 
 
 class CombinedSimplePanel(SimpleTextPanel):
-    def __init__(self, id: str, text: str, image_url: str, colors: list[str], layout: int = 1, slider: bool = False):
+    def __init__(
+        self,
+        id: str,
+        text: str,
+        image_url: str,
+        colors: list[str],
+        layout: int = 1,
+        slider: bool = False,
+    ):
         super().__init__(id, text, colors, slider)
         self.img_style = Style.Image.original()
         self.image = self.image = f'src="{image_url}"'
@@ -154,26 +182,24 @@ class CombinedSimplePanel(SimpleTextPanel):
 class SimpleVideoPanel(BasePanel):
     def __init__(self, id: str, url: str, colors: list[str]):
         super().__init__(id)
-        self.div_style = Style.Box.image_info(
-            colors[0],  colors[2])
+        self.div_style = Style.Box.image_info(colors[0], colors[2])
         self.iframe_style = Style.Video.normal()
         self.video = f'src="{url}"'
         self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
     def __str__(self):
-        return f'<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style}></iframe></div>'
+        return f"<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style}></iframe></div>"
 
 
 class PanelSlider(BasePanel):
     def __init__(self, id: str, panels: list[BasePanel], colors: list[str]):
         super().__init__(id)
         self.hidden = Style.Misc.overflow_hidden()
-        self.div_style = Style.Box.slider_info(
-            colors[0],  colors[2])
+        self.div_style = Style.Box.slider_info(colors[0], colors[2])
         self.button_left = Style.Button.slider_left(colors[0])
         self.button_right = Style.Button.slider_right(colors[1])
         self.panels = panels
-        self.hover = EventHandlers.hover(self.id+"_FACADE", "HoveredBorder")
+        self.hover = EventHandlers.hover(self.id + "_FACADE", "HoveredBorder")
 
     def __str__(self):
         panels_str = ""
@@ -186,9 +212,7 @@ class PanelSlider(BasePanel):
 class SimpleMusicSlider(BasePanel):
     def __init__(self, id: str, src: str, colors: list[str]):
         super().__init__(id)
-        self.style_box = Style.Box.image_info(
-            colors[0],  colors[2]
-        )
+        self.style_box = Style.Box.image_info(colors[0], colors[2])
         self.music = f'src="{src}"'
         self.hover = EventHandlers.hover(self.id, "HoveredBorderFilled")
 

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def indexPage(request):
+def index_page(request):
     return render(request, "index.html")
 
 
-def aboutPage(request):
+def about_page(request):
     return render(request, "about.html")
