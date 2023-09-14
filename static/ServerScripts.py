@@ -5,6 +5,11 @@ from starsystems.models import *
 from operator import attrgetter
 
 
+def get_id_from_name(f_name: str) -> int:
+    row = Systems.objects.get(name=f_name)
+    return row.pk
+
+
 def get_sql_system(f_id: int) -> SystemClass:
     row = Systems.objects.get(pk=f_id)
     l_objects_list = []
@@ -17,14 +22,6 @@ def get_sql_system(f_id: int) -> SystemClass:
     n_system = SystemClass(row.pk, row.name, l_main_panels_list, l_objects_list, row.icon_path, [
                            row.prime_color, row.second_color, row.shadow_color])
     return n_system
-
-
-def get_sql_system_name():
-    return 1
-
-
-def get_sql_system_pair():
-    return 1
 
 
 def get_sql_object(f_id: int) -> ObjectClass:

@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from .models import Systems
 
 urlpatterns = [
     path('AlphaCentauri', alphaSystem),
@@ -7,9 +8,10 @@ urlpatterns = [
 ]
 
 
-def add_url_pattern(name: str):
-    urlpatterns.append(path(name, templateSystem))
+def add_url_pattern(f_name: str):
+    urlpatterns.append(path(f_name, templateSystem, {'name': f_name}))
 
 
-def remove_url_patten(name: str):
-    urlpatterns.remove(path(name, templateSystem))
+systems = Systems.objects.all()
+for system in systems:
+    add_url_pattern(system.name)
