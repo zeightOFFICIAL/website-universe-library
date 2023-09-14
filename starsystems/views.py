@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from static.StellarSystems.AlphaCentauri import SystemObject as AlpS
 from static.StellarSystems.SolarSystem import SystemObject as SolS
-from static.ServerScripts import get_sql_system, get_id_from_name
+from static.ServerScripts import get_sql_system, get_sql_id_from_name
 
 
 def templateSystem(request, name):
-    id = get_id_from_name(name)
-    print(id)
+    id = get_sql_id_from_name(name)
     SystemObject = get_sql_system(id)
     return render(request, "templatesystem.html",
                   {'head':              SystemObject.get_head,
