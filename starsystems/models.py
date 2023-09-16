@@ -57,6 +57,7 @@ class Systems(models.Model):
     prime_color = models.TextField(blank=True, null=True)
     second_color = models.TextField(blank=True, null=True)
     shadow_color = models.TextField(blank=True, null=True)
+    univ_thumbnail = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False

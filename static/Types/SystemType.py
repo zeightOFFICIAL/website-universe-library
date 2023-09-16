@@ -79,7 +79,10 @@ class SystemClass:
         back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="space"                 {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
         return star_button + univ_button + back_button
 
-    def get_univ_sidepanel(self):
+    def get_univ_sidepanel(self, all_systems: list[[string, string, string]]):
+        side_str = ""
+        for system in all_systems:
+            pass
         # side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
         # # side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
         return " "

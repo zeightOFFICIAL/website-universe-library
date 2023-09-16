@@ -10,6 +10,13 @@ def get_sql_id_from_name(f_name: str) -> int:
     row = Systems.objects.get(name=f_name)
     return row.pk
 
+def get_sql_system_univ():
+    all_systems = []
+    row = Systems.objects.all()
+    for each_row in row:
+        all_systems.append([each_row.name, each_row.univ_thumbnail, each_row.prime_color])
+    return all_systems
+        
 
 def get_sql_system(f_id: int) -> SystemClass:
     row = Systems.objects.get(pk=f_id)
