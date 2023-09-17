@@ -2,7 +2,7 @@ from django.urls import path
 from .views import *
 from .models import Systems
 
-urlpatterns = [path("AlphaCentauri", alpha_system), path("Sun", solar_system)]
+urlpatterns = [path("AlphaCentauri", alpha_system), path("Solar", solar_system)]
 
 
 def add_url_pattern(f_name: str):

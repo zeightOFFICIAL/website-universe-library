@@ -840,7 +840,7 @@ Neptune = ObjectClass(
 
 System = SystemClass(
     1,
-    "Solar System",
+    "Solar",
     [main0, main1, main4, main5, main10],
     [Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune],
     "icons/SolarIcon.ico",

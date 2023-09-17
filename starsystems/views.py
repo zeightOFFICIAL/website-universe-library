@@ -39,7 +39,7 @@ def alpha_system(request):
             "panels": Alpha.get_object_panels,
             "sidepanel_objects": Alpha.get_star_sidepanel,
             "sidepanel_buttons": Alpha.get_side_buttons,
-            "sidepanel_univ": Alpha.get_univ_sidepanel(get_sql_system_univ),
+            "sidepanel_univ": Alpha.get_univ_sidepanel(get_sql_system_univ()),
         },
     )
 
@@ -56,6 +56,6 @@ def solar_system(request):
             "panels": Solar.get_object_panels,
             "sidepanel_objects": Solar.get_star_sidepanel,
             "sidepanel_buttons": Solar.get_side_buttons,
-            "sidepanel_univ": Solar.get_univ_sidepanel(get_sql_system_univ),
+            "sidepanel_univ": Solar.get_univ_sidepanel(get_sql_system_univ()),
         },
     )

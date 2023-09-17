@@ -43,9 +43,10 @@ td {
 
 .ShortImage {
     position: absolute;
-    left: 120%;
-    height: 20vmin;
-    transition: left .5s;
+    left: 65%;
+    height: 10vmin;
+    transition: .5s;
+    top: 7%;
 }
 
 .LeftPanel {
@@ -187,12 +188,11 @@ td {
 }
 
 .HoveredShortImage {
-    left: 67% !important;
+    left: 35% !important;
+    overflow-x: unset !important;
 }
 
 .HoveredStarText {
-    height: 10vmin !important;
-    padding-top: 5.25vmin !important;
-    padding-left: 0 !important;
-    padding-right: 25% !important;
+    padding-left: 5% !important;
+    background-color: white !important;
 }

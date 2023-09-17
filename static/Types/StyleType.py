@@ -32,7 +32,7 @@ class Style:
     class Text:
         @staticmethod
         def star_font(position, a_color):
-            style = f"text-align: center;display: block;font-family: 'solar';font-size: 4vmin;font-weight: bolder;cursor: pointer;overflow-x: hidden;transition: .5s;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;padding: 1.5vmin 0;height: 7vmin;overflow-y: hidden; position:absolute; top:{position};left:20%;background-color: {a_color};"
+            style = f"text-align: left;display: block;font-family: 'solar';font-size: 4vmin;font-weight: bolder;cursor: pointer;overflow-x: hidden;transition: .5s;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;padding: 3vmin 0;overflow-y: hidden; position:absolute;top:{position};background-color: {a_color};padding-left:20%;min-width: 60vh;line-height: 3vmin;;margin:auto;"
             return f'style="{style}"'
 
         @staticmethod
