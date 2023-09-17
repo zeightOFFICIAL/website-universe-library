@@ -32,7 +32,7 @@ class Style:
     class Text:
         @staticmethod
         def star_font(position, a_color):
-            style = f"text-align: left;display: block;font-family: 'solar';font-size: 4vmin;font-weight: bolder;cursor: pointer;overflow-x: hidden;transition: .5s;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;padding: 3vmin 0;overflow-y: hidden; position:absolute;top:{position};background-color: {a_color};padding-left:20%;min-width: 60vh;line-height: 3vmin;;margin:auto;"
+            style = f"text-align: left;display: block;font-family: 'solar';font-size: 4vmin;font-weight: bolder;cursor: pointer;overflow-x: hidden;transition: background-color .5s, padding-left .5s;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;padding: 3vmin 0;overflow-y: hidden; position:absolute;top:{position};background-color: {a_color};padding-left:20%;min-width: 60vh;line-height: 3vmin;;margin:auto;"
             return f'style="{style}"'
 
         @staticmethod
@@ -52,7 +52,7 @@ class Style:
 
         @staticmethod
         def sidepanel():
-            style = f"min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:'side';font-size:3.5vmin;padding-bottom:1vmin;height:4vmin;transition:.3s;font-weight:bolder;"
+            style = f"min-width:100vh;width:100vh;display:block;color:#aaa;cursor:pointer;overflow-x:hidden;overflow-y:hidden;white-space:nowrap;font-family:'side';font-size:3.5vmin;padding-bottom:1vmin;height:4vmin;transition: background-color .3s, color .3s, padding-left .3s, font-size .3s, box-shadow .3s;font-weight:bolder;"
             return f'style="{style}"'
 
         @staticmethod
@@ -99,28 +99,28 @@ class Style:
 
         @staticmethod
         def sidepanel_univ_href(extra_directives=""):
-            style = f"text-align:center;font-family:'solar';font-size:4vmin;font-weight:bolder;display:block;overflow:hidden;padding:1.5vmin 0; height:7vmin;cursor:block;transition:.5s;-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
+            style = f"text-align:center;font-family:'solar';font-size:4vmin;font-weight:bolder;display:block;overflow:hidden;padding:1.5vmin 0; height:7vmin;cursor:block;transition: padding-left .5s, background-color .5s;-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
             return f'style="{style+extra_directives}"'
 
     class Button:
         @staticmethod
         def slider_left(a_color):
-            style = f"display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:left;width:50%;"
+            style = f"display:inline;color:#000;cursor:pointer;transition: background-color .5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:left;width:50%;"
             return f'style="{style}"'
 
         @staticmethod
         def slider_right(a_color):
-            style = f"display:inline;color:#000;cursor:pointer;transition:.5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:right;width:50%;"
+            style = f"display:inline;color:#000;cursor:pointer;transition: background-color .5s;background:transparent;border:none;font-size:2vmin;background-color:{a_color};margin:0;padding:0.5vmin 0;overflow:hidden;float:right;width:50%;"
             return f'style="{style}"'
 
         @staticmethod
         def close_sidepanel(color, position="0"):
-            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;margin-top:0;left:0;border:none;padding-top:{position};padding-bottom:2vmin;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;padding-left:1.8vmax;min-width:60vh;"
+            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;margin-top:0;left:0;border:none;padding-top:{position};padding-bottom:2vmin;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition: background-color .5s, box-shadow .5s;padding-left:1.8vmax;min-width:60vh;"
             return f'style="{style}"'
 
         @staticmethod
         def open_sidepanel(position="0"):
-            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;background-color:rgba(255,255,255,0);transition:background.5s, box-shadow.5s;overflow:hidden;padding-left:1.8%;width:3.2%;"
+            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;z-index:1;border:none;padding:2vmin 0;cursor:pointer;background-color:rgba(255,255,255,0);transition:background-color .5s, box-shadow .5s;overflow:hidden;padding-left:1.8%;width:3.2%;"
             return f'style="{style}"'
 
         @staticmethod

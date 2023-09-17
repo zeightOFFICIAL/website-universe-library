@@ -50,7 +50,11 @@ def get_sql_object(f_id: int) -> ObjectClass:
     l_name = row.name
     l_type_id = row.typename
     l_panels = []
-    for panel in Panels.objects.all().filter(parent_object=f_id):
+    for panel in (
+        Panels.objects.all()
+        .filter(parent_object=f_id)
+        .filter(values__is_slider="False")
+    ):
         l_panels.append(get_sql_panel(panel.pk))
     n_object = ObjectClass(
         l_div_id,
@@ -89,9 +93,9 @@ def get_sql_panel(f_id: int) -> BasePanel:
                 [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
             )
         case 2:
-            needled = list[BasePanel]
+            needled = []
             for href in l_values_id.extra_hrefs.split(","):
-                needled.append(get_sql_panel(href))
+                needled.append(get_sql_panel(int(href)))
             n_panel = PanelSlider(
                 l_div_id,
                 needled,
@@ -158,5 +162,5 @@ def get_sql_panel(f_id: int) -> BasePanel:
                 l_is_slider,
             )
         case _:
-            pass
+            n_panel
     return n_panel

@@ -1,6 +1,8 @@
 import static.Types.PanelType as PanelType
 import static.Types.StyleType as StyleType
 import static.Types.ObjectType as ObjectType
+import os
+from mysite.settings import BASE_DIR
 
 
 class SystemClass:
@@ -89,6 +91,8 @@ class SystemClass:
                 only_name = system[0] + " System"
             else:
                 only_name = system[0]
+            if not os.path.exists(f"{BASE_DIR}\static\LinkImages\{system[1]}"):
+                system[1] = "default.png"
             side_str += f'<a class="StarButton" id="{system[0].replace(" ", "").upper()}_STARBUTTON" href="{system[0].replace(" ", "")}" {StyleType.Style.Text.star_font(str(top_left)+"vmin", system[2])} {StyleType.EventHandlers.hover_2d(system[0].replace(" ", "").upper()+"_STARBUTTON",system[0].replace(" ", "").upper()+"_STARIMAGE","HoveredStarText","HoveredShortImage")}>{only_name.replace(" ", "<br>")}<img class="ShortImage" id="{system[0].replace(" ", "").upper()}_STARIMAGE" src="../static/LinkImages/{system[1]}" alt="{system[0].replace(" ","")}"></a>'
             top_left += 13
 

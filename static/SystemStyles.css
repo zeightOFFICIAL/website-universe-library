@@ -80,7 +80,7 @@ td {
     top: 0;
     left: 0;
     background-color: #000;
-    transition: .5s;
+    transition: width .5s, box-shadow .5s;
     overflow-x: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
