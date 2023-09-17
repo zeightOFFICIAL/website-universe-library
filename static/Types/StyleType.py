@@ -31,6 +31,11 @@ class Style:
 
     class Text:
         @staticmethod
+        def star_font(position, a_color):
+            style = f"text-align: center;display: block;font-family: 'solar';font-size: 4vmin;font-weight: bolder;cursor: pointer;overflow-x: hidden;transition: .5s;background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;padding: 1.5vmin 0;height: 7vmin;overflow-y: hidden; position:absolute; top:{position};left:20%;background-color: {a_color};"
+            return f'style="{style}"'
+
+        @staticmethod
         def normal():
             style = f"text-align:center;font-family:'normal';font-size:3vmin;cursor:default;color:#fff;padding-left:20px;padding-right:20px;"
             return f'style="{style}"'
@@ -110,7 +115,7 @@ class Style:
 
         @staticmethod
         def close_sidepanel(color, position="0"):
-            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;top:{position};left:0;border:none;padding:2vmin 0;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;padding-left:1.8vmax;min-width:60vh;"
+            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;margin-top:0;left:0;border:none;padding-top:{position};padding-bottom:2vmin;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition:.5s;padding-left:1.8vmax;min-width:60vh;"
             return f'style="{style}"'
 
         @staticmethod

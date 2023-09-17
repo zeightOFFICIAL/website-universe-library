@@ -70,7 +70,7 @@ class SystemClass:
         for object in self.get_objects_list():
             object_id = f"{object.id}_LABEL"
             side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.main_color)}>   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0])} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "2vmin")} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
         return side_str
 
     def get_side_buttons(self):
@@ -79,13 +79,14 @@ class SystemClass:
         back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="space"                 {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
         return star_button + univ_button + back_button
 
-    def get_univ_sidepanel(self, all_systems: list[[string, string, string]]):
+    def get_univ_sidepanel(self, all_systems: list[list[str, str, str]]):
         side_str = ""
+        top_left = 20
         for system in all_systems:
-            pass
-        # side_str = f'<a id=\"UNIV_CLOSEBUTTON\" {PanelType.Style.Button.close_sidepanel(self.coloring[0],"8vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON","UNIVERSE_SIDEPANEL","HoveredBorderButton","HoveredSidepanel")});\">&#9733; Systems</a><p></p>'
-        # # side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};">{side_str}{QueryMimic.Mimic.get_falseborne_stars()}</div>'
-        return " "
+            side_str += f'<a class="StarButton" href="{system[0].replace(" ", "")}" {StyleType.Style.Text.star_font(str(top_left)+"vmin", system[2])}>{system[0]}<img class="ShortImage" src="../static/LinkImages/{system[1]}" alt="{system[0].replace(" ","")}"></a>'
+
+        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id="UNIV_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "10vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON", "UNIVERSE_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9733; Stars</a><hr>{side_str}</div>'
+        return side_str
 
     def add_object(self, object: ObjectType.ObjectClass):
         self.objects.append(object)

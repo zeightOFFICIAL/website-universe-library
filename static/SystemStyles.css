@@ -41,27 +41,11 @@ td {
     padding: 0 10px
 }
 
-.short-image {
+.ShortImage {
     position: absolute;
     left: 120%;
     height: 20vmin;
-    transition: .5s
-}
-
-.short-image.firstImg {
-    top: 20vmin
-}
-
-.short-image.secondImg {
-    top: 30vmin
-}
-
-.short-image.thirdImg {
-    top: 40vmin
-}
-
-.short-image.fourthImg {
-    top: 50vmin
+    transition: left .5s;
 }
 
 .LeftPanel {
@@ -200,4 +184,15 @@ td {
 
 .TooltipVisible {
     visibility: visible !important;
+}
+
+.HoveredShortImage {
+    left: 67% !important;
+}
+
+.HoveredStarText {
+    height: 10vmin !important;
+    padding-top: 5.25vmin !important;
+    padding-left: 0 !important;
+    padding-right: 25% !important;
 }

@@ -37,6 +37,7 @@ SESSION_COOKIE_SAMESITE = "Strict"
 # Application definition
 
 INSTALLED_APPS = [
+    "calculus.apps.CalculusConfig",
     "starsystems.apps.StarsystemsConfig",
     "django.contrib.admin",
     "django.contrib.auth",

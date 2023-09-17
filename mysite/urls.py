@@ -22,5 +22,5 @@ urlpatterns = [
     path("", views.index_page),
     path("Universe", views.index_page),
     path("About", views.about_page),
-    path("Star/", include("starsystems.urls")),
+    path("Universe/", include("starsystems.urls")),
 ]

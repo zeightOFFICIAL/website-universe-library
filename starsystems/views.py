@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from static.StellarSystems.AlphaCentauri import System as Alpha
 from static.StellarSystems.SolarSystem import System as Solar
-from static.ServerScripts import get_sql_system, get_sql_system_univ
+from static.ServerScripts import (
+    get_sql_system,
+    get_sql_id_from_name,
+    get_sql_system_univ,
+)
 
 
 def template_system(request, name):
@@ -18,7 +22,7 @@ def template_system(request, name):
             "panels": System.get_object_panels,
             "sidepanel_objects": System.get_star_sidepanel,
             "sidepanel_buttons": System.get_side_buttons,
-            "sidepanel_univ": System.get_univ_sidepanel(get_sql_system_univ),
+            "sidepanel_univ": System.get_univ_sidepanel(get_sql_system_univ()),
         },
     )
 
