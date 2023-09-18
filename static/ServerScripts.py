@@ -2,7 +2,6 @@ from static.Types.SystemType import *
 from static.Types.ObjectType import *
 from static.Types.PanelType import *
 from starsystems.models import *
-
 from operator import attrgetter
 
 
@@ -25,11 +24,11 @@ def get_sql_system(f_id: int) -> SystemClass:
     row = Systems.objects.get(pk=f_id)
 
     l_objects_list = []
-    for obj in Objects.objects.all().filter(system=f_id):
+    for obj in Objects.objects.all().filter(system=f_id).order_by("orbit_size"):
         l_objects_list.append(get_sql_object(obj.pk))
 
     l_main_panels_list = []
-    for pnl in Panels.objects.all().filter(parent_system=f_id):
+    for pnl in Panels.objects.all().filter(parent_system=f_id).order_by("div_id"):
         l_main_panels_list.append(get_sql_panel(pnl.pk))
 
     l_main_panels_list.sort(key=attrgetter("id"))
@@ -48,14 +47,19 @@ def get_sql_object(f_id: int) -> ObjectClass:
     row = Objects.objects.get(pk=f_id)
     l_div_id = row.div_id
     l_name = row.name
-    l_type_id = row.typename
+    l_type_id = row.type_name
     l_panels = []
+    l_sub_obj = []
     for panel in (
         Panels.objects.all()
         .filter(parent_object=f_id)
         .filter(values__is_slider="False")
     ):
         l_panels.append(get_sql_panel(panel.pk))
+
+    for obj in Objects.objects.all().filter(parent_id=f_id):
+        l_sub_obj.append(get_sql_object(obj.pk))
+
     n_object = ObjectClass(
         l_div_id,
         l_name,
@@ -71,8 +75,9 @@ def get_sql_object(f_id: int) -> ObjectClass:
         [f"{row.orbit_size}vh", f"-{row.orbit_size/2}vh"],
         str(row.orbit_time),
         l_panels,
-        [],
+        l_sub_obj,
     )
+
     return n_object
 
 

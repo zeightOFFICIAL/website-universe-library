@@ -143,7 +143,7 @@ class Visual:
             size = f"height:{self.size};width:{self.size};"
             margins = f"margin-top:{self.margins};margin-left:{self.margins};pointer-events:all;"
             fill = f"background:{self.a_color};background:radial-gradient(circle, {self.a_color} 0%, {self.b_color} 100%);cursor:pointer;"
-            lumin = f"box-shadow: 0 0 {self.lumin} {self.c_color};"
+            lumin = f"box-shadow: 0 0 {self.lumin}px {self.c_color};"
             return f'style="{size+margins+fill+lumin}"'
 
     class Orbit:

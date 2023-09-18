@@ -6,17 +6,15 @@ class ObjectTypes(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'object_types'
+        db_table = "object_types"
 
 
 class Objects(models.Model):
     div_id = models.TextField()
-    system = models.ForeignKey('Systems', models.DO_NOTHING)
-    parent = models.ForeignKey(
-        'self', models.DO_NOTHING, blank=True, null=True)
+    system = models.ForeignKey("Systems", models.DO_NOTHING)
+    parent = models.ForeignKey("self", models.DO_NOTHING, blank=True, null=True)
     name = models.TextField()
-    typename = models.ForeignKey(
-        ObjectTypes, models.DO_NOTHING, db_column='typename')
+    type_name = models.ForeignKey(ObjectTypes, models.DO_NOTHING, db_column="typename")
     size = models.IntegerField()
     prime_color = models.TextField()
     second_color = models.TextField()
@@ -27,7 +25,7 @@ class Objects(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'objects'
+        db_table = "objects"
 
 
 class PanelTypes(models.Model):
@@ -36,19 +34,19 @@ class PanelTypes(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'panel_types'
+        db_table = "panel_types"
 
 
 class Panels(models.Model):
     div_id = models.TextField()
     type = models.ForeignKey(PanelTypes, models.DO_NOTHING)
-    values = models.ForeignKey('ValueRow', models.DO_NOTHING)
-    parent_object = models.ForeignKey('Objects', models.DO_NOTHING)
-    parent_system = models.ForeignKey('Systems', models.DO_NOTHING)
+    values = models.ForeignKey("ValueRow", models.DO_NOTHING)
+    parent_object = models.ForeignKey("Objects", models.DO_NOTHING)
+    parent_system = models.ForeignKey("Systems", models.DO_NOTHING)
 
     class Meta:
         managed = False
-        db_table = 'panels'
+        db_table = "panels"
 
 
 class Systems(models.Model):
@@ -61,7 +59,7 @@ class Systems(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'systems'
+        db_table = "systems"
 
 
 class ValueRow(models.Model):
@@ -81,4 +79,4 @@ class ValueRow(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'value_row'
+        db_table = "value_row"
