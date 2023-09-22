@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'solar';
+    src: url(../static/Fonts/earthorbiter.ttf);
+    font-weight: bolder;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'solar_bold';
+    src: url(../static/Fonts/earthorbiter.ttf);
+    font-weight: bolder;
+    font-style: italic
+}

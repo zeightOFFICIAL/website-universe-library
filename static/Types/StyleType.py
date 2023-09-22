@@ -7,12 +7,12 @@ class Style:
         def text_info(a_color, c_color, slider=False):
             if slider == True:
                 return 'style="display:none;" class="Slider"'
-            style = f"display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
+            style = f"background-color:black;display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
             return f'style="{style}"'
 
         @staticmethod
         def slider_info(a_color, c_color):
-            style = f"border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
+            style = f"background-color:black;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
             return f'style="{style}"'
 
         @staticmethod
@@ -21,7 +21,7 @@ class Style:
                 return (
                     f'style="display:none;background-color:{a_color};" class="Slider"'
                 )
-            style = f"display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s;justify-content:center;display:flex;"
+            style = f"background-color:black;display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s;justify-content:center;display:flex;"
             return f'style="{style}"'
 
         @staticmethod
@@ -139,7 +139,7 @@ class Visual:
             self.lumin = args[4]
             self.c_color = self.b_color if len(args) < 6 else args[5]
 
-        def __str__(self):
+        def __repr__(self):
             size = f"height:{self.size};width:{self.size};"
             margins = f"margin-top:{self.margins};margin-left:{self.margins};pointer-events:all;"
             fill = f"background:{self.a_color};background:radial-gradient(circle, {self.a_color} 0%, {self.b_color} 100%);cursor:pointer;"
@@ -151,7 +151,7 @@ class Visual:
             self.size = args[0]
             self.margins = args[1]
 
-        def __str__(self):
+        def __repr__(self):
             size = f"width:{self.size};height:{self.size};margin-top:{self.margins};margin-left:{self.margins};pointer-events: none;"
             return f'class="orbit" style="{size}"'
 
@@ -161,7 +161,7 @@ class Visual:
             self.margins = args[1]
             self.period = args[2]
 
-        def __str__(self):
+        def __repr__(self):
             size = f"width:{self.size};height:{self.size};pointer-events: none;"
             margins = f"margin-top:{self.margins};margin-left:{self.margins};"
             animation = f"animation:spin-right {self.period}s linear infinite;border-radius:100%;"

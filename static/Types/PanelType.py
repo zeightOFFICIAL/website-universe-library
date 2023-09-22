@@ -35,7 +35,7 @@ class SimpleTextPanel(BasePanel):
         else:
             self.hover = ""
 
-    def __str__(self):
+    def __repr__(self):
         return f"<div {self.div_style} {self.embed_id} {self.hover}><p {self.p_style}> {self.text} </p></div>"
 
 
@@ -57,7 +57,7 @@ class TopHeaderTextPanel(SimpleTextPanel):
         else:
             self.hover = ""
 
-    def __str__(self):
+    def __repr__(self):
         return f"<div {self.div_style} {self.embed_id} {self.hover}><h2 {self.h_style}> {self.title} </h2><p {self.p_style}> {self.text} </p></div>"
 
 
@@ -98,7 +98,7 @@ class HeaderTextPanel(SimpleTextPanel):
             self.extra_buttons += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 27, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
             count += 1
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.close_button}{self.extra_buttons}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>"
 
 
@@ -127,7 +127,7 @@ class CombinedHeaderPanel(HeaderTextPanel):
         else:
             self.hover = ""
 
-    def __str__(self):
+    def __repr__(self):
         if self.layout == 1:
             return f'<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h2><p {self.p_style}> {self.text} </p><img loading="lazy" class="LazyLoad" {self.image} {self.img_style}></div>'
         elif self.layout == 2:
@@ -149,7 +149,7 @@ class SimpleImagePanel(BasePanel):
         else:
             self.hover = ""
 
-    def __str__(self):
+    def __repr__(self):
         return f'<div {self.div_style} {self.embed_id} {self.hover}><img {self.image} {self.img_style} class="LazyLoad" loading="lazy"></div>'
 
 
@@ -172,7 +172,7 @@ class CombinedSimplePanel(SimpleTextPanel):
         else:
             self.hover = ""
 
-    def __str__(self):
+    def __repr__(self):
         if self.layout == 1:
             return f'<div {self.div_style} {self.embed_id} {self.hover}><p {self.p_style}> {self.text} </p><img loading="lazy" class="LazyLoad" {self.image} {self.img_style}></div>'
         else:
@@ -187,7 +187,7 @@ class SimpleVideoPanel(BasePanel):
         self.video = f'src="{url}"'
         self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
-    def __str__(self):
+    def __repr__(self):
         return f"<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style}></iframe></div>"
 
 
@@ -201,10 +201,10 @@ class PanelSlider(BasePanel):
         self.panels = panels
         self.hover = EventHandlers.hover(self.id + "_FACADE", "HoveredBorder")
 
-    def __str__(self):
+    def __repr__(self):
         panels_str = ""
         for panel in self.panels:
-            panels_str += panel.__str__()
+            panels_str += panel.__repr__()
         buttons_postfix = f'<button id="{self.id}_LBUTTON" {self.button_left} {EventHandlers.slider_click(-1, self.id)} {EventHandlers.hover(self.id+"_LBUTTON", "HoveredBorderButton")}>&#10094;</button><button id="{self.id}_RBUTTON" {self.button_right} {EventHandlers.slider_click(1, self.id)} {EventHandlers.hover(self.id+"_RBUTTON", "HoveredBorderButton")}>&#10095;</button></div>'
         return f'<div id="{self.id}_FACADE" {self.div_style} {self.hover}>{panels_str}{buttons_postfix}'
 
@@ -216,5 +216,5 @@ class SimpleMusicSlider(BasePanel):
         self.music = f'src="{src}"'
         self.hover = EventHandlers.hover(self.id, "HoveredBorderFilled")
 
-    def __str__(self):
+    def __repr__(self):
         return f'<div {self.style_box} {self.embed_id} {self.hover} class="AudioDiv"><audio controls class="Audio"><source {self.music}>Your browser does not support the audio element.</audio></div>'

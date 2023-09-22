@@ -37,10 +37,10 @@ class ObjectClass:
             id + "_OBJ", "HoveredObject", id + "_TOOLTIP"
         )
 
-    def __str__(self):
+    def __repr__(self):
         objects_str = ""
         for object in self.subobjects:
-            objects_str += object.__str__()
+            objects_str += object.__repr__()
         div_orbit = f"<div {self.orbit_description}></div>"
         div_spin = f"<div {self.spin_description}>"
         div_obj = f'<div id="{self.id}_OBJ" class="Object" {self.object_description} {self.object_click} {self.hovering}></div>{objects_str}</div>'
@@ -49,7 +49,7 @@ class ObjectClass:
     def get_panels(self):
         combined = f'<div id="{self.id}_INFO" class="LeftPanel" onclick="closeSidepanel();closeSystempanel();">'
         for panel in self.panels:
-            combined += panel.__str__()
+            combined += panel.__repr__()
         combined += "</div>"
         for subobject in self.subobjects:
             combined += subobject.get_panels()

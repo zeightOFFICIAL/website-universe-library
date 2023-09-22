@@ -6,14 +6,6 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    # try:
-    #     for f in os.listdir("compiled\\CACHE\\css\\"):
-    #         os.remove(os.path.join("compiled\\CACHE\\css\\", f))
-    # except Exception as e:
-    #     print (
-    #         "Cannot delete cached files"
-    #     )
-    #     pass
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
         from django.core.management import execute_from_command_line

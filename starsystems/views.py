@@ -3,17 +3,20 @@ from static.StellarSystems.AlphaCentauri import System as Alpha
 from static.StellarSystems.SolarSystem import System as Solar
 from static.ServerScripts import (
     get_sql_system,
-    get_sql_id_from_name,
-    get_sql_system_univ,
+    get_sql_system_id,
+    get_sql_systems_thumbnail,
 )
 
+def universe_page(request):
+    return render(request, "Universe.html")
 
-def template_system(request, name):
-    id = get_sql_id_from_name(name)
-    System = get_sql_system(id)
+
+def template_system_page(request, name):
+    system_id = get_sql_system_id(name)
+    System = get_sql_system(system_id)
     return render(
         request,
-        "templatesystem.html",
+        "System.html",
         {
             "head": System.get_head,
             "mainpanels": System.get_main_panels,
@@ -22,15 +25,15 @@ def template_system(request, name):
             "panels": System.get_object_panels,
             "sidepanel_objects": System.get_star_sidepanel,
             "sidepanel_buttons": System.get_side_buttons,
-            "sidepanel_univ": System.get_univ_sidepanel(get_sql_system_univ()),
+            "sidepanel_univ": System.get_univ_sidepanel(get_sql_systems_thumbnail()),
         },
     )
 
 
-def alpha_system(request):
+def alpha_system_page(request):
     return render(
         request,
-        "templatesystem.html",
+        "System.html",
         {
             "head": Alpha.get_head,
             "mainpanels": Alpha.get_main_panels,
@@ -39,15 +42,15 @@ def alpha_system(request):
             "panels": Alpha.get_object_panels,
             "sidepanel_objects": Alpha.get_star_sidepanel,
             "sidepanel_buttons": Alpha.get_side_buttons,
-            "sidepanel_univ": Alpha.get_univ_sidepanel(get_sql_system_univ()),
+            "sidepanel_univ": Alpha.get_univ_sidepanel(get_sql_systems_thumbnail()),
         },
     )
 
 
-def solar_system(request):
+def solar_system_page(request):
     return render(
         request,
-        "templatesystem.html",
+        "System.html",
         {
             "head": Solar.get_head,
             "mainpanels": Solar.get_main_panels,
@@ -56,6 +59,6 @@ def solar_system(request):
             "panels": Solar.get_object_panels,
             "sidepanel_objects": Solar.get_star_sidepanel,
             "sidepanel_buttons": Solar.get_side_buttons,
-            "sidepanel_univ": Solar.get_univ_sidepanel(get_sql_system_univ()),
+            "sidepanel_univ": Solar.get_univ_sidepanel(get_sql_systems_thumbnail()),
         },
     )

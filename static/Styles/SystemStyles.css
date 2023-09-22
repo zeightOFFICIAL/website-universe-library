@@ -1,20 +1,20 @@
 @font-face {
     font-family: 'solar';
-    src: url(../static/Fonts/earthorbiter.ttf);
+    src: url(../Fonts/earthorbiter.ttf);
     font-weight: 400;
     font-style: normal
 }
 
 @font-face {
     font-family: 'normal';
-    src: url(../static/Fonts/vanadine.ttf);
+    src: url(../Fonts/vanadine.ttf);
     font-weight: bolder;
     font-style: normal
 }
 
 @font-face {
     font-family: 'side';
-    src: url(../static/Fonts/alienleague.ttf);
+    src: url(../Fonts/alienleague.ttf);
     font-weight: 400;
     font-style: normal
 }
@@ -27,6 +27,9 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     user-select: none;
+    background-image: url("../BackImage.jpg");
+    background-size: contain;
+    background-position: center;
 }
 
 h3 {

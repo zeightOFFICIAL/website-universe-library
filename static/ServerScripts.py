@@ -5,12 +5,12 @@ from starsystems.models import *
 from operator import attrgetter
 
 
-def get_sql_id_from_name(f_name: str) -> int:
+def get_sql_system_id(f_name: str) -> int:
     row = Systems.objects.get(name=f_name)
     return row.pk
 
 
-def get_sql_system_univ():
+def get_sql_systems_thumbnail() -> list:
     all_systems = []
     row = Systems.objects.all()
     for each_row in row:
@@ -75,7 +75,7 @@ def get_sql_object(f_id: int) -> ObjectClass:
         [f"{row.orbit_size}vh", f"-{row.orbit_size/2}vh"],
         str(row.orbit_time),
         l_panels,
-        l_sub_obj,
+        l_sub_obj,  
     )
 
     return n_object

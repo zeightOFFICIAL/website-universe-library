@@ -34,14 +34,14 @@ class SystemClass:
         title = f"Hello, {self.name}!"
         meta = f'charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"'
         link_icon = f'rel="icon" href="../static/{self.icon}"'
-        link_style = f'rel="stylesheet" href="../static/SystemStyles.css"'
+        link_style = f'rel="stylesheet" href="../static/Styles/SystemStyles.css"'
         head = f"<meta {meta}/><title> {title} </title><link {link_icon}><link {link_style}>"
         return head
 
     def get_main_panels(self):
         panels_str = ""
         for panel in self.panels:
-            panels_str += f"{panel.__str__()}"
+            panels_str += f"{panel.__repr__()}"
         panels_str = f'<div id="SYSTEM_INFO" class="LeftPanel" onclick="closeSidepanel();closeSystempanel();"> {panels_str} </div>'
         return panels_str
 
@@ -49,7 +49,7 @@ class SystemClass:
         objects_str = ""
         tooltip_str = ""
         for object in self.objects:
-            objects_str += f"{object.__str__()}"
+            objects_str += f"{object.__repr__()}"
         for object in self.get_objects_list():
             tooltip_str += f"{object.get_tooltip()}"
         objects_str = f'<div class="StarSystem" onclick="closeSidepanel();closeSystempanel();"><div id="zeropoint" style="z-index:100;"></div>{tooltip_str}{objects_str}</div>'
