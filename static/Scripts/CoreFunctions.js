@@ -34,7 +34,7 @@ function onHoverLeaveRemoveClass(id, className) {
 function onHoverSidepanelTitle(id, color) {
     let object = document.getElementById(id);
     object.style.color = color;
-    object.style.textShadow = `${color} 1px 1px 10px`;
+    object.style.textShadow = `${color} .5vmin .5vmin 1vmin`;
     object.style.paddingLeft = "1.5%";
     object.style.fontSize = "4.5vmin";
     let idObjToHover = id.split("_")[0] + "_OBJ";
@@ -44,7 +44,7 @@ function onHoverSidepanelTitle(id, color) {
 function onHoverSidepanelTitleLeave(id) {
     let object = document.getElementById(id);
     object.style.color = "#aaa";
-    object.style.textShadow = `#000 0px 0px 0px`;
+    object.style.textShadow = `#000 0 0 0`;
     object.style.paddingLeft = "0%";
     object.style.fontSize = "3.5vmin";
     let idObjToHover = id.split("_")[0] + "_OBJ";

@@ -95,7 +95,7 @@ class HeaderTextPanel(SimpleTextPanel):
             button_pos_start += button_pos_increment
             href_str = f'href="{href}"'
             button_id = f"EXTRA_INFO{self.id}{count}"
-            self.extra_buttons += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 27, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
+            self.extra_buttons += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 3.5, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
             count += 1
 
     def __repr__(self):

@@ -21,15 +21,19 @@
 
 html,
 body {
-    background-color: #000209;
-    height: 100vh;
     overflow: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     user-select: none;
+
+}
+
+html {
+    background-color: #000209;
     background-image: url("../BackImage.jpg");
     background-size: contain;
     background-position: center;
+    height: 45vh;
 }
 
 h3 {
@@ -38,10 +42,6 @@ h3 {
 
 body::-webkit-scrollbar {
     display: none
-}
-
-td {
-    padding: 0 10px
 }
 
 .ShortImage {
@@ -114,7 +114,7 @@ td {
 }
 
 .orbit {
-    border: 1px solid #39394e;
+    border: .1vmin solid #6a697c83;
     pointer-events: none;
 }
 
@@ -149,23 +149,23 @@ td {
 /* ----------------------------------------------------------- */
 
 .HoveredBorderButton {
-    box-shadow: white 0px 0px 70px !important;
+    box-shadow: white 0px 0px 3vmin !important;
     background-color: white !important;
     background-image: none !important;
 }
 
 .HoveredSidepanel {
-    box-shadow: white 4px 0px 4px !important;
+    box-shadow: white 1vmin 0px 1vmin !important;
 }
 
 .HoveredBorder {
-    box-shadow: 0 0 20px white !important;
+    box-shadow: 0 0 2vmin white !important;
     border-image: unset !important;
     border-color: white !important;
 }
 
 .HoveredBorderFilled {
-    box-shadow: 0 0 20px white !important;
+    box-shadow: 0 0 2vmin white !important;
     border-image: unset !important;
     border-color: white !important;
     background-color: white !important;
@@ -173,17 +173,17 @@ td {
 }
 
 .HoveredObject {
-    box-shadow: 0 0 60px white !important;
+    box-shadow: 0 0 3vmin white !important;
     border: white !important;
     border-style: solid !important;
-    border-width: 3px !important;
+    border-width: .5vmin !important;
 }
 
 .HoveredObjectForced {
-    box-shadow: 0 0 25px white !important;
+    box-shadow: 0 0 3vmin white !important;
     border: white !important;
     border-style: solid !important;
-    border-width: 3px !important;
+    border-width: .5vmin !important;
 }
 
 .TooltipVisible {

@@ -4,15 +4,20 @@ import random
 class Style:
     class Box:
         @staticmethod
+        def card_info():
+            style = f""
+            return f'style="{style}"'
+
+        @staticmethod
         def text_info(a_color, c_color, slider=False):
             if slider == True:
                 return 'style="display:none;" class="Slider"'
-            style = f"background-color:black;display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
+            style = f"background-color:black;display:block;border-width:.5vmin;border-style:solid;margin:5vmin 2vmin;box-shadow:0 0 3.5vmin {c_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
             return f'style="{style}"'
 
         @staticmethod
         def slider_info(a_color, c_color):
-            style = f"background-color:black;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
+            style = f"background-color:black;border-width:.5vmin;border-style:solid;margin:5vmin 2vmin;box-shadow:0 0 3.5vmin {c_color};overflow:hidden;border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s;"
             return f'style="{style}"'
 
         @staticmethod
@@ -21,12 +26,12 @@ class Style:
                 return (
                     f'style="display:none;background-color:{a_color};" class="Slider"'
                 )
-            style = f"background-color:black;display:block;border-width:3px;border-style:solid;margin:40px 15px;box-shadow:0 0 20px {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s;justify-content:center;display:flex;"
+            style = f"background-color:black;display:block;border-width:.5vmin;border-style:solid;margin:5vmin 2vmin;box-shadow:0 0 3.5vmin {c_color};background-color:{a_color};border-color:{a_color};transition:box-shadow 1.1s,border-color 1.1s,border-image 1.1s,background-color 1.1s;justify-content:center;display:flex;"
             return f'style="{style}"'
 
         @staticmethod
         def tooltip_info(a_color, b_color, c_color):
-            style = f"left:5%;width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:3px;border-style:solid;margin:40px 0px;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 20px {c_color};border-color:{a_color};visibility:hidden;z-index:999;"
+            style = f"left:5%;width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:.5vmin;border-style:solid;margin:5vmin 0;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 4vmin {c_color};border-color:{a_color};visibility:hidden;z-index:999;"
             return f'style="{style}"'
 
     class Text:
@@ -37,7 +42,7 @@ class Style:
 
         @staticmethod
         def normal():
-            style = f"text-align:center;font-family:'normal';font-size:3vmin;cursor:default;color:#fff;padding-left:20px;padding-right:20px;"
+            style = f"text-align:center;font-family:'normal';font-size:3vmin;cursor:default;color:#fff;padding-left:2vmin;padding-right:2vmin;"
             return f'style="{style}"'
 
         @staticmethod
@@ -115,7 +120,7 @@ class Style:
 
         @staticmethod
         def close_sidepanel(color, position="0"):
-            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;margin-top:0;left:0;border:none;padding-top:{position};padding-bottom:2vmin;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0px 0px 70px;transition: background-color .5s, box-shadow .5s;padding-left:1.8vmax;min-width:60vh;"
+            style = f"font-family:'solar';font-size:3vmin;font-weight:bolder;text-decoration:none;color:#000;position:absolute;margin-top:0;left:0;border:none;padding-top:{position};padding-bottom:2vmin;cursor:pointer;width:16vh;overflow:hidden;text-align:left;background:{color};box-shadow:{color} 0 0 10vmin;transition: background-color .5s, box-shadow .5s;padding-left:1.8vmax;min-width:60vh;"
             return f'style="{style}"'
 
         @staticmethod
@@ -124,8 +129,8 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def on_border(a_color, top=27, left="5.5%"):
-            style = f"position:absolute;top:{top}px;padding:0 1.2vmax;text-align:center;border:solid 2px #000;font-size:3vmin;cursor:pointer;background-color:{a_color};left:{left};text-decoration:none;color:#000;"
+        def on_border(a_color, top=3.5, left="5.5%"):
+            style = f"position:absolute;top:{top}vmin;padding:0 1.2vmax;text-align:center;border:solid .3vmin #000;font-size:3vmin;cursor:pointer;background-color:{a_color};left:{left};text-decoration:none;color:#000;"
             return f'style="{style}"'
 
 
@@ -143,7 +148,7 @@ class Visual:
             size = f"height:{self.size};width:{self.size};"
             margins = f"margin-top:{self.margins};margin-left:{self.margins};pointer-events:all;"
             fill = f"background:{self.a_color};background:radial-gradient(circle, {self.a_color} 0%, {self.b_color} 100%);cursor:pointer;"
-            lumin = f"box-shadow: 0 0 {self.lumin}px {self.c_color};"
+            lumin = f"box-shadow: 0 0 {self.lumin}vmin {self.c_color};"
             return f'style="{size+margins+fill+lumin}"'
 
     class Orbit:

@@ -72,13 +72,13 @@ class SystemClass:
         for object in self.get_objects_list():
             object_id = f"{object.id}_LABEL"
             side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.main_color)}>   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "2vmin")} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "2vmin")} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
         return side_str
 
     def get_side_buttons(self):
         star_button = f'<a id="STAR_BUTTON" {StyleType.Style.Button.open_sidepanel()}         onclick="openSidepanel();"   {StyleType.EventHandlers.hover("STAR_BUTTON","HoveredBorderButton")}>&#9776;</a>'
         univ_button = f'<a id="UNIV_BUTTON" {StyleType.Style.Button.open_sidepanel("8vmin")}  onclick="openSystempanel();" {StyleType.EventHandlers.hover("UNIV_BUTTON","HoveredBorderButton")}>&#9733;</a>"'
-        back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="space"                 {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
+        back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="/Universe/"                 {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
         return star_button + univ_button + back_button
 
     def get_univ_sidepanel(self, all_systems: list[list[str, str, str]]):
@@ -96,7 +96,7 @@ class SystemClass:
             side_str += f'<a class="StarButton" id="{system[0].replace(" ", "").upper()}_STARBUTTON" href="{system[0].replace(" ", "")}" {StyleType.Style.Text.star_font(str(top_left)+"vmin", system[2])} {StyleType.EventHandlers.hover_2d(system[0].replace(" ", "").upper()+"_STARBUTTON",system[0].replace(" ", "").upper()+"_STARIMAGE","HoveredStarText","HoveredShortImage")}>{only_name.replace(" ", "<br>")}<img class="ShortImage" id="{system[0].replace(" ", "").upper()}_STARIMAGE" src="../static/LinkImages/{system[1]}" alt="{system[0].replace(" ","")}"></a>'
             top_left += 13
 
-        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 4px 0 4px {self.coloring[0]};"><a id="UNIV_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "10vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON", "UNIVERSE_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9733; Stars</a><hr>{side_str}</div>'
+        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="UNIV_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "10vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON", "UNIVERSE_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9733; Stars</a><hr>{side_str}</div>'
         return side_str
 
     def add_object(self, object: ObjectType.ObjectClass):

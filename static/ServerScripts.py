@@ -3,6 +3,7 @@ from static.Types.ObjectType import *
 from static.Types.PanelType import *
 from starsystems.models import *
 from operator import attrgetter
+from mysite.settings import BASE_DIR
 
 
 def get_sql_system_id(f_name: str) -> int:
@@ -30,14 +31,17 @@ def get_sql_system(f_id: int) -> SystemClass:
     l_main_panels_list = []
     for pnl in Panels.objects.all().filter(parent_system=f_id).order_by("div_id"):
         l_main_panels_list.append(get_sql_panel(pnl.pk))
-
     l_main_panels_list.sort(key=attrgetter("id"))
+
+    if not os.path.exists(f"{BASE_DIR}/static/Icons/{row.icon_path}"):
+        row.icon_path = "AlternativeIcon.ico"
+
     n_system = SystemClass(
         row.pk,
         row.name,
         l_main_panels_list,
         l_objects_list,
-        row.icon_path,
+        "Icons/" + row.icon_path,
         [row.prime_color, row.second_color, row.shadow_color],
     )
     return n_system
@@ -75,7 +79,7 @@ def get_sql_object(f_id: int) -> ObjectClass:
         [f"{row.orbit_size}vh", f"-{row.orbit_size/2}vh"],
         str(row.orbit_time),
         l_panels,
-        l_sub_obj,  
+        l_sub_obj,
     )
 
     return n_object

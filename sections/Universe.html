@@ -4,13 +4,44 @@
 <head>
     <meta charset="utf-8" />
     {% load static %}
-    <title>Hello, Universe!</title>
+    <link href="{% static 'Styles/UniverseStyles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}">
-    <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}">
+    <title>Hello, Universe!</title>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-</body>
+    <section>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
 
-</head>
+                    Magic Card
+
+                </div>
+                <div class="swiper-slide">
+                    Magic Card
+                </div>
+
+                <div class="swiper-slide">
+                    Magic Card
+                </div>
+
+                <div class="swiper-slide">
+                    Magic Card
+                </div>
+
+                <div class="swiper-slide">
+                    Magic Card
+                </div>
+                <div class="swiper-slide">
+                    Magic Card
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
+
+</html>
