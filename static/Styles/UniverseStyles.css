@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'solar';
-    src: url(../static/Fonts/earthorbiter.ttf);
+    src: url(../Fonts/earthorbiter.ttf);
     font-weight: bolder;
     font-style: normal
 }
 
 @font-face {
     font-family: 'solar_bold';
-    src: url(../static/Fonts/earthorbiter.ttf);
+    src: url(../Fonts/vanadine.ttf);
     font-weight: bolder;
     font-style: italic
 }
@@ -34,7 +34,7 @@ section {
     left: 20%;
     width: 60%;
     top: 5%;
-    height: 75%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,13 +52,11 @@ section {
 }
 
 .swiper-slide {
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-    filter: blur(1px);
+    filter: blur(.5vmin);
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: self-start;
-    background-color: white;
 }
 
 .swiper-slide-active {
@@ -68,4 +66,20 @@ section {
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
     background-image: none;
+}
+
+.Card {
+    background-color: black;
+    margin: 0 5vmin;
+    height: 65%;
+    border: solid rgb(255, 25, 0) 10px;
+}
+
+.Title {
+    font-family: 'solar_bold';
+    font-size: 9vmin;
+    margin: 0 5vmin;
+    padding: 2vmin 0;
+    color: red;
+    text-align: center;
 }
