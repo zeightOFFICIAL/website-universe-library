@@ -1,15 +1,8 @@
 @font-face {
-    font-family: 'solar';
-    src: url(../Fonts/earthorbiter.ttf);
-    font-weight: bolder;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'solar_bold';
-    src: url(../Fonts/vanadine.ttf);
-    font-weight: bolder;
-    font-style: italic
+    font-family: 'title';
+    src: url(../Fonts/Ostrovsky.otf);
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -52,15 +45,11 @@ section {
 }
 
 .swiper-slide {
-    filter: blur(.5vmin);
+
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: self-start;
-}
-
-.swiper-slide-active {
-    filter: blur(0px);
 }
 
 .swiper-3d .swiper-slide-shadow-left,
@@ -69,17 +58,43 @@ section {
 }
 
 .Card {
-    background-color: black;
-    margin: 0 5vmin;
-    height: 65%;
-    border: solid rgb(255, 25, 0) 10px;
+    height: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: filter .5s;
 }
 
 .Title {
-    font-family: 'solar_bold';
-    font-size: 9vmin;
-    margin: 0 5vmin;
-    padding: 2vmin 0;
-    color: red;
+    font-family: 'title';
+    padding: 4vmin 0;
+    font-size: 5.5vmin;
     text-align: center;
+    transition: text-shadow .5s;
+}
+
+.CardText {
+    position: absolute;
+    font-family: 'title';
+    text-align: center;
+    filter: opacity(0);
+    font-size: 2.5vmin;
+    transition: filter .75s;
+    top: 45%;
+}
+
+.CardHovered {
+    filter: saturate(0) blur(.3vmin) !important;
+}
+
+.TitleHovered {
+    text-shadow: 0vmin 5vmin 5vmin !important;
+}
+
+.CardTextHovered {
+    filter: opacity(100) !important;
+}
+
+.CardCoverHovered {
+    top: -15% !important;
 }

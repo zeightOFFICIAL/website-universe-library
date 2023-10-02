@@ -11,7 +11,7 @@ var swiper = new Swiper(".swiper", {
         stretch: 0,
         depth: 100,
         modifier: 2,
-        slideShadows: true
+        slideShadows: false
     },
     keyboard: {
         enabled: true,

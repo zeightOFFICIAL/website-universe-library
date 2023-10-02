@@ -21,6 +21,24 @@ def get_sql_systems_thumbnail() -> list:
     return all_systems
 
 
+def get_sql_systems_pair() -> list:
+    all_systems = []
+    row = Systems.objects.all()
+    for each_row in row:
+        all_systems.append(
+            [
+                each_row.pk,
+                each_row.name,
+                each_row.univ_thumbnail,
+                each_row.prime_color,
+                each_row.second_color,
+                each_row.short_desc,
+                each_row.large_cover,
+            ]
+        )
+    return all_systems
+
+
 def get_sql_system(f_id: int) -> SystemClass:
     row = Systems.objects.get(pk=f_id)
 

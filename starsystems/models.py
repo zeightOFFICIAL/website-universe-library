@@ -56,6 +56,8 @@ class Systems(models.Model):
     second_color = models.TextField(blank=True, null=True)
     shadow_color = models.TextField(blank=True, null=True)
     univ_thumbnail = models.TextField(blank=True, null=True)
+    large_cover = models.TextField(blank=True, null=True)
+    short_desc = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False

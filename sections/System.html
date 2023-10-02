@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        {% load static %}
+        {{ head| safe }}
+    </head>
+    <body onload="onLoadAny();">
+        {{ sidepanel_buttons| safe}}
+        {{ sidepanel_objects| safe }}
+        {{ sidepanel_univ| safe}}
+        {{ accentbar| safe }}
 
-<head>
-    {% load static %}
-    {{ head| safe }}
-</head>
+        {{ mainpanels| safe }}
 
-<body onload="onLoadAny();">
+        {{ panels| safe }}
 
-    {{ sidepanel_buttons| safe}}
-    {{ sidepanel_objects| safe }}
-    {{ sidepanel_univ| safe}}
-    {{ accentbar| safe }}
-
-    {{ mainpanels| safe }}
-
-    {{ panels| safe }}
-
-    {{ objects| safe }}
-
-    <script src="{% static 'Scripts\Sliders.js' %}"></script>
-    <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
-
-</body>
-
+        {{ objects| safe }}
+        <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
+        <script src="{% static 'Scripts\Sliders.js' %}"></script>
+    </body>
 </html>

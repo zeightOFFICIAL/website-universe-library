@@ -1,71 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    {% load static %}
-    <link href="{% static 'Styles/UniverseStyles.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}">
-    <title>Hello, Universe!</title>
-</head>
-
-<body>
-    <section>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Solar
-                    </div>
-
-
-                </div>
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Alpha Centauri
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Trappist
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Trebia
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Coming soon
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="Card">
-                    </div>
-                    <div class="Title">
-                        Coming soon
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
-
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}">
+        <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+        <title>Hello, Universe!</title>
+    </head>
+    <body>
+        {{cards| safe}}
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
+        <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
+    </body>
 </html>
