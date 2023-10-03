@@ -1,0 +1,25 @@
+html,
+body {
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html {
+    background-color: #000209;
+    background-image: url("../BackImage.jpg");
+    background-size: contain;
+    background-position: center;
+    height: 45vh;
+}
+
+.top-panel {
+    position: absolute;
+    background: white;
+    height: 15%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}

@@ -188,7 +188,7 @@ class SimpleVideoPanel(BasePanel):
         self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
     def __repr__(self) -> str:
-        return f"<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style}></iframe></div>"
+        return f'<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style} loading="lazy"></iframe></div>'
 
 
 class PanelSlider(BasePanel):
@@ -217,4 +217,4 @@ class SimpleMusicSlider(BasePanel):
         self.hover = EventHandlers.hover(self.id, "HoveredBorderFilled")
 
     def __repr__(self) -> str:
-        return f'<div {self.style_box} {self.embed_id} {self.hover} class="AudioDiv"><audio controls class="Audio"><source {self.music}>Your browser does not support the audio element.</audio></div>'
+        return f'<div {self.style_box} {self.embed_id} {self.hover} class="AudioDiv" loading="lazy"><audio controls class="Audio"><source {self.music}>Your browser does not support the audio element.</audio></div>'

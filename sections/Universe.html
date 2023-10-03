@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
-        <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}">
-        <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+        <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
         <title>Hello, Universe!</title>
     </head>
     <body>
+        <a id="BACK_BUTTON" class="BackButton" href="../">Back</a>
         {{cards| safe}}
+        <div class="swiper-pagination"></div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>

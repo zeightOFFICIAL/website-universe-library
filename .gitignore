@@ -3,3 +3,5 @@ compiled/CACHE/
 mysite/__pycache__/
 *.pyc
 .idea
+static/Images/*.*
+static/LinkImages/*.*

@@ -22,6 +22,12 @@ var swiper = new Swiper(".swiper", {
         thresholdTime: 0,
         sensitivity: 200
     },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 10
+    },
     spaceBetween: 0,
     loop: true,
 });

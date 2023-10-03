@@ -10,7 +10,9 @@ html,
 body {
     overflow: hidden;
     -ms-overflow-style: none;
+    -webkit-scrollbar: none;
     scrollbar-width: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -57,12 +59,65 @@ section {
     background-image: none;
 }
 
+.swiper-slide-next,
+.swiper-slide-prev {
+    filter: blur(.5vmin);
+}
+
+.swiper-pagination {
+    position: absolute !important;
+    top: 90vh !important;
+    height: 5vh !important;
+    width: 100% !important;
+}
+
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet {
+    --swiper-pagination-color: #ffffff;
+    --swiper-pagination-left: 0;
+    --swiper-pagination-right: 0;
+    --swiper-pagination-bottom: 0;
+    --swiper-pagination-top: 0;
+    --swiper-pagination-fraction-color: inherit;
+    --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
+    --swiper-pagination-progressbar-size: 0;
+    --swiper-pagination-bullet-size: 0;
+    --swiper-pagination-bullet-width: 2vmin;
+    --swiper-pagination-bullet-height: 2vmin;
+    --swiper-pagination-bullet-inactive-color: #ffffff;
+    --swiper-pagination-bullet-inactive-opacity: 0.1;
+    --swiper-pagination-bullet-opacity: 0.8;
+    --swiper-pagination-bullet-horizontal-gap: 1vmin;
+    --swiper-pagination-bullet-vertical-gap: 0;
+}
+
 .Card {
     height: 75%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     transition: filter .5s;
+    object-fit: cover;
+}
+
+.BackCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.DropDownImg {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.Anchor {
+    text-decoration: none;
 }
 
 .Title {
@@ -80,8 +135,10 @@ section {
     filter: opacity(0);
     font-size: 2.5vmin;
     transition: filter .75s;
-    top: 45%;
+    width: 100%;
+    top: 42vmin;
 }
+
 
 .CardHovered {
     filter: saturate(0) blur(.3vmin) !important;
@@ -91,10 +148,33 @@ section {
     text-shadow: 0vmin 5vmin 5vmin !important;
 }
 
-.CardTextHovered {
+.TextHovered {
     filter: opacity(100) !important;
 }
 
-.CardCoverHovered {
-    top: -15% !important;
+.DropImageHovered {
+    top: -10% !important;
+}
+
+.BackButton {
+    position: absolute;
+    top: 3vmin;
+    left: 3vmin;
+    width: 10vmin;
+    text-align: center;
+    font-family: 'title';
+    font-size: 2.5vmin;
+    color: white;
+    text-decoration: none;
+    padding: 1vmin 2vmin;
+    border: #ffffff solid .5vmin;
+    box-shadow: 0 0 3vmin white;
+    background-color: black;
+    transition: color .5s, background-color .5s, box-shadow .5s;
+}
+
+.BackButton:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5vmin #310000;
 }

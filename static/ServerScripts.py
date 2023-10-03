@@ -1,6 +1,7 @@
 from static.Types.SystemType import *
 from static.Types.ObjectType import *
 from static.Types.PanelType import *
+from static.Types.CardType import *
 from starsystems.models import *
 from operator import attrgetter
 from mysite.settings import BASE_DIR
@@ -21,22 +22,23 @@ def get_sql_systems_thumbnail() -> list:
     return all_systems
 
 
-def get_sql_systems_pair() -> list:
-    all_systems = []
+def get_sql_cards() -> list:
+    cards = []
     row = Systems.objects.all()
     for each_row in row:
-        all_systems.append(
-            [
-                each_row.pk,
-                each_row.name,
-                each_row.univ_thumbnail,
-                each_row.prime_color,
-                each_row.second_color,
-                each_row.short_desc,
-                each_row.large_cover,
-            ]
+        href = each_row.name.replace(" ", "")
+        card = CardClass(
+            each_row.pk,
+            each_row.name,
+            href,
+            each_row.short_desc,
+            [each_row.prime_color, each_row.second_color],
+            f"{href}cover",
+            f"{href.lower()}",
         )
-    return all_systems
+        cards.append(card)
+
+    return cards
 
 
 def get_sql_system(f_id: int) -> SystemClass:

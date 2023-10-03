@@ -4,8 +4,8 @@ import random
 class Style:
     class Box:
         @staticmethod
-        def card_info(a_color, img_src):
-            style = f"margin:0vmin 10vmin; height: 65%; margin-top: 6vmin;border: .5vmin solid {a_color};box-shadow: 0 0 6vmin {a_color}; background-image: url({img_src});"
+        def card_info(a_color, img_name):
+            style = f"margin:0vmin 10vmin; height: 65%; margin-top: 6vmin;border: .5vmin solid {a_color};box-shadow: 0 0 6vmin {a_color};background-image:url('../static/Images/{img_name}');"
             return f'style="{style}"'
 
         @staticmethod
@@ -31,7 +31,7 @@ class Style:
 
         @staticmethod
         def tooltip_info(a_color, b_color, c_color):
-            style = f"left:5%;width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:.5vmin;border-style:solid;margin:5vmin 0;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 4vmin {c_color};border-color:{a_color};visibility:hidden;z-index:999;"
+            style = f"left:5%;width:25%;height:12%;position:absolute;top:0%;display:block;background-color:black;border-width:.5vmin;border-style:solid;margin:5vmin 0;border-image:linear-gradient(to right,{a_color},{b_color}) 1;box-shadow:0 0 4vmin {c_color};border-color:{a_color};visibility:hidden;z-index:999;pointer-events:none;"
             return f'style="{style}"'
 
     class Text:
@@ -100,7 +100,7 @@ class Style:
 
         @staticmethod
         def thumb():
-            style = f"position:absolute;width:52vmin;top:-100%;transition: top .5s;z-index:1;padding-left:8.3%; padding-right:7%;pointer-events: none !important;"
+            style = f"display: block;position:absolute;height:55%;width:auto;margin: auto;top:-100%;text-align: center;transition: top .5s;z-index:1;pointer-events: none !important;"
             return f'style="{style}"'
 
     class Video:
@@ -148,6 +148,12 @@ class Style:
         @staticmethod
         def on_border(a_color, top=3.5, left="5.5%"):
             style = f"position:absolute;top:{top}vmin;padding:0 1.2vmax;text-align:center;border:solid .3vmin #000;font-size:3vmin;cursor:pointer;background-color:{a_color};left:{left};text-decoration:none;color:#000;"
+            return f'style="{style}"'
+
+    class Thumbs:
+        @staticmethod
+        def card(bg_image):
+            style = f"background-image: url({bg_image});"
             return f'style="{style}"'
 
 
