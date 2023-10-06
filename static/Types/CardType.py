@@ -28,7 +28,7 @@ class CardClass:
         )
         title_style = Style.Text.title_font(self.coloring_set[0])
         text_style = Style.Text.card_text_font(self.coloring_set[0])
-        dropdown_img_style = Style.Image.thumb()
+        dropdown_img_style = Style.Image.thumb("load.png")
         href = f'href="{self.href}"' if self.href.__len__() > 2 else ""
         hover_handler = EventHandlers.hover_4d(
             f"{self.href}_CARD",

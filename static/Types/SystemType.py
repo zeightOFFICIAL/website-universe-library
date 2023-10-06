@@ -31,7 +31,7 @@ class SystemClass:
         return object_list
 
     def get_head(self) -> str:
-        title = f"Hello, {self.name}!"
+        title = f"Hello {self.name}!"
         meta = f'charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"'
         link_icon = f'rel="icon" href="../static/{self.icon}"'
         link_style = f'rel="stylesheet" href="../static/Styles/SystemStyles.css"'

@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'normal';
+    src: url(../Fonts/earthorbiter.ttf);
+    font-weight: 900;
+    font-style: normal
+}
+
 html,
 body {
     overflow: hidden;
@@ -17,9 +24,31 @@ html {
 
 .top-panel {
     position: absolute;
-    background: white;
-    height: 15%;
+    background: rgb(125, 57, 57);
+    background: -moz-linear-gradient(158deg, rgba(125, 57, 57, 1) 0%, rgba(255, 237, 0, 1) 100%);
+    background: -webkit-linear-gradient(158deg, rgba(125, 57, 57, 1) 0%, rgba(255, 237, 0, 1) 100%);
+    background: linear-gradient(158deg, rgba(125, 57, 57, 1) 0%, rgba(255, 237, 0, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7d3939", endColorstr="#ffed00", GradientType=1);
+    height: 10vmin;
     width: 100%;
     top: 0;
     left: 0;
+    transition: height .5s;
+
+}
+
+.logo {
+    position: absolute;
+    left: 1vmin;
+    height: 100%;
+    width: 25%;
+    background-image: url("../Images/LogoMain.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: height .5s;
+    vertical-align: middle;
+}
+
+.top-panel:hover {
+    height: 20vmin;
 }

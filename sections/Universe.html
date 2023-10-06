@@ -7,10 +7,13 @@
         <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
-        <title>Hello, Universe!</title>
+        <title>Hello Universe!</title>
     </head>
     <body>
-        <a id="BACK_BUTTON" class="BackButton" href="../">Back</a>
+        <a id="BACK_BUTTON" class="BackButton" href="../">Menu</a>
+        <a id="CALC_BUTTON" class="CalcButton" href="../Calculate">Calculate</a>
+        <a id="ARTI_BUTTON" class="ArticleButton" href="../Articles">Articles</a>
+        <a id="OBJS_BUTTON" class="ObjectsButton" href="../Objects">Objects</a>
         {{cards| safe}}
         <div class="swiper-pagination"></div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

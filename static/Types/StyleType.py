@@ -99,8 +99,8 @@ class Style:
             return f'style="{style}"'
 
         @staticmethod
-        def thumb():
-            style = f"display: block;position:absolute;height:55%;width:auto;margin: auto;top:-100%;text-align: center;transition: top .5s;z-index:1;pointer-events: none !important;"
+        def thumb(img_name):
+            style = f"display: block;position:absolute;height:55%;width:auto;margin: auto;top:-100%;text-align: center;transition: top .5s;z-index:1;pointer-events: none !important;background-image:url('../static/LinkImages/{img_name}');background-size:contain;background-repeat:none;"
             return f'style="{style}"'
 
     class Video:

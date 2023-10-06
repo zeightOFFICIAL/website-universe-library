@@ -156,14 +156,17 @@ section {
     top: -10% !important;
 }
 
-.BackButton {
+.BackButton,
+.CalcButton,
+.ArticleButton,
+.ObjectsButton {
     position: absolute;
     top: 3vmin;
     left: 3vmin;
-    width: 10vmin;
+    width: 12vmin;
     text-align: center;
     font-family: 'title';
-    font-size: 2.5vmin;
+    font-size: 2vmin;
     color: white;
     text-decoration: none;
     padding: 1vmin 2vmin;
@@ -173,8 +176,38 @@ section {
     transition: color .5s, background-color .5s, box-shadow .5s;
 }
 
+.CalcButton {
+    top: 9vmin;
+}
+
+.ArticleButton {
+    top: 15vmin;
+}
+
+.ObjectsButton {
+    top: 21vmin;
+}
+
+.CalcButton:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5vmin #156b00;
+}
+
+.ArticleButton:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5vmin #006159;
+}
+
+.ObjectsButton:hover {
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 5vmin #680068;
+}
+
 .BackButton:hover {
     color: black;
     background-color: white;
-    box-shadow: 0 0 5vmin #310000;
+    box-shadow: 0 0 5vmin #680000;
 }
