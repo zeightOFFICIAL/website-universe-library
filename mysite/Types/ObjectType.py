@@ -1,7 +1,7 @@
-from static.Types.StyleType import Style
-from static.Types.StyleType import Visual
-from static.Types.StyleType import EventHandlers
-from static.Types.PanelType import BasePanel
+from mysite.Types.StyleType import Style
+from mysite.Types.StyleType import Visual
+from mysite.Types.StyleType import EventHandlers
+from mysite.Types.PanelType import BasePanel
 
 
 class ObjectClass:

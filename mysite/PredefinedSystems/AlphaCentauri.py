@@ -1,6 +1,6 @@
-from static.Types.SystemType import SystemClass
-from static.Types.ObjectType import ObjectClass
-from static.Types.PanelType import *
+from mysite.Types.SystemType import SystemClass
+from mysite.Types.ObjectType import ObjectClass
+from mysite.Types.PanelType import *
 
 # COLORS
 MAIN_COLORS = ["#FF0000", "#FF5000", "#FF0000"]

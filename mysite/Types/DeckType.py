@@ -1,4 +1,4 @@
-from static.Types.CardType import CardClass
+from mysite.Types.CardType import CardClass
 
 
 class DeckClass:

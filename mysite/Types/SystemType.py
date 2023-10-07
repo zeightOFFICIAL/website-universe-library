@@ -1,6 +1,6 @@
-import static.Types.PanelType as PanelType
-import static.Types.StyleType as StyleType
-import static.Types.ObjectType as ObjectType
+import mysite.Types.PanelType as PanelType
+import mysite.Types.StyleType as StyleType
+import mysite.Types.ObjectType as ObjectType
 import os
 from django.conf import settings
 

@@ -1,10 +1,10 @@
 # from static.Types.SystemType import SystemClass
 from django.shortcuts import render
-from static.StellarSystems.AlphaCentauri import System as Alpha
-from static.StellarSystems.SolarSystem import System as Solar
-from static.Types.DeckType import DeckClass
-from static.Types.CardType import CardClass
-from static.ServerScripts import (
+from mysite.PredefinedSystems.AlphaCentauri import System as Alpha
+from mysite.PredefinedSystems.SolarSystem import System as Solar
+from mysite.Types.DeckType import DeckClass
+from mysite.Types.CardType import CardClass
+from mysite.ServerScripts import (
     get_sql_system,
     get_sql_system_id,
     get_sql_systems_thumbnail,

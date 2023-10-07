@@ -1,5 +1,5 @@
-from static.Types.StyleType import Style
-from static.Types.StyleType import EventHandlers
+from mysite.Types.StyleType import Style
+from mysite.Types.StyleType import EventHandlers
 
 """
 {
