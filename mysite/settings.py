@@ -100,7 +100,6 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = "static/"
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -112,7 +111,10 @@ STATICFILES_FINDERS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, "compiled/")
 COMPRESS_ENABLED = True
-COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+COMPRESS_PRECOMPILERS = (
+    ("text/x-scss", "django_libsass.SassCompiler"),
+    ("text/x-sass", "django_libsass.SassCompiler"),
+)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

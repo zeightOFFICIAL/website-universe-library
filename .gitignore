@@ -1,7 +1,10 @@
-compiled/CACHE/
-*.env
+compiled/
 mysite/__pycache__/
+*.env
 *.pyc
 .idea
+
+static/Images/*
 static/Images/*.*
+static/LinkImages/*
 static/LinkImages/*.*

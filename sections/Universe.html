@@ -6,17 +6,17 @@
         {% load static %}
         <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/BackGroundStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
         <title>Hello Universe!</title>
     </head>
     <body>
-        <div class="nav-panel">
-            <div class="sky">
-                <div class="stars"></div>
-                <div class="stars1"></div>
-                <div class="stars2"></div>
-                <div class="shooting-stars"></div>
-            </div>
+        <div class="nav-panel" id="NAV_PANEL">
+            <canvas id="SPACE_CANVAS">
+                <div id="BACK_BUTTON" class="BackButton">
+                    <a href="../"></a>
+                </div>
+            </canvas>
         </div>
         <!-- <a id="BACK_BUTTON" class="BackButton" href="../">Menu</a>
         <a id="CALC_BUTTON" class="CalcButton" href="../Calculate">Calculate</a>
@@ -27,5 +27,6 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
+        <script src="{% static 'Scripts\NavBarFunctions.js' %}"></script>
     </body>
 </html>
