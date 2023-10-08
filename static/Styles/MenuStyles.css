@@ -16,7 +16,7 @@ body {
 
 html {
     background-color: #000209;
-    background-image: url("../BackImage.jpg");
+    background-image: url("../Images/BackImage.jpg");
     background-size: contain;
     background-position: center;
     height: 45vh;
@@ -34,7 +34,6 @@ html {
     top: 0;
     left: 0;
     transition: height .5s;
-
 }
 
 .logo {

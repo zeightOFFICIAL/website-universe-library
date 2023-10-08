@@ -26,8 +26,7 @@ var i = 0,
     colorDisplay = [0, 0, 0],
     spaceColors = new Array(),
     nebula = new Array(),
-    parent = document.getElementById("NAV_PANEL"),
-    sparity = 500;
+    sparity = 1500;
 
 //setup
 nebula.push("1.jpg");
@@ -35,6 +34,7 @@ nebula.push("2.jpg");
 nebula.push("3.jpg");
 nebula.push("4.jpg");
 nebula.push("5.jpg");
+var nebula_choice = nebula[Math.floor(Math.random() * nebula.length)];
 canvas.height = window.innerHeight / 2;
 canvas.width = window.innerWidth + 100;
 ctx = canvas.getContext("2d");
@@ -86,7 +86,7 @@ function draw() {
         y = starsBig[i].yPos;
         ctx.globalAlpha = starsBig[i].alpha;
         ctx.beginPath();
-        ctx.ellipse(x, y, 1.5, 1.5 * n, rotation * Math.PI / 180, 0, 2 * Math.PI);
+        ctx.ellipse(x, y, 2, 2 * n, rotation * Math.PI / 180, 0, 2 * Math.PI);
         ctx.fill();
     }
     for (i = 0; i < starsSmall.length; i++) {
@@ -94,14 +94,13 @@ function draw() {
         y = starsSmall[i].yPos;
         ctx.globalAlpha = starsSmall[i].alpha;
         ctx.beginPath();
-        ctx.ellipse(x, y, 0.5, 0.5 * n, rotation * Math.PI / 180, 0, 2 * Math.PI);
+        ctx.ellipse(x, y, 1, 1 * n, rotation * Math.PI / 180, 0, 2 * Math.PI);
         ctx.fill();
     }
 }
 
 // moves stars
 function moveStars() {
-    // direction
     var xDir, yDir
     switch (starDirection) {
         case 0:
@@ -170,22 +169,20 @@ function starfield() {
 
 // generate beginning stars
 function generate() {
-    starsBig.length = 0;
-    starsSmall.length = 0;
+    starsBig = [];
+    starsSmall = [];
     for (x = 0; x < w; x++) {
         for (y = 0; y < h; y++) {
             populate(x, y);
         }
     }
-    BGrng = Math.floor(Math.random() * nebula.length);
-    canvas.style.background = "url('../static/Images/BackNav/" + nebula[BGrng] + "') center";
+    canvas.style.background = "url('../static/Images/BackNav/" + nebula_choice + "') center";
 }
 
 // engage
 function engage() {
     if (inProgress === 0) {
         inProgress = 1;
-        // new color
         oldColor.length = 0;
         oldColor.push.apply(oldColor, newColor);
         rng = Math.floor(Math.random() * spaceColors.length);
@@ -193,9 +190,7 @@ function engage() {
         newColor.push.apply(newColor, spaceColors[rng]);
         colorStep.length = 0;
         colorStep.push.apply(colorStep, oldColor);
-        // new direction
         starDirection = Math.round(Math.random() * 3);
-        // transition
         var engageTrans = setInterval(function () {
             if (f == 1) {
                 n = n * 2;
@@ -215,12 +210,10 @@ function engage() {
             }
             document.body.style.background = "linear-gradient(to top, #000000, rgb(" + colorDisplay + ")";
         }, 50);
-        // springback
         window.setTimeout(function () {
             generate();
             f = 0;
         }, 500);
-        // end transition
         window.setTimeout(function () {
             clearInterval(engageTrans);
             document.body.style.background = "linear-gradient(to top, #000000, rgb(" + newColor + ")";
@@ -240,16 +233,6 @@ function engage() {
 generate();
 window.requestAnimationFrame(starfield);
 
-// add parallax
-parent.addEventListener("mousemove", function () {
-    mousePos.xPos = event.clientX;
-    mousePos.yPos = event.clientY;
-    varTop = (mousePos.yPos / h) * -70;
-    varLeft = (mousePos.xPos / w) * -70;
-    canvas.style.marginTop = varTop + "px";
-    canvas.style.marginLeft = varLeft + "px";
-});
-
 window.addEventListener("resize", function () {
     canvas.height = window.innerHeight / 2;
     canvas.width = window.innerWidth + 100;
@@ -258,11 +241,71 @@ window.addEventListener("resize", function () {
     w = canvas.width;
     ctx.fillStyle = "white";
     ctx.strokeStyle = "white";
-    if (w > 2500) {
+    if (this.window.innerWidth > 2000) {
         sparity = 10000;
     }
     else {
-        sparity = 500;
+        sparity = 1500;
     }
     generate();
 });
+
+
+function navPanelEnter() {
+    var nav = document.getElementById("NAV_PANEL");
+    var btn = document.getElementById("BACK_BUTTON");
+    var btn2 = document.getElementById("ARTC_BUTTON");
+    var btn3 = document.getElementById("CALC_BUTTON");
+    var btn4 = document.getElementById("OBJS_BUTTON");
+    var btn5 = document.getElementById("SPAC_BUTTON");
+    nav.style.height = "25%";
+    nav.style.filter = "brightness(40%)";
+
+    btn.style.top = "0%";
+    btn.style.animation = "spin 1s";
+    btn2.style.top = "0";
+
+    btn2.style.left = "28%";
+    btn2.style.width = "15%";
+
+    btn3.style.top = "0";
+    btn3.style.left = "57%";
+    btn3.style.width = "15%";
+
+    btn4.style.top = "0";
+    btn4.style.left = "13%";
+    btn4.style.width = "15%";
+
+    btn5.style.top = "0";
+    btn5.style.left = "72%";
+    btn5.style.width = "15%";
+}
+
+function navPanelLeave() {
+    var nav = document.getElementById("NAV_PANEL");
+    var btn = document.getElementById("BACK_BUTTON");
+    var btn2 = document.getElementById("ARTC_BUTTON");
+    var btn3 = document.getElementById("CALC_BUTTON");
+    var btn4 = document.getElementById("OBJS_BUTTON");
+    var btn5 = document.getElementById("SPAC_BUTTON");
+    nav.style.height = "8%";
+    nav.style.filter = "brightness(100%)";
+    btn.style.top = "-100%";
+    btn.style.animation = "spin_back 1s"
+
+    btn2.style.top = "-100%";
+    btn2.style.left = "50%";
+    btn2.style.width = "0";
+
+    btn3.style.top = "-100%";
+    btn3.style.left = "50%";
+    btn3.style.width = "0";
+
+    btn4.style.top = "-100%";
+    btn4.style.left = "50%";
+    btn4.style.width = "0";
+
+    btn5.style.top = "-100%";
+    btn5.style.left = "50%";
+    btn5.style.width = "0";
+}

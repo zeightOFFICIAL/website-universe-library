@@ -4,26 +4,72 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
-        <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}" charset="UTF-8">
+        <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
-        <link rel="stylesheet" href="{% static 'Styles/BackGroundStyles.css' %}" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
         <title>Hello Universe!</title>
     </head>
     <body>
-        <div class="nav-panel" id="NAV_PANEL">
-            <canvas id="SPACE_CANVAS">
-                <div id="BACK_BUTTON" class="BackButton">
-                    <a href="../"></a>
-                </div>
-            </canvas>
+        <div
+            class="nav-panel"
+            id="NAV_PANEL"
+            onmouseenter="navPanelEnter();"
+            onmouseleave="navPanelLeave();"
+        >
+            <canvas id="SPACE_CANVAS"></canvas>
         </div>
-        <!-- <a id="BACK_BUTTON" class="BackButton" href="../">Menu</a>
-        <a id="CALC_BUTTON" class="CalcButton" href="../Calculate">Calculate</a>
-        <a id="ARTI_BUTTON" class="ArticleButton" href="../Articles">Articles</a>
-        <a id="OBJS_BUTTON" class="ObjectsButton" href="../Objects">Objects</a> -->
+        <a href="../">
+            Menu
+            <div
+                id="BACK_BUTTON"
+                class="BackButtonUniv"
+                onmouseenter="navPanelEnter();"
+                onmouseleave="navPanelLeave();"
+            ></div>
+        </a>
+        <a href="../Calculate">
+            Calculate
+            <div
+                id="CALC_BUTTON"
+                class="CalcButtonUniv"
+                onmouseenter="navPanelEnter();"
+                onmouseleave="navPanelLeave();"
+            ></div>
+        </a>
+        <a href="../Articles">
+            Articles
+            <div
+                id="ARTC_BUTTON"
+                class="ArtcButtonUniv"
+                onmouseenter="navPanelEnter();"
+                onmouseleave="navPanelLeave();"
+            ></div>
+        </a>
+        <a href="../Objects">
+            Objects
+            <div
+                id="OBJS_BUTTON"
+                class="ObjsButtonUniv"
+                onmouseenter="navPanelEnter();"
+                onmouseleave="navPanelLeave();"
+            ></div>
+        </a>
+        <a href="../Space">
+            Space
+            <div
+                id="SPAC_BUTTON"
+                class="SpacButtonUniv"
+                onmouseenter="navPanelEnter();"
+                onmouseleave="navPanelLeave();"
+            ></div>
+        </a>
         {{cards| safe}}
         <div class="swiper-pagination"></div>
+        <a href="../About">
+            About
+            <div class="Titler">Artemii Zeight, 2023</div>
+        </a>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>

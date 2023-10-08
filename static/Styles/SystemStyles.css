@@ -31,7 +31,7 @@ body {
 
 html {
     background-color: #000209;
-    background-image: url("../BackImage.jpg");
+    background-image: url("../Images/BackImage.jpg");
     background-size: contain;
     background-position: center;
     height: 45vh;

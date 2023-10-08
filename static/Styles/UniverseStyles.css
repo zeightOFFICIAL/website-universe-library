@@ -5,6 +5,11 @@
     font-style: normal;
 }
 
+a {
+    text-decoration: none;
+    font-size: .5vmin;
+    color: white;
+}
 
 html,
 body {
@@ -18,7 +23,7 @@ body {
 
 html {
     background-color: #000209;
-    background-image: url("../BackImage.jpg");
+    background-image: url("../Images/BackImage.jpg");
     background-size: contain;
     background-position: center;
     height: 45vh;
@@ -139,6 +144,13 @@ section {
     top: 42vmin;
 }
 
+.Titler {
+    color: white;
+    position: absolute;
+    top: 95%;
+    left: 90%;
+    font-size: 1.2vmin;
+}
 
 .CardHovered {
     filter: saturate(0) blur(.3vmin) !important;
@@ -154,60 +166,4 @@ section {
 
 .DropImageHovered {
     top: -10% !important;
-}
-
-.BackButton,
-.CalcButton,
-.ArticleButton,
-.ObjectsButton {
-    position: absolute;
-    top: 3vmin;
-    left: 3vmin;
-    width: 12vmin;
-    text-align: center;
-    font-family: 'title';
-    font-size: 2vmin;
-    color: white;
-    text-decoration: none;
-    padding: 1vmin 2vmin;
-    border: #ffffff solid .5vmin;
-    box-shadow: 0 0 3vmin white;
-    background-color: black;
-    transition: color .5s, background-color .5s, box-shadow .5s;
-}
-
-.CalcButton {
-    top: 9vmin;
-}
-
-.ArticleButton {
-    top: 15vmin;
-}
-
-.ObjectsButton {
-    top: 21vmin;
-}
-
-.CalcButton:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5vmin #156b00;
-}
-
-.ArticleButton:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5vmin #006159;
-}
-
-.ObjectsButton:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5vmin #680068;
-}
-
-.BackButton:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5vmin #680000;
 }
