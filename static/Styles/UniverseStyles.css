@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'title';
+    font-family: 'Ostrovsky';
     src: url(../Fonts/Ostrovsky.otf);
     font-weight: normal;
     font-style: normal;
@@ -126,7 +126,7 @@ section {
 }
 
 .Title {
-    font-family: 'title';
+    font-family: 'Ostrovsky';
     padding: 4vmin 0;
     font-size: 5.5vmin;
     text-align: center;
@@ -135,7 +135,7 @@ section {
 
 .CardText {
     position: absolute;
-    font-family: 'title';
+    font-family: 'Ostrovsky';
     text-align: center;
     filter: opacity(0);
     font-size: 2.5vmin;
@@ -149,7 +149,7 @@ section {
     position: absolute;
     top: 95%;
     left: 90%;
-    font-size: 1.2vmin;
+    font-size: 1.75vmin;
 }
 
 .CardHovered {

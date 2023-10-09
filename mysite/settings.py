@@ -70,7 +70,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
+    "calculate": {"ENGINE": "djongo", "NAME": BASE_DIR / "db.mongo"},
 }
 
 
@@ -111,10 +112,7 @@ STATICFILES_FINDERS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, "compiled/")
 COMPRESS_ENABLED = True
-COMPRESS_PRECOMPILERS = (
-    ("text/x-scss", "django_libsass.SassCompiler"),
-    ("text/x-sass", "django_libsass.SassCompiler"),
-)
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

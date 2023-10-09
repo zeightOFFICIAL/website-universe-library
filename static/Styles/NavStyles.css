@@ -5,10 +5,11 @@
     left: 0;
     width: 100%;
     height: 8%;
-    transition: height .5s, filter .5s;
+    transition: height .5s, filter .5s, box-shadow .5s;
     overflow: hidden;
     -webkit-user-select: all;
     user-select: all;
+    box-shadow: 0 0 5vmin white;
 }
 
 canvas {
@@ -30,13 +31,13 @@ canvas {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: top .5s;
+    transition: top .5s, filter .5s;
 }
 
 .ArtcButtonUniv,
 .CalcButtonUniv,
 .ObjsButtonUniv,
-.SpacButtonUniv {
+.QuizButtonUniv {
     text-align: center;
     position: absolute;
     z-index: 13;
@@ -48,7 +49,7 @@ canvas {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: top .5s, left 1s, width 1s;
+    transition: top .5s, left 1s, width 1s, filter .5s, height .5s;
 }
 
 .CalcButtonUniv {
@@ -59,8 +60,28 @@ canvas {
     background-image: url("../Images/NavBarLeft2.png");
 }
 
-.SpacButtonUniv {
+.QuizButtonUniv {
     background-image: url("../Images/NavBarRight2.png");
+}
+
+.BackButtonUniv:hover {
+    filter: drop-shadow(0 0 15vmin red) invert(1);
+}
+
+.ArtcButtonUniv:hover {
+    filter: drop-shadow(0 0 2vmin #ff0000) invert(1);
+}
+
+.CalcButtonUniv:hover {
+    filter: hue-rotate(120deg) drop-shadow(0 0 2vmin #00ffff);
+}
+
+.ObjsButtonUniv:hover {
+    filter: drop-shadow(0 0 2vmin #ff0000) invert(1);
+}
+
+.QuizButtonUniv:hover {
+    filter: hue-rotate(120deg) drop-shadow(0 0 2vmin #00ffff);
 }
 
 @-moz-keyframes spin {

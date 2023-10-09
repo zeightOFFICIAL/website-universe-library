@@ -4,15 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
-        <link rel="icon" href="{% static 'Icons/SolarIcon.ico' %}" charset="UTF-8">
+        <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/MenuStyles.css' %}" charset="UTF-8">
         <title>Universe Library</title>
     </head>
     <body>
-        <div class="top-panel">
-            <div class="logo"></div>
+        <div
+            class="nav-panel"
+            id="NAV_PANEL"
+            onmouseenter="navPanelEnter();"
+            onmouseleave="navPanelLeave();"
+        >
+            <canvas id="SPACE_CANVAS"></canvas>
         </div>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\MenuScripts.js' %}"></script>
+        <script src="{% static 'Scripts\NavBarFunctions.js' %}"></script>
     </body>
 </html>

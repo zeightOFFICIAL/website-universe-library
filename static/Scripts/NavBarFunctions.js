@@ -257,14 +257,16 @@ function navPanelEnter() {
     var btn2 = document.getElementById("ARTC_BUTTON");
     var btn3 = document.getElementById("CALC_BUTTON");
     var btn4 = document.getElementById("OBJS_BUTTON");
-    var btn5 = document.getElementById("SPAC_BUTTON");
+    var btn5 = document.getElementById("QUIZ_BUTTON");
+
     nav.style.height = "25%";
     nav.style.filter = "brightness(40%)";
+    nav.style.boxShadow = "0 0 25vmin yellow";
 
     btn.style.top = "0%";
     btn.style.animation = "spin 1s";
-    btn2.style.top = "0";
 
+    btn2.style.top = "0";
     btn2.style.left = "28%";
     btn2.style.width = "15%";
 
@@ -287,9 +289,12 @@ function navPanelLeave() {
     var btn2 = document.getElementById("ARTC_BUTTON");
     var btn3 = document.getElementById("CALC_BUTTON");
     var btn4 = document.getElementById("OBJS_BUTTON");
-    var btn5 = document.getElementById("SPAC_BUTTON");
+    var btn5 = document.getElementById("QUIZ_BUTTON");
+
     nav.style.height = "8%";
     nav.style.filter = "brightness(100%)";
+    nav.style.boxShadow = "0 0 5vmin white";
+
     btn.style.top = "-100%";
     btn.style.animation = "spin_back 1s"
 

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
-        <title>Hello Universe!</title>
+        <title>Universe Library</title>
     </head>
     <body>
         <div
@@ -55,18 +54,18 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        <a href="../Space">
+        <a href="../Quizes">
             Space
             <div
-                id="SPAC_BUTTON"
-                class="SpacButtonUniv"
+                id="QUIZ_BUTTON"
+                class="QuizButtonUniv"
                 onmouseenter="navPanelEnter();"
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
         {{cards| safe}}
         <div class="swiper-pagination"></div>
-        <a href="../About">
+        <a class="TitlerAnchor" href="../About">
             About
             <div class="Titler">Artemii Zeight, 2023</div>
         </a>
