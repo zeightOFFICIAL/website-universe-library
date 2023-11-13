@@ -25,6 +25,7 @@ SESSION_COOKIE_SAMESITE = "Strict"
 INSTALLED_APPS = [
     "calculus.apps.CalculusConfig",
     "starsystems.apps.StarsystemsConfig",
+    "articles.apps.ArticlesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -71,7 +72,13 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
+    
     "calculate": {"ENGINE": "djongo", "NAME": BASE_DIR / "db.mongo"},
+    
+    "articles": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db-articles.sqlite3",
+    }
 }
 
 
