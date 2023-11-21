@@ -258,6 +258,9 @@ function navPanelEnter() {
     var btn3 = document.getElementById("CALC_BUTTON");
     var btn4 = document.getElementById("OBJS_BUTTON");
     var btn5 = document.getElementById("QUIZ_BUTTON");
+    var other = document.getElementById("LOWER_PART");
+
+    other.style.filter = "brightness(50%)";
 
     nav.style.height = "25%";
     nav.style.filter = "brightness(40%)";
@@ -290,6 +293,9 @@ function navPanelLeave() {
     var btn3 = document.getElementById("CALC_BUTTON");
     var btn4 = document.getElementById("OBJS_BUTTON");
     var btn5 = document.getElementById("QUIZ_BUTTON");
+    var other = document.getElementById("LOWER_PART");
+
+    other.style.filter = "brightness(100%)";
 
     nav.style.height = "8%";
     nav.style.filter = "brightness(100%)";

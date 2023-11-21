@@ -63,12 +63,14 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        {{cards| safe}}
-        <div class="swiper-pagination"></div>
-        <a class="TitlerAnchor" href="../About">
-            About
-            <div class="Titler">Artemii Zeight, 2023</div>
-        </a>
+        <div id="LOWER_PART" class="LowerPart">
+            {{cards| safe}}
+            <div class="swiper-pagination"></div>
+            <a class="TitlerAnchor" href="../About">
+                About
+                <div class="Titler">Artemii Zeight, 2023</div>
+            </a>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
