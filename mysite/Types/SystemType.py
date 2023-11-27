@@ -83,7 +83,7 @@ class SystemClass:
 
     def get_univ_sidepanel(self, all_systems: list[list[str, str, str]]) -> str:
         side_str = ""
-        top_left = 20
+        top_left = 4
         all_systems.insert(0, ["Alpha Centauri", "alpha.png", "#FF0000"])
         all_systems.insert(0, ["Solar", "solar.png", "#FBAB7E"])
         for system in all_systems:
@@ -96,5 +96,5 @@ class SystemClass:
             side_str += f'<a class="StarButton" id="{system[0].replace(" ", "").upper()}_STARBUTTON" href="{system[0].replace(" ", "")}" {StyleType.Style.Text.star_font(str(top_left)+"vmin", system[2])} {StyleType.EventHandlers.hover_2d(system[0].replace(" ", "").upper()+"_STARBUTTON",system[0].replace(" ", "").upper()+"_STARIMAGE","HoveredStarText","HoveredShortImage")}>{only_name.replace(" ", "<br>")}<img class="ShortImage" id="{system[0].replace(" ", "").upper()}_STARIMAGE" src="../static/LinkImages/{system[1]}" alt="{system[0].replace(" ","")}"></a>'
             top_left += 13
 
-        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="UNIV_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "10vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON", "UNIVERSE_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9733; Stars</a><hr>{side_str}</div>'
+        side_str = f'<div id="UNIVERSE_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="UNIV_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "10vmin")} onclick="closeSystempanel();" {StyleType.EventHandlers.hover_2d("UNIV_CLOSEBUTTON", "UNIVERSE_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9733; Stars</a><hr><div id="UNIVERSE_LIST" class="SideList">{side_str}</div></div>'
         return side_str
