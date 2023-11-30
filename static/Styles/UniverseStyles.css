@@ -150,6 +150,7 @@ section {
     top: 95%;
     left: 90%;
     font-size: 1.75vmin;
+    z-index: 15;
 }
 
 .LowerPart {

@@ -49,7 +49,7 @@ canvas {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: top .5s, left 1s, width 1s, filter .5s, height .5s;
+    transition: top .5s, left 1.2s, width 1s, filter .5s, height .5s;
 }
 
 .CalcButtonUniv {

@@ -14,6 +14,7 @@ from mysite.Types.StyleType import EventHandlers
         SLIDER
         IMAGE_SLIDER
         SIMPLE_AUDIO
+        SIMPLE_TABLE
 }
 """
 
@@ -239,6 +240,3 @@ class SimpleTable(BasePanel):
             table_content += f"<tr {self.text_style}><th {self.ths_style}>{values.split(':')[0]}</th><th {self.ths_style}>{values.split(':')[1]}</th></tr>"
 
         return f"<div {self.div_style} {self.embed_id} {self.hover}><table {self.table_style}>{table_content}</table></div>"
-
-
-# Spectral type:M8V;Distance:40.66 ly;Mass:0.898 of Sun;Radius:0.1192 of Sun;Temperature:2566K;
