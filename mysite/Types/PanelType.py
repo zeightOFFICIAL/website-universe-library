@@ -218,3 +218,27 @@ class SimpleMusicSlider(BasePanel):
 
     def __repr__(self) -> str:
         return f'<div {self.style_box} {self.embed_id} {self.hover} class="AudioDiv" loading="lazy"><audio controls class="Audio"><source {self.music}>Your browser does not support the audio element.</audio></div>'
+
+
+class SimpleTable(BasePanel):
+    def __init__(self, id: str, text: str, colors: list[str]):
+        super().__init__(id)
+        self.div_style = Style.Box.text_info(colors[0], colors[2])
+        self.text_style = Style.Text.normal()
+        self.table_style = Style.Tables.table()
+        self.ths_style = Style.Tables.ths()
+        self.hover = EventHandlers.hover(self.id, "HoveredBorder")
+        self.text = text
+
+    def __repr__(self) -> str:
+        table_content = ""
+        for values in self.text.split(";"):
+            if len(values) < 2:
+                continue
+            print(values.split(":")[0])
+            table_content += f"<tr {self.text_style}><th {self.ths_style}>{values.split(':')[0]}</th><th {self.ths_style}>{values.split(':')[1]}</th></tr>"
+
+        return f"<div {self.div_style} {self.embed_id} {self.hover}><table {self.table_style}>{table_content}</table></div>"
+
+
+# Spectral type:M8V;Distance:40.66 ly;Mass:0.898 of Sun;Radius:0.1192 of Sun;Temperature:2566K;

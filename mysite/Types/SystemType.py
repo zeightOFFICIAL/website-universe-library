@@ -72,7 +72,7 @@ class SystemClass:
         for object in self.get_objects_list():
             object_id = f"{object.id}_LABEL"
             side_str += f'<a id="{object_id}" {PanelType.Style.Text.sidepanel()} onclick="objClicked(\'{object.id}_INFO\');closeSidepanel();" {StyleType.EventHandlers.hover_side_name(object_id, object.main_color)}>   {object.name}</a>'
-        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "2vmin")} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr>{side_str}</div>'
+        side_str = f'<div id="STAR_SIDEPANEL" class="SidePanel" style="box-shadow: 1vmin 0 1vmin {self.coloring[0]};"><a id="STAR_CLOSEBUTTON" {PanelType.Style.Button.close_sidepanel(self.coloring[0], "2vmin")} onclick="closeSidepanel();" {StyleType.EventHandlers.hover_2d("STAR_CLOSEBUTTON", "STAR_SIDEPANEL", "HoveredBorderButton", "HoveredSidepanel")}>&#9776; Objects</a><hr><div id="SYSTEM_LIST" class="SideList">{side_str}</div></div>'
         return side_str
 
     def get_side_buttons(self) -> str:

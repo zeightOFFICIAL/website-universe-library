@@ -156,6 +156,17 @@ class Style:
             style = f"background-image: url({bg_image});"
             return f'style="{style}"'
 
+    class Tables:
+        @staticmethod
+        def table():
+            style = f"width:100%;padding:4vmin 4vmin;"
+            return f'style="{style}"'
+
+        @staticmethod
+        def ths():
+            style = f"border: 1px solid white;"
+            return f'style="{style}"'
+
 
 class Visual:
     class Object:
