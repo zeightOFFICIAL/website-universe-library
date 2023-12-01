@@ -104,6 +104,21 @@ body::-webkit-scrollbar {
     display: none
 }
 
+.SideList {
+    height: 84vmin;
+    top: 16vmin;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.SideList::-webkit-scrollbar {
+    display: none
+}
+
 .StarSystem {
     position: absolute;
     top: 0;

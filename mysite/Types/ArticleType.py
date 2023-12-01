@@ -1,20 +1,21 @@
-import mysite.Types.ParagraphType as ParagraphType
-
-
 class ArticleClass:
-    def __init__(self, 
-        id : int, 
-        name : str, 
-        topic : str, 
-        author : str,
+    def __init__(
+        self,
+        id: int,
+        name: str,
+        topic: str,
         date: str,
-        rating: int,
-        paragraphs: list[ParagraphType.BaseParagraphClass]
+        author: str,
+        title: str,
+        title_img: str,
     ):
         self.id = id
         self.name = name
         self.topic = topic
-        self.author = author
         self.date = date
-        self.rating = rating
-        self.paragraphs = paragraphs
+        self.author = author
+        self.title = title
+        self.title_img = title_img
+
+    def __repr__(self):
+        pass

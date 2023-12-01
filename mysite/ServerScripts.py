@@ -190,6 +190,12 @@ def get_sql_panel(f_id: int) -> BasePanel:
                 [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
                 l_is_slider,
             )
+        case 11:
+            n_panel = SimpleTable(
+                l_div_id,
+                l_values_id.text,
+                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+            )
         case _:
             n_panel
     return n_panel
