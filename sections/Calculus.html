@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
-        <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/CalculusStyles.css' %}" charset="UTF-8">
         <title>Universe Library</title>
     </head>
     <body>
@@ -27,10 +27,10 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        <a href="../Calculate">
+        <a href="../Universe">
             Calculate
             <div
-                id="CALC_BUTTON"
+                id="UNIV_BUTTON"
                 class="RightCloseNavButton"
                 onmouseenter="navPanelEnter();"
                 onmouseleave="navPanelLeave();"
@@ -63,16 +63,38 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        <div id="LOWER_PART" class="LowerPart">
-            {{cards| safe}}
-            <a class="Titler" href="../About">
-                Artemii Zeight, 2023
-            </a>
-            <div class="swiper-pagination"></div>
+        <div class="LowerPart" id="LOWER_PART">
+            <div class="LeftPanel"></div>
+            <div class="MainPanel green" id="ESCAPE_VELOCITY">
+                <h3 class="CalcTitle green">Escape velocity</h3>
+                <form>
+                    <label for="mass">Mass (kg):</label>
+                    <input
+                        type="number"
+                        name="mass"
+                        id="mass"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                    <label for="radius">Radius (m):</label>
+                    <input
+                        type="number"
+                        name="radius"
+                        id="radius"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                    <label for="result">Escape Velocity (m/s):</label>
+                    <input type="text" id="result" readonly>
+                    <button type="button" onclick="calculateEscapeVelocity()">Calculate</button>
+                </form>
+            </div>
+            <div class="RightPanel"></div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
-        <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
+        <script src="{% static 'Scripts\CalculusFunctions.js' %}"></script>
         <script src="{% static 'Scripts\NavBarFunctions.js' %}"></script>
     </body>
 </html>

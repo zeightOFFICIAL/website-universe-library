@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'normal';
+    src: url(../Fonts/earthorbiter.ttf);
+    font-weight: bold;
+    font-style: bold
+}
+
+html,
+body {
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html {
+    background-color: #000209;
+    background-image: url("../Images/BackImage.jpg");
+    background-size: contain;
+    background-position: center;
+    height: 45vh;
+}
+
+.MainPanel {
+    position: absolute;
+    top: 25%;
+    height: 60%;
+    left: 30%;
+    width: 40%;
+    background-color: black;
+    border-radius: 40%;
+    z-index: 5;
+    transition: border .5s, box-shadow .5s;
+}
+
+.LowerPart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 6;
+    transition: filter .75s;
+}
+
+.CalcTitle {
+    position: absolute;
+    top: 2.5%;
+    left: 0;
+    height: 2vmin;
+    font-family: 'normal';
+    font-size: 5vmin;
+    text-align: center;
+    width: 100%;
+}
+
+.CalcTitle.green {
+    color: green;
+    text-shadow: 0 0 40px greenyellow;
+}
+
+.MainPanel.green {
+    border: solid 2px green;
+    box-shadow: 0 0 50px greenyellow;
+}
+
+.MainPanel:hover {
+    border: solid 2px white;
+    box-shadow: 0 0 30px white;
+}

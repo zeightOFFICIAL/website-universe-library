@@ -50,14 +50,12 @@ spaceColors[2] = new Array(48, 43, 99);
 spaceColors[3] = new Array(83, 52, 109);
 spaceColors[4] = new Array(102, 102, 0);
 
-//star properties
 function Star(xPos, yPos, alpha) {
     this.xPos = xPos;
     this.yPos = yPos;
     this.alpha = alpha;
 }
 
-// to create stars
 function populate(x, y) {
     r = Math.floor((Math.random() * sparity) + 1);
     if (r == sparity) {
@@ -73,7 +71,6 @@ function populate(x, y) {
     }
 }
 
-// draw stars
 function draw() {
     if (blur === 1) {
         ctx.clearRect(0, 0, w, h);
@@ -99,7 +96,6 @@ function draw() {
     }
 }
 
-// moves stars
 function moveStars() {
     var xDir, yDir
     switch (starDirection) {
@@ -124,7 +120,6 @@ function moveStars() {
             rotation = 64;
             break;
     }
-    // move
     for (i = 0; i < starsBig.length; i++) {
         starsBig[i].xPos += ((-2 * xDir) / 20) * n;
         starsBig[i].yPos += ((1 * yDir) / 20) * n;
@@ -133,7 +128,6 @@ function moveStars() {
         starsSmall[i].xPos += ((-1 * xDir) / 30) * n;
         starsSmall[i].yPos += ((0.5 * yDir) / 30) * n;
     }
-    // wrap
     for (i = 0; i < starsBig.length; i++) {
         if (starsBig[i].xPos <= 0) {
             starsBig[i].xPos = w + starsBig[i].xPos;
@@ -160,14 +154,12 @@ function moveStars() {
     }
 }
 
-// animation controller
 function starfield() {
     draw();
     moveStars();
     window.requestAnimationFrame(starfield);
 }
 
-// generate beginning stars
 function generate() {
     starsBig = [];
     starsSmall = [];
@@ -179,7 +171,6 @@ function generate() {
     canvas.style.background = "url('../static/Images/BackNav/" + nebula_choice + "') center";
 }
 
-// engage
 function engage() {
     if (inProgress === 0) {
         inProgress = 1;
@@ -253,11 +244,11 @@ window.addEventListener("resize", function () {
 
 function navPanelEnter() {
     var nav = document.getElementById("NAV_PANEL");
-    var btn = document.getElementById("BACK_BUTTON");
-    var btn2 = document.getElementById("ARTC_BUTTON");
-    var btn3 = document.getElementById("CALC_BUTTON");
-    var btn4 = document.getElementById("OBJS_BUTTON");
-    var btn5 = document.getElementById("QUIZ_BUTTON");
+    var btn = document.getElementsByClassName("CenterNavButton")[0];
+    var btn2 = document.getElementsByClassName("LeftCloseNavButton")[0];
+    var btn3 = document.getElementsByClassName("RightCloseNavButton")[0];
+    var btn4 = document.getElementsByClassName("LeftFarNavButton")[0];
+    var btn5 = document.getElementsByClassName("RightFarNavButton")[0];
     var other = document.getElementById("LOWER_PART");
 
     other.style.filter = "brightness(40%)";
@@ -288,11 +279,11 @@ function navPanelEnter() {
 
 function navPanelLeave() {
     var nav = document.getElementById("NAV_PANEL");
-    var btn = document.getElementById("BACK_BUTTON");
-    var btn2 = document.getElementById("ARTC_BUTTON");
-    var btn3 = document.getElementById("CALC_BUTTON");
-    var btn4 = document.getElementById("OBJS_BUTTON");
-    var btn5 = document.getElementById("QUIZ_BUTTON");
+    var btn = document.getElementsByClassName("CenterNavButton")[0];
+    var btn2 = document.getElementsByClassName("LeftCloseNavButton")[0];
+    var btn3 = document.getElementsByClassName("RightCloseNavButton")[0];
+    var btn4 = document.getElementsByClassName("LeftFarNavButton")[0];
+    var btn5 = document.getElementsByClassName("RightFarNavButton")[0];
     var other = document.getElementById("LOWER_PART");
 
     other.style.filter = "brightness(100%)";
