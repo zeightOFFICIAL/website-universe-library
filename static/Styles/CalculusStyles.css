@@ -22,14 +22,32 @@ html {
     height: 45vh;
 }
 
+.RightPanel {
+    position: absolute;
+    top: 39%;
+    height: 30%;
+    left: 70%;
+    width: 30%;
+    z-index: 5;
+    align-content: center;
+    align-items: center;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.RightPanel p {
+    font-size: 2.5vmin;
+    text-align: center;
+    color: white;
+}
+
 .MainPanel {
     position: absolute;
     top: 25%;
-    height: 60%;
+    height: 55%;
     left: 30%;
     width: 40%;
     background-color: black;
-    border-radius: 40%;
     z-index: 5;
     transition: border .5s, box-shadow .5s;
 }
@@ -60,9 +78,85 @@ html {
     text-shadow: 0 0 40px greenyellow;
 }
 
+.CalcLowTitle {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    height: 2vmin;
+    font-family: 'normal';
+    font-size: 2vmin;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+.CalcForm {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    width: 80%;
+    height: 65%;
+    align-items: center;
+    text-align: center;
+    font-size: 3vmin;
+    font-family: 'normal';
+    color: white
+}
+
+.CalcForm input {
+    background-color: black;
+    font-size: 2.5vmin;
+    border: .1vmin grey solid;
+    text-align: center;
+    height: 3.5vmin;
+}
+
+.CalcForm button {
+    background-color: black;
+    font-size: 3vmin;
+    font-family: 'normal';
+    text-align: center;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+    transition: color .5s, background-color .6s;
+    cursor: pointer;
+    border: none;
+}
+
+.CalcForm select {
+    font-size: 2.5vmin;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+.CalcForm.green input,
+button {
+    color: green;
+}
+
+.CalcForm.green button:hover {
+    color: white;
+    background-color: green;
+}
+
 .MainPanel.green {
     border: solid 2px green;
     box-shadow: 0 0 50px greenyellow;
+}
+
+.CalcForm.red input, button {
+    color: red;
+}
+
+.CalcForm.red button:hover {
+    color: white;
+    background-color: orangered;
+}
+
+.MainPanel.red {
+    border: solid 2px red;
+    box-shadow: 0 0 50px orangered;
 }
 
 .MainPanel:hover {

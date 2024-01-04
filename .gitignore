@@ -1,8 +1,11 @@
-compiled/
-mysite/__pycache__/
+**/__pycache__/
+
 *.env
 *.pyc
-.idea
+
+compiled/
+.idea/
+.venv/
 
 static/Images/*
 static/Images/*.*
