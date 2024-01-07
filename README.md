@@ -20,6 +20,13 @@ Simple yet elegant solution for navigating through different pages of the librar
 
 ##### Star system page
 
+![Screenshot 2024-01-07 at 17-25-47 Hello Solar!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673)
+![Screenshot 2024-01-07 at 17-26-30 Hello Alpha Centauri!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f)
+![Screenshot 2024-01-07 at 17-26-41 Hello Trappist!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a)
+
+|![ezgif com-animated-gif-maker](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2a6f66ff-fe1c-4397-9417-011165fdcfe5)|![ezgif com-animated-gif-maker1](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/eef6d65f-af1c-4dab-85c9-8ca4e3c8a5c3)|![ezgif com-animated-gif-maker4](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/a60eb4b0-1325-40a5-9e37-06fc75e4035f)|![ezgif com-animated-gif-maker3](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/6ccbfc2f-0d7b-46f9-ab32-fdddf007dc7e)|
+|:---:|:---:|:---:|:---:|
+
 #### Calculus page
 
 ##### Calculator
@@ -58,9 +65,13 @@ Follow standard procedures. Do not forget to add .env which should contain SECRE
 
 ### Development notes
 
-#### Type classes UML
+#### System type classes UML
+
+![uml](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/81c3904b-4e25-4856-a63d-9668cf89aa1c)
 
 #### Systems ERD
+
+![erd](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/947bebee-b61f-4901-8cf8-8b8ad50c6579)
 
 #### Calculus ERD
 
@@ -77,8 +88,8 @@ Follow standard procedures. Do not forget to add .env which should contain SECRE
 3. Font <i>Earthorbiter</i> belongs to its rightful owner. Iconian Fonts and Daniel Zadorozny. (Original source: http://www.iconian.com and it's distribution mirror: https://fonts-online.ru/fonts/earth-orbiter)
 4. Font <i>Vanadine</i> belongs to its rightful owner. Axel Lymphos. (Original source: https://www.dafont.com/vanadine.font and mirror: https://fonts-online.ru/fonts/vanadine)
 5. Font <i>Alienleague</i> belongs to its rightful owner. Iconian Fonts and Daniel Zadorozny. (Original source: http://www.iconian.com and mirror: https://fonts-online.ru/fonts/alien-league)
-6. CodePen 
-7. CodePen
+6. CodePen: <i>Solar System Pure CSS by Shaahin Hosseini</i> (dist at: https://codepen.io/Falcon9901/pen/pbpzdG) used as inspiration and concept
+7. CodePen <i>Solar System Animation by Vivian Zhang</i> (dist at:https://codepen.io/taiwei426/pen/azObRN) used as inspiration and concept
 8. Library <i>SwiperJS</i> belongs to it's contributors, and distributed under MIT License (https://github.com/nolimits4web/swiper, https://swiperjs.com/)
 9. Library
 10. Images
