@@ -11,6 +11,7 @@ function onLoadAny() {
         showSlides(1, slider);
     })
 }
+
 function objClicked(idToReveal) {
     hideAllObjects();
     let object = document.getElementById(idToReveal);
@@ -76,6 +77,7 @@ function openSidepanel() {
     right_side.style.left = "52%";
     right_side.style.width = "48%";
 }
+
 function closeSidepanel() {
     if (document.getElementById("STAR_SIDEPANEL") == null) {
         return;
@@ -87,6 +89,7 @@ function closeSidepanel() {
     right_side.style.left = "43%";
     right_side.style.width = "57%";
 }
+
 function openSystempanel() {
     document.getElementById("UNIVERSE_SIDEPANEL").style.width = "16%";
     let left_side = document.querySelectorAll(".LeftPanel");
@@ -95,6 +98,7 @@ function openSystempanel() {
     right_side.style.left = "52%";
     right_side.style.width = "48%";
 }
+
 function closeSystempanel() {
     if (document.getElementById("UNIVERSE_SIDEPANEL") == null) {
         return;

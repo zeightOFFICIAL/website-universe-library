@@ -8,76 +8,76 @@ from mysite.settings import BASE_DIR
 
 
 def get_sql_system_id(f_name: str) -> int:
-    row = Systems.objects.get(name=f_name)
+    row = Systems.objects.get(name_name = f_name)
     return row.pk
 
 
 def get_sql_systems_thumbnail() -> list:
-    all_systems = []
-    row = Systems.objects.all()
-    for each_row in row:
-        all_systems.append(
-            [each_row.name, each_row.univ_thumbnail, each_row.prime_color]
+    a_systems = []
+    a_row = Systems.objects.all()
+    for row in a_row:
+        a_systems.append(
+            [row.name_name, row.univ_thumbnail_text_url, row.prime_color_any]
         )
-    return all_systems
+    return a_systems
 
 
 def get_sql_cards() -> list:
-    cards = []
-    row = Systems.objects.all()
-    for each_row in row:
-        href = each_row.name.replace(" ", "")
+    a_cards = []
+    a_rows = Systems.objects.all()
+    for row in a_rows:
+        href = row.name_name.replace(" ", "")
         card = CardClass(
-            each_row.pk,
-            each_row.name,
+            row.pk,
+            row.name_name,
             href,
-            each_row.short_desc,
-            [each_row.prime_color, each_row.second_color],
+            row.short_desc_text,
+            [row.prime_color_a_plainny, row.second_color_a_plainny],
             f"{href}cover",
             f"{href.lower()}",
         )
-        cards.append(card)
+        a_cards.append(card)
 
-    return cards
+    return a_cards
 
 
 def get_sql_system(f_id: int) -> SystemClass:
     row = Systems.objects.get(pk=f_id)
 
     l_objects_list = []
-    for obj in Objects.objects.all().filter(system=f_id).order_by("orbit_size"):
+    for obj in Objects.objects.all().filter(system=f_id).order_by("orbit_size_int_vmin"):
         l_objects_list.append(get_sql_object(obj.pk))
 
     l_main_panels_list = []
-    for pnl in Panels.objects.all().filter(parent_system=f_id).order_by("div_id"):
+    for pnl in Panels.objects.all().filter(parent_system=f_id).order_by("div_id_name"):
         l_main_panels_list.append(get_sql_panel(pnl.pk))
     l_main_panels_list.sort(key=attrgetter("id"))
 
-    if not os.path.exists(f"{BASE_DIR}/static/Icons/{row.icon_path}"):
-        row.icon_path = "AlternativeIcon.ico"
+    if not os.path.exists(f"{BASE_DIR}/static/Icons/{row.icon_path_text_url}"):
+        row.icon_path_text_url = "AlternativeIcon.ico"
 
     n_system = SystemClass(
         row.pk,
-        row.name,
+        row.name_name,
         l_main_panels_list,
         l_objects_list,
-        "Icons/" + row.icon_path,
-        [row.prime_color, row.second_color, row.shadow_color],
+        "Icons/" + row.icon_path_text_url,
+        [row.prime_color_any, row.second_color_any, row.shadow_color_any],
     )
     return n_system
 
 
 def get_sql_object(f_id: int) -> ObjectClass:
     row = Objects.objects.get(pk=f_id)
-    l_div_id = row.div_id
-    l_name = row.name
-    l_type_id = row.type_name
+    l_div_id = row.div_id_name
+    l_name = row.name_name
+    l_type_id = row.type
     l_panels = []
     l_sub_obj = []
     for panel in (
         Panels.objects.all()
         .filter(parent_object=f_id)
-        .filter(values__is_slider="False")
+        .filter(values__is_slider_bool="False")
     ):
         l_panels.append(get_sql_panel(panel.pk))
 
@@ -87,17 +87,17 @@ def get_sql_object(f_id: int) -> ObjectClass:
     n_object = ObjectClass(
         l_div_id,
         l_name,
-        l_type_id.name,
+        l_type_id.type_name,
         [
-            f"{row.size}vh",
-            f"-{row.size/2}vh",
-            row.prime_color,
-            row.second_color,
-            row.shadow_power,
-            row.shadow_color,
+            f"{row.size_int}vh",
+            f"-{row.size_int/2}vh",
+            row.prime_color_any,
+            row.second_color_any,
+            row.shadow_power_int_px,
+            row.shadow_color_any,
         ],
-        [f"{row.orbit_size}vh", f"-{row.orbit_size/2}vh"],
-        str(row.orbit_time),
+        [f"{row.orbit_size_int_vmin}vh", f"-{row.orbit_size_int_vmin/2}vh"],
+        str(row.orbit_time_int_s),
         l_panels,
         l_sub_obj,
     )
@@ -107,94 +107,94 @@ def get_sql_object(f_id: int) -> ObjectClass:
 
 def get_sql_panel(f_id: int) -> BasePanel:
     row = Panels.objects.get(pk=f_id)
-    l_div_id = row.div_id
+    l_div_id = row.div_id_name
     l_type_id = row.type
     l_values_id = row.values
-    l_is_slider = True if l_values_id.is_slider == "True" else False
-    l_close_button = True if l_values_id.close_button == "True" else False
+    l_is_slider = True if l_values_id.is_slider_bool == "True" else False
+    l_close_button = True if l_values_id.close_button_bool == "True" else False
 
     n_panel = BasePanel("_NONE_")
     match l_type_id.id:
         case 1:
             n_panel = SimpleMusicSlider(
                 l_div_id,
-                l_values_id.img_src,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                l_values_id.img_src_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
             )
         case 2:
             needled = []
-            for href in l_values_id.extra_hrefs.split(","):
+            for href in l_values_id.extra_args.split(","):
                 needled.append(get_sql_panel(int(href)))
             n_panel = PanelSlider(
                 l_div_id,
                 needled,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
             )
         case 3:
             n_panel = SimpleVideoPanel(
                 l_div_id,
-                l_values_id.img_src,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                l_values_id.img_src_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
             )
         case 4:
             n_panel = CombinedSimplePanel(
                 l_div_id,
-                l_values_id.text,
-                l_values_id.img_src,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
-                l_values_id.layout,
+                l_values_id.text_plain,
+                l_values_id.img_src_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
+                l_values_id.layout_int,
                 l_is_slider,
             )
         case 5:
             n_panel = SimpleImagePanel(
                 l_div_id,
-                l_values_id.img_src,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                l_values_id.img_src_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
                 l_is_slider,
             )
         case 6:
             n_panel = CombinedHeaderPanel(
                 l_div_id,
-                l_values_id.title,
-                l_values_id.text,
-                l_values_id.img_src,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
-                [l_values_id.h_color_a, l_values_id.h_color_b],
-                l_values_id.layout,
+                l_values_id.title_plain,
+                l_values_id.text_plain,
+                l_values_id.img_src_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
+                [l_values_id.h_color_a_plain, l_values_id.h_color_b_plain],
+                l_values_id.layout_int,
                 l_is_slider,
             )
         case 7:
             n_panel = HeaderTextPanel(
                 l_div_id,
-                l_values_id.title,
-                l_values_id.text,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
-                [l_values_id.h_color_a, l_values_id.h_color_b],
+                l_values_id.title_plain,
+                l_values_id.text_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
+                [l_values_id.h_color_a_plain, l_values_id.h_color_b_plain],
                 l_is_slider,
                 l_close_button,
-                l_values_id.extra_hrefs.split(" "),
+                l_values_id.extra_args.split(" "),
             )
         case 8:
             n_panel = TopHeaderTextPanel(
                 l_div_id,
-                l_values_id.title,
-                l_values_id.text,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
-                [l_values_id.h_color_a, l_values_id.h_color_b],
+                l_values_id.title_plain,
+                l_values_id.text_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
+                [l_values_id.h_color_a_plain, l_values_id.h_color_b_plain],
                 l_is_slider,
             )
         case 9:
             n_panel = SimpleTextPanel(
                 l_div_id,
-                l_values_id.text,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                l_values_id.text_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
                 l_is_slider,
             )
         case 11:
             n_panel = SimpleTable(
                 l_div_id,
-                l_values_id.text,
-                [l_values_id.color_a, l_values_id.color_b, l_values_id.color_c],
+                l_values_id.text_plain,
+                [l_values_id.color_a_plain, l_values_id.color_b_plain, l_values_id.color_c_plain],
             )
         case _:
             n_panel

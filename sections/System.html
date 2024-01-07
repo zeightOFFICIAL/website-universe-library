@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% load static %}
+        {% load static %}        
         {{ head| safe }}
+        <link rel="stylesheet" href="{% static 'Styles/SystemStyles.css' %}" charset="UTF-8">
     </head>
     <body onload="onLoadAny();">
         {{ sidepanel_buttons| safe}}

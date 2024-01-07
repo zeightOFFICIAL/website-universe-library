@@ -1,5 +1,4 @@
-from mysite.Types.StyleType import Style
-from mysite.Types.StyleType import EventHandlers
+from mysite.Types.StyleType import Style, EventHandlers
 
 """
 {
@@ -90,17 +89,17 @@ class HeaderTextPanel(SimpleTextPanel):
             self.close_button = f'<button class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0])} {EventHandlers.object_click("SYSTEM_INFO")} {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#10006;</button>'
         button_pos_start = 5.5
         button_pos_increment = 15
-        self.extra_buttons = ""
+        self.extra_buttons_str = ""
         count = 1
         for href in extra_buttons:
             button_pos_start += button_pos_increment
             href_str = f'href="{href}"'
             button_id = f"EXTRA_INFO{self.id}{count}"
-            self.extra_buttons += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 3.5, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
+            self.extra_buttons_str += f'<a class="BorderButton" id="{button_id}" {Style.Button.on_border(colors[0], 3.5, str(button_pos_start)+"%")} {href_str} target="_blank" {EventHandlers.hover(button_id, "HoveredBorderButton")}>&#9783;</a>'
             count += 1
 
     def __repr__(self) -> str:
-        return f"{self.close_button}{self.extra_buttons}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>"
+        return f"{self.close_button}{self.extra_buttons_str}<div {self.div_style} {self.embed_id} {self.hover}><h3 {self.h_style}> {self.title} </h3><p {self.p_style}> {self.text} </p></div>"
 
 
 class CombinedHeaderPanel(HeaderTextPanel):
@@ -236,7 +235,6 @@ class SimpleTable(BasePanel):
         for values in self.text.split(";"):
             if len(values) < 2:
                 continue
-            print(values.split(":")[0])
             table_content += f"<tr {self.text_style}><th {self.ths_style}>{values.split(':')[0]}</th><th {self.ths_style}>{values.split(':')[1]}</th></tr>"
 
         return f"<div {self.div_style} {self.embed_id} {self.hover}><table {self.table_style}>{table_content}</table></div>"

@@ -1,6 +1,4 @@
-from mysite.Types.StyleType import Style
-from mysite.Types.StyleType import Visual
-from mysite.Types.StyleType import EventHandlers
+from mysite.Types.StyleType import Style, Visual, EventHandlers
 from mysite.Types.PanelType import BasePanel
 
 
@@ -10,8 +8,8 @@ class ObjectClass:
         id: str,
         name: str,
         obj_type: str,
-        object_args: list[str],
-        orbit_args: list[str],
+        obj_args: list[str],
+        orb_args: list[str],
         spin_arg: str,
         panels: list[BasePanel],
         subobjects=[],
@@ -20,20 +18,20 @@ class ObjectClass:
         self.name = name
         self.type = obj_type
 
-        self.object_args = object_args
-        self.orbit_args = orbit_args
-        self.spin_args = orbit_args + [spin_arg]
+        self.obj_args = obj_args
+        self.orb_args = orb_args
+        self.spin_args = orb_args + [spin_arg]
 
         self.panels = panels
         self.subobjects = subobjects
 
-        self.main_color = object_args[2]
-        self.second_color = object_args[3]
-        self.object_description = Visual.Object(object_args)
-        self.object_click = EventHandlers.object_click(self.id + "_INFO")
-        self.orbit_description = Visual.Orbit(orbit_args)
+        self.main_color = obj_args[2]
+        self.second_color = obj_args[3]
+        self.object_description = Visual.Object(obj_args)
+        self.orbit_description = Visual.Orbit(orb_args)
         self.spin_description = Visual.Spin(self.spin_args)
-        self.hovering = EventHandlers.hover_object(
+        self.object_click_conf = EventHandlers.object_click(self.id + "_INFO")
+        self.hovering_conf = EventHandlers.hover_object(
             id + "_OBJ", "HoveredObject", id + "_TOOLTIP"
         )
 
@@ -43,7 +41,7 @@ class ObjectClass:
             objects_str += object.__repr__()
         div_orbit = f"<div {self.orbit_description}></div>"
         div_spin = f"<div {self.spin_description}>"
-        div_obj = f'<div id="{self.id}_OBJ" class="Object" {self.object_description} {self.object_click} {self.hovering}></div>{objects_str}</div>'
+        div_obj = f'<div id="{self.id}_OBJ" class="Object" {self.object_description} {self.object_click_conf} {self.hovering_conf}></div>{objects_str}</div>'
         return f"{div_orbit}{div_spin}{div_obj}"
 
     def get_panels(self) -> str:

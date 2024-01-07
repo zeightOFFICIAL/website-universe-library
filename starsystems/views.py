@@ -1,7 +1,8 @@
-# from static.Types.SystemType import SystemClass
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+
 from mysite.PredefinedSystems.AlphaCentauri import System as Alpha
 from mysite.PredefinedSystems.SolarSystem import System as Solar
+
 from mysite.Types.DeckType import DeckClass
 from mysite.Types.CardType import CardClass
 from mysite.ServerScripts import (
@@ -12,10 +13,10 @@ from mysite.ServerScripts import (
 )
 
 
-def universe_page(request):
-    cards = []
+def universe_page(request) -> HttpResponse:
+    all_cards = []
 
-    cards.insert(
+    all_cards.insert(
         0,
         CardClass(
             -2,
@@ -27,7 +28,7 @@ def universe_page(request):
             "Alpha",
         ),
     )
-    cards.insert(
+    all_cards.insert(
         0,
         CardClass(
             -1,
@@ -41,23 +42,23 @@ def universe_page(request):
     )
 
     for card in get_sql_cards():
-        cards.append(card)
+        all_cards.append(card)
 
-    Deck = DeckClass(1, cards)
+    Deck = DeckClass(1, all_cards)
     return render(request, "Universe.html", {"cards": Deck.__repr__()})
 
 
-def template_system_page(request, name):
+def template_system_page(request, name) -> HttpResponse:
     system_id = get_sql_system_id(name)
     System = get_sql_system(system_id)
     return render(
         request,
         "System.html",
         {
-            "head": System.get_head,
+            "head": System.get_html_head,
             "mainpanels": System.get_main_panels,
             "accentbar": System.get_accent_bar,
-            "objects": System.get_objects_str,
+            "objects": System.get_objects_repr,
             "panels": System.get_object_panels,
             "sidepanel_objects": System.get_star_sidepanel,
             "sidepanel_buttons": System.get_side_buttons,
@@ -66,15 +67,15 @@ def template_system_page(request, name):
     )
 
 
-def alpha_system_page(request):
+def alpha_system_page(request) -> HttpResponse:
     return render(
         request,
         "System.html",
         {
-            "head": Alpha.get_head,
+            "head": Alpha.get_html_head,
             "mainpanels": Alpha.get_main_panels,
             "accentbar": Alpha.get_accent_bar,
-            "objects": Alpha.get_objects_str,
+            "objects": Alpha.get_objects_repr,
             "panels": Alpha.get_object_panels,
             "sidepanel_objects": Alpha.get_star_sidepanel,
             "sidepanel_buttons": Alpha.get_side_buttons,
@@ -83,15 +84,15 @@ def alpha_system_page(request):
     )
 
 
-def solar_system_page(request):
+def solar_system_page(request) -> HttpResponse:
     return render(
         request,
         "System.html",
         {
-            "head": Solar.get_head,
+            "head": Solar.get_html_head,
             "mainpanels": Solar.get_main_panels,
             "accentbar": Solar.get_accent_bar,
-            "objects": Solar.get_objects_str,
+            "objects": Solar.get_objects_repr,
             "panels": Solar.get_object_panels,
             "sidepanel_objects": Solar.get_star_sidepanel,
             "sidepanel_buttons": Solar.get_side_buttons,

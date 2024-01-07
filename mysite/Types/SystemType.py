@@ -30,12 +30,11 @@ class SystemClass:
             object_list += object.get_subobjects()
         return object_list
 
-    def get_head(self) -> str:
+    def get_html_head(self) -> str:
         title = f"Hello {self.name}!"
         meta = f'charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"'
         link_icon = f'rel="icon" href="../static/{self.icon}"'
-        link_style = f'rel="stylesheet" href="../static/Styles/SystemStyles.css"'
-        head = f"<meta {meta}/><link {link_icon}><link {link_style}><title> {title} </title>"
+        head = f"<meta {meta}/><link {link_icon}><title> {title} </title>"
         return head
 
     def get_main_panels(self) -> str:
@@ -45,7 +44,7 @@ class SystemClass:
         panels_str = f'<div id="SYSTEM_INFO" class="LeftPanel" onclick="closeSidepanel();closeSystempanel();"> {panels_str} </div>'
         return panels_str
 
-    def get_objects_str(self) -> str:
+    def get_objects_repr(self) -> str:
         objects_str = ""
         tooltip_str = ""
         for object in self.objects:

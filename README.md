@@ -40,6 +40,12 @@ Descending order
 * SQLite
 * GitHub
 
+### Technologies
+
+* Visual Studio Code (https://code.visualstudio.com/)
+* SQLiteStudio (https://sqlitestudio.pl/)
+* DBeaver (https://dbeaver.io/)
+
 ### Launch conditions
 
 Follow standard procedures. Do not forget to add .env which should contain SECRET_KEY, to makemigrations/migrate. Please note that this website do not have configurations and contents to be simply deployed. Use your own methods to effectively deploy.
