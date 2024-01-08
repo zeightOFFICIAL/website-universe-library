@@ -20,12 +20,9 @@ Simple yet elegant solution for navigating through different pages of the librar
 
 ##### Star system page
 
-![Screenshot 2024-01-07 at 17-25-47 Hello Solar!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673)
-![Screenshot 2024-01-07 at 17-26-30 Hello Alpha Centauri!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f)
-![Screenshot 2024-01-07 at 17-26-41 Hello Trappist!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a)
-
-|![ezgif com-animated-gif-maker](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2a6f66ff-fe1c-4397-9417-011165fdcfe5)|![ezgif com-animated-gif-maker1](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/eef6d65f-af1c-4dab-85c9-8ca4e3c8a5c3)|![ezgif com-animated-gif-maker4](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/a60eb4b0-1325-40a5-9e37-06fc75e4035f)|![ezgif com-animated-gif-maker3](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/6ccbfc2f-0d7b-46f9-ab32-fdddf007dc7e)|
-|:---:|:---:|:---:|:---:|
+![Hello Solar!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673)
+![Hello Alpha Centauri!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f)
+![Hello Trappist!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a)
 
 #### Calculus page
 
@@ -65,13 +62,13 @@ Follow standard procedures. Do not forget to add .env which should contain SECRE
 
 ### Development notes
 
-#### System type classes UML
+#### System types UML
 
-![uml](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/81c3904b-4e25-4856-a63d-9668cf89aa1c)
+![UML](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/81c3904b-4e25-4856-a63d-9668cf89aa1c)
 
 #### Systems ERD
 
-![erd](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/947bebee-b61f-4901-8cf8-8b8ad50c6579)
+![erd](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/45db7b66-fe53-476a-a432-f241632dbf30)
 
 #### Calculus ERD
 
