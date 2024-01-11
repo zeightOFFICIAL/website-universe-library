@@ -20,9 +20,12 @@ Simple yet elegant solution for navigating through different pages of the librar
 
 ##### Star system page
 
-![Hello Solar!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673)
-![Hello Alpha Centauri!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f)
-![Hello Trappist!](https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a)
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673"  width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f"  width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a"  width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/1f8335c3-3f67-420f-aa20-2e2dcd10b1e5"  width="49%"></img>
+
+
 
 #### Calculus page
 
@@ -86,7 +89,7 @@ Follow standard procedures. Do not forget to add .env which should contain SECRE
 4. Font <i>Vanadine</i> belongs to its rightful owner. Axel Lymphos. (Original source: https://www.dafont.com/vanadine.font and mirror: https://fonts-online.ru/fonts/vanadine)
 5. Font <i>Alienleague</i> belongs to its rightful owner. Iconian Fonts and Daniel Zadorozny. (Original source: http://www.iconian.com and mirror: https://fonts-online.ru/fonts/alien-league)
 6. CodePen: <i>Solar System Pure CSS by Shaahin Hosseini</i> (dist at: https://codepen.io/Falcon9901/pen/pbpzdG) used as inspiration and concept
-7. CodePen <i>Solar System Animation by Vivian Zhang</i> (dist at:https://codepen.io/taiwei426/pen/azObRN) used as inspiration and concept
+7. CodePen <i>Solar System Animation by Vivian Zhang</i> (dist at: https://codepen.io/taiwei426/pen/azObRN) used as inspiration and concept
 8. Library <i>SwiperJS</i> belongs to it's contributors, and distributed under MIT License (https://github.com/nolimits4web/swiper, https://swiperjs.com/)
 9. Library
 10. Images
