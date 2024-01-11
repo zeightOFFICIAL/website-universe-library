@@ -57,6 +57,11 @@ function hideAllObjects() {
     allAudio.forEach((audio) => {
         audio.pause();
     })
+    let allVideo = document.querySelectorAll('iframe');
+    allVideo.forEach((video) => {
+        var temp = video.src;
+        video.src = temp; 
+    })
     let leftPanels = document.querySelectorAll(".LeftPanel");
     leftPanels.forEach((panel) => {
         panel.style.textIndent = '-1000em';

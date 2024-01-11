@@ -32,7 +32,7 @@ def get_sql_cards() -> list:
             row.name_name,
             href,
             row.short_desc_text,
-            [row.prime_color_a_plainny, row.second_color_a_plainny],
+            [row.prime_color_a_plain, row.second_color_a_plain],
             f"{href}cover",
             f"{href.lower()}",
         )

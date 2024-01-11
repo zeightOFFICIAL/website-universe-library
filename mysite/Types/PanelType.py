@@ -184,11 +184,11 @@ class SimpleVideoPanel(BasePanel):
         super().__init__(id)
         self.div_style = Style.Box.image_info(colors[0], colors[2])
         self.iframe_style = Style.Video.normal()
-        self.video = f'src="{url}"'
+        self.video = f'src="{url}?enablejsapi=1"'
         self.hover = EventHandlers.hover(self.id, "HoveredBorder")
 
     def __repr__(self) -> str:
-        return f'<div {self.div_style} {self.embed_id} {self.hover}><iframe {self.video} {self.iframe_style} loading="lazy"></iframe></div>'
+        return f'<div {self.div_style} {self.embed_id} {self.hover} class="Video"><iframe {self.video} {self.iframe_style} loading="lazy"></iframe></div>'
 
 
 class PanelSlider(BasePanel):

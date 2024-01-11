@@ -81,6 +81,11 @@ main6 = SimpleImagePanel(
     "https://qph.cf2.quoracdn.net/main-qimg-eaa83733f851357753819fa41973b423",
     MAIN_COLORS,
 )
+main7 = SimpleVideoPanel(
+    "MAINPANEL7",
+    "https://www.youtube.com/embed/XKbQuNF0zPo?si=IDiopp74aI9ANxrN",
+    MAIN_COLORS,
+)
 
 # OBJECT PANELS
 apanel0 = HeaderTextPanel(
@@ -348,7 +353,7 @@ Prox = ObjectClass(
 System = SystemClass(
     2,
     "Alpha Centauri",
-    [main0, main1, main2, main3, main4, main5, main6],
+    [main0, main1, main2, main3, main4, main5, main6, main7],
     [Alpha, Beta, Prox],
     "Icons/alternativeicon.ico",
     MAIN_COLORS,
