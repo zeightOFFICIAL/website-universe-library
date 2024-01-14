@@ -1,10 +1,3 @@
-<style>
-td, th {
-   border: none!important;
-   padding: 0!important;
-}
-</style>
-
 ## <p align="center"> Website – interactive library for information about universe, space and objects within</p>
 
 ### Created by Artemii "Zeight" Saganenko
@@ -13,43 +6,32 @@ td, th {
 
 ### Description
 
-The online library of the universe, objects in it, patterns and other scientific facts. The site provides the user with information from various sources and different formats to study and gain knowledge. The information presented on this site can be used to obtain basic knowledge about the Universe, both in educational institutions and for personal purposes. Information formats: vector images of various star systems, text describing individual facts or general information about some objects, raster images of some particularly important objects, embedded video and audio. The main goal is to increase the user's awareness of the structure of the Universe, galaxies, and star systems within it. Main advantages: modularity, simplicity and ease of navigation. Level of knowledge: between basic and intermediate. This is a simple, heavily bugged Django web-site, which implements some of its features. It uses native and custom backend scripts, backend database.
+The online library of the universe, objects in it, patterns and other scientific facts. The site provides the user with information from various sources and different formats to study and gain knowledge. The information presented on this site can be used to obtain basic knowledge about the Universe, both in educational institutions and for personal purposes. Information formats: visual representation of various star systems, text describing individual facts or general information about some objects, raster images of some particularly important objects, embedded video and audio. The main goal is to increase the user's awareness of the structure of the Universe, galaxies, and star systems within it. Main advantages: modularity, simplicity and ease of navigation. Level of knowledge: between basic and intermediate. This is a simple, heavily bugged Django web-site, which implements some of its features. It uses native and custom backend scripts, backend database.
 
 ### Features
 
 #### Star system page
 
-The first and primal goal of this project is to improve people's awareness of the structure and content of the Universe. The star system page was the first thing created during development. This is the main page that allows the user to look at various space systems, gain some knowledge, learn. It features a three panel view which allows users to learn about space using various types of information. Audio, video, text, images, etc.
+The first and primal goal of this project is to improve people's awareness of the structure and content of the Universe. The star system page was the first thing created during development. This is one of the most important pages that allows the user to look at various space systems, gain some knowledge, learn. It features a three panel view which allows users to learn about space using various types of information. Audio, video, text, images, etc.
 
-Currently, implemented database and predefined python instances, allows watching over several star systems. Two of them are completely ready, one is almost completed, and one has a backbone and some additional info. This proves the technical consistency, and general modularity in the project's subsection. Since, half of the systems are predefined and half is generated based on DB content.
+Currently, implemented database and predefined python instances, allows watching over several star systems. Two of them are completely ready, one is almost completed, and one has a backbone and some additional info. This proves the technical consistency, and general modularity in the project's subsection. Since half of the systems are predefined and half is generated based on DB content.
 
-<table>
-<tr>
-    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673"></img></td>
-    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f"></img></td>
-</tr>
-<tr>
-    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a"></img></td>
-    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7e403369-f652-429f-a492-0ad959d77afa"></img> </td>
-</tr>
-</table>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673" width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f" width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a" width="49%"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7e403369-f652-429f-a492-0ad959d77afa" width="49%"></img>
 
+The page is divided into three parts from left to right: the navigation bar, the information bar, and the visual system layout. Each panel provides a convenient way to explore and learn. Three of them combined creates a user-friendly, convenient experience with simple navigation and laconic interface. Which in the end makes it enjoyable and easy to learn about space. The leftmost panel is the navigation panel, which contains three buttons, from top to bottom: open object side panel, open star side panel, return to universe page. The middle panel is information panel, it displays the details about various objects within special frames, using different information types. The rightmost panel, is the visual representation panel, which shows a visual imitation of the system's top-down view.
 
-The page is divided into three parts from left to right: the navigation bar, the information bar, and the visual system layout. Each panel provides a convenient way to explore and learn. Three of them combined creates a user-friendly, convenient experience with simple navigation and laconic interface. Which in the end makes it enjoyable and easy to learn about space. The leftmost panel is the navigation panel, which contains three buttons, from top to bottom: open object side panel, open star side panel, return to universe page. The middle panel is information panel, it displays the details about various objects within special frames, using different information types. The rightmost panel, is the visual representation panel, which shows a raster imitation of the system's top-down view.
+The objects' sidebar lists the most prominent objects (the ones detailed in DB or predefined instance) in the stellar system. Each name is clickable and will eventually display information about the selected item in the center and right panels. Additionally, when you hover over an object, it will be highlighted in the system layout panel. It utilizes simple JS scripts and forced styles to open/close, hover-highlight, click/show. The star sidebar lists all available star systems (the ones that are listed in DB or is an instance), it allows jumping to other's star system pages. It uses HTML's anchor, href, JS's scripts for hovering animation. Both utilizes server side script that gets information from DB, or instances.
 
-The objects' sidebar lists the most prominent objects (the ones detailed in DB or predefined instance) in the stellar system. Each name is clickable and will eventually display information about the selected item in the center and right panels. Additionally, when you hover over an object, it will be highlighted in the system layout panel. It utilizes simply JS scripts and forced styles to open/close, hover-highlight, click/show. The star sidebar lists all available star systems (the ones that are listed in DB or is an instance), it allows jumping to other's star system pages. It uses HTML's anchor, href, JS's scripts for hovering animation.
+The information panel, is the prime section which displays sets of different frames that hold various facts, texts and so on. The modular way of interpreting information from DB or instances have been implemented, the transformation cycle will be displayed further. Simply speaking, it allows representing different types of information in a specially designed way. Each frame, the container of information is script-generated, depending on columns (in case of DB) or fields (in case of predefined instance), values. So frame is generated and embedded into the HTML with a help of server side scripts. It can store images, texts, titles, sliders, audio, video, tables, based in the way author was intended to display this particular part. HTML, JS scripts and Python scripts are responsible for proper representation. 
 
-The information panel, is the prime section which displays sets of different frames that hold various facts, texts and so on. The modular way of interpreting information from DB or instances have been implemented, the transformation cycle will be displayed further. Simply speaking, it allows representing different types of information in a specially designed way. Each frame, the container of information is script-generated, depending on columns (in case of DB) or fields (in case of predefined instance), values. So frame is generated and embedded into the HTML with a help of server side scripts. It can store images, texts, titles, sliders, audio, video, tables, based in the way author was intended to display this particular part.
+The visual representation panel allows users to observe the stellar system from a top-down view. Scaling was not implemented, but timing is partially. Roughly, one day of real time was narrowed down to one second. So 365 days equals 365 seconds. This mostly does not concern moons and other objects with orbiting time less than day. The entire visual representation with animation is generated with a help of server side script which parses for objects, orbit and spin that are described in DB's columns or instance's fields.
 
-The visual representation panel allows users to observe the stellar system from a top-down view. Scaling was not implemented, but timing is partially. Roughly, one day of real time was narrowed down to one second. So 365 days equals 365 seconds. This mostly does not concern moons and other objects with orbiting time less than day. The entire visual representation with animation is generated with a help of server side script which parses for objects, orbit, spin, that are described in DB's columns or instance's fields.
-
-<table>
-<tr>
-    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4"></img></td>
-    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896"></img></td>
-    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04"></img></td>
-</tr>
-</table>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="210px"></img>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="210px"></img>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="210px"></img>
 
 <table>
 <tr>
