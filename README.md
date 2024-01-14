@@ -1,4 +1,9 @@
-# <p align="center"> Website Universe Library </p>
+<style>
+td, th {
+   border: none!important;
+   padding: 0!important;
+}
+</style>
 
 ## <p align="center"> Website – interactive library for information about universe, space and objects within</p>
 
@@ -8,57 +13,77 @@
 
 ### Description
 
-An online library of the universe, objects in it, patterns and other scientific facts. The site provides the user with information from various sources and different formats to study and gain knowledge. The information presented on this site can be used to obtain basic knowledge about the universe both in educational institutions and for personal purposes. Information formats: vector images of various star systems, text describing individual facts or general information about some objects, raster images of some particularly important objects, embedded video and audio. The main goal is to increase the user's awareness of the structure of the Universe, galaxies and star systems within it. Main advantages: modularity, simplicity and ease of navigation. Level of knowledge: between basic and intermediate.
+The online library of the universe, objects in it, patterns and other scientific facts. The site provides the user with information from various sources and different formats to study and gain knowledge. The information presented on this site can be used to obtain basic knowledge about the Universe, both in educational institutions and for personal purposes. Information formats: vector images of various star systems, text describing individual facts or general information about some objects, raster images of some particularly important objects, embedded video and audio. The main goal is to increase the user's awareness of the structure of the Universe, galaxies, and star systems within it. Main advantages: modularity, simplicity and ease of navigation. Level of knowledge: between basic and intermediate. This is a simple, heavily bugged Django web-site, which implements some of its features. It uses native and custom backend scripts, backend database.
 
 ### Features
 
-#### Main menu
+#### Star system page
 
-Simple yet elegant solution for navigating through different pages of the library.
+The first and primal goal of this project is to improve people's awareness of the structure and content of the Universe. The star system page was the first thing created during development. This is the main page that allows the user to look at various space systems, gain some knowledge, learn. It features a three panel view which allows users to learn about space using various types of information. Audio, video, text, images, etc.
 
-#### Universe page
+Currently, implemented database and predefined python instances, allows watching over several star systems. Two of them are completely ready, one is almost completed, and one has a backbone and some additional info. This proves the technical consistency, and general modularity in the project's subsection. Since, half of the systems are predefined and half is generated based on DB content.
 
-##### Star system page
-The first and main goal of this project is to improve people's awareness of the structure and content of the Universe. The star system page was the first thing created during development. This is the main page that allows the user to look at various space systems, gain some knowledge, and learn.
-
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673"  width="49.45%"></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f"  width="49.45%"></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a"  width="49.45%"></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7e403369-f652-429f-a492-0ad959d77afa"  width="49.45%"></img>
-
-The page is divided into three parts from left to right: the navigation bar, the information bar, and the visual system layout. Each panel provides a convenient way to explore and learn. The leftmost panel is the navigation panel, which contains three buttons, from top to bottom: open object side panel, open star side panel, return to universe page. 
-
-The objects' sidebar lists the most prominent objects in the stellar system. Each name is clickable and will eventually display information about the selected item in the center and right panels. Additionally, when you hover over an object, it will be highlighted in the system layout panel. It utilizes simply JS scripts and forced styles to open/close, hover-highlight, click/show.
-
-The star sidebar lists all available star systems, it shows every single one of them currently implemented as predifined or from DB.
-
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="191px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="191px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/f8a6563f-add9-4b67-b1bc-4d80f1a3627b" height="191px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="385px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/ad31080d-8b1c-47a1-9eaa-87aeeddd2257" height="385px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e3e00fd2-e91c-4ded-9cd7-14509a8a43b4" height="385px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/01134aa0-f82e-41b4-84a6-9ec17804aba5" height="184px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7c543244-da08-437b-bb6d-495d4d5be9ce" height="184px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/0ccb7099-da80-4dc1-81a9-b6931ea722ca" height="90px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/fd0078cf-efd7-4d03-b506-9599e623ff6c" height="90px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/1a63907e-22da-4e66-b3c1-1ac1accc5a5c" height="90px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/003afaf7-c524-4fba-aa4b-fac9f6c95b5d" height="90px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/63d8282a-10db-40a7-a25b-be230d5e611d" height="90px" ></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/c74ad5b5-5a88-49d9-a23c-af6e4cb33a12" height="263px"></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2d40a8bc-1847-444c-a20e-5c2df9f12e5b" height="263px"></img>
-<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/160789b9-2fce-4f31-aec0-d2741a1cfd1a" height="263px"></img>
+<table>
+<tr>
+    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5d14701d-192e-42d5-94dc-5cadad559673"></img></td>
+    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7fade4e1-cbe9-482c-b7e3-b5958e73831f"></img></td>
+</tr>
+<tr>
+    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/5fae56a0-ac07-47b9-8413-d93d8a59498a"></img></td>
+    <td><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7e403369-f652-429f-a492-0ad959d77afa"></img> </td>
+</tr>
+</table>
 
 
-#### Calculus page
+The page is divided into three parts from left to right: the navigation bar, the information bar, and the visual system layout. Each panel provides a convenient way to explore and learn. Three of them combined creates a user-friendly, convenient experience with simple navigation and laconic interface. Which in the end makes it enjoyable and easy to learn about space. The leftmost panel is the navigation panel, which contains three buttons, from top to bottom: open object side panel, open star side panel, return to universe page. The middle panel is information panel, it displays the details about various objects within special frames, using different information types. The rightmost panel, is the visual representation panel, which shows a raster imitation of the system's top-down view.
 
-##### Calculator
+The objects' sidebar lists the most prominent objects (the ones detailed in DB or predefined instance) in the stellar system. Each name is clickable and will eventually display information about the selected item in the center and right panels. Additionally, when you hover over an object, it will be highlighted in the system layout panel. It utilizes simply JS scripts and forced styles to open/close, hover-highlight, click/show. The star sidebar lists all available star systems (the ones that are listed in DB or is an instance), it allows jumping to other's star system pages. It uses HTML's anchor, href, JS's scripts for hovering animation.
 
-##### Converter
+The information panel, is the prime section which displays sets of different frames that hold various facts, texts and so on. The modular way of interpreting information from DB or instances have been implemented, the transformation cycle will be displayed further. Simply speaking, it allows representing different types of information in a specially designed way. Each frame, the container of information is script-generated, depending on columns (in case of DB) or fields (in case of predefined instance), values. So frame is generated and embedded into the HTML with a help of server side scripts. It can store images, texts, titles, sliders, audio, video, tables, based in the way author was intended to display this particular part.
 
-#### About
+The visual representation panel allows users to observe the stellar system from a top-down view. Scaling was not implemented, but timing is partially. Roughly, one day of real time was narrowed down to one second. So 365 days equals 365 seconds. This mostly does not concern moons and other objects with orbiting time less than day. The entire visual representation with animation is generated with a help of server side script which parses for objects, orbit, spin, that are described in DB's columns or instance's fields.
 
-### Dev-stack
+<table>
+<tr>
+    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4"></img></td>
+    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896"></img></td>
+    <td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04"></img></td>
+</tr>
+</table>
+
+<table>
+<tr>
+    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/f8a6563f-add9-4b67-b1bc-4d80f1a3627b"></img></td>
+    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/ad31080d-8b1c-47a1-9eaa-87aeeddd2257"></img></td>
+    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e3e00fd2-e91c-4ded-9cd7-14509a8a43b4"></img></td>
+    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/c74ad5b5-5a88-49d9-a23c-af6e4cb33a12"></img></td>
+</tr>
+</table>
+
+<table>
+<tr>
+    <td height="189px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/01134aa0-f82e-41b4-84a6-9ec17804aba5"></img></td>
+    <td height="189px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7c543244-da08-437b-bb6d-495d4d5be9ce"></img></td>
+</tr>
+</table>
+
+<table>
+<tr>
+    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/0ccb7099-da80-4dc1-81a9-b6931ea722ca"></img></td>
+    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/fd0078cf-efd7-4d03-b506-9599e623ff6c"></img></td>
+    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/1a63907e-22da-4e66-b3c1-1ac1accc5a5c"></img></td>
+    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/003afaf7-c524-4fba-aa4b-fac9f6c95b5d"></img></td>
+    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/63d8282a-10db-40a7-a25b-be230d5e611d"></img></td>
+</tr>
+</table>
+
+<table>
+<tr>
+    <td height="390px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2d40a8bc-1847-444c-a20e-5c2df9f12e5b"></img></td>
+    <td height="390px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/160789b9-2fce-4f31-aec0-d2741a1cfd1a"></img></td>
+    <td></td>
+</tr>
+</table>
 
 Descending order
 
@@ -90,12 +115,15 @@ Follow standard procedures. Don't forget to add .env, which must contain SECRET_
 ### Development notes
 
 #### System types UML
+
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/81c3904b-4e25-4856-a63d-9668cf89aa1c" width="100%"></img>
 
 #### Systems ERD
+
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/45db7b66-fe53-476a-a432-f241632dbf30" width="100%"></img>
 
 ### System transform diagram
+
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/a64d5406-755d-49b1-bb0d-a23b50541ac2" width="100%"></img>
 
 #### Calculus ERD
