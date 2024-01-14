@@ -29,9 +29,9 @@ The information panel, is the prime section which displays sets of different fra
 
 The visual representation panel allows users to observe the stellar system from a top-down view. Scaling was not implemented, but timing is partially. Roughly, one day of real time was narrowed down to one second. So 365 days equals 365 seconds. This mostly does not concern moons and other objects with orbiting time less than day. The entire visual representation with animation is generated with a help of server side script which parses for objects, orbit and spin that are described in DB's columns or instance's fields.
 
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="190px"></img>
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="190px"></img>
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="190px"></img>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="150px"></img>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="150px"></img>
+<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="150px"></img>
 
 <table>
 <tr>
