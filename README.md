@@ -29,43 +29,24 @@ The information panel, is the prime section which displays sets of different fra
 
 The visual representation panel allows users to observe the stellar system from a top-down view. Scaling was not implemented, but timing is partially. Roughly, one day of real time was narrowed down to one second. So 365 days equals 365 seconds. This mostly does not concern moons and other objects with orbiting time less than day. The entire visual representation with animation is generated with a help of server side script which parses for objects, orbit and spin that are described in DB's columns or instance's fields.
 
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="170px"></img>
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="170px"></img>
-<td height="220px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="170px"></img>
-
-<table>
-<tr>
-    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/f8a6563f-add9-4b67-b1bc-4d80f1a3627b"></img></td>
-    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/ad31080d-8b1c-47a1-9eaa-87aeeddd2257"></img></td>
-    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e3e00fd2-e91c-4ded-9cd7-14509a8a43b4"></img></td>
-    <td height="206px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/c74ad5b5-5a88-49d9-a23c-af6e4cb33a12"></img></td>
-</tr>
-</table>
-
-<table>
-<tr>
-    <td height="189px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/01134aa0-f82e-41b4-84a6-9ec17804aba5"></img></td>
-    <td height="189px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7c543244-da08-437b-bb6d-495d4d5be9ce"></img></td>
-</tr>
-</table>
-
-<table>
-<tr>
-    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/0ccb7099-da80-4dc1-81a9-b6931ea722ca"></img></td>
-    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/fd0078cf-efd7-4d03-b506-9599e623ff6c"></img></td>
-    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/1a63907e-22da-4e66-b3c1-1ac1accc5a5c"></img></td>
-    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/003afaf7-c524-4fba-aa4b-fac9f6c95b5d"></img></td>
-    <td height="94px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/63d8282a-10db-40a7-a25b-be230d5e611d"></img></td>
-</tr>
-</table>
-
-<table>
-<tr>
-    <td height="390px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2d40a8bc-1847-444c-a20e-5c2df9f12e5b"></img></td>
-    <td height="390px"><img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/160789b9-2fce-4f31-aec0-d2741a1cfd1a"></img></td>
-    <td></td>
-</tr>
-</table>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3ec8fd11-ef0f-478b-b43d-cf97c37788f4" height="170px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3f732b81-385a-49e4-8a63-34e780951896" height="170px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/919e996b-61b6-492c-ade3-3ce2f8d8cc04" height="170px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/f8a6563f-add9-4b67-b1bc-4d80f1a3627b" height="160px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/ad31080d-8b1c-47a1-9eaa-87aeeddd2257" height="160px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e3e00fd2-e91c-4ded-9cd7-14509a8a43b4" height="160px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/c74ad5b5-5a88-49d9-a23c-af6e4cb33a12" height="160px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/01134aa0-f82e-41b4-84a6-9ec17804aba5" height="148px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/7c543244-da08-437b-bb6d-495d4d5be9ce" height="148px"></img><br>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/0ccb7099-da80-4dc1-81a9-b6931ea722ca" height="73px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/fd0078cf-efd7-4d03-b506-9599e623ff6c" height="73px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/1a63907e-22da-4e66-b3c1-1ac1accc5a5c" height="73px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/003afaf7-c524-4fba-aa4b-fac9f6c95b5d" height="73px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/63d8282a-10db-40a7-a25b-be230d5e611d" height="73px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/2d40a8bc-1847-444c-a20e-5c2df9f12e5b" height="293px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/160789b9-2fce-4f31-aec0-d2741a1cfd1a" height="293px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/b1ebc309-57e5-4fdb-bb65-ddfbb45d1599" height="293px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/85df344c-a23c-43fe-a195-9a21a54f33ee" height="293px"></img>
 
 Descending order
 
