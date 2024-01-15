@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
-        <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
+        {{ head| safe}}
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
-        <title>Universe Library</title>
     </head>
     <body>
         <div
@@ -16,13 +14,12 @@
             onmouseenter="navPanelEnter();"
             onmouseleave="navPanelLeave();"
         >
-            <canvas id="SPACE_CANVAS"></canvas>
         </div>
         <a href="../">
             <div
                 id="BACK_BUTTON"
                 class="CenterNavButton"
-                onmouseenter="navPanelEnter();"
+                onmouseenter="navPanelEnter();onMainButtonEnter();"
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
@@ -58,10 +55,15 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
+
         <div id="LOWER_PART" class="LowerPart">
             {{cards| safe}}
+            
             <a class="Titler" href="../About">
-                Artemii Zeight, 2023
+                Artemii Zeight, 2024
+            </a>
+            <a class="BackTitler" href="../">
+                &#8592; Back
             </a>
             <div class="swiper-pagination"></div>
         </div>

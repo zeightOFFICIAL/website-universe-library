@@ -45,7 +45,8 @@ def universe_page(request) -> HttpResponse:
         all_cards.append(card)
 
     Deck = DeckClass(1, all_cards)
-    return render(request, "Universe.html", {"cards": Deck.__repr__()})
+    Head = '<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../static/Icons/LogoStrip.ico" charset="UTF-8"><title>Universe Library</title>'
+    return render(request, "Universe.html", {"cards": Deck.__repr__(), "head": Head})
 
 
 def template_system_page(request, name) -> HttpResponse:

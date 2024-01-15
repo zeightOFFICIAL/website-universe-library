@@ -4,19 +4,17 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 8%;
+    height: 4%;
     transition: height .5s, filter .5s, box-shadow .5s;
     overflow: hidden;
     -webkit-user-select: all;
     user-select: all;
     box-shadow: 0 0 5vmin white;
-}
-
-canvas {
-    background-size: cover !important;
-    text-align: center;
-    align-items: center;
-    transition: height .75s;
+    background: rgb(255,0,0);
+    background: -moz-linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
+    background: -webkit-linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
+    background: linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#ffff00",GradientType=1); 
 }
 
 .CenterNavButton {
@@ -72,7 +70,7 @@ canvas {
 }
 
 .CenterNavButton:hover {
-    filter: drop-shadow(0 0 15vmin red) invert(1);
+    filter: drop-shadow(0 0 2vmin #ff0000) invert(1);
 }
 
 .LeftCloseNavButton:hover,
@@ -104,21 +102,40 @@ canvas {
     }
 }
 
-@-moz-keyframes spin_back {
+@-moz-keyframes spin-back {
     100% {
         -moz-transform: rotate(-720deg);
     }
 }
 
-@-webkit-keyframes spin_back {
+@-webkit-keyframes spin-back {
     100% {
         -webkit-transform: rotate(-720deg);
     }
 }
 
-@keyframes spin_back {
+@keyframes spin-back {
     100% {
         -webkit-transform: rotate(-720deg);
         transform: rotate(-720deg);
+    }
+}
+
+@-moz-keyframes spin-main {
+    100% {
+        -moz-transform: rotate(720deg);
+    }
+}
+
+@-webkit-keyframes spin-main {
+    100% {
+        -webkit-transform: rotate(720deg);
+    }
+}
+
+@keyframes spin-main {
+    100% {
+        -webkit-transform: rotate(720deg);
+        transform: rotate(720deg);
     }
 }

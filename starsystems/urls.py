@@ -2,7 +2,11 @@ from django.urls import path, URLPattern
 from .views import *
 from .models import Systems
 
-urlpatterns = [path("", universe_page), path("AlphaCentauri", alpha_system_page), path("Solar", solar_system_page)]
+urlpatterns = [
+    path("", universe_page),
+    path("AlphaCentauri", alpha_system_page),
+    path("Solar", solar_system_page),
+]
 
 
 def add_url_pattern(f_name: str) -> list[URLPattern]:
