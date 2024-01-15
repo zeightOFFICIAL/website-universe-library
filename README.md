@@ -48,6 +48,20 @@ The visual representation panel allows users to observe the stellar system from 
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/b1ebc309-57e5-4fdb-bb65-ddfbb45d1599" height="293px"></img>
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/85df344c-a23c-43fe-a195-9a21a54f33ee" height="293px"></img>
 
+#### Universe page
+
+In order to navigate through systems successfully and with no delays, a special page has been designed, so that user can jump to desired systems instantly. The most important goal in this task, is to create a user-friendly, simple interface to interact with. So the simple idea of cards was implemented. This page allows jumping to various implemented stellar systems as well as to navigate through web-site with a help of navigation panel in the top of the page. It also features anchors to about page and index page at the bottom.
+
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/414a5590-d283-492d-a534-f225bcf9fafa" width="100%"></img>
+
+The universe page consist of two parts. The first one is the navigation panel at the top of the page. It is the main tool to navigate on the website. It features links to different pages as well as the index one, simply allowing to quickly navigate through the entire site. The second part, lower one, is the main aspect of this page. Representing cards with stellar system information, it allows jumping to all the represented systems. It uses SwiperJS's library as a backbone to show the deck of cards. The user can select either card from the deck using keys (left and right), using mouse dragging, mouse scrolling, or by clicking on the pagination below. It uses different JS scripts for hovering effects and selection events. A combination of SwiperJS and custom JS scripts represents the deck, card selection in order to effectively help with user's navigation. The page utilizes the DB and scripts to fetch a list of systems and all required fields to represent each card. In the end, it features simple anchors to index page and about page.
+
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/92a85f1a-6154-4bcd-b0fa-4e800a37d749" height="273px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/02d23d20-e857-4926-9cef-b1dd037b398b" height="273px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e0585a0f-a8e4-47a7-aa99-9a3d01b83d19" height="273px"></img>
+<img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3c0af5eb-c246-4b13-b9d7-d0146fce1b2d" height="273px"></img>
+
+
 Descending order
 
 * HTML5
