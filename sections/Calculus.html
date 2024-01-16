@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
-        <link rel="icon" href="{% static 'Icons/LogoStrip.ico' %}" charset="UTF-8">
+        {{ head| safe}}
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/CalculusStyles.css' %}" charset="UTF-8">
-        <title>Universe Library</title>
     </head>
     <body>
         <div
@@ -16,7 +13,6 @@
             onmouseenter="navPanelEnter();"
             onmouseleave="navPanelLeave();"
         >
-            <canvas id="SPACE_CANVAS"></canvas>
         </div>
         <a href="../">
             <div
