@@ -37,13 +37,13 @@ function changeSelection() {
 
 function calculateEscapeVelocity() {
     const G = 6.67430e-11;
-    var mass = parseFloat(document.getElementById('mass').value);
-    const massUnit = document.getElementById('massUnit').value;
-    var radius = parseFloat(document.getElementById('radius').value);
-    const radiusUnit = document.getElementById('radiusUnit').value;
+    var mass = parseFloat(document.getElementById('mass_EV').value);
+    const massUnit = document.getElementById('massUnit_EV').value;
+    var radius = parseFloat(document.getElementById('radius_EV').value);
+    const radiusUnit = document.getElementById('radiusUnit_EV').value;
 
-    if (isNaN(mass) || isNaN(radius) || mass < 0 || radius < 0) {
-        document.getElementById('result').value = "0";
+    if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
+        document.getElementById('result_EV').value = "0";
         return;
     }
 
@@ -82,23 +82,23 @@ function calculateEscapeVelocity() {
     }
 
     const escapeVelocity = Math.sqrt(2 * G * mass / radius);
-    document.getElementById('result').value = escapeVelocity.toFixed(10);
+    document.getElementById('result_EV').value = escapeVelocity.toFixed(10);
 
-    document.getElementById('mass').value = "0";
-    document.getElementById('radius').value = "0";
+    document.getElementById('mass_EV').value = "0";
+    document.getElementById('radius_EV').value = "0";
     values.push(escapeVelocity);
     updateValues();
 }
 
 function calculateFirstCosmicSpeed() {
     const G = 6.67430e-11;
-    var mass = parseFloat(document.getElementById('mass').value);
-    const massUnit = document.getElementById('massUnit').value;
-    var radius = parseFloat(document.getElementById('radius').value);
-    const radiusUnit = document.getElementById('radiusUnit').value;
+    var mass = parseFloat(document.getElementById('mass_FCS').value);
+    const massUnit = document.getElementById('massUnit_FCS').value;
+    var radius = parseFloat(document.getElementById('radius_FCS').value);
+    const radiusUnit = document.getElementById('radiusUnit_FCS').value;
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
-        document.getElementById('result').value = "0";
+        document.getElementById('result_FCS').value = "0";
         return;
     }
 
@@ -137,21 +137,21 @@ function calculateFirstCosmicSpeed() {
     }
 
     const firstCosmicSpeed = Math.sqrt(G * mass / radius);
-    document.getElementById('result').value = firstCosmicSpeed.toFixed(10);
-
-    document.getElementById('mass').value = "0";
-    document.getElementById('radius').value = "0";
+    document.getElementById('result_FCS').value = firstCosmicSpeed.toFixed(10);
+    document.getElementById('mass_FCS').value = "0";
+    document.getElementById('radius_FCS').value = "0";
     values.push(firstCosmicSpeed);
     updateValues();
 }
 
 function updateValues() {
-    if (values.length > 5) {
-        values.splice(0, 1);
+    
+}
+
+function activateCalc(idToActivate) {
+    var arr = document.getElementsByClassName("MainPanel");
+    for (var i = 0; i < arr.length; i++) {
+        arr[i].style.display="none";
     }
-    var toDiv = document.getElementsByClassName("RightPanel")[0];
-
-    array.reverse().forEach(element => {
-
-    });
+    document.getElementById(idToActivate).style.display = "block";
 }

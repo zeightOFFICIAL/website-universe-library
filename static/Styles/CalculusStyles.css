@@ -44,6 +44,7 @@ html {
     z-index: 5;
     align-content: center;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .RightPanel p {
@@ -127,7 +128,7 @@ html {
     background-color: black;
     font-family: 'normal';
     text-align: center;
-    transition: color .5s, background-color .6s;
+    transition: color .3s, background-color .3s;
     cursor: pointer;
     border: .1vmin solid;
     color: rgb(255, 255, 255);
@@ -150,6 +151,7 @@ button {
 .CalcForm.green button:hover {
     color: white;
     background-color: green;
+    box-shadow: 0 0 10px greenyellow;
 }
 
 .MainPanel.green {
@@ -206,4 +208,24 @@ button {
 
 #BUTTON_CONV {
     right: 34%;
+}
+
+.LeftPanelItem {
+   font-family: 'normal';
+   font-size: 2vh;
+   height: 7vh;
+   text-align: center;
+   line-height: 3vh;
+   z-index: 6;
+   background-color: black;
+   margin-left: 55%;
+   margin-bottom: 5%;
+   width: 35%;
+   cursor: pointer;
+}
+
+.LeftPanelItem.green {
+    border: 2px solid green;
+    box-shadow: greenyellow 0 0 15px;
+    color: white;
 }

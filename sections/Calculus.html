@@ -59,20 +59,23 @@
 
         </div>
         <div class="LowerPart" id="LOWER_PART_CALC">
-            <div class="LeftPanel"></div>
+            <div class="LeftPanel">
+                <div class="LeftPanelItem green" id="ESCAPE_VELOCITY_SIDE" onclick="activateCalc('ESCAPE_VELOCITY');">Escape velocity</div>
+                <div class="LeftPanelItem green" id="FIRST_COSMIC_SPEED_SIDE" onclick="activateCalc('FIRST_COSMIC_SPEED');">First cosmic speed</div>
+            </div>
             <div class="MainPanel green" id="ESCAPE_VELOCITY" style="display: none;">
-                <h3 class="CalcTitle green">Escape velocity</h3>
-                <h5 class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to escape from the gravitational influence of a primary body, thus reaching an infinite distance from it.</h5>
+                <p class="CalcTitle green">Escape velocity</p>
+                <p class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to escape from the gravitational influence of a primary body, thus reaching an infinite distance from it.</p>
                 <form class="CalcForm green">
-                    <label for="mass">Mass:</label>
+                    <label for="mass_EV">Mass:</label>
                     <input
                         type="number"
                         name="mass"
-                        id="mass"
+                        id="mass_EV"
                         min="0"
                         required
                     >
-                    <select id="massUnit">
+                    <select id="massUnit_EV">
                         <option value="kg">kg</option>
                         <option value="t">t</option>
                         <option value="M☉">M☉ (suns)</option>
@@ -80,16 +83,15 @@
                     </select>
                     <br>
                     <br>
-                    <br>
-                    <label for="radius">Radius:</label>
+                    <label for="radius_EV">Radius:</label>
                     <input
                         type="number"
                         name="radius"
-                        id="radius"
+                        id="radius_EV"
                         min="0"
                         required
                     >
-                    <select id="radiusUnit">
+                    <select id="radiusUnit_EV">
                         <option value="m">m</option>
                         <option value="km">km</option>
                         <option value="R☉">R☉ (suns)</option>
@@ -100,24 +102,24 @@
                     <button type="button" onclick="calculateEscapeVelocity()">Calculate</button>
                     <br>
                     <br>
-                    <label for="result">Escape Velocity (m/s):</label>
-                    <input type="text" id="result" readonly>
+                    <label for="result_EV">Escape Velocity (m/s):</label>
+                    <input type="text" id="result_EV" readonly>
                 </form>
             </div>
             <div class="MainPanel green" id="FIRST_COSMIC_SPEED" style="display: block;">
                 <p class="CalcTitle green">First cosmic speed</p>
                 <p class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to achieve a stable orbit around a primary body.</p>
                 <form class="CalcForm green">
-                    <label for="mass">Mass:</label>
+                    <label for="mass_FCS">Mass:</label>
                     <input
                         type="number"
                         name="mass"
-                        id="mass"
+                        id="mass_FCS"
                         min="0"
                         required
                         value="0"
                     >
-                    <select id="massUnit">
+                    <select id="massUnit_FCS">
                         <option value="kg">kg</option>
                         <option value="t">t</option>
                         <option value="M☉">M☉ (suns)</option>
@@ -125,16 +127,16 @@
                     </select>
                     <br>
                     <br>
-                    <label for="radius">Radius:</label>
+                    <label for="radius_FCS">Radius:</label>
                     <input
                         type="number"
                         name="radius"
-                        id="radius"
+                        id="radius_FCS"
                         min="0"
-                        value="0"
                         required
+                        value="0"
                     >
-                    <select id="radiusUnit">
+                    <select id="radiusUnit_FCS">
                         <option value="m">m</option>
                         <option value="km">km</option>
                         <option value="R☉">R☉ (suns)</option>
@@ -145,8 +147,8 @@
                     <button type="button" onclick="calculateFirstCosmicSpeed()">Calculate</button>
                     <br>
                     <br>
-                    <label for="result">First Cosmic Speed (m/s):</label>
-                    <input type="text" id="result" readonly value="0">
+                    <label for="result_FCS">First Cosmic Speed (m/s):</label>
+                    <input type="text" id="result_FCS" readonly>
                 </form>
             </div>
             <div class="RightPanel"></div>
