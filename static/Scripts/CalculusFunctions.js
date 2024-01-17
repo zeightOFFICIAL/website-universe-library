@@ -1,4 +1,39 @@
 var values = [];
+var selection = false;
+
+function changeSelection() {
+    var btn = document.getElementById("BUTTON_CALC");
+    var btn2 = document.getElementById("BUTTON_CONV");
+    var pnl = document.getElementById("LOWER_PART_CALC");
+    var pnl2 = document.getElementById("LOWER_PART_CONV");
+
+    if (selection === false) {
+        selection = true;
+
+        btn.style.backgroundColor = "white";
+        btn.style.color = "white";
+        btn.style.pointerEvents = "none";
+        pnl.style.display = "block";
+
+        btn2.style.backgroundColor = "black";
+        btn2.style.color = "white";
+        btn2.style.pointerEvents = "all";
+        pnl2.style.display = "none";
+    }
+    else {
+        selection = false;
+
+        btn2.style.backgroundColor = "white";
+        btn2.style.color = "white";
+        btn2.style.pointerEvents = "none"; 
+        pnl.style.display = "block";
+
+        btn.style.backgroundColor = "black";
+        btn.style.color = "white";
+        btn.style.pointerEvents = "all";
+        pnl.style.display = "none";
+    }
+}
 
 function calculateEscapeVelocity() {
     const G = 6.67430e-11;
@@ -8,7 +43,7 @@ function calculateEscapeVelocity() {
     const radiusUnit = document.getElementById('radiusUnit').value;
 
     if (isNaN(mass) || isNaN(radius) || mass < 0 || radius < 0) {
-        alert('Please enter valid values for mass and radius.');
+        document.getElementById('result').value = "0";
         return;
     }
 
@@ -49,8 +84,8 @@ function calculateEscapeVelocity() {
     const escapeVelocity = Math.sqrt(2 * G * mass / radius);
     document.getElementById('result').value = escapeVelocity.toFixed(10);
 
-    document.getElementById('mass').value = "";
-    document.getElementById('radius').value = "";
+    document.getElementById('mass').value = "0";
+    document.getElementById('radius').value = "0";
     values.push(escapeVelocity);
     updateValues();
 }
@@ -62,8 +97,8 @@ function calculateFirstCosmicSpeed() {
     var radius = parseFloat(document.getElementById('radius').value);
     const radiusUnit = document.getElementById('radiusUnit').value;
 
-    if (isNaN(mass) || isNaN(radius) || mass < 0 || radius < 0) {
-        alert('Please enter valid values for mass and radius.');
+    if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
+        document.getElementById('result').value = "0";
         return;
     }
 
@@ -104,8 +139,8 @@ function calculateFirstCosmicSpeed() {
     const firstCosmicSpeed = Math.sqrt(G * mass / radius);
     document.getElementById('result').value = firstCosmicSpeed.toFixed(10);
 
-    document.getElementById('mass').value = "";
-    document.getElementById('radius').value = "";
+    document.getElementById('mass').value = "0";
+    document.getElementById('radius').value = "0";
     values.push(firstCosmicSpeed);
     updateValues();
 }

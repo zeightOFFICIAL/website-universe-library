@@ -6,19 +6,20 @@
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/CalculusStyles.css' %}" charset="UTF-8">
     </head>
-    <body>
+    <body onload="changeSelection();">
+        <div class="TopButton" id="BUTTON_CALC" onclick="changeSelection();">&#60;&#60; Calculate</div>
+        <div class="TopButton" id="BUTTON_CONV" onclick="changeSelection();">Convert &#62;&#62;</div>
         <div
             class="nav-panel"
             id="NAV_PANEL"
             onmouseenter="navPanelEnter();"
             onmouseleave="navPanelLeave();"
-        >
-        </div>
+        ></div>
         <a href="../">
             <div
                 id="BACK_BUTTON"
                 class="CenterNavButton"
-                onmouseenter="navPanelEnter();"
+                onmouseenter="navPanelEnter();onMainButtonEnter();"
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
@@ -54,9 +55,12 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        <div class="LowerPart" id="LOWER_PART">
+        <div class="LowerPart" id="LOWER_PART_CONV">
+
+        </div>
+        <div class="LowerPart" id="LOWER_PART_CALC">
             <div class="LeftPanel"></div>
-            <!-- <div class="MainPanel green" id="ESCAPE_VELOCITY">
+            <div class="MainPanel green" id="ESCAPE_VELOCITY" style="display: none;">
                 <h3 class="CalcTitle green">Escape velocity</h3>
                 <h5 class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to escape from the gravitational influence of a primary body, thus reaching an infinite distance from it.</h5>
                 <form class="CalcForm green">
@@ -99,10 +103,10 @@
                     <label for="result">Escape Velocity (m/s):</label>
                     <input type="text" id="result" readonly>
                 </form>
-            </div> -->
-            <div class="MainPanel green" id="FIRST_COSMIC_SPEED">
-                <h3 class="CalcTitle green">First cosmic speed</h3>
-                <h5 class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to achieve a stable orbit around a primary body.</h5>
+            </div>
+            <div class="MainPanel green" id="FIRST_COSMIC_SPEED" style="display: block;">
+                <p class="CalcTitle green">First cosmic speed</p>
+                <p class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to achieve a stable orbit around a primary body.</p>
                 <form class="CalcForm green">
                     <label for="mass">Mass:</label>
                     <input
@@ -111,6 +115,7 @@
                         id="mass"
                         min="0"
                         required
+                        value="0"
                     >
                     <select id="massUnit">
                         <option value="kg">kg</option>
@@ -126,6 +131,7 @@
                         name="radius"
                         id="radius"
                         min="0"
+                        value="0"
                         required
                     >
                     <select id="radiusUnit">
@@ -140,7 +146,7 @@
                     <br>
                     <br>
                     <label for="result">First Cosmic Speed (m/s):</label>
-                    <input type="text" id="result" readonly>
+                    <input type="text" id="result" readonly value="0">
                 </form>
             </div>
             <div class="RightPanel"></div>

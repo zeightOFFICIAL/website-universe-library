@@ -5,9 +5,11 @@ function navPanelEnter() {
     var btn3 = document.getElementsByClassName("RightCloseNavButton")[0];
     var btn4 = document.getElementsByClassName("LeftFarNavButton")[0];
     var btn5 = document.getElementsByClassName("RightFarNavButton")[0];
-    var other = document.getElementById("LOWER_PART");
+    var other = document.getElementsByClassName("LowerPart");
 
-    other.style.filter = "brightness(30%)";
+    for (var i = 0; i < other.length; i++) {
+        other[i].style.filter = "brightness(30%)";
+    }
 
     nav.style.height = "25%";
     nav.style.filter = "brightness(50%)";
@@ -40,9 +42,11 @@ function navPanelLeave() {
     var btn3 = document.getElementsByClassName("RightCloseNavButton")[0];
     var btn4 = document.getElementsByClassName("LeftFarNavButton")[0];
     var btn5 = document.getElementsByClassName("RightFarNavButton")[0];
-    var other = document.getElementById("LOWER_PART");
+    var other = document.getElementsByClassName("LowerPart");
 
-    other.style.filter = "brightness(100%)";
+    for (var i = 0; i < other.length; i++) {
+        other[i].style.filter = "brightness(100%)";
+    }
 
     nav.style.height = "4%";
     nav.style.filter = "brightness(100%)";
