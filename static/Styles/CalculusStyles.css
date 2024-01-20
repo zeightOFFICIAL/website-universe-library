@@ -213,19 +213,29 @@ button {
 .LeftPanelItem {
    font-family: 'normal';
    font-size: 2vh;
-   height: 7vh;
    text-align: center;
    line-height: 3vh;
    z-index: 6;
    background-color: black;
    margin-left: 55%;
    margin-bottom: 5%;
+   margin-top: 5%;
+   padding: 3% 0;
    width: 35%;
    cursor: pointer;
+   overflow: hidden;
+   transition: box-shadow .5s, color 1s;
 }
 
 .LeftPanelItem.green {
     border: 2px solid green;
     box-shadow: greenyellow 0 0 15px;
     color: white;
+}
+
+.LeftPanelItem.green:hover {
+    box-shadow: white 0 0 15px;
+    background-color: white;
+    border: solid white 2px;
+    color: black;
 }

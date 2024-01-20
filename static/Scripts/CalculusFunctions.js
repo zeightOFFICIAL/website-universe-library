@@ -42,6 +42,9 @@ function calculateEscapeVelocity() {
     var radius = parseFloat(document.getElementById('radius_EV').value);
     const radiusUnit = document.getElementById('radiusUnit_EV').value;
 
+    document.getElementById('mass_EV').value = "0";
+    document.getElementById('radius_EV').value = "0";
+
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
         document.getElementById('result_EV').value = "0";
         return;
@@ -83,9 +86,6 @@ function calculateEscapeVelocity() {
 
     const escapeVelocity = Math.sqrt(2 * G * mass / radius);
     document.getElementById('result_EV').value = escapeVelocity.toFixed(10);
-
-    document.getElementById('mass_EV').value = "0";
-    document.getElementById('radius_EV').value = "0";
     values.push(escapeVelocity);
     updateValues();
 }
@@ -96,6 +96,9 @@ function calculateFirstCosmicSpeed() {
     const massUnit = document.getElementById('massUnit_FCS').value;
     var radius = parseFloat(document.getElementById('radius_FCS').value);
     const radiusUnit = document.getElementById('radiusUnit_FCS').value;
+
+    document.getElementById('mass_FCS').value = "0";
+    document.getElementById('radius_FCS').value = "0";
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
         document.getElementById('result_FCS').value = "0";
@@ -138,8 +141,6 @@ function calculateFirstCosmicSpeed() {
 
     const firstCosmicSpeed = Math.sqrt(G * mass / radius);
     document.getElementById('result_FCS').value = firstCosmicSpeed.toFixed(10);
-    document.getElementById('mass_FCS').value = "0";
-    document.getElementById('radius_FCS').value = "0";
     values.push(firstCosmicSpeed);
     updateValues();
 }
