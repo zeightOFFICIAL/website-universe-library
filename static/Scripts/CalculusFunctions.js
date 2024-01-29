@@ -1,4 +1,4 @@
-var values = [];
+var values = new Map();
 var selection = false;
 
 function changeSelection() {
@@ -25,7 +25,7 @@ function changeSelection() {
 
         btn2.style.backgroundColor = "white";
         btn2.style.color = "white";
-        btn2.style.pointerEvents = "none"; 
+        btn2.style.pointerEvents = "none";
         pnl.style.display = "block";
 
         btn.style.backgroundColor = "black";
@@ -38,15 +38,15 @@ function changeSelection() {
 function calculateEscapeVelocity() {
     const G = 6.67430e-11;
     var mass = parseFloat(document.getElementById('mass_EV').value);
-    const massUnit = document.getElementById('massUnit_EV').value;
     var radius = parseFloat(document.getElementById('radius_EV').value);
+    const massUnit = document.getElementById('massUnit_EV').value;
     const radiusUnit = document.getElementById('radiusUnit_EV').value;
 
     document.getElementById('mass_EV').value = "0";
     document.getElementById('radius_EV').value = "0";
+    document.getElementById('result_EV').value = "0";
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
-        document.getElementById('result_EV').value = "0";
         return;
     }
 
@@ -86,22 +86,21 @@ function calculateEscapeVelocity() {
 
     const escapeVelocity = Math.sqrt(2 * G * mass / radius);
     document.getElementById('result_EV').value = escapeVelocity.toFixed(10);
-    values.push(escapeVelocity);
-    updateValues();
+    updateValues(escapeVelocity, "green");
 }
 
 function calculateFirstCosmicSpeed() {
     const G = 6.67430e-11;
     var mass = parseFloat(document.getElementById('mass_FCS').value);
-    const massUnit = document.getElementById('massUnit_FCS').value;
     var radius = parseFloat(document.getElementById('radius_FCS').value);
+    const massUnit = document.getElementById('massUnit_FCS').value;
     const radiusUnit = document.getElementById('radiusUnit_FCS').value;
 
     document.getElementById('mass_FCS').value = "0";
     document.getElementById('radius_FCS').value = "0";
+    document.getElementById('result_FCS').value = "0";
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
-        document.getElementById('result_FCS').value = "0";
         return;
     }
 
@@ -141,21 +140,20 @@ function calculateFirstCosmicSpeed() {
 
     const firstCosmicSpeed = Math.sqrt(G * mass / radius);
     document.getElementById('result_FCS').value = firstCosmicSpeed.toFixed(10);
-    values.push(firstCosmicSpeed);
-    updateValues();
+    updateValues(firstCosmicSpeed, "green");
 }
 
 function calculateSynodicPeriod() {
     var orbitalPeriodA = parseFloat(document.getElementById('orbital_period_A').value);
-    const orbitalUnitA = document.getElementById('orbital_unit_A').value;
     var orbitalPeriodB = parseFloat(document.getElementById('orbital_period_B').value);
+    const orbitalUnitA = document.getElementById('orbital_unit_A').value;
     const orbitalUnitB = document.getElementById('orbital_unit_B').value;
 
     document.getElementById('orbital_period_A').value = "0";
     document.getElementById('orbital_period_B').value = "0";
+    document.getElementById('result_synodic').value = "0";
 
     if (isNaN(orbitalPeriodA) || isNaN(orbitalPeriodB) || orbitalPeriodA <= 0 || orbitalPeriodB <= 0) {
-        document.getElementById('result_synodic').value = "0";
         return;
     }
 
@@ -189,41 +187,70 @@ function calculateSynodicPeriod() {
 
     const synodicPeriod = Math.abs((orbitalPeriodA * orbitalPeriodB) / (orbitalPeriodA - orbitalPeriodB));
     document.getElementById('result_synodic').value = synodicPeriod.toFixed(10);
-    values.push(escapeVelocity);
-    updateValues();
+    updateValues(synodicPeriod, "blue");
 }
 
-function calculateKeplersThirdLaw() {
-    const earthOrbitalPeriod = 1;
-    const earthAverageDistance = 1; 
+function calculateSemiMajorAxis() {
+    const G = 6.67430e-11;
+    var period = parseFloat(document.getElementById('period_KTL').value);
+    var mass = parseFloat(document.getElementById('mass_KTL').value);
+    const periodUnit = document.getElementById('periodUnit_KTL').value;    
+    const massUnit = document.getElementById('massUnit_KTL').value;
 
-    var orbitalPeriod = parseFloat(document.getElementById('orbital_period').value);
-    var averageDistance = parseFloat(document.getElementById('average_distance').value);
+    document.getElementById('period_KTL').value = "0";
+    document.getElementById('mass_KTL').value = "0";
 
-    document.getElementById('orbital_period').value = "0";
-    document.getElementById('average_distance').value = "0";
-
-    if (isNaN(orbitalPeriod) || isNaN(averageDistance) || orbitalPeriod <= 0 || averageDistance <= 0) {
-        document.getElementById('result_keplers').value = "0";
+    if (isNaN(period) || isNaN(mass) || period <= 0 || mass <= 0) {
+        document.getElementById('result_KTL').value = "0";
         return;
     }
 
-    const keplersThirdLaw = Math.sqrt((orbitalPeriod ** 2) * (averageDistance ** 3) / (earthOrbitalPeriod ** 2 * earthAverageDistance ** 3));
-    document.getElementById('result_keplers').value = keplersThirdLaw.toFixed(10);
+    switch (periodUnit) {
+        case 'years':
+            break;
+        case 'days':
+            period /= 365.25;
+            break;
+        case 'hours':
+            period /= (365.25 * 24);
+            break;
+        case 'minutes':
+            period /= (365.25 * 24 * 60);
+            break;
+        default:
+            alert('Invalid period unit.');
+            return;
+    }
+
+    switch (massUnit) {
+        case 'kg':
+            break;
+        case 'solarMass':
+            mass *= 1.9885e30;
+            break;
+        default:
+            alert('Invalid mass unit.');
+            return;
+    }
+
+    const semiMajorAxis = Math.cbrt((G * mass * Math.pow(period, 2)) / (4 * Math.pow(Math.PI, 2)));
+    document.getElementById('result_KTL').value = semiMajorAxis.toFixed(10);
+    values.push(semiMajorAxis);
+    updateValues();
 }
 
 function calculateStarLuminosity() {
     const sigma = 5.670374419e-8;
     var radius = parseFloat(document.getElementById('radius_SL').value);
-    const radiusUnit = document.getElementById('radiusUnit_SL').value;
     var temperature = parseFloat(document.getElementById('temperature_SL').value);
+    const radiusUnit = document.getElementById('radiusUnit_SL').value;
     const temperatureUnit = document.getElementById('temperatureUnit_SL').value;
 
     document.getElementById('radius_SL').value = "0";
     document.getElementById('temperature_SL').value = "0";
+    document.getElementById('result_SL').value = "0";
 
     if (isNaN(radius) || isNaN(temperature) || radius <= 0 || temperature <= 0) {
-        document.getElementById('result_SL').value = "0";
         return;
     }
 
@@ -251,7 +278,7 @@ function calculateStarLuminosity() {
             temperature += 273.15;
             break;
         case '°F':
-            temperature = (temperature + 459.67) * (5/9);
+            temperature = (temperature + 459.67) * (5 / 9);
             break;
         default:
             alert('Invalid temperature unit.');
@@ -260,21 +287,20 @@ function calculateStarLuminosity() {
 
     const luminosity = 4 * Math.PI * Math.pow(radius, 2) * sigma * Math.pow(temperature, 4);
     document.getElementById('result_SL').value = luminosity.toExponential(2);
-    values.push(luminosity);
-    updateValues();
+    updateValues(luminosity, "yellow");
 }
 
 function calculateRedshift() {
     var initialFreq = parseFloat(document.getElementById('initialFreq').value);
-    const initialFreqUnit = document.getElementById('initialFreqUnit').value;
     var finalFreq = parseFloat(document.getElementById('finalFreq').value);
+    const initialFreqUnit = document.getElementById('initialFreqUnit').value;
     const finalFreqUnit = document.getElementById('finalFreqUnit').value;
 
     document.getElementById('initialFreq').value = "0";
     document.getElementById('finalFreq').value = "0";
+    document.getElementById('resultRedshift').value = "0";
 
     if (isNaN(initialFreq) || isNaN(finalFreq) || initialFreq <= 0 || finalFreq <= 0) {
-        document.getElementById('resultRedshift').value = "0";
         return;
     }
 
@@ -308,19 +334,17 @@ function calculateRedshift() {
 
     const redshift = (finalFreq - initialFreq) / initialFreq;
     document.getElementById('resultRedshift').value = redshift.toFixed(10);
-    values.push(redshift);
-    updateValues();
+    updateValues(redshift, "yellow");
 }
 
+function updateValues(value, coloring) {
 
-function updateValues() {
-    
 }
 
 function activateCalc(idToActivate) {
     var arr = document.getElementsByClassName("MainPanel");
     for (var i = 0; i < arr.length; i++) {
-        arr[i].style.display="none";
+        arr[i].style.display = "none";
     }
     document.getElementById(idToActivate).style.display = "block";
 }
