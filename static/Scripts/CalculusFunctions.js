@@ -1,37 +1,24 @@
 var values = new Map();
 var selection = false;
 
-function changeSelection() {
+
+function buttonClicked(id) {
     var btn = document.getElementById("BUTTON_CALC");
     var btn2 = document.getElementById("BUTTON_CONV");
     var pnl = document.getElementById("LOWER_PART_CALC");
     var pnl2 = document.getElementById("LOWER_PART_CONV");
 
-    if (selection === false) {
-        selection = true;
-
-        btn.style.backgroundColor = "white";
-        btn.style.color = "white";
-        btn.style.pointerEvents = "none";
+    if (id==="BUTTON_CALC") {
         pnl.style.display = "block";
-
-        btn2.style.backgroundColor = "black";
-        btn2.style.color = "white";
-        btn2.style.pointerEvents = "all";
         pnl2.style.display = "none";
+        btn.style.boxShadow = "0 0 20px red";
+        btn2.style.boxShadow = "0 0 0";
     }
-    else {
-        selection = false;
-
-        btn2.style.backgroundColor = "white";
-        btn2.style.color = "white";
-        btn2.style.pointerEvents = "none";
-        pnl.style.display = "block";
-
-        btn.style.backgroundColor = "black";
-        btn.style.color = "white";
-        btn.style.pointerEvents = "all";
+    if (id==="BUTTON_CONV") {
         pnl.style.display = "none";
+        pnl2.style.display = "block";
+        btn.style.boxShadow = "0 0 0";
+        btn2.style.boxShadow = "0 0 20px orangered";
     }
 }
 

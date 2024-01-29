@@ -6,15 +6,14 @@
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/CalculusStyles.css' %}" charset="UTF-8">
     </head>
-    <body onload="changeSelection();">
-        <div class="TopButton" id="BUTTON_CALC" onclick="changeSelection();">&#60;&#60; Calculate</div>
-        <div class="TopButton" id="BUTTON_CONV" onclick="changeSelection();">Convert &#62;&#62;</div>
+    <body onload="buttonClicked('BUTTON_CALC');">
+        <div class="TopButton" id="BUTTON_CALC" onclick="buttonClicked('BUTTON_CALC');"><span>&#60;&#60; Calculate</span></div>
+        <div class="TopButton" id="BUTTON_CONV" onclick="buttonClicked('BUTTON_CONV');"><span>Convert &#62;&#62;</span></div>
         <div
             class="nav-panel"
             id="NAV_PANEL"
             onmouseenter="navPanelEnter();"
-            onmouseleave="navPanelLeave();"
-        ></div>
+            onmouseleave="navPanelLeave();"        ></div>
         <a href="../">
             <div
                 id="BACK_BUTTON"

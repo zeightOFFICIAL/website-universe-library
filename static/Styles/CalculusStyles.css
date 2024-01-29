@@ -109,7 +109,7 @@ html {
 }
 
 .CalcTitle.azure {
-    color:aqua;
+    color: aqua;
     text-shadow: lightblue 0 0 3.5vmin;
 }
 
@@ -182,7 +182,8 @@ button {
     color: red;
 }
 
-.CalcForm.yellow input, button {
+.CalcForm.yellow input,
+button {
     color: yellow;
 }
 
@@ -257,13 +258,7 @@ button {
     overflow: hidden;
     cursor: pointer;
     z-index: 7;
-    transition: box-shadow .5s, color 1s;
-}
-
-.TopButton:hover {
-    box-shadow: white 0 0 15px 5px;
-    background-color: white;
-    color: black;
+    transition: color .3s ease, box-shadow .3s;
 }
 
 #BUTTON_CALC {
@@ -284,11 +279,14 @@ button {
     margin-left: 55%;
     margin-bottom: 5%;
     margin-top: 5%;
-    padding: 3% 0;
+    padding: 5% 0;
     width: 35%;
     cursor: pointer;
     overflow: hidden;
-    transition: box-shadow .5s, color 1s;
+    background: linear-gradient(to bottom, white 50%, black 50%);
+    background-size: 100% 200%;
+    background-position: left bottom;
+    transition: background .5s ease, color .5s, box-shadow .5s, border .5s;
 }
 
 .LeftPanelItem.green {
@@ -313,16 +311,51 @@ button {
     border: 2px solid yellow;
     box-shadow: orange 0 0 15px;
     color: white;
- }
+}
 
 .LeftPanelItem:hover {
-    box-shadow: white 0 0 15px;
-    background-color: white;
-    border: solid white 2px;
+    background-position: right top;
     color: black;
+    border: white solid 2px;
+    box-shadow: 0 0 45px white;
 }
 
 .RightPanel p {
     text-align: center;
     color: white;
+}
+
+.TopButton:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    background-color: #ffffff;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    transition: all 0.3s ease;
+}
+
+.TopButton:hover {
+    color: #000;
+}
+
+#BUTTON_CALC::after {
+    right: 0;
+}
+
+#BUTTON_CONV::after {
+    left: 0;
+}
+
+#BUTTON_CALC:hover:after {
+    width: 100%;
+}
+
+#BUTTON_CONV:hover::after {
+    left: 0;
+    width: 100%;
 }
