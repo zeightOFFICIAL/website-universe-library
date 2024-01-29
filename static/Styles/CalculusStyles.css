@@ -85,18 +85,32 @@ html {
 
 .CalcTitle.green {
     color: green;
+    text-shadow: greenyellow 0 0 3.5vmin;
 }
 
 .CalcTitle.blue {
     color: blue;
+    text-shadow: lightblue 0 0 3.5vmin;
 }
 
 .CalcTitle.red {
     color: red;
+    text-shadow: yellow 0 0 3.5vmin;
 }
 
 .CalcTitle.yellow {
     color: yellow;
+    text-shadow: yellow 0 0 3.5vmin;
+}
+
+.CalcTitle.pink {
+    color: magenta;
+    text-shadow: pink 0 0 3.5vmin;
+}
+
+.CalcTitle.azure {
+    color:aqua;
+    text-shadow: lightblue 0 0 3.5vmin;
 }
 
 .CalcLowTitle {
@@ -110,8 +124,6 @@ html {
 
 .CalcForm {
     font-size: 2vmin;
-    align-items: center;
-    text-align: center;
     font-family: 'normal';
     color: white;
     height: 50%;
@@ -130,6 +142,7 @@ html {
     -moz-appearance: textfield;
     border: .1vmin solid;
     outline: none;
+    transition: box-shadow .5s, color 1s;
 }
 
 .CalcForm button {
@@ -171,6 +184,12 @@ button {
 
 .CalcForm.yellow input, button {
     color: yellow;
+}
+
+.CalcForm input:hover {
+    border: .1vmin white solid;
+    box-shadow: 0 0 1vmin white;
+    color: white;
 }
 
 .CalcForm.green button:hover {
@@ -238,12 +257,13 @@ button {
     overflow: hidden;
     cursor: pointer;
     z-index: 7;
+    transition: box-shadow .5s, color 1s;
 }
 
 .TopButton:hover {
     box-shadow: white 0 0 15px 5px;
-    background-color: white !important;
-    color: black !important;
+    background-color: white;
+    color: black;
 }
 
 #BUTTON_CALC {
