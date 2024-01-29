@@ -55,13 +55,13 @@
                 onmouseleave="navPanelLeave();"
             ></div>
         </a>
-        <div class="LowerPart" id="LOWER_PART_CONV">
-
-        </div>
+        <div class="LowerPart" id="LOWER_PART_CONV"></div>
         <div class="LowerPart" id="LOWER_PART_CALC">
             <div class="LeftPanel">
                 <div class="LeftPanelItem green" id="ESCAPE_VELOCITY_SIDE" onclick="activateCalc('ESCAPE_VELOCITY');">Escape velocity</div>
                 <div class="LeftPanelItem green" id="FIRST_COSMIC_SPEED_SIDE" onclick="activateCalc('FIRST_COSMIC_SPEED');">First cosmic speed</div>
+                <div class="LeftPanelItem blue" id="SYNODIC_PERIOD_SIDE" onclick="activateCalc('SYNODIC_PERIOD');">Synodic Period</div>
+                <div class="LeftPanelItem red" id="KEPLER_THIRD_LAW_SIDE" onclick="activateCalc('KEPLERS_THIRD_LAW');">Kepler's Third Law</div>
             </div>
             <div class="MainPanel green" id="ESCAPE_VELOCITY" style="display: none;">
                 <p class="CalcTitle green">Escape velocity</p>
@@ -151,6 +151,82 @@
                     <br>
                     <label for="result_FCS">First Cosmic Speed (m/s):</label>
                     <input type="text" id="result_FCS" readonly>
+                </form>
+            </div>
+            <div class="MainPanel blue" id="SYNODIC_PERIOD" style="display: none;">
+                <p class="CalcTitle blue">Synodic Period</p>
+                <p class="CalcLowTitle">The time it takes for a celestial object to return to the same position relative to two or more other objects.</p>
+                <form class="CalcForm blue">
+                    <label for="orbital_period_A">Orbital Period of Object A:</label>
+                    <input
+                        type="number"
+                        name="orbital_period_A"
+                        id="orbital_period_A"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="orbital_unit_A">
+                        <option value="days">days</option>
+                        <option value="months">months</option>
+                        <option value="years">years</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label for="orbital_period_B">Orbital Period of Object B:</label>
+                    <input
+                        type="number"
+                        name="orbital_period_B"
+                        id="orbital_period_B"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="orbital_unit_B">
+                        <option value="days">days</option>
+                        <option value="months">months</option>
+                        <option value="years">years</option>
+                    </select>
+                    <br>
+                    <br>
+                    <button type="button" onclick="calculateSynodicPeriod()">Calculate</button>
+                    <br>
+                    <br>
+                    <label for="result_synodic">Synodic Period:</label>
+                    <input type="text" id="result_synodic" readonly>
+                </form>
+            </div>
+            <div class="MainPanel red" id="KEPLERS_THIRD_LAW" style="display: none;">
+                <p class="CalcTitle red">Kepler's Third Law</p>
+                <p class="CalcLowTitle">Relates the orbital period and average distance of a planet from the sun.</p>
+                <form class="CalcForm red">
+                    <label for="orbital_period">Orbital Period (in Earth years):</label>
+                    <input
+                        type="number"
+                        name="orbital_period"
+                        id="orbital_period"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <br>
+                    <br>
+                    <label for="average_distance">Average Distance from Sun (in AU):</label>
+                    <input
+                        type="number"
+                        name="average_distance"
+                        id="average_distance"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <br>
+                    <br>
+                    <button type="button" onclick="calculateKeplersThirdLaw()">Calculate</button>
+                    <br>
+                    <br>
+                    <label for="result_keplers">Kepler's Third Law:</label>
+                    <input type="text" id="result_keplers" readonly>
                 </form>
             </div>
             <div class="RightPanel"></div>

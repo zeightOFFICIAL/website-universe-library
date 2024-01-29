@@ -145,6 +145,54 @@ function calculateFirstCosmicSpeed() {
     updateValues();
 }
 
+function calculateSynodicPeriod() {
+    var orbitalPeriodA = parseFloat(document.getElementById('orbital_period_A').value);
+    const orbitalUnitA = document.getElementById('orbital_unit_A').value;
+    var orbitalPeriodB = parseFloat(document.getElementById('orbital_period_B').value);
+    const orbitalUnitB = document.getElementById('orbital_unit_B').value;
+
+    document.getElementById('orbital_period_A').value = "0";
+    document.getElementById('orbital_period_B').value = "0";
+
+    if (isNaN(orbitalPeriodA) || isNaN(orbitalPeriodB) || orbitalPeriodA <= 0 || orbitalPeriodB <= 0) {
+        document.getElementById('result_synodic').value = "0";
+        return;
+    }
+
+    switch (orbitalUnitA) {
+        case 'days':
+            break;
+        case 'months':
+            orbitalPeriodA *= 30;
+            break;
+        case 'years':
+            orbitalPeriodA *= 365;
+            break;
+        default:
+            alert('Invalid orbital unit for Object A.');
+            return;
+    }
+
+    switch (orbitalUnitB) {
+        case 'days':
+            break;
+        case 'months':
+            orbitalPeriodB *= 30;
+            break;
+        case 'years':
+            orbitalPeriodB *= 365;
+            break;
+        default:
+            alert('Invalid orbital unit for Object B.');
+            return;
+    }
+
+    const synodicPeriod = Math.abs((orbitalPeriodA * orbitalPeriodB) / (orbitalPeriodA - orbitalPeriodB));
+    document.getElementById('result_synodic').value = synodicPeriod.toFixed(10);
+    values.push(escapeVelocity);
+    updateValues();
+}
+
 function updateValues() {
     
 }

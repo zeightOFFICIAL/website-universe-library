@@ -61,6 +61,7 @@ The universe page consist of two parts. The first one is the navigation panel at
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/e0585a0f-a8e4-47a7-aa99-9a3d01b83d19" height="273px"></img>
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/3c0af5eb-c246-4b13-b9d7-d0146fce1b2d" height="273px"></img>
 
+### Stack
 
 Descending order
 
@@ -103,9 +104,6 @@ Follow standard procedures. Don't forget to add .env, which must contain SECRET_
 
 <img src="https://github.com/zeightOFFICIAL/website-universe-library/assets/50341618/a64d5406-755d-49b1-bb0d-a23b50541ac2" width="100%"></img>
 
-#### Calculus ERD
-
-#### Articles ERD
 
 #### Deployment notes
 No deployment is configured or implemented. Use your own techniques for efficient deployment.

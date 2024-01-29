@@ -22,18 +22,7 @@ html {
     height: 45vh;
 }
 
-.RightPanel {
-    position: absolute;
-    top: 39%;
-    height: 30%;
-    left: 70%;
-    width: 30%;
-    z-index: 5;
-    align-content: center;
-    align-items: center;
-    user-select: text;
-    -webkit-user-select: text;
-}
+/* ----------------------------------- */
 
 .LeftPanel {
     position: absolute;
@@ -47,9 +36,17 @@ html {
     overflow-y: scroll;
 }
 
-.RightPanel p {
-    text-align: center;
-    color: white;
+.RightPanel {
+    position: absolute;
+    top: 39%;
+    height: 30%;
+    left: 70%;
+    width: 30%;
+    z-index: 5;
+    align-content: center;
+    align-items: center;
+    user-select: text;
+    -webkit-user-select: text;
 }
 
 .MainPanel {
@@ -63,6 +60,9 @@ html {
     transition: border .5s, box-shadow .5s;
     overflow: hidden;
 }
+
+/* ----------------------------------- */
+
 
 .LowerPart {
     position: absolute;
@@ -85,7 +85,14 @@ html {
 
 .CalcTitle.green {
     color: green;
-    text-shadow: 0 0 40px greenyellow;
+}
+
+.CalcTitle.blue {
+    color: blue;
+}
+
+.CalcTitle.red {
+    color: red;
 }
 
 .CalcLowTitle {
@@ -140,12 +147,22 @@ html {
     color: white;
     background-color: black;
     border: .1vmin solid;
-    outline:0px;    
+    outline: 0px;
 }
 
 .CalcForm.green input,
 button {
     color: green;
+}
+
+.CalcForm.blue input,
+button {
+    color: blue;
+}
+
+.CalcForm.red input,
+button {
+    color: red;
 }
 
 .CalcForm.green button:hover {
@@ -154,24 +171,33 @@ button {
     box-shadow: 0 0 10px greenyellow;
 }
 
+.CalcForm.blue button:hover {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 0 10px blueviolet;
+}
+
+.CalcForm.red button:hover {
+    color: white;
+    background-color: red;
+    box-shadow: 0 0 10px orangered;
+}
+
 .MainPanel.green {
     border: solid 2px green;
     box-shadow: 0 0 50px greenyellow;
 }
 
-.CalcForm.red input, button {
-    color: red;
-}
-
-.CalcForm.red button:hover {
-    color: white;
-    background-color: orangered;
+.MainPanel.blue {
+    border: solid 2px blue;
+    box-shadow: 0 0 50px blueviolet;
 }
 
 .MainPanel.red {
     border: solid 2px red;
     box-shadow: 0 0 50px orangered;
 }
+
 
 .MainPanel:hover {
     border: solid 2px white;
@@ -211,20 +237,20 @@ button {
 }
 
 .LeftPanelItem {
-   font-family: 'normal';
-   font-size: 2vh;
-   text-align: center;
-   line-height: 3vh;
-   z-index: 6;
-   background-color: black;
-   margin-left: 55%;
-   margin-bottom: 5%;
-   margin-top: 5%;
-   padding: 3% 0;
-   width: 35%;
-   cursor: pointer;
-   overflow: hidden;
-   transition: box-shadow .5s, color 1s;
+    font-family: 'normal';
+    font-size: 2vh;
+    text-align: center;
+    line-height: 3vh;
+    z-index: 6;
+    background-color: black;
+    margin-left: 55%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 3% 0;
+    width: 35%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow .5s, color 1s;
 }
 
 .LeftPanelItem.green {
@@ -233,9 +259,26 @@ button {
     color: white;
 }
 
-.LeftPanelItem.green:hover {
+.LeftPanelItem.blue {
+    border: 2px solid blue;
+    box-shadow: blueviolet 0 0 15px;
+    color: white;
+}
+
+.LeftPanelItem.red {
+    border: 2px solid red;
+    box-shadow: orangered 0 0 15px;
+    color: white;
+}
+
+.LeftPanelItem:hover {
     box-shadow: white 0 0 15px;
     background-color: white;
     border: solid white 2px;
     color: black;
+}
+
+.RightPanel p {
+    text-align: center;
+    color: white;
 }

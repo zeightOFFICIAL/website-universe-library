@@ -60,7 +60,7 @@ function hideAllObjects() {
     let allVideo = document.querySelectorAll('iframe');
     allVideo.forEach((video) => {
         var temp = video.src;
-        video.src = temp; 
+        video.src = temp;
     })
     let leftPanels = document.querySelectorAll(".LeftPanel");
     leftPanels.forEach((panel) => {
