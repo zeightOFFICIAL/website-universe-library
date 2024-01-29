@@ -62,6 +62,8 @@
                 <div class="LeftPanelItem green" id="FIRST_COSMIC_SPEED_SIDE" onclick="activateCalc('FIRST_COSMIC_SPEED');">First cosmic speed</div>
                 <div class="LeftPanelItem blue" id="SYNODIC_PERIOD_SIDE" onclick="activateCalc('SYNODIC_PERIOD');">Synodic Period</div>
                 <div class="LeftPanelItem red" id="KEPLER_THIRD_LAW_SIDE" onclick="activateCalc('KEPLERS_THIRD_LAW');">Kepler's Third Law</div>
+                <div class="LeftPanelItem yellow" id="STAR_LUMINOSITY_SIDE" onclick="activateCalc('STAR_LUMINOSITY');">Luminosity</div>
+                <div class="LeftPanelItem yellow" id="REDSHIFT_SIDE" onclick="activateCalc('REDSHIFT_CALC');">Redshift calculation</div>
             </div>
             <div class="MainPanel green" id="ESCAPE_VELOCITY" style="display: none;">
                 <p class="CalcTitle green">Escape velocity</p>
@@ -227,6 +229,89 @@
                     <br>
                     <label for="result_keplers">Kepler's Third Law:</label>
                     <input type="text" id="result_keplers" readonly>
+                </form>
+            </div>
+            <div class="MainPanel yellow" id="STAR_LUMINOSITY" style="display: none;">
+                <p class="CalcTitle yellow">Star Luminosity</p>
+                <p class="CalcLowTitle">The total amount of energy emitted by a star per unit of time.</p>
+                <form class="CalcForm yellow">
+                    <label for="radius_SL">Radius:</label>
+                    <input
+                        type="number"
+                        name="radius"
+                        id="radius_SL"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="radiusUnit_SL">
+                        <option value="m">m</option>
+                        <option value="km">km</option>
+                        <option value="R☉">R☉ (suns)</option>
+                        <option value="R⊕">R⊕ (earths)</option>
+                    </select>
+                    <br><br>
+                    <label for="temperature_SL">Temperature:</label>
+                    <input
+                        type="number"
+                        name="temperature"
+                        id="temperature_SL"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="temperatureUnit_SL">
+                        <option value="K">K</option>
+                        <option value="°C">°C</option>
+                        <option value="°F">°F</option>
+                    </select>
+                    <br><br>
+                    <button type="button" onclick="calculateStarLuminosity()">Calculate</button>
+                    <br><br>
+                    <label for="result_SL">Star Luminosity:</label>
+                    <input type="text" id="result_SL" readonly>
+                </form>
+            </div>
+            <div class="MainPanel yellow" id="REDSHIFT_CALC" style="display: none;">
+                <p class="CalcTitle yellow">Redshift Calculation</p>
+                <p class="CalcLowTitle">Calculate the redshift factor for an object moving away from the observer.</p>
+                <form class="CalcForm yellow">
+                    <label for="initialFreq">Initial Frequency:</label>
+                    <input
+                        type="number"
+                        name="initialFreq"
+                        id="initialFreq"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="initialFreqUnit">
+                        <option value="Hz">Hz</option>
+                        <option value="kHz">kHz</option>
+                        <option value="MHz">MHz</option>
+                        <option value="GHz">GHz</option>
+                    </select>
+                    <br><br>
+                    <label for="finalFreq">Final Frequency:</label>
+                    <input
+                        type="number"
+                        name="finalFreq"
+                        id="finalFreq"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                    <select id="finalFreqUnit">
+                        <option value="Hz">Hz</option>
+                        <option value="kHz">kHz</option>
+                        <option value="MHz">MHz</option>
+                        <option value="GHz">GHz</option>
+                    </select>
+                    <br><br>
+                    <button type="button" onclick="calculateRedshift()">Calculate</button>
+                    <br><br>
+                    <label for="resultRedshift">Redshift:</label>
+                    <input type="text" id="resultRedshift" readonly>
                 </form>
             </div>
             <div class="RightPanel"></div>

@@ -95,6 +95,10 @@ html {
     color: red;
 }
 
+.CalcTitle.yellow {
+    color: yellow;
+}
+
 .CalcLowTitle {
     font-size: 2vmin;
     font-family: 'normal';
@@ -165,6 +169,10 @@ button {
     color: red;
 }
 
+.CalcForm.yellow input, button {
+    color: yellow;
+}
+
 .CalcForm.green button:hover {
     color: white;
     background-color: green;
@@ -183,6 +191,12 @@ button {
     box-shadow: 0 0 10px orangered;
 }
 
+.CalcForm.yellow button:hover {
+    color: white;
+    background-color: yellow;
+    box-shadow: 0 0 10px orange;
+}
+
 .MainPanel.green {
     border: solid 2px green;
     box-shadow: 0 0 50px greenyellow;
@@ -198,6 +212,10 @@ button {
     box-shadow: 0 0 50px orangered;
 }
 
+.MainPanel.yellow {
+    border: solid 2px yellow;
+    box-shadow: 0 0 50px orange;
+}
 
 .MainPanel:hover {
     border: solid 2px white;
@@ -270,6 +288,12 @@ button {
     box-shadow: orangered 0 0 15px;
     color: white;
 }
+
+.LeftPanelItem.yellow {
+    border: 2px solid yellow;
+    box-shadow: orange 0 0 15px;
+    color: white;
+ }
 
 .LeftPanelItem:hover {
     box-shadow: white 0 0 15px;

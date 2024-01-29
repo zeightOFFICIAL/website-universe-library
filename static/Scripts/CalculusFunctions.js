@@ -193,6 +193,126 @@ function calculateSynodicPeriod() {
     updateValues();
 }
 
+function calculateKeplersThirdLaw() {
+    const earthOrbitalPeriod = 1;
+    const earthAverageDistance = 1; 
+
+    var orbitalPeriod = parseFloat(document.getElementById('orbital_period').value);
+    var averageDistance = parseFloat(document.getElementById('average_distance').value);
+
+    document.getElementById('orbital_period').value = "0";
+    document.getElementById('average_distance').value = "0";
+
+    if (isNaN(orbitalPeriod) || isNaN(averageDistance) || orbitalPeriod <= 0 || averageDistance <= 0) {
+        document.getElementById('result_keplers').value = "0";
+        return;
+    }
+
+    const keplersThirdLaw = Math.sqrt((orbitalPeriod ** 2) * (averageDistance ** 3) / (earthOrbitalPeriod ** 2 * earthAverageDistance ** 3));
+    document.getElementById('result_keplers').value = keplersThirdLaw.toFixed(10);
+}
+
+function calculateStarLuminosity() {
+    const sigma = 5.670374419e-8;
+    var radius = parseFloat(document.getElementById('radius_SL').value);
+    const radiusUnit = document.getElementById('radiusUnit_SL').value;
+    var temperature = parseFloat(document.getElementById('temperature_SL').value);
+    const temperatureUnit = document.getElementById('temperatureUnit_SL').value;
+
+    document.getElementById('radius_SL').value = "0";
+    document.getElementById('temperature_SL').value = "0";
+
+    if (isNaN(radius) || isNaN(temperature) || radius <= 0 || temperature <= 0) {
+        document.getElementById('result_SL').value = "0";
+        return;
+    }
+
+    switch (radiusUnit) {
+        case 'm':
+            break;
+        case 'km':
+            radius *= 1000;
+            break;
+        case 'R☉':
+            radius *= 6.9634e8;
+            break;
+        case 'R⊕':
+            radius *= 6.371e6;
+            break;
+        default:
+            alert('Invalid radius unit.');
+            return;
+    }
+
+    switch (temperatureUnit) {
+        case 'K':
+            break;
+        case '°C':
+            temperature += 273.15;
+            break;
+        case '°F':
+            temperature = (temperature + 459.67) * (5/9);
+            break;
+        default:
+            alert('Invalid temperature unit.');
+            return;
+    }
+
+    const luminosity = 4 * Math.PI * Math.pow(radius, 2) * sigma * Math.pow(temperature, 4);
+    document.getElementById('result_SL').value = luminosity.toExponential(2);
+    values.push(luminosity);
+    updateValues();
+}
+
+function calculateRedshift() {
+    var initialFreq = parseFloat(document.getElementById('initialFreq').value);
+    const initialFreqUnit = document.getElementById('initialFreqUnit').value;
+    var finalFreq = parseFloat(document.getElementById('finalFreq').value);
+    const finalFreqUnit = document.getElementById('finalFreqUnit').value;
+
+    document.getElementById('initialFreq').value = "0";
+    document.getElementById('finalFreq').value = "0";
+
+    if (isNaN(initialFreq) || isNaN(finalFreq) || initialFreq <= 0 || finalFreq <= 0) {
+        document.getElementById('resultRedshift').value = "0";
+        return;
+    }
+
+    switch (initialFreqUnit) {
+        case 'kHz':
+            initialFreq *= 1e3;
+            break;
+        case 'MHz':
+            initialFreq *= 1e6;
+            break;
+        case 'GHz':
+            initialFreq *= 1e9;
+            break;
+        default:
+            break;
+    }
+
+    switch (finalFreqUnit) {
+        case 'kHz':
+            finalFreq *= 1e3;
+            break;
+        case 'MHz':
+            finalFreq *= 1e6;
+            break;
+        case 'GHz':
+            finalFreq *= 1e9;
+            break;
+        default:
+            break;
+    }
+
+    const redshift = (finalFreq - initialFreq) / initialFreq;
+    document.getElementById('resultRedshift').value = redshift.toFixed(10);
+    values.push(redshift);
+    updateValues();
+}
+
+
 function updateValues() {
     
 }
