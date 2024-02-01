@@ -194,15 +194,13 @@ function calculateSemiMajorAxis() {
 
     switch (periodUnit) {
         case 'years':
+            period *= 1;
             break;
         case 'days':
-            period /= 365.25;
+            period /= 365;
             break;
-        case 'hours':
-            period /= (365.25 * 24);
-            break;
-        case 'minutes':
-            period /= (365.25 * 24 * 60);
+        case 'months':
+            period /= 12;
             break;
         default:
             alert('Invalid period unit.');
@@ -212,18 +210,23 @@ function calculateSemiMajorAxis() {
     switch (massUnit) {
         case 'kg':
             break;
-        case 'solarMass':
-            mass *= 1.9885e30;
+        case 't':
+            mass *= 1000;
+            break;
+        case 'M☉':
+            mass *= 1.989e30;
+            break;
+        case 'M⊕':
+            mass *= 5.972e24;
             break;
         default:
             alert('Invalid mass unit.');
             return;
     }
-
-    const semiMajorAxis = Math.cbrt((G * mass * Math.pow(period, 2)) / (4 * Math.pow(Math.PI, 2)));
-    document.getElementById('result_KTL').value = semiMajorAxis.toFixed(10);
-    values.push(semiMajorAxis);
-    updateValues();
+    const distance = Math.cbrt(((period * period * G * mass) / (4 * Math.PI * Math.PI)));
+    
+    document.getElementById('result_KTL').value = distance.toFixed(10);
+    updateValues(distance, "red");
 }
 
 function calculateStarLuminosity() {
