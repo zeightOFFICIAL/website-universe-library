@@ -330,8 +330,13 @@ function updateValues(value, coloring) {
 
 function activateCalc(idToActivate) {
     var arr = document.getElementsByClassName("MainPanel");
+    var arr2 = document.getElementsByClassName("LeftPanelItem");
     for (var i = 0; i < arr.length; i++) {
         arr[i].style.display = "none";
     }
+    for (var i = 0; i < arr2.length; i++) {
+        arr2[i].classList.remove("LeftPanelItemForced");
+    }
     document.getElementById(idToActivate).style.display = "block";
+    document.getElementById(idToActivate+"_SIDE").classList.add("LeftPanelItemForced");
 }

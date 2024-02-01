@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/CalculusStyles.css' %}" charset="UTF-8">
     </head>
-    <body onload="buttonClicked('BUTTON_CALC');">
+    <body onload="buttonClicked('BUTTON_CALC');activateCalc('ESCAPE_VELOCITY')">
         <div class="TopButton" id="BUTTON_CALC" onclick="buttonClicked('BUTTON_CALC');"><span>&#60;&#60; Calculate</span></div>
         <div class="TopButton" id="BUTTON_CONV" onclick="buttonClicked('BUTTON_CONV');"><span>Convert &#62;&#62;</span></div>
         <div
@@ -62,7 +62,7 @@
                 <div class="LeftPanelItem blue" id="SYNODIC_PERIOD_SIDE" onclick="activateCalc('SYNODIC_PERIOD');">Synodic Period</div>
                 <div class="LeftPanelItem red" id="KEPLER_THIRD_LAW_SIDE" onclick="activateCalc('KEPLER_THIRD_LAW');">Kepler's Third Law</div>
                 <div class="LeftPanelItem yellow" id="STAR_LUMINOSITY_SIDE" onclick="activateCalc('STAR_LUMINOSITY');">Luminosity</div>
-                <div class="LeftPanelItem yellow" id="REDSHIFT_SIDE" onclick="activateCalc('REDSHIFT_CALC');">Redshift calculation</div>
+                <div class="LeftPanelItem yellow" id="REDSHIFT_CALC_SIDE" onclick="activateCalc('REDSHIFT_CALC');">Redshift calculation</div>
             </div>
             <div class="MainPanel green" id="ESCAPE_VELOCITY" style="display: none;">
                 <p class="CalcTitle green">Escape velocity</p>
