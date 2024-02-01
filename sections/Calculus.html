@@ -68,7 +68,7 @@
                 <p class="CalcTitle green">Escape velocity</p>
                 <p class="CalcLowTitle">The minimum speed needed for a free, non-propelled object to escape from the gravitational influence of a primary body, thus reaching an infinite distance from it.</p>
                 <form class="CalcForm green">
-                    <label for="mass_EV">Mass:</label>
+                    <label for="mass_EV">Mass</label>
                     <input
                         type="number"
                         name="mass"
@@ -84,8 +84,7 @@
                         <option value="M⊕">M⊕ (earths)</option>
                     </select>
                     <br>
-                    <br>
-                    <label for="radius_EV">Radius:</label>
+                    <label for="radius_EV">Radius</label>
                     <input
                         type="number"
                         name="radius"
@@ -101,12 +100,10 @@
                         <option value="R⊕">R⊕ (earths)</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateEscapeVelocity()">Calculate</button>
                     <br>
-                    <br>
-                    <label for="result_EV">Escape Velocity (m/s):</label>
-                    <input type="text" id="result_EV" readonly>
+                    <label for="result_EV">Escape Velocity (m/s)</label>
+                    <input type="text" class="result" id="result_EV" readonly>
                 </form>
             </div>
             <div class="MainPanel green" id="FIRST_COSMIC_SPEED" style="display: block;">
@@ -129,7 +126,6 @@
                         <option value="M⊕">M⊕ (earths)</option>
                     </select>
                     <br>
-                    <br>
                     <label for="radius_FCS">Radius:</label>
                     <input
                         type="number"
@@ -146,12 +142,10 @@
                         <option value="R⊕">R⊕ (earths)</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateFirstCosmicSpeed()">Calculate</button>
                     <br>
-                    <br>
                     <label for="result_FCS">First Cosmic Speed (m/s):</label>
-                    <input type="text" id="result_FCS" readonly>
+                    <input type="text" class="result" id="result_FCS" readonly>
                 </form>
             </div>
             <div class="MainPanel blue" id="SYNODIC_PERIOD" style="display: none;">
@@ -173,7 +167,6 @@
                         <option value="years">years</option>
                     </select>
                     <br>
-                    <br>
                     <label for="orbital_period_B">Orbital Period of Object B:</label>
                     <input
                         type="number"
@@ -189,12 +182,10 @@
                         <option value="years">years</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateSynodicPeriod()">Calculate</button>
                     <br>
-                    <br>
                     <label for="result_synodic">Synodic Period (days):</label>
-                    <input type="text" id="result_synodic" readonly>
+                    <input type="text" class="result" id="result_synodic" readonly>
                 </form>
             </div>
             <div class="MainPanel red" id="KEPLER_THIRD_LAW" style="display: none;">
@@ -217,7 +208,6 @@
                         <option value="minutes">Minutes</option>
                     </select>
                     <br>
-                    <br>
                     <label for="mass_KTL">Star Mass:</label>
                     <input
                         type="number"
@@ -232,12 +222,10 @@
                         <option value="solarMass">Solar Masses</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateSemiMajorAxis()">Calculate</button>
                     <br>
-                    <br>
                     <label for="result_KTL">Semi-Major Axis (AU):</label>
-                    <input type="text" id="result_KTL" readonly>
+                    <input type="text" class="result" id="result_KTL" readonly>
                 </form>
             </div>            
             <div class="MainPanel yellow" id="STAR_LUMINOSITY" style="display: none;">
@@ -260,7 +248,6 @@
                         <option value="R⊕">R⊕ (earths)</option>
                     </select>
                     <br>
-                    <br>
                     <label for="temperature_SL">Temperature:</label>
                     <input
                         type="number"
@@ -276,12 +263,10 @@
                         <option value="°F">°F</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateStarLuminosity()">Calculate</button>
                     <br>
-                    <br>
                     <label for="result_SL">Star Luminosity:</label>
-                    <input type="text" id="result_SL" readonly>
+                    <input type="text" class="result" id="result_SL" readonly>
                 </form>
             </div>
             <div class="MainPanel yellow" id="REDSHIFT_CALC" style="display: none;">
@@ -321,12 +306,10 @@
                         <option value="GHz">GHz</option>
                     </select>
                     <br>
-                    <br>
                     <button type="button" onclick="calculateRedshift()">Calculate</button>
                     <br>
-                    <br>
                     <label for="resultRedshift">Redshift:</label>
-                    <input type="text" id="resultRedshift" readonly>
+                    <input type="text" class="result" id="resultRedshift" readonly>
                 </form>
             </div>
             <div class="RightPanel"></div>

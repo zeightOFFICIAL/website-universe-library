@@ -11,14 +11,14 @@ function buttonClicked(id) {
     if (id==="BUTTON_CALC") {
         pnl.style.display = "block";
         pnl2.style.display = "none";
-        btn.style.boxShadow = "0 0 20px red";
+        btn.style.boxShadow = "0 0 45px red";
         btn2.style.boxShadow = "0 0 0";
     }
     if (id==="BUTTON_CONV") {
         pnl.style.display = "none";
         pnl2.style.display = "block";
         btn.style.boxShadow = "0 0 0";
-        btn2.style.boxShadow = "0 0 20px orangered";
+        btn2.style.boxShadow = "0 0 45px orangered";
     }
 }
 

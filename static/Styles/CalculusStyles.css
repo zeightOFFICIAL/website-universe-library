@@ -128,11 +128,11 @@ html {
     color: white;
     height: 50%;
     padding: 2vmin 1vmin;
-    padding-top: 7vh;
-    padding-bottom: 7vh;
 }
 
 .CalcForm input {
+    display: inline-block;
+    width: 30%;
     font-size: 2vmin;
     background-color: black;
     border: .1vmin grey solid;
@@ -143,28 +143,89 @@ html {
     border: .1vmin solid;
     outline: none;
     transition: box-shadow .5s, color 1s;
+    padding: 0.5vmin 0;
+    margin: 1vmin auto;
+    margin-left: 25%;
+}
+
+.CalcForm label {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.CalcForm input.result {
+    font-size: 2.5vmin;
+    display: inline-block;
+    margin: 1vmin auto;    
+    text-align: center;
+    width: 40%;
+    margin-left: 30%;
 }
 
 .CalcForm button {
-    font-size: 3vmin;
-    width: 50%;
+    display: inline-block;
+    font-size: 2.5vmin;
+    width: 40%;
     line-height: 3.5vmin;
     background-color: black;
     font-family: 'normal';
     text-align: center;
-    transition: color .3s, background-color .3s;
+    transition: color .3s, background-color .3s, box-shadow .3s;
     cursor: pointer;
     border: .1vmin solid;
     color: rgb(255, 255, 255);
+    padding: 0.2vmin 0;
+    margin: 1.5vmin 0;
+    margin-left: 30%;
 }
 
 .CalcForm select {
+    display: inline-block;
+    width: 20%;
     font-size: 2vmin;
     text-align: center;
     color: white;
     background-color: black;
     border: .1vmin solid;
     outline: 0px;
+    transition: color .3s, box-shadow .3s, background-color .3s;
+    cursor: pointer;
+}
+
+
+.CalcForm.green select:hover {
+    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
+    inset 0 0 45px white;
+    color: black;
+    background-color: green;
+}
+
+.CalcForm.blue select:hover {
+    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
+    inset 0 0 45px white;
+    color: black;
+    background-color: blue;
+}
+
+.CalcForm.red select:hover {
+    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
+    inset 0 0 45px white;
+    color: black;
+    background-color: orangered;
+}
+
+.CalcForm.yellow select:hover {
+    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
+    inset 0 0 45px white;
+    color: black;
+    background-color: yellow;
+}
+
+.CalcForm select option {
+    background-color: black !important;
+    color: white !important;
+    transition: all 0s !important;
 }
 
 .CalcForm.green input,
@@ -194,27 +255,32 @@ button {
 }
 
 .CalcForm.green button:hover {
-    color: white;
-    background-color: green;
-    box-shadow: 0 0 10px greenyellow;
+    box-shadow: 0 4vmin 45px green,
+    inset 0 0 45px green;
+    color: black;
+    background-color: white;
+
 }
 
 .CalcForm.blue button:hover {
-    color: white;
-    background-color: blue;
-    box-shadow: 0 0 10px blueviolet;
+    box-shadow: 0 4vmin 45px blue,
+    inset 0 0 45px blue;
+    color: black;
+    background-color: white;
 }
 
 .CalcForm.red button:hover {
-    color: white;
-    background-color: red;
-    box-shadow: 0 0 10px orangered;
+    box-shadow: 0 4vmin 45px orangered,
+    inset 0 0 45px orangered;
+    color: black;
+    background-color: white;
 }
 
 .CalcForm.yellow button:hover {
-    color: white;
-    background-color: yellow;
-    box-shadow: 0 0 10px orange;
+    box-shadow: 0 4vmin 45px yellow,
+    inset 0 0 45px yellow;
+    color: black;
+    background-color: white;
 }
 
 .MainPanel.green {
@@ -286,7 +352,7 @@ button {
     background: linear-gradient(to bottom, white 50%, black 50%);
     background-size: 100% 220%;
     background-position: left bottom;
-    transition: background .5s ease, color .5s, box-shadow .5s, border .5s;
+    transition: background .3s ease, color .3s, box-shadow .3s, border .3s;
 }
 
 .LeftPanelItem.green {
