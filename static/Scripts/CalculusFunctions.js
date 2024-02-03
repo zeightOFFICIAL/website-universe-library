@@ -412,3 +412,13 @@ function copyToClipboard(idToCopy) {
     copyObject.value = "Copied!";
     copyObject.disabled = "disabled";
 }
+
+function copySideToClipboard(classToCopy) {
+    var copyObject = document.getElementsByClassName(classToCopy)[0];
+    var text = copyObject.innerHTML;
+    var tempElement = document.createElement('input');
+    tempElement.value = text;
+    tempElement.select();
+    tempElement.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(tempElement.value);
+}
