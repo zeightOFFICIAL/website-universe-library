@@ -38,8 +38,8 @@ html {
 
 .RightPanel {
     position: absolute;
-    top: 39%;
-    height: 30%;
+    top: 25%;
+    height: 55.3%;
     left: 70%;
     width: 30%;
     z-index: 5;
@@ -164,6 +164,17 @@ html {
     text-align: center;
     width: 40%;
     margin-left: 30%;
+    user-select: none !important;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: pointer;
+}
+
+.CalcForm input:disabled {
+    color: white !important;
+    border: 2px solid white !important;
 }
 
 .CalcForm button {
@@ -472,9 +483,21 @@ button {
 
 .TopLine, .MiddleLine, .BotLine {
     text-align: center;
-    font-size: 3vmin;
+    font-size: 2.5vmin;
+    line-height: 4.5vmin;
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
-    padding: 4.5% 15%;
+    padding: 4.5% 0;
+    margin: 10% 15%;
+    transition: font-size .5s, color .5s, border .5s, box-shadow .5s;
+    background-color: black;
+}
+
+.TopLine:hover, .MiddleLine:hover, .BotLine:hover {
+    font-size: 3.5vmin;
+    overflow: hidden;
+    color: white !important;
+    border: solid 2px white !important;
+    box-shadow: 0 0 30px;
 }

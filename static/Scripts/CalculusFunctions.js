@@ -32,6 +32,7 @@ function calculateEscapeVelocity() {
     document.getElementById('mass_EV').value = "0";
     document.getElementById('radius_EV').value = "0";
     document.getElementById('result_EV').value = "0";
+    document.getElementById('result_EV').disabled = "";
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
         return;
@@ -86,6 +87,7 @@ function calculateFirstCosmicSpeed() {
     document.getElementById('mass_FCS').value = "0";
     document.getElementById('radius_FCS').value = "0";
     document.getElementById('result_FCS').value = "0";
+    document.getElementById('result_FCS').disabled = "";
 
     if (isNaN(mass) || isNaN(radius) || mass <= 0 || radius <= 0) {
         return;
@@ -139,6 +141,7 @@ function calculateSynodicPeriod() {
     document.getElementById('orbital_period_A').value = "0";
     document.getElementById('orbital_period_B').value = "0";
     document.getElementById('result_synodic').value = "0";
+    document.getElementById('result_synodic').disabled = "";
 
     if (isNaN(orbitalPeriodA) || isNaN(orbitalPeriodB) || orbitalPeriodA <= 0 || orbitalPeriodB <= 0) {
         return;
@@ -186,9 +189,10 @@ function calculateSemiMajorAxis() {
 
     document.getElementById('period_KTL').value = "0";
     document.getElementById('mass_KTL').value = "0";
+    document.getElementById('result_KTL').value = "0";
+    document.getElementById('result_KTL').disabled = "";
 
     if (isNaN(period) || isNaN(mass) || period <= 0 || mass <= 0) {
-        document.getElementById('result_KTL').value = "0";
         return;
     }
 
@@ -239,6 +243,7 @@ function calculateStarLuminosity() {
     document.getElementById('radius_SL').value = "0";
     document.getElementById('temperature_SL').value = "0";
     document.getElementById('result_SL').value = "0";
+    document.getElementById('result_SL').disabled = "";
 
     if (isNaN(radius) || isNaN(temperature) || radius <= 0 || temperature <= 0) {
         return;
@@ -289,6 +294,7 @@ function calculateRedshift() {
     document.getElementById('initialFreq').value = "0";
     document.getElementById('finalFreq').value = "0";
     document.getElementById('resultRedshift').value = "0";
+    document.getElementById('resultRedshift').disabled = "";
 
     if (isNaN(initialFreq) || isNaN(finalFreq) || initialFreq <= 0 || finalFreq <= 0) {
         return;
@@ -328,25 +334,81 @@ function calculateRedshift() {
 }
 
 function updateValues(value, coloring) {
-    var lastLine = document.getElementsByClassName("TopLine")[0];
-    var middleLine = document.getElementsByClassName("MiddleLine")[0];
-    var formerLine = document.getElementsByClassName("BotLine")[0];
-    
-    if (!middleLine.innerHTML) {
-        middleLine.innerHTML = value;
-        middleLine.style.color = coloring;
+    var last = document.getElementsByClassName("TopLine")[0];
+    var inmid = document.getElementsByClassName("MiddleLine")[0];    
+    var former = document.getElementsByClassName("BotLine")[0];
+
+    if (!last.innerHTML) {
+        last.innerHTML = value;
+        last.style.color = coloring;
+        last.style.border = "2px solid "+coloring;
+        last.style.boxShadow = "0 0 50px "+coloring;
+        last.style.display = "block";
+    }
+    else if (!inmid.innerHTML) {
+        var temp = last.innerHTML;
+        var tempColor = last.style.color;
+        last.innerHTML = value;
+        last.style.color = coloring;
+        last.style.border = "2px solid "+coloring;
+        last.style.boxShadow = "0 0 50px "+coloring;
+        last.style.display = "block";
+
+        inmid.innerHTML = temp;
+        inmid.style.color = tempColor;
+        inmid.style.border = "2px solid "+tempColor;
+        inmid.style.boxShadow = "0 0 50px "+tempColor;
+        inmid.style.display = "block";
+    }
+    else {
+        var tempTop = last.innerHTML;
+        var tempTopColor = last.style.color;
+        var temp = inmid.innerHTML;
+        var tempColor = inmid.style.color;
+
+        former.innerHTML = temp;
+        former.style.color = tempColor;
+        former.style.border = "2px solid "+tempColor;
+        former.style.boxShadow = "0 0 50px "+tempColor;
+        former.style.display = "block";
+
+        inmid.innerHTML = tempTop;
+        inmid.style.color = tempTopColor;
+        inmid.style.border = "2px solid "+tempTopColor;
+        inmid.style.boxShadow = "0 0 50px "+tempTopColor;
+        inmid.style.display = "block";
+
+        last.innerHTML = value;
+        last.style.color = coloring;
+        last.style.border = "2px solid "+coloring;
+        last.style.boxShadow = "0 0 50px "+coloring;
+        last.style.display = "block";
     }
 }
 
 function activateCalc(idToActivate) {
     var arr = document.getElementsByClassName("MainPanel");
     var arr2 = document.getElementsByClassName("LeftPanelItem");
+    var arr3 = document.getElementsByClassName("result");
     for (var i = 0; i < arr.length; i++) {
         arr[i].style.display = "none";
     }
     for (var i = 0; i < arr2.length; i++) {
         arr2[i].classList.remove("LeftPanelItemForced");
     }
+    for (var i = 0; i < arr2.length; i++) {
+        arr3[i].value = "0";
+    }
     document.getElementById(idToActivate).style.display = "block";
     document.getElementById(idToActivate+"_SIDE").classList.add("LeftPanelItemForced");
+}
+
+function copyToClipboard(idToCopy) {
+    var copyObject = document.getElementById(idToCopy);
+    copyObject.select();
+    copyObject.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyObject.value);
+    copyObject.setSelectionRange(0,0);
+    copyObject.value = "Copied!";
+    copyObject.disabled = "disabled";
 }
