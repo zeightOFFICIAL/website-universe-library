@@ -328,7 +328,14 @@ function calculateRedshift() {
 }
 
 function updateValues(value, coloring) {
-
+    var lastLine = document.getElementsByClassName("TopLine")[0];
+    var middleLine = document.getElementsByClassName("MiddleLine")[0];
+    var formerLine = document.getElementsByClassName("BotLine")[0];
+    
+    if (!middleLine.innerHTML) {
+        middleLine.innerHTML = value;
+        middleLine.style.color = coloring;
+    }
 }
 
 function activateCalc(idToActivate) {

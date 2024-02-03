@@ -103,7 +103,7 @@
                     <button type="button" onclick="calculateEscapeVelocity()">Calculate</button>
                     <br>
                     <label for="result_EV">Escape Velocity (m/s)</label>
-                    <input type="text" class="result" id="result_EV" readonly>
+                    <input type="text" class="result" id="result_EV" value="0" readonly>
                 </form>
             </div>
             <div class="MainPanel green" id="FIRST_COSMIC_SPEED" style="display: block;">
@@ -145,7 +145,7 @@
                     <button type="button" onclick="calculateFirstCosmicSpeed()">Calculate</button>
                     <br>
                     <label for="result_FCS">First Cosmic Speed (m/s)</label>
-                    <input type="text" class="result" id="result_FCS" readonly>
+                    <input type="text" class="result" id="result_FCS" value="0" readonly>
                 </form>
             </div>
             <div class="MainPanel blue" id="SYNODIC_PERIOD" style="display: none;">
@@ -185,7 +185,7 @@
                     <button type="button" onclick="calculateSynodicPeriod()">Calculate</button>
                     <br>
                     <label for="result_synodic">Synodic Period (days)</label>
-                    <input type="text" class="result" id="result_synodic" readonly>
+                    <input type="text" class="result" id="result_synodic" value="0" readonly>
                 </form>
             </div>
             <div class="MainPanel red" id="KEPLER_THIRD_LAW" style="display: none;">
@@ -226,7 +226,7 @@
                     <button type="button" onclick="calculateSemiMajorAxis()">Calculate</button>
                     <br>
                     <label for="result_KTL">Distance (AU)</label>
-                    <input type="text" class="result" id="result_KTL" readonly>
+                    <input type="text" class="result" id="result_KTL" value="0" readonly>
                 </form>
             </div>            
             <div class="MainPanel yellow" id="STAR_LUMINOSITY" style="display: none;">
@@ -267,7 +267,7 @@
                     <button type="button" onclick="calculateStarLuminosity()">Calculate</button>
                     <br>
                     <label for="result_SL">Star Luminosity</label>
-                    <input type="text" class="result" id="result_SL" readonly>
+                    <input type="text" class="result" id="result_SL" value="0" readonly>
                 </form>
             </div>
             <div class="MainPanel yellow" id="REDSHIFT_CALC" style="display: none;">
@@ -310,10 +310,14 @@
                     <button type="button" onclick="calculateRedshift()">Calculate</button>
                     <br>
                     <label for="resultRedshift">Redshift</label>
-                    <input type="text" class="result" id="resultRedshift" readonly>
+                    <input type="text" class="result" id="resultRedshift" value="0" readonly>
                 </form>
             </div>
-            <div class="RightPanel"></div>
+            <div class="RightPanel">
+                <div class="TopLine">TEST</div>
+                <div class="MiddleLine"></div>
+                <div class="BotLine">TEST</div>
+            </div>
         </div>
         <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts\CalculusFunctions.js' %}"></script>

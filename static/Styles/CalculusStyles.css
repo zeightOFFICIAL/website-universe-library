@@ -132,6 +132,7 @@ html {
 
 .CalcForm input {
     display: inline-block;
+    position: relative;
     width: 30%;
     font-size: 2vmin;
     background-color: black;
@@ -146,6 +147,8 @@ html {
     padding: 0.5vmin 0;
     margin: 1vmin auto;
     margin-left: 25%;
+    background-color: transparent;
+    z-index: 10;
 }
 
 .CalcForm label {
@@ -182,6 +185,7 @@ html {
 
 .CalcForm select {
     display: inline-block;
+    position: relative;
     width: 20%;
     font-size: 2vmin;
     text-align: center;
@@ -191,33 +195,39 @@ html {
     outline: 0px;
     transition: color .3s, box-shadow .3s, background-color .3s;
     cursor: pointer;
+    z-index: 5;
 }
 
 
 .CalcForm.green select:hover {
-    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
-    inset 0 0 45px white;
+    box-shadow: -12vw 0 0 rgb(255, 255, 255),
+    inset 0 0 45px white,
+    -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: green;
 }
 
 .CalcForm.blue select:hover {
-    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
-    inset 0 0 45px white;
+    box-shadow: -12vw 0 0 rgb(255, 255, 255),
+    inset 0 0 45px white,
+    -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: blue;
 }
 
 .CalcForm.red select:hover {
-    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
-    inset 0 0 45px white;
+    box-shadow: -12vw 0 0 rgb(255, 255, 255),
+    inset 0 0 45px white,
+    -8.5vw 0 0 rgb(255, 255, 255),
+    -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: orangered;
 }
 
 .CalcForm.yellow select:hover {
-    box-shadow: -20vmin 0 30px rgba(255, 255, 255, 0.35),
-    inset 0 0 45px white;
+    box-shadow: -12vw 0 0 rgba(125, 125, 125),
+    inset 0 0 45px white,
+    -8.5vw 0 0 rgb(125, 125, 125);
     color: black;
     background-color: yellow;
 }
@@ -458,4 +468,13 @@ button {
     color: black !important;
     border: yellow solid 2px !important;
     box-shadow: 0 0 45px orange !important;
+}
+
+.TopLine, .MiddleLine, .BotLine {
+    text-align: center;
+    font-size: 3vmin;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 4.5% 15%;
 }
