@@ -29,8 +29,6 @@ function calculateEscapeVelocity() {
     const massUnit = document.getElementById('massUnit_EV').value;
     const radiusUnit = document.getElementById('radiusUnit_EV').value;
 
-    document.getElementById('mass_EV').value = "0";
-    document.getElementById('radius_EV').value = "0";
     document.getElementById('result_EV').value = "0";
     document.getElementById('result_EV').disabled = "";
 
@@ -84,8 +82,6 @@ function calculateFirstCosmicSpeed() {
     const massUnit = document.getElementById('massUnit_FCS').value;
     const radiusUnit = document.getElementById('radiusUnit_FCS').value;
 
-    document.getElementById('mass_FCS').value = "0";
-    document.getElementById('radius_FCS').value = "0";
     document.getElementById('result_FCS').value = "0";
     document.getElementById('result_FCS').disabled = "";
 
@@ -138,8 +134,6 @@ function calculateSynodicPeriod() {
     const orbitalUnitA = document.getElementById('orbital_unit_A').value;
     const orbitalUnitB = document.getElementById('orbital_unit_B').value;
 
-    document.getElementById('orbital_period_A').value = "0";
-    document.getElementById('orbital_period_B').value = "0";
     document.getElementById('result_synodic').value = "0";
     document.getElementById('result_synodic').disabled = "";
 
@@ -187,8 +181,6 @@ function calculateSemiMajorAxis() {
     const periodUnit = document.getElementById('periodUnit_KTL').value;    
     const massUnit = document.getElementById('massUnit_KTL').value;
 
-    document.getElementById('period_KTL').value = "0";
-    document.getElementById('mass_KTL').value = "0";
     document.getElementById('result_KTL').value = "0";
     document.getElementById('result_KTL').disabled = "";
 
@@ -240,8 +232,6 @@ function calculateStarLuminosity() {
     const radiusUnit = document.getElementById('radiusUnit_SL').value;
     const temperatureUnit = document.getElementById('temperatureUnit_SL').value;
 
-    document.getElementById('radius_SL').value = "0";
-    document.getElementById('temperature_SL').value = "0";
     document.getElementById('result_SL').value = "0";
     document.getElementById('result_SL').disabled = "";
 
@@ -291,8 +281,6 @@ function calculateRedshift() {
     const initialFreqUnit = document.getElementById('initialFreqUnit').value;
     const finalFreqUnit = document.getElementById('finalFreqUnit').value;
 
-    document.getElementById('initialFreq').value = "0";
-    document.getElementById('finalFreq').value = "0";
     document.getElementById('resultRedshift').value = "0";
     document.getElementById('resultRedshift').disabled = "";
 
