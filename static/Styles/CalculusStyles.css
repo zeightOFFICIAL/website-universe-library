@@ -454,28 +454,28 @@ button {
 }
 
 .LeftPanelItemForced.green {
-    background: linear-gradient(to bottom, green 50%, green 50%) !important;
+    background: linear-gradient(to left, green, greenyellow) !important;
     color: white !important;
     border: green solid 2px !important;
     box-shadow: 0 0 45px greenyellow !important;
 }
 
 .LeftPanelItemForced.blue {
-    background: linear-gradient(to bottom, blue 50%, blue 50%) !important;
+    background: linear-gradient(to left, blue, magenta) !important;
     color: white !important;
     border: blue solid 2px !important;
     box-shadow: 0 0 45px blueviolet !important;
 }
 
 .LeftPanelItemForced.red {
-    background: linear-gradient(to bottom, red 50%, red 50%) !important;
+    background: linear-gradient(to left, red, orange) !important;
     color: white !important;
     border: red solid 2px !important;
     box-shadow: 0 0 45px orangered !important;
 }
 
 .LeftPanelItemForced.yellow {
-    background: linear-gradient(to bottom, yellow 50%, yellow 50%) !important;
+    background: linear-gradient(to left, yellow, orangered) !important;
     color: black !important;
     border: yellow solid 2px !important;
     box-shadow: 0 0 45px orange !important;

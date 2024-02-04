@@ -1,5 +1,4 @@
 var values = new Map();
-var selection = false;
 
 
 function buttonClicked(id) {
@@ -71,7 +70,7 @@ function calculateEscapeVelocity() {
     }
 
     const escapeVelocity = Math.sqrt(2 * G * mass / radius);
-    document.getElementById('result_EV').value = escapeVelocity.toFixed(10);
+    document.getElementById('result_EV').value = escapeVelocity;
     updateValues(escapeVelocity, "green");
 }
 
@@ -124,7 +123,7 @@ function calculateFirstCosmicSpeed() {
     }
 
     const firstCosmicSpeed = Math.sqrt(G * mass / radius);
-    document.getElementById('result_FCS').value = firstCosmicSpeed.toFixed(10);
+    document.getElementById('result_FCS').value = firstCosmicSpeed;
     updateValues(firstCosmicSpeed, "green");
 }
 
@@ -170,59 +169,41 @@ function calculateSynodicPeriod() {
     }
 
     const synodicPeriod = Math.abs((orbitalPeriodA * orbitalPeriodB) / (orbitalPeriodA - orbitalPeriodB));
-    document.getElementById('result_synodic').value = synodicPeriod.toFixed(10);
+    document.getElementById('result_synodic').value = synodicPeriod;
     updateValues(synodicPeriod, "blue");
 }
 
-function calculateSemiMajorAxis() {
+function calculateEarthOrbit() {
     const G = 6.67430e-11;
-    var period = parseFloat(document.getElementById('period_KTL').value);
-    var mass = parseFloat(document.getElementById('mass_KTL').value);
-    const periodUnit = document.getElementById('periodUnit_KTL').value;    
-    const massUnit = document.getElementById('massUnit_KTL').value;
+    const M = 5.972e24;
+    const R = 6371000;
+    var distance = parseFloat(document.getElementById('distance_EO').value);
+    const distanceUnit = document.getElementById('distanceUnit_EO').value;
 
-    document.getElementById('result_KTL').value = "0";
-    document.getElementById('result_KTL').disabled = "";
+    document.getElementById('result_EO').value = "0";
+    document.getElementById('result_EO').disabled = "";
 
-    if (isNaN(period) || isNaN(mass) || period <= 0 || mass <= 0) {
+    if (isNaN(distance) || distance <= 0) {
         return;
     }
 
-    switch (periodUnit) {
-        case 'years':
-            period *= 1;
+    switch (distanceUnit) {
+        case 'm':
             break;
-        case 'days':
-            period /= 365;
+        case 'km':
+            distance *= 1000;
             break;
-        case 'months':
-            period /= 12;
+        case 'AU':
+            distance *= 149597870700; 
             break;
         default:
-            alert('Invalid period unit.');
+            alert('Invalid distance unit.');
             return;
     }
 
-    switch (massUnit) {
-        case 'kg':
-            break;
-        case 't':
-            mass *= 1000;
-            break;
-        case 'M☉':
-            mass *= 1.989e30;
-            break;
-        case 'M⊕':
-            mass *= 5.972e24;
-            break;
-        default:
-            alert('Invalid mass unit.');
-            return;
-    }
-    const distance = Math.cbrt(((period * period * G * mass) / (4 * Math.PI * Math.PI)));
-    
-    document.getElementById('result_KTL').value = distance.toFixed(10);
-    updateValues(distance, "red");
+    const orbitalPeriod = 2 * Math.PI * Math.sqrt((Math.pow((R + distance), 3))/(G * M)) / 60 / 60;
+    document.getElementById('result_EO').value = orbitalPeriod;
+    updateValues(orbitalPeriod, "red");
 }
 
 function calculateStarLuminosity() {
@@ -271,8 +252,8 @@ function calculateStarLuminosity() {
     }
 
     const luminosity = 4 * Math.PI * Math.pow(radius, 2) * sigma * Math.pow(temperature, 4);
-    document.getElementById('result_SL').value = luminosity.toExponential(2);
-    updateValues(luminosity, "yellow");
+    document.getElementById('result_SL').value = (luminosity/1000000000);
+    updateValues(luminosity/1000000000, "yellow");
 }
 
 function calculateRedshift() {
@@ -386,6 +367,8 @@ function activateCalc(idToActivate) {
     }
     for (var i = 0; i < arr2.length; i++) {
         arr3[i].value = "0";
+        arr3[i].disabled = "disabled";
+        arr3[i].disabled = "";
     }
     document.getElementById(idToActivate).style.display = "block";
     document.getElementById(idToActivate+"_SIDE").classList.add("LeftPanelItemForced");
