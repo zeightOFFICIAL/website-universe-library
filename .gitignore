@@ -6,8 +6,3 @@
 compiled/
 .idea/
 .venv/
-
-static/Images/*
-static/Images/*.*
-static/LinkImages/*
-static/LinkImages/*.*
