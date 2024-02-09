@@ -1,16 +1,13 @@
 var swiper = new Swiper(".swiper", {
-    effect: "coverflow",
+    effect: "cards",
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 2,
-    autoplay: {
-        delay: 7500,
-    },
-    coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
+    cardsEffect: {
+        perSlideOffset: 45,
+        perSlideRotate: 14,
+        rotate: true,
+        modifier: 1,
         slideShadows: false
     },
     keyboard: {
@@ -28,6 +25,4 @@ var swiper = new Swiper(".swiper", {
         dynamicBullets: true,
         dynamicMainBullets: 10
     },
-    spaceBetween: 0,
-    loop: true,
 });

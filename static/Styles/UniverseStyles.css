@@ -1,210 +1,211 @@
 @font-face {
     font-family: 'Ostrovsky';
-    src: url(../Fonts/Ostrovsky.otf);
-    font-weight: normal;
     font-style: normal;
+    font-weight: 400;
+    src: url(../Fonts/Ostrovsky.otf)
 }
 
 a {
-    text-decoration: none;
+    color: #fff;
     font-size: .5vmin;
-    color: white;
+    text-decoration: none
 }
 
-html,
-body {
-    overflow: hidden;
+html, body {
     -ms-overflow-style: none;
     -webkit-scrollbar: none;
-    scrollbar-width: none;
     -webkit-user-select: none;
-    user-select: none;
+    overflow: hidden;
+    scrollbar-width: none;
+    user-select: none
 }
 
 html {
     background-color: #000209;
-    background-image: url("../Images/BackImage.jpg");
-    background-size: contain;
+    background-image: url(../Images/BackImage.jpg);
     background-position: center;
-    height: 45vh;
+    background-size: contain;
+    height: 45vh
 }
 
 section {
-    position: absolute;
-    left: 20%;
-    width: 60%;
-    top: 10%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    height: 90%;
+    justify-content: center;
     overflow: hidden;
+    padding: 3% 5% 0;
+    position: absolute;
+    top: 0;
+    width: 90%
 }
 
 .swiper {
-    width: 100%;
     height: 100%;
+    width: 100%
 }
 
 .swiper-wrapper {
     position: absolute;
     width: 100%;
+    z-index: 16 !important
 }
 
 .swiper-slide {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
     align-items: self-start;
+    display: flex;
+    filter: blur(.6vmin);
+    flex-direction: column;
+    justify-content: end
 }
 
-.swiper-3d .swiper-slide-shadow-left,
-.swiper-3d .swiper-slide-shadow-right {
-    background-image: none;
+.swiper-slide-active {
+    filter: blur(0)
 }
 
-.swiper-slide-next,
-.swiper-slide-prev {
-    filter: blur(.5vmin);
+.swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
+    background-image: none
 }
 
 .swiper-pagination {
+    height: 5vh !important;
     position: absolute !important;
     top: 85vh !important;
-    height: 5vh !important;
-    width: 100% !important;
+    width: 100% !important
 }
 
-.swiper-pagination-bullet-active,
-.swiper-pagination-bullet {
-    --swiper-pagination-color: #ffffff;
-    --swiper-pagination-left: 0;
-    --swiper-pagination-right: 0;
+.swiper-pagination-bullet-active, .swiper-pagination-bullet {
     --swiper-pagination-bottom: 0;
-    --swiper-pagination-top: 0;
-    --swiper-pagination-fraction-color: inherit;
-    --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
-    --swiper-pagination-progressbar-size: 0;
-    --swiper-pagination-bullet-size: 0;
-    --swiper-pagination-bullet-width: 2vmin;
     --swiper-pagination-bullet-height: 2vmin;
-    --swiper-pagination-bullet-inactive-color: #ffffff;
-    --swiper-pagination-bullet-inactive-opacity: 0.1;
-    --swiper-pagination-bullet-opacity: 0.8;
     --swiper-pagination-bullet-horizontal-gap: 1vmin;
+    --swiper-pagination-bullet-inactive-color: #fff;
+    --swiper-pagination-bullet-inactive-opacity: .1;
+    --swiper-pagination-bullet-opacity: .8;
+    --swiper-pagination-bullet-size: 0;
     --swiper-pagination-bullet-vertical-gap: 0;
+    --swiper-pagination-bullet-width: 2vmin;
+    --swiper-pagination-color: #fff;
+    --swiper-pagination-fraction-color: inherit;
+    --swiper-pagination-left: 0;
+    --swiper-pagination-progressbar-bg-color: #00000040;
+    --swiper-pagination-progressbar-size: 0;
+    --swiper-pagination-right: 0;
+    --swiper-pagination-top: 0
 }
 
 .Card {
-    height: 75%;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    transition: filter .5s;
+    height: 75%;
+    margin: 6vmin auto 0;
     object-fit: cover;
+    transition: filter .5s;
+    width: 50%
 }
 
 .BackCardImage {
-    width: 100%;
     height: 100%;
     object-fit: cover;
+    width: 100%
 }
 
 .DropDownImg {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    height: 100%;
-    pointer-events: none;
     display: flex;
+    height: 100%;
     justify-content: center;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    width: 100%
 }
 
 .Anchor {
-    text-decoration: none;
+    text-decoration: none
 }
 
 .Title {
     font-family: 'Ostrovsky';
+    font-size: 3vw;
     padding: 4vmin 0;
     text-align: center;
     transition: text-shadow .5s;
-    white-space: nowrap;
-    font-size: 3vw;
+    white-space: nowrap
 }
 
 .CardText {
-    position: absolute;
-    font-family: 'Ostrovsky';
-    text-align: center;
     filter: opacity(0);
-    font-size: 2.5vmin;
+    font-family: 'Ostrovsky';
+    font-size: 2vmin;
+    left: 25%;
+    padding: 3vmin 0;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    top: 40vmin;
     transition: filter .75s;
-    width: 100%;
-    top: 42vmin;
+    width: 50%
 }
 
 .Titler {
-    text-align: center;
-    font-family: 'Ostrovsky';
-    color: white;
+    left: 79.5%;
     position: absolute;
+    text-align: center;
     top: 90%;
-    left: 80%;
-    width: 12%;
-    white-space: nowrap;
-    z-index: 15;
-    padding: 1vmin 2vmin;
-    font-size: 1vw;
-}
-
-.Titler:hover {
-    color: black;
-    background-color: white;
+    white-space: nowrap
 }
 
 .BackTitler {
-    text-align: center;
-    font-family: 'Ostrovsky';
-    color:  white;
-    position: absolute;
-    top:90%;
-    left: 5.8%;
-    width: 12%;
-    white-space: nowrap;
-    z-index: 15;
-    padding: 1vmin 2vmin;
+    left: 5%;
     overflow-x: hidden;
-    font-size: 1vw;
+    position: absolute;
+    text-align: center;
+    top: 90%;
+    white-space: nowrap
 }
 
-.BackTitler:hover {
-    color: black;
-    background-color: white;
+.BackTitler, .Titler {
+    background-color: #000;
+    border: #ffffff80 solid .1vmin;
+    color: #fff;
+    font-family: 'Ostrovsky';
+    font-size: 1vw;
+    padding: 1vmin 2vmin;
+    transition: background .3s ease, box-shadow .3s ease, color .3s ease, border .3s ease;
+    width: 12vw;
+    z-index: 15
+}
+
+.BackTitler:hover, .Titler:hover {
+    background-color: #fff;
+    border: red .1vmin solid;
+    box-shadow: inset 0 0 2.1vmin red;
+    color: #000
 }
 
 .LowerPart {
-    position: absolute;
-    left: 0;
-    width: 100%;
     height: 96%;
+    left: 0;
+    position: absolute;
     top: 4%;
     transition: filter .5s;
+    width: 100%
 }
 
 .CardHovered {
-    filter: saturate(0) blur(.3vmin) !important;
+    filter: saturate(0) blur(.3vmin) !important
 }
 
 .TitleHovered {
-    text-shadow: 0vmin 5vmin 5vmin !important;
+    text-shadow: 0vmin 5vmin 5vmin !important
 }
 
 .TextHovered {
-    filter: opacity(100) !important;
+    background-color: #0009;
+    box-shadow: #0009 0 0 1vmin 1vmin;
+    filter: opacity(100) !important
 }
 
 .DropImageHovered {
-    top: -10% !important;
+    top: -15% !important
 }

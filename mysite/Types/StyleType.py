@@ -5,7 +5,7 @@ class Style:
     class Box:
         @staticmethod
         def card_info(a_color, img_name):
-            style = f"margin:0vmin 10vmin; height: 65%; margin-top: 6vmin;border: .5vmin solid {a_color};box-shadow: 0 0 6vmin {a_color};background-image:url('../static/Images/{img_name}');"
+            style = f"height: 65%; border: .5vmin solid {a_color};box-shadow: 0 0 6vmin {a_color};background-image:url('../static/Images/{img_name}');"
             return f'style="{style}"'
 
         @staticmethod

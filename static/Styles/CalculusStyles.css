@@ -160,7 +160,7 @@ html {
 .CalcForm input.result {
     font-size: 2.5vmin;
     display: inline-block;
-    margin: 1vmin auto;    
+    margin: 1vmin auto;
     text-align: center;
     width: 40%;
     margin-left: 30%;
@@ -212,33 +212,33 @@ html {
 
 .CalcForm.green select:hover {
     box-shadow: -12vw 0 0 rgb(255, 255, 255),
-    inset 0 0 45px white,
-    -8.5vw 0 0 rgb(255, 255, 255);
+        inset 0 0 45px white,
+        -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: green;
 }
 
 .CalcForm.blue select:hover {
     box-shadow: -12vw 0 0 rgb(255, 255, 255),
-    inset 0 0 45px white,
-    -8.5vw 0 0 rgb(255, 255, 255);
+        inset 0 0 45px white,
+        -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: blue;
 }
 
 .CalcForm.red select:hover {
     box-shadow: -12vw 0 0 rgb(255, 255, 255),
-    inset 0 0 45px white,
-    -8.5vw 0 0 rgb(255, 255, 255),
-    -8.5vw 0 0 rgb(255, 255, 255);
+        inset 0 0 45px white,
+        -8.5vw 0 0 rgb(255, 255, 255),
+        -8.5vw 0 0 rgb(255, 255, 255);
     color: black;
     background-color: orangered;
 }
 
 .CalcForm.yellow select:hover {
     box-shadow: -12vw 0 0 rgba(125, 125, 125),
-    inset 0 0 45px white,
-    -8.5vw 0 0 rgb(125, 125, 125);
+        inset 0 0 45px white,
+        -8.5vw 0 0 rgb(125, 125, 125);
     color: black;
     background-color: yellow;
 }
@@ -277,7 +277,7 @@ button {
 
 .CalcForm.green button:hover {
     box-shadow: 0 4vmin 45px green,
-    inset 0 0 45px green;
+        inset 0 0 45px green;
     color: black;
     background-color: white;
 
@@ -285,21 +285,21 @@ button {
 
 .CalcForm.blue button:hover {
     box-shadow: 0 4vmin 45px blue,
-    inset 0 0 45px blue;
+        inset 0 0 45px blue;
     color: black;
     background-color: white;
 }
 
 .CalcForm.red button:hover {
     box-shadow: 0 4vmin 45px orangered,
-    inset 0 0 45px orangered;
+        inset 0 0 45px orangered;
     color: black;
     background-color: white;
 }
 
 .CalcForm.yellow button:hover {
     box-shadow: 0 4vmin 45px yellow,
-    inset 0 0 45px yellow;
+        inset 0 0 45px yellow;
     color: black;
     background-color: white;
 }

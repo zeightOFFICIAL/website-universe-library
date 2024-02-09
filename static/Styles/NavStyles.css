@@ -10,11 +10,11 @@
     -webkit-user-select: all;
     user-select: all;
     box-shadow: 0 0 5vmin white;
-    background: rgb(255,0,0);
-    background: -moz-linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
-    background: -webkit-linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
-    background: linear-gradient(135deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 90%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#ffff00",GradientType=1); 
+    background: rgb(255, 0, 0);
+    background: -moz-linear-gradient(135deg, rgba(255, 0, 0, 1) 10%, rgba(255, 255, 0, 1) 90%);
+    background: -webkit-linear-gradient(135deg, rgba(255, 0, 0, 1) 10%, rgba(255, 255, 0, 1) 90%);
+    background: linear-gradient(135deg, rgba(255, 0, 0, 1) 10%, rgba(255, 255, 0, 1) 90%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000", endColorstr="#ffff00", GradientType=1);
 }
 
 .CenterNavButton {
