@@ -499,5 +499,5 @@ button {
     overflow: hidden;
     color: white !important;
     border: solid 2px white !important;
-    box-shadow: 0 0 30px;
+    box-shadow: 0 0 20px white !important;
 }

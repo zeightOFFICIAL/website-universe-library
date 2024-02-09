@@ -1,6 +1,5 @@
 var values = new Map();
 
-
 function buttonClicked(id) {
     var btn = document.getElementById("BUTTON_CALC");
     var btn2 = document.getElementById("BUTTON_CONV");
@@ -359,6 +358,7 @@ function activateCalc(idToActivate) {
     var arr = document.getElementsByClassName("MainPanel");
     var arr2 = document.getElementsByClassName("LeftPanelItem");
     var arr3 = document.getElementsByClassName("result");
+
     for (var i = 0; i < arr.length; i++) {
         arr[i].style.display = "none";
     }
@@ -370,8 +370,14 @@ function activateCalc(idToActivate) {
         arr3[i].disabled = "disabled";
         arr3[i].disabled = "";
     }
+
     document.getElementById(idToActivate).style.display = "block";
     document.getElementById(idToActivate+"_SIDE").classList.add("LeftPanelItemForced");
+}
+
+function activateConv(idToActivate) {
+    var arr = document.getElementsByClassName("MainPanelConv");
+    var arr2 = document.getElementsByClassName("LeftPanelItem");
 }
 
 function copyToClipboard(idToCopy) {
