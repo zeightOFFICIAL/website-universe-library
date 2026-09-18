@@ -1,0 +1,240 @@
+:root {
+    --galaxy-ink: #c9cfda;
+    --galaxy-ink-dim: #7d8594;
+    --galaxy-accent: #9ecbff;
+    --galaxy-panel: rgba(8, 11, 18, .78);
+    --galaxy-line: rgba(255, 255, 255, .28);
+    --galaxy-font: "Bahnschrift", "DIN Alternate", "DIN", "Segoe UI", sans-serif;
+}
+
+/* view switch */
+
+.ViewSwitch {
+    display: flex;
+    gap: .4vmin;
+    left: 50%;
+    position: absolute;
+    top: 2.2vmin;
+    transform: translateX(-50%);
+    z-index: 30
+}
+
+.ViewSwitchButton {
+    background: var(--galaxy-panel);
+    border: 1px solid var(--galaxy-line);
+    color: var(--galaxy-ink-dim);
+    cursor: pointer;
+    font-family: var(--galaxy-font);
+    font-size: 1.6vmin;
+    letter-spacing: .25em;
+    padding: .9vmin 2.6vmin;
+    text-transform: uppercase;
+    transition: color .3s, border-color .3s, box-shadow .3s
+}
+
+.ViewSwitchButton:hover {
+    color: #fff
+}
+
+.ViewSwitchActive {
+    border-color: var(--galaxy-accent);
+    box-shadow: inset 0 0 1.4vmin rgba(158, 203, 255, .35);
+    color: #fff
+}
+
+.LowerPart {
+    transition: opacity .6s
+}
+
+.ViewGalaxy .LowerPart {
+    opacity: 0;
+    pointer-events: none
+}
+
+/* galaxy view */
+
+.GalaxyView {
+    background: #000;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity .6s;
+    z-index: 20
+}
+
+.ViewGalaxy .GalaxyView {
+    opacity: 1;
+    pointer-events: auto
+}
+
+#GALAXY_CANVAS {
+    cursor: grab;
+    display: block;
+    height: 100%;
+    width: 100%
+}
+
+#GALAXY_CANVAS:active {
+    cursor: grabbing
+}
+
+.GalaxyLabels {
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute
+}
+
+.GalaxyMarker {
+    align-items: center;
+    color: var(--galaxy-ink);
+    display: flex;
+    font-family: var(--galaxy-font);
+    gap: .8vmin;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity .45s;
+    white-space: nowrap;
+    will-change: transform
+}
+
+.GalaxyMarker.Visible {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.GalaxyMarkerIcon {
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 1vmin var(--marker-color, #fff);
+    flex: none;
+    height: 1.1vmin;
+    position: relative;
+    width: 1.1vmin
+}
+
+.GalaxyMarkerIcon::after {
+    background: var(--marker-color, #fff);
+    border-radius: 50%;
+    content: "";
+    inset: 25%;
+    position: absolute
+}
+
+.GalaxyMarkerText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15
+}
+
+.GalaxyMarkerName {
+    font-size: 1.5vmin;
+    letter-spacing: .14em;
+    text-transform: uppercase
+}
+
+.GalaxyMarkerSub {
+    color: var(--galaxy-ink-dim);
+    font-size: 1.1vmin;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.GalaxyMarker.Link {
+    cursor: pointer
+}
+
+.GalaxyMarker.Link .GalaxyMarkerText {
+    background: var(--galaxy-panel);
+    border: 1px solid var(--galaxy-line);
+    padding: .5vmin 1vmin;
+    transition: border-color .25s, box-shadow .25s
+}
+
+.GalaxyMarker.Link:hover {
+    color: #fff
+}
+
+.GalaxyMarker.Link:hover .GalaxyMarkerText {
+    border-color: var(--marker-color, var(--galaxy-accent));
+    box-shadow: 0 0 1.6vmin var(--marker-color, var(--galaxy-accent))
+}
+
+.GalaxyMarker.Fictional .GalaxyMarkerText {
+    border-style: dashed
+}
+
+.GalaxyMarker.Region {
+    color: var(--galaxy-ink-dim);
+    transform-origin: center
+}
+
+.GalaxyMarker.Region .GalaxyMarkerName {
+    font-size: 1.25vmin;
+    letter-spacing: .3em
+}
+
+.GalaxyMarker.Ring .GalaxyMarkerName {
+    color: var(--galaxy-ink-dim);
+    font-size: 1.05vmin
+}
+
+.GalaxyReadout,
+.GalaxyScaleNote {
+    bottom: 2vmin;
+    color: var(--galaxy-ink-dim);
+    font-family: var(--galaxy-font);
+    font-size: 1.2vmin;
+    letter-spacing: .14em;
+    position: absolute;
+    text-transform: uppercase
+}
+
+.GalaxyReadout {
+    left: 2vmin
+}
+
+.GalaxyScaleNote {
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity .45s
+}
+
+.GalaxyScaleNote.Visible {
+    opacity: 1
+}
+
+.GalaxyControls {
+    background: var(--galaxy-panel);
+    border: 1px solid rgba(214, 190, 120, .45);
+    bottom: 2vmin;
+    display: flex;
+    position: absolute;
+    right: 2vmin
+}
+
+.GalaxyControls button {
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(214, 190, 120, .25);
+    color: var(--galaxy-ink);
+    cursor: pointer;
+    font-family: var(--galaxy-font);
+    font-size: 2vmin;
+    height: 5vmin;
+    width: 5.5vmin
+}
+
+.GalaxyControls button:first-child {
+    border-left: none
+}
+
+.GalaxyControls button:hover {
+    background: rgba(214, 190, 120, .15);
+    color: #fff
+}

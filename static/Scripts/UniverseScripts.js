@@ -26,3 +26,34 @@ var swiper = new Swiper(".swiper", {
         dynamicMainBullets: 10
     },
 });
+
+
+function setMainView(view) {
+    const isGalaxy = view === "galaxy";
+    document.body.classList.toggle("ViewGalaxy", isGalaxy);
+    document.getElementById("GALAXY_VIEW").setAttribute("aria-hidden", String(!isGalaxy));
+    document.querySelectorAll(".ViewSwitchButton").forEach((button) => {
+        button.classList.toggle("ViewSwitchActive", button.dataset.view === view);
+    });
+    if (isGalaxy) {
+        swiper.keyboard.disable();
+        swiper.mousewheel.disable();
+    } else {
+        swiper.keyboard.enable();
+        swiper.mousewheel.enable();
+    }
+    try {
+        localStorage.setItem("mainView", view);
+    } catch (e) {}
+    document.dispatchEvent(new CustomEvent("mainview", { detail: view }));
+}
+
+document.querySelectorAll(".ViewSwitchButton").forEach((button) => {
+    button.addEventListener("click", () => setMainView(button.dataset.view));
+});
+
+let savedView = "cards";
+try {
+    savedView = localStorage.getItem("mainView") || "cards";
+} catch (e) {}
+setMainView(savedView);

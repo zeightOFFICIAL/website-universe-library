@@ -4,9 +4,22 @@
         {% load static %}
         {{ head| safe}}
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Styles/GalaxyStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+                }
+            }
+        </script>
     </head>
     <body>
+        <nav class="ViewSwitch" aria-label="Main page view">
+            <button type="button" class="ViewSwitchButton" data-view="cards">Cards</button>
+            <button type="button" class="ViewSwitchButton" data-view="galaxy">Galaxy</button>
+        </nav>
         <div id="LOWER_PART" class="LowerPart">
             {{cards| safe}}
             <span class="Titler">
@@ -14,8 +27,22 @@
             </span>
             <div class="swiper-pagination"></div>
         </div>
+        <div id="GALAXY_VIEW" class="GalaxyView" aria-hidden="true">
+            <canvas id="GALAXY_CANVAS"></canvas>
+            <div id="GALAXY_LABELS" class="GalaxyLabels"></div>
+            <div class="GalaxyReadout" id="GALAXY_READOUT"></div>
+            <div class="GalaxyScaleNote" id="GALAXY_SCALE_NOTE">Local view · distances log-scaled, directions true</div>
+            <div class="GalaxyControls">
+                <button type="button" data-action="zoom-out" title="Zoom out">&minus;</button>
+                <button type="button" data-action="overview" title="Whole galaxy">&#8982;</button>
+                <button type="button" data-action="sun" title="Fly to the Sun">&#9737;</button>
+                <button type="button" data-action="zoom-in" title="Zoom in">+</button>
+            </div>
+        </div>
+        {{ galaxy|json_script:"GALAXY_DATA" }}
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="{% static 'Scripts/CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts/UniverseScripts.js' %}"></script>
+        <script type="module" src="{% static 'Scripts/Galaxy.js' %}"></script>
     </body>
 </html>

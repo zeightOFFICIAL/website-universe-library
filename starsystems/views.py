@@ -5,6 +5,7 @@ from mysite.PredefinedSystems.SolarSystem import System as Solar
 
 from mysite.Types.DeckType import DeckClass
 from mysite.Types.CardType import CardClass
+from starsystems.galaxy import GALAXY_PLACEMENT, SUN_TO_GALACTIC_CENTRE_LY
 from mysite.ServerScripts import (
     get_sql_system,
     get_sql_system_id,
@@ -46,7 +47,24 @@ def universe_page(request) -> HttpResponse:
 
     Deck = DeckClass(1, all_cards)
     Head = '<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../static/Icons/LogoStrip.ico" charset="UTF-8"><title>Universe Library</title>'
-    return render(request, "Universe.html", {"cards": Deck.__repr__(), "head": Head})
+    galaxy = {
+        "sunDistance": SUN_TO_GALACTIC_CENTRE_LY,
+        "systems": [
+            {
+                "name": card.name,
+                "href": card.href,
+                "color": card.coloring_set[0],
+                "placement": GALAXY_PLACEMENT[card.href],
+            }
+            for card in all_cards
+            if card.href in GALAXY_PLACEMENT
+        ],
+    }
+    return render(
+        request,
+        "Universe.html",
+        {"cards": Deck.__repr__(), "head": Head, "galaxy": galaxy},
+    )
 
 
 def template_system_page(request, name) -> HttpResponse:
