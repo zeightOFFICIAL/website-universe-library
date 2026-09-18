@@ -119,11 +119,6 @@ class Style:
             style = f"top:0;left:0;width:5%;height:100vh;transition:left .7s,right .7s;position:absolute;background-color:{a_color};background-image:linear-gradient(62deg, {a_color} 0%, {b_color} 100%);box-shadow:0 0 3vw {a_color};"
             return f'style="{style}"'
 
-        @staticmethod
-        def sidepanel_univ_href(extra_directives=""):
-            style = f"text-align:center;font-family:'solar';font-size:4vmin;font-weight:bolder;display:block;overflow:hidden;padding:1.5vmin 0; height:7vmin;cursor:block;transition: padding-left .5s, background-color .5s;-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
-            return f'style="{style+extra_directives}"'
-
     class Button:
         @staticmethod
         def slider_left(a_color):
@@ -148,12 +143,6 @@ class Style:
         @staticmethod
         def on_border(a_color, top=3.5, left="5.5%"):
             style = f"position:absolute;top:{top}vmin;padding:0 1.2vmax;text-align:center;border:solid .3vmin #000;font-size:3vmin;cursor:pointer;background-color:{a_color};left:{left};text-decoration:none;color:#000;"
-            return f'style="{style}"'
-
-    class Thumbs:
-        @staticmethod
-        def card(bg_image):
-            style = f"background-image: url({bg_image});"
             return f'style="{style}"'
 
     class Tables:

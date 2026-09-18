@@ -77,7 +77,7 @@ class SystemClass:
     def get_side_buttons(self) -> str:
         star_button = f'<a id="STAR_BUTTON" {StyleType.Style.Button.open_sidepanel()}         onclick="openSidepanel();"   {StyleType.EventHandlers.hover("STAR_BUTTON","HoveredBorderButton")}>&#9776;</a>'
         univ_button = f'<a id="UNIV_BUTTON" {StyleType.Style.Button.open_sidepanel("8vmin")}  onclick="openSystempanel();" {StyleType.EventHandlers.hover("UNIV_BUTTON","HoveredBorderButton")}>&#9733;</a>"'
-        back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="/Universe/"                 {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
+        back_button = f'<a id="BACK_BUTTON" {StyleType.Style.Button.open_sidepanel("92.5vh")} href="/"                         {StyleType.EventHandlers.hover("BACK_BUTTON","HoveredBorderButton")}>&#8634;</a>'
         return star_button + univ_button + back_button
 
     def get_univ_sidepanel(self, all_systems: list[list[str, str, str]]) -> str:

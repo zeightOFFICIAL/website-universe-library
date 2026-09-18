@@ -4,69 +4,18 @@
         {% load static %}
         {{ head| safe}}
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
-        <link rel="stylesheet" href="{% static 'Styles/NavStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
     </head>
     <body>
-        <div
-            class="nav-panel"
-            id="NAV_PANEL"
-            onmouseenter="navPanelEnter();"
-            onmouseleave="navPanelLeave();"
-        ></div>
-        <a href="../">
-            <div
-                id="BACK_BUTTON"
-                class="CenterNavButton"
-                onmouseenter="navPanelEnter();onMainButtonEnter();"
-                onmouseleave="navPanelLeave();"
-            ></div>
-        </a>
-        <a href="../Calculate">
-            <div
-                id="CALC_BUTTON"
-                class="RightCloseNavButton"
-                onmouseenter="navPanelEnter();"
-                onmouseleave="navPanelLeave();"
-            ></div>
-        </a>
-        <a href="../Articles">
-            <div
-                id="ARTC_BUTTON"
-                class="LeftCloseNavButton"
-                onmouseenter="navPanelEnter();"
-                onmouseleave="navPanelLeave();"
-            ></div>
-        </a>
-        <a href="../Objects">
-            <div
-                id="OBJS_BUTTON"
-                class="LeftFarNavButton"
-                onmouseenter="navPanelEnter();"
-                onmouseleave="navPanelLeave();"
-            ></div>
-        </a>
-        <a href="../Quizes">
-            <div
-                id="QUIZ_BUTTON"
-                class="RightFarNavButton"
-                onmouseenter="navPanelEnter();"
-                onmouseleave="navPanelLeave();"
-            ></div>
-        </a>
         <div id="LOWER_PART" class="LowerPart">
             {{cards| safe}}
-            <a class="Titler" href="../About">
+            <span class="Titler">
                 Artemii Zeight, 2024
-            </a>
-            <a class="BackTitler" href="../">
-                &#8592; Back
-            </a>
+            </span>
             <div class="swiper-pagination"></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="{% static 'Scripts\CoreFunctions.js' %}"></script>
-        <script src="{% static 'Scripts\UniverseScripts.js' %}"></script>
-        <script src="{% static 'Scripts\NavBarFunctions.js' %}"></script>
+        <script src="{% static 'Scripts/CoreFunctions.js' %}"></script>
+        <script src="{% static 'Scripts/UniverseScripts.js' %}"></script>
     </body>
 </html>

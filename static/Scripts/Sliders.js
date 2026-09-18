@@ -14,6 +14,3 @@ function showSlides(index, name) {
 function plusSlides(n, name) {
     showSlides(slideIndex += n, name);
 }
-function currentSlide(n, name) {
-    showSlides(n, name);
-}
