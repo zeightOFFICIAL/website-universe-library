@@ -10,13 +10,13 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
  * and longitude 90 (the direction of galactic rotation) points to -X.
  *
  * Two levels of detail:
- *   galaxy - the whole Milky Way, arm names, a single marker for the Sun's neighbourhood
+ *   galaxy - the whole Milky Way, arm names, landmarks, one marker for the Sun
  *   local  - camera close to the Sun; real systems at their true directions with
  *            log-scaled distances, so a 4 ly and a 430 ly system both stay readable
  */
 
 const DATA = JSON.parse(document.getElementById("GALAXY_DATA").textContent);
-const SUN = new THREE.Vector3(0, 0, DATA.sunDistance / 1000);
+const SUN = new THREE.Vector3(0, (DATA.sunHeight || 0) / 1000, DATA.sunDistance / 1000);
 
 const GALAXY_RADIUS = 50;
 const ARM_PITCH = THREE.MathUtils.degToRad(12);
@@ -34,12 +34,28 @@ const ARMS = [
 ];
 const ORION_SPUR = { name: "Orion Spur", crossing: 26.3, rMin: 23, rMax: 30.5 };
 
+/*
+ * The backdrop is R. Hurt's face-on artist's concept (NASA/JPL-Caltech, public
+ * domain). Its bar sits at 47 degrees in image coordinates; rotating the plane by
+ * 16 degrees lines that up with the bar we generate, which also brings the
+ * artwork's own Sun to within ~16 degrees of our Sol marker. It is an artist's
+ * impression, not a survey, so treat it as a backdrop and not as ground truth.
+ */
+const BACKDROP = { rotation: THREE.MathUtils.degToRad(16), size: GALAXY_RADIUS * 2.3, opacity: 0.5 };
+
 const LOCAL_LOG_SCALE = 0.5;
 const LOCAL_RINGS_LY = [10, 100, 1000];
 const LOCAL_ENTER = 9;
 const LOCAL_FULL = 5;
+const DEEP_SKY_LABEL_DISTANCE = 45;
 
 const OVERVIEW = { target: new THREE.Vector3(0, 0, 0), distance: 85, polar: 0.9, azimuth: 0.45 };
+
+const DEEP_SKY_STYLE = {
+    nebula: { layer: "nebulae", color: "#ff6b8a", size: 13, label: "Nebula" },
+    open: { layer: "clusters", color: "#bcd8ff", size: 10, label: "Open cluster" },
+    globular: { layer: "clusters", color: "#ffd9a0", size: 12, label: "Globular cluster" },
+};
 
 /* ---------- helpers ---------- */
 
@@ -80,6 +96,12 @@ function directionFromSun(l, b) {
     return new THREE.Vector3(-Math.sin(lr) * Math.cos(br), Math.sin(br), -Math.cos(lr) * Math.cos(br));
 }
 
+// true position, in kly, of something d light-years away in direction (l, b)
+function truePosition(l, b, d) {
+    return directionFromSun(l, b).multiplyScalar(d / 1000).add(SUN);
+}
+
+// local view: true direction, log-scaled distance, so everything nearby stays readable
 function localPosition(placement) {
     const r = LOCAL_LOG_SCALE * Math.log10(1 + placement.d);
     return directionFromSun(placement.l, placement.b).multiplyScalar(r).add(SUN);
@@ -226,9 +248,9 @@ function scatterFromArm(phase, r, across, height) {
 }
 
 function buildGalaxy() {
-    const stars = new Layer(190000);
+    const stars = new Layer(340000);
     const gas = new Layer(9000);
-    const dust = new Layer(7000);
+    const dust = new Layer(8000);
     const knots = new Layer(1600);
 
     const arms = [...ARMS.map((a) => ({ ...a, phase: armPhase(a.crossing), rMin: 8.5, rMax: GALAXY_RADIUS })),
@@ -237,7 +259,7 @@ function buildGalaxy() {
 
     // young stars along the arms, partly in clumps
     for (const arm of arms) {
-        const count = Math.round((95000 * arm.weight) / totalWeight);
+        const count = Math.round((170000 * arm.weight) / totalWeight);
         let clumpR = 0;
         let clumpAcross = 0;
         for (let i = 0; i < count; i++) {
@@ -254,7 +276,7 @@ function buildGalaxy() {
             const p = scatterFromArm(arm.phase, r, across, gauss() * (0.18 + 0.006 * r));
             const pick = rand();
             const color = pick < 0.68 ? tint(COLORS.armBlue, 0.06) : pick < 0.9 ? tint(COLORS.white, 0.04) : tint(COLORS.warm, 0.05);
-            stars.add(p, color, 1.0 + Math.pow(rand(), 3) * 2.2, 0.16 + Math.pow(rand(), 3) * 0.75);
+            stars.add(p, color, 1.0 + Math.pow(rand(), 3) * 2.2, 0.1 + Math.pow(rand(), 3) * 0.55);
         }
 
         // gas glow, dust lane on the inner edge, star-forming knots
@@ -281,45 +303,46 @@ function buildGalaxy() {
     }
 
     // old disk population between the arms
-    for (let i = 0; i < 42000; i++) {
+    for (let i = 0; i < 75000; i++) {
         let r;
         do {
             r = -Math.log(1 - rand()) * 11;
         } while (r > GALAXY_RADIUS || r < 2);
         const theta = rand() * Math.PI * 2;
         const p = new THREE.Vector3(r * Math.cos(theta), gauss() * (0.3 + 0.01 * r), r * Math.sin(theta));
-        stars.add(p, tint(COLORS.diskOld, 0.05), 1.0 + rand() * 0.8, 0.06 + rand() * 0.16);
+        stars.add(p, tint(COLORS.diskOld, 0.05), 1.0 + rand() * 0.8, 0.045 + rand() * 0.12);
     }
 
     // bar and bulge
-    for (let i = 0; i < 32000; i++) {
+    for (let i = 0; i < 55000; i++) {
         const p = barPoint(BAR_HALF_LENGTH * 0.42, 1.5, 1.0);
-        stars.add(p, rand() < 0.6 ? tint(COLORS.bulge, 0.04) : tint(COLORS.bulgeWhite, 0.03), 1.0 + rand() * 1.4, 0.04 + rand() * 0.12);
+        stars.add(p, rand() < 0.6 ? tint(COLORS.bulge, 0.04) : tint(COLORS.bulgeWhite, 0.03), 1.0 + rand() * 1.4, 0.03 + rand() * 0.09);
     }
-    for (let i = 0; i < 12000; i++) {
+    for (let i = 0; i < 20000; i++) {
         const p = new THREE.Vector3(gauss() * 1.6, gauss() * 1.2, gauss() * 1.6);
-        stars.add(p, tint(COLORS.bulgeWhite, 0.03), 1.2 + rand() * 1.5, 0.05 + rand() * 0.12);
+        stars.add(p, tint(COLORS.bulgeWhite, 0.03), 1.2 + rand() * 1.5, 0.035 + rand() * 0.09);
     }
     for (let i = 0; i < 700; i++) {
         const p = barPoint(BAR_HALF_LENGTH * 0.4, 2.0, 0.8);
         gas.add(p, tint(COLORS.gasCore, 0.04), 60 + rand() * 80, 0.012 + rand() * 0.015);
     }
+
     // thin stellar halo
-    for (let i = 0; i < 3500; i++) {
+    for (let i = 0; i < 7000; i++) {
         const p = new THREE.Vector3(gauss(), gauss(), gauss()).multiplyScalar(18);
-        stars.add(p, tint(COLORS.diskOld, 0.05), 1.0, 0.08 + rand() * 0.15);
+        stars.add(p, tint(COLORS.diskOld, 0.05), 1.0, 0.06 + rand() * 0.12);
     }
 
     return { stars, gas, dust, knots };
 }
 
-function buildBackdrop() {
-    const layer = new Layer(7000);
-    for (let i = 0; i < 7000; i++) {
+function buildBackdropStars() {
+    const layer = new Layer(15000);
+    for (let i = 0; i < 15000; i++) {
         const p = new THREE.Vector3(gauss(), gauss(), gauss()).normalize().multiplyScalar(900);
         const pick = rand();
-        const color = pick < 0.6 ? COLORS.white : pick < 0.85 ? COLORS.armBlue : COLORS.warm;
-        layer.add(p, color, 1.0 + Math.pow(rand(), 4) * 2.0, 0.2 + Math.pow(rand(), 3) * 0.7);
+        const color = pick < 0.58 ? COLORS.white : pick < 0.84 ? COLORS.armBlue : COLORS.warm;
+        layer.add(p, color, 1.0 + Math.pow(rand(), 4) * 2.0, 0.16 + Math.pow(rand(), 3) * 0.7);
     }
     return layer;
 }
@@ -345,6 +368,86 @@ function glowSprite(color, size) {
     const sprite = new THREE.Sprite(material);
     sprite.scale.setScalar(size);
     return sprite;
+}
+
+/*
+ * The artwork sits on black, so additive blending keys the background out for
+ * free - no alpha channel needed. uFade dims it towards the edge of the plane and
+ * uOpacity handles the layer toggle and the fades.
+ */
+function buildBackdrop(url, onLoad) {
+    const texture = new THREE.TextureLoader().load(url, onLoad);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    const material = new THREE.ShaderMaterial({
+        uniforms: { uMap: { value: texture }, uOpacity: { value: BACKDROP.opacity } },
+        vertexShader: /* glsl */ `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: /* glsl */ `
+            uniform sampler2D uMap;
+            uniform float uOpacity;
+            varying vec2 vUv;
+            void main() {
+                vec3 c = texture2D(uMap, vUv).rgb;
+                float edge = 1.0 - smoothstep(0.42, 0.5, length(vUv - 0.5));
+                gl_FragColor = vec4(c * uOpacity * edge, 1.0);
+            }
+        `,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(BACKDROP.size, BACKDROP.size), material);
+    mesh.rotation.x = -Math.PI / 2;
+    mesh.rotation.z = BACKDROP.rotation;
+    mesh.renderOrder = -1;
+    return mesh;
+}
+
+function buildArmOutlines() {
+    const group = new THREE.Group();
+    const material = new THREE.LineDashedMaterial({
+        color: 0x8fa7d8,
+        transparent: true,
+        opacity: 0.22,
+        depthWrite: false,
+        dashSize: 0.9,
+        gapSize: 0.7,
+    });
+    const draw = (phase, rMin, rMax) => {
+        const points = [];
+        for (let i = 0; i <= 160; i++) {
+            points.push(armPoint(phase, THREE.MathUtils.lerp(rMin, rMax, i / 160)));
+        }
+        const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), material);
+        line.computeLineDistances();
+        group.add(line);
+    };
+    for (const arm of ARMS) draw(armPhase(arm.crossing), 8.5, GALAXY_RADIUS);
+    draw(armPhase(ORION_SPUR.crossing), ORION_SPUR.rMin, ORION_SPUR.rMax);
+    return { group, material };
+}
+
+function buildDeepSky(objects) {
+    const layers = { nebulae: new Layer(64), clusters: new Layer(64) };
+    for (const o of objects) {
+        const style = DEEP_SKY_STYLE[o.kind];
+        layers[style.layer].add(o.position, new THREE.Color(style.color), style.size, 0.9);
+    }
+    const groups = {};
+    for (const [key, layer] of Object.entries(layers)) {
+        const material = pointsMaterial({ maxSize: 18, sharpness: 6, attenuate: 0 });
+        const points = new THREE.Points(layer.geometry(), material);
+        points.renderOrder = 8;
+        points.frustumCulled = false;
+        groups[key] = { points, material };
+    }
+    return groups;
 }
 
 /* ---------- local neighbourhood ---------- */
@@ -380,9 +483,11 @@ function buildLocal(systems) {
 /* ---------- labels ---------- */
 
 class Marker {
-    constructor({ position, name, sub = "", level, kind = "link", href = null, color = null, fictional = false, onClick = null }) {
+    constructor({ position, name, sub = "", level, layer = "systems", maxDistance = Infinity, kind = "link", href = null, color = null, fictional = false, onClick = null, priority = null }) {
         this.position = position;
         this.level = level;
+        this.layer = layer;
+        this.maxDistance = maxDistance;
         const el = document.createElement(href ? "a" : "div");
         el.className = `GalaxyMarker ${kind === "region" ? "Region" : kind === "ring" ? "Ring" : "Link"}${fictional ? " Fictional" : ""}`;
         if (href) el.href = href;
@@ -407,22 +512,38 @@ class Marker {
         this.el = el;
         this.centered = kind !== "link";
         this.visible = false;
+        // lower wins when two labels overlap: our systems first, then structure, then landmarks
+        this.priority = priority ?? (kind === "link" ? 0 : kind === "ring" ? 3 : layer === "arms" ? 1 : 2);
     }
 
-    update(camera, width, height, levelVisible, iconHalf) {
+    // project to screen space; the view decides afterwards which labels survive
+    project(camera, width, height, allowed, cameraDistance) {
         const p = this.position.clone().project(camera);
-        const onScreen = p.z < 1 && Math.abs(p.x) < 1.1 && Math.abs(p.y) < 1.1;
-        const visible = levelVisible && onScreen;
+        this.onScreen = p.z < 1 && Math.abs(p.x) < 1.1 && Math.abs(p.y) < 1.1;
+        this.screenX = (p.x * 0.5 + 0.5) * width;
+        this.screenY = (-p.y * 0.5 + 0.5) * height;
+        this.candidate = allowed && this.onScreen && cameraDistance < this.maxDistance;
+        return this.candidate;
+    }
+
+    // label box in pixels, measured once and after a resize
+    measure() {
+        if (!this.width || !this.height) {
+            this.width = this.el.offsetWidth;
+            this.height = this.el.offsetHeight;
+        }
+        return this.width > 0;
+    }
+
+    apply(visible, iconHalf) {
         if (visible !== this.visible) {
             this.el.classList.toggle("Visible", visible);
             this.visible = visible;
         }
-        if (!onScreen) return;
-        const x = (p.x * 0.5 + 0.5) * width;
-        const y = (-p.y * 0.5 + 0.5) * height;
+        if (!this.onScreen) return;
         this.el.style.transform = this.centered
-            ? `translate(${x}px, ${y}px) translate(-50%, -50%)`
-            : `translate(${x - iconHalf}px, ${y}px) translate(0, -50%)`;
+            ? `translate(${this.screenX}px, ${this.screenY}px) translate(-50%, -50%)`
+            : `translate(${this.screenX - iconHalf}px, ${this.screenY}px) translate(0, -50%)`;
     }
 }
 
@@ -438,6 +559,7 @@ class GalaxyView {
         this.running = false;
         this.flight = null;
         this.lastInteraction = 0;
+        this.layerState = {};
 
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: false, powerPreference: "high-performance" });
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -465,6 +587,7 @@ class GalaxyView {
         this.buildScene();
         this.buildMarkers();
         this.bindControls();
+        this.bindLayers();
         this.placeCamera(OVERVIEW);
 
         window.addEventListener("resize", () => this.resize());
@@ -478,7 +601,7 @@ class GalaxyView {
             gas: pointsMaterial({ maxSize: 900, nearFade: 3.5, sharpness: 2.5 }),
             dust: pointsMaterial({ maxSize: 700, nearFade: 3.0, sharpness: 2.5, blending: THREE.NormalBlending }),
             knots: pointsMaterial({ maxSize: 12, nearFade: 0.6, sharpness: 9 }),
-            backdrop: pointsMaterial({ maxSize: 4, sharpness: 18, attenuate: 0 }),
+            backdropStars: pointsMaterial({ maxSize: 4, sharpness: 18, attenuate: 0 }),
         };
         const add = (layer, material, order) => {
             const points = new THREE.Points(layer.geometry(), material);
@@ -486,11 +609,16 @@ class GalaxyView {
             points.frustumCulled = false;
             this.scene.add(points);
         };
-        add(buildBackdrop(), this.materials.backdrop, 0);
+        add(buildBackdropStars(), this.materials.backdropStars, 0);
         add(galaxy.gas, this.materials.gas, 1);
         add(galaxy.stars, this.materials.stars, 2);
         add(galaxy.dust, this.materials.dust, 3);
         add(galaxy.knots, this.materials.knots, 4);
+
+        this.backdrop = buildBackdrop(this.root.dataset.backdrop, () => {
+            this.backdropReady = true;
+        });
+        this.scene.add(this.backdrop);
 
         this.coreGlow = glowSprite(new THREE.Color(0.55, 0.42, 0.28), 26);
         this.coreGlow.renderOrder = 5;
@@ -499,6 +627,13 @@ class GalaxyView {
         this.sunGlow.position.copy(SUN);
         this.sunGlow.renderOrder = 6;
         this.scene.add(this.sunGlow);
+
+        this.arms = buildArmOutlines();
+        this.scene.add(this.arms.group);
+
+        this.deepSky = (DATA.deepSky || []).map((o) => ({ ...o, position: truePosition(o.l, o.b, o.d) }));
+        this.deepSkyGroups = buildDeepSky(this.deepSky);
+        for (const group of Object.values(this.deepSkyGroups)) this.scene.add(group.points);
 
         this.localSystems = DATA.systems
             .filter((s) => !s.placement.fictional && s.placement.d > 0)
@@ -518,18 +653,17 @@ class GalaxyView {
 
         for (const arm of ARMS) {
             const phase = armPhase(arm.crossing);
-            add({ position: armPoint(phase, arm.label), name: arm.name, level: "galaxy", kind: "region" });
-            if (arm.outerLabel) add({ position: armPoint(phase, 41), name: arm.outerLabel, level: "galaxy", kind: "region" });
+            add({ position: armPoint(phase, arm.label), name: arm.name, level: "galaxy", layer: "arms", kind: "region" });
+            if (arm.outerLabel) add({ position: armPoint(phase, 41), name: arm.outerLabel, level: "galaxy", layer: "arms", kind: "region" });
         }
-        add({ position: armPoint(armPhase(ORION_SPUR.crossing), 29.5).add(new THREE.Vector3(2.5, 0, 0)), name: ORION_SPUR.name, level: "galaxy", kind: "region" });
-        add({ position: new THREE.Vector3(0, 0, 0), name: "Galactic Centre · Sgr A*", level: "galaxy", kind: "region" });
+        add({ position: armPoint(armPhase(ORION_SPUR.crossing), 29.5).add(new THREE.Vector3(2.5, 0, 0)), name: ORION_SPUR.name, level: "galaxy", layer: "arms", kind: "region" });
+        add({ position: new THREE.Vector3(0, 0, 0), name: "Galactic Centre · Sgr A*", level: "galaxy", layer: "arms", kind: "region", priority: 0.5 });
 
         const sun = DATA.systems.find((s) => s.placement.d === 0 && !s.placement.fictional);
-        const neighbours = this.localSystems.length;
         add({
             position: SUN,
             name: "Sol",
-            sub: `Local neighbourhood · ${neighbours} systems`,
+            sub: `Local neighbourhood · ${this.localSystems.length} systems`,
             level: "galaxy",
             color: "#9ecbff",
             onClick: () => this.flyToSun(),
@@ -543,6 +677,18 @@ class GalaxyView {
         for (const s of DATA.systems.filter((s) => s.placement.fictional)) {
             const position = new THREE.Vector3(s.placement.x / 1000, 0, s.placement.z / 1000);
             add({ position, name: s.name, sub: `Fictional · ${s.placement.source}`, level: "galaxy", href: s.href, color: s.color, fictional: true });
+        }
+        for (const o of this.deepSky) {
+            const style = DEEP_SKY_STYLE[o.kind];
+            add({
+                position: o.position,
+                name: o.name,
+                sub: `${o.alias} · ${style.label} · ${formatLy(o.d)}`,
+                level: "galaxy",
+                layer: style.layer,
+                maxDistance: DEEP_SKY_LABEL_DISTANCE,
+                kind: "region",
+            });
         }
         for (const ly of LOCAL_RINGS_LY) {
             const r = LOCAL_LOG_SCALE * Math.log10(1 + ly);
@@ -558,6 +704,24 @@ class GalaxyView {
                 if (action === "sun") this.flyToSun();
                 if (action === "zoom-in") this.zoomBy(0.6);
                 if (action === "zoom-out") this.zoomBy(1 / 0.6);
+            });
+        });
+    }
+
+    bindLayers() {
+        this.root.querySelectorAll(".GalaxyLayer input").forEach((input) => {
+            const key = input.dataset.layer;
+            let saved = null;
+            try {
+                saved = localStorage.getItem(`galaxyLayer:${key}`);
+            } catch (e) {}
+            if (saved !== null) input.checked = saved === "1";
+            this.layerState[key] = input.checked;
+            input.addEventListener("change", () => {
+                this.layerState[key] = input.checked;
+                try {
+                    localStorage.setItem(`galaxyLayer:${key}`, input.checked ? "1" : "0");
+                } catch (e) {}
             });
         });
     }
@@ -625,8 +789,15 @@ class GalaxyView {
         this.height = height;
         // point sizes are authored for a ~900px tall view seen from ~80 units away
         const scale = (height / 900) * this.renderer.getPixelRatio() * 80;
-        for (const m of [...Object.values(this.materials), this.local.dotMaterial]) m.uniforms.uScale.value = scale;
+        const materials = [...Object.values(this.materials), this.local.dotMaterial,
+            ...Object.values(this.deepSkyGroups).map((g) => g.material)];
+        for (const m of materials) m.uniforms.uScale.value = scale;
         this.iconHalf = Math.min(width, height) * 0.0055;
+        // label boxes are sized in vmin, so they change with the viewport
+        for (const marker of this.markers || []) {
+            marker.width = 0;
+            marker.height = 0;
+        }
     }
 
     frame(now) {
@@ -644,19 +815,54 @@ class GalaxyView {
         if (target.length() > GALAXY_RADIUS * 1.1) target.setLength(GALAXY_RADIUS * 1.1);
         target.y = THREE.MathUtils.clamp(target.y, -3, 3);
 
+        const cameraDistance = this.spherical().radius;
         const sunDistance = this.camera.position.distanceTo(SUN);
         const local = 1 - smoothstep(LOCAL_FULL, LOCAL_ENTER, sunDistance);
-        this.local.group.visible = local > 0.01;
+
+        this.local.group.visible = local > 0.01 && this.layerState.systems !== false;
         for (const m of this.local.materials) m.opacity = 0.35 * local;
         this.local.dotMaterial.uniforms.uOpacity.value = local;
         this.materials.gas.uniforms.uOpacity.value = 1 - 0.6 * local;
-        this.sunGlow.material.opacity = 1 - local;
+        this.sunGlow.material.opacity = (1 - local) * (this.layerState.systems === false ? 0.35 : 1);
+
+        // the backdrop is a flat plane, so fade it out when seen edge-on or up close
+        const elevation = Math.abs(this.camera.position.y - target.y) / Math.max(cameraDistance, 0.001);
+        this.backdrop.visible = this.layerState.backdrop !== false;
+        this.backdrop.material.uniforms.uOpacity.value =
+            BACKDROP.opacity * (1 - local) * smoothstep(0.12, 0.4, elevation);
+
+        this.arms.group.visible = this.layerState.arms !== false && local < 0.99;
+        this.arms.material.opacity = 0.22 * (1 - local);
+        for (const [key, group] of Object.entries(this.deepSkyGroups)) {
+            group.points.visible = this.layerState[key] !== false && local < 0.99;
+            group.material.uniforms.uOpacity.value = 1 - local;
+        }
         this.scaleNote.classList.toggle("Visible", local > 0.5);
 
+        const candidates = [];
         for (const marker of this.markers) {
-            const levelVisible = marker.level === "local" ? local > 0.5 : local < 0.5;
-            marker.update(this.camera, this.width, this.height, levelVisible, this.iconHalf);
+            const levelMatches = marker.level === "local" ? local > 0.5 : local < 0.5;
+            const layerOn = this.layerState[marker.layer] !== false;
+            if (marker.project(this.camera, this.width, this.height, levelMatches && layerOn, cameraDistance)) {
+                candidates.push(marker);
+            }
         }
+        // drop labels whose box would overlap a more important one
+        candidates.sort((a, b) => a.priority - b.priority);
+        const kept = [];
+        for (const marker of candidates) {
+            marker.measure();
+            // region labels are centred on the point, link labels sit to the right of their icon
+            marker.boxX = marker.centered ? marker.screenX : marker.screenX + marker.width / 2;
+            const clash = kept.some(
+                (other) =>
+                    Math.abs(other.boxX - marker.boxX) < (other.width + marker.width) * 0.5 + 8 &&
+                    Math.abs(other.screenY - marker.screenY) < (other.height + marker.height) * 0.5 + 2
+            );
+            if (!clash) kept.push(marker);
+            marker.keep = !clash;
+        }
+        for (const marker of this.markers) marker.apply(Boolean(marker.candidate && marker.keep), this.iconHalf);
 
         const fromCore = Math.round(target.length() * 1000);
         const fromSun = Math.round(target.distanceTo(SUN) * 1000);
@@ -684,6 +890,7 @@ let view = null;
 function onView(name) {
     if (name === "galaxy") {
         view ??= new GalaxyView();
+        window.galaxyView = view; // handy for tuning from the console
         view.start();
     } else if (view) {
         view.stop();

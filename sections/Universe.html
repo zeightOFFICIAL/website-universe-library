@@ -27,9 +27,18 @@
             </span>
             <div class="swiper-pagination"></div>
         </div>
-        <div id="GALAXY_VIEW" class="GalaxyView" aria-hidden="true">
+        <div id="GALAXY_VIEW" class="GalaxyView" aria-hidden="true" data-backdrop="{% static 'Images/GalaxyBackdrop.jpg' %}">
             <canvas id="GALAXY_CANVAS"></canvas>
             <div id="GALAXY_LABELS" class="GalaxyLabels"></div>
+            <div class="GalaxyPanel">
+                <p class="GalaxyPanelTitle">Layers</p>
+                <label class="GalaxyLayer"><input type="checkbox" data-layer="backdrop" checked><span>Milky Way backdrop</span></label>
+                <label class="GalaxyLayer"><input type="checkbox" data-layer="arms" checked><span>Arms &amp; structure</span></label>
+                <label class="GalaxyLayer"><input type="checkbox" data-layer="nebulae" checked><span>Nebulae</span></label>
+                <label class="GalaxyLayer"><input type="checkbox" data-layer="clusters" checked><span>Star clusters</span></label>
+                <label class="GalaxyLayer"><input type="checkbox" data-layer="systems" checked><span>Star systems</span></label>
+                <p class="GalaxyPanelNote">Backdrop: NASA/JPL-Caltech, R. Hurt. Landmarks at true positions.</p>
+            </div>
             <div class="GalaxyReadout" id="GALAXY_READOUT"></div>
             <div class="GalaxyScaleNote" id="GALAXY_SCALE_NOTE">Local view · distances log-scaled, directions true</div>
             <div class="GalaxyControls">

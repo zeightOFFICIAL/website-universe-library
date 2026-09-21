@@ -5,7 +5,12 @@ from mysite.PredefinedSystems.SolarSystem import System as Solar
 
 from mysite.Types.DeckType import DeckClass
 from mysite.Types.CardType import CardClass
-from starsystems.galaxy import GALAXY_PLACEMENT, SUN_TO_GALACTIC_CENTRE_LY
+from starsystems.galaxy import (
+    DEEP_SKY,
+    GALAXY_PLACEMENT,
+    SUN_HEIGHT_ABOVE_PLANE_LY,
+    SUN_TO_GALACTIC_CENTRE_LY,
+)
 from mysite.ServerScripts import (
     get_sql_system,
     get_sql_system_id,
@@ -49,6 +54,8 @@ def universe_page(request) -> HttpResponse:
     Head = '<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../static/Icons/LogoStrip.ico" charset="UTF-8"><title>Universe Library</title>'
     galaxy = {
         "sunDistance": SUN_TO_GALACTIC_CENTRE_LY,
+        "sunHeight": SUN_HEIGHT_ABOVE_PLANE_LY,
+        "deepSky": DEEP_SKY,
         "systems": [
             {
                 "name": card.name,
@@ -57,7 +64,7 @@ def universe_page(request) -> HttpResponse:
                 "placement": GALAXY_PLACEMENT[card.href],
             }
             for card in all_cards
-            if card.href in GALAXY_PLACEMENT
+            if card.href in GALAXY_PLACEMENT and not GALAXY_PLACEMENT[card.href].get("hidden")
         ],
     }
     return render(

@@ -169,13 +169,15 @@
 }
 
 .GalaxyMarker.Region {
-    color: var(--galaxy-ink-dim);
+    color: #a8b0bf;
     transform-origin: center
 }
 
 .GalaxyMarker.Region .GalaxyMarkerName {
     font-size: 1.25vmin;
-    letter-spacing: .3em
+    letter-spacing: .3em;
+    /* the NASA backdrop is bright in places, so labels carry their own shadow */
+    text-shadow: 0 0 .5vmin #000, 0 0 1.2vmin #000
 }
 
 .GalaxyMarker.Ring .GalaxyMarkerName {
@@ -237,4 +239,66 @@
 .GalaxyControls button:hover {
     background: rgba(214, 190, 120, .15);
     color: #fff
+}
+
+/* layer panel */
+
+.GalaxyPanel {
+    background: var(--galaxy-panel);
+    border: 1px solid rgba(214, 190, 120, .35);
+    left: 2vmin;
+    max-width: 24vmin;
+    padding: 1.2vmin 1.4vmin;
+    position: absolute;
+    top: 2vmin
+}
+
+.GalaxyPanelTitle {
+    color: var(--galaxy-ink);
+    font-family: var(--galaxy-font);
+    font-size: 1.2vmin;
+    letter-spacing: .3em;
+    margin: 0 0 .8vmin;
+    text-transform: uppercase
+}
+
+.GalaxyLayer {
+    align-items: center;
+    color: var(--galaxy-ink-dim);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--galaxy-font);
+    font-size: 1.3vmin;
+    gap: .7vmin;
+    letter-spacing: .1em;
+    padding: .35vmin 0;
+    text-transform: uppercase;
+    transition: color .25s
+}
+
+.GalaxyLayer:hover {
+    color: #fff
+}
+
+.GalaxyLayer input {
+    accent-color: #9ecbff;
+    cursor: pointer;
+    height: 1.3vmin;
+    margin: 0;
+    width: 1.3vmin
+}
+
+.GalaxyLayer:has(input:checked) {
+    color: var(--galaxy-ink)
+}
+
+.GalaxyPanelNote {
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    color: #5d6472;
+    font-family: var(--galaxy-font);
+    font-size: 1vmin;
+    letter-spacing: .06em;
+    line-height: 1.4;
+    margin: 1vmin 0 0;
+    padding-top: .8vmin
 }
