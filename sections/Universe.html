@@ -27,20 +27,29 @@
             </span>
             <div class="swiper-pagination"></div>
         </div>
-        <div id="GALAXY_VIEW" class="GalaxyView" aria-hidden="true" data-backdrop="{% static 'Images/GalaxyBackdrop.jpg' %}">
+        <div id="GALAXY_VIEW" class="GalaxyView" aria-hidden="true"
+             data-backdrop="{% static 'Images/GalaxyBackdrop.jpg' %}"
+             data-galaxies="{% static 'Images/Galaxies/' %}">
             <canvas id="GALAXY_CANVAS"></canvas>
             <div id="GALAXY_LABELS" class="GalaxyLabels"></div>
-            <div class="GalaxyPanel">
-                <p class="GalaxyPanelTitle">Layers</p>
-                <label class="GalaxyLayer"><input type="checkbox" data-layer="backdrop" checked><span>Milky Way backdrop</span></label>
-                <label class="GalaxyLayer"><input type="checkbox" data-layer="arms" checked><span>Arms &amp; structure</span></label>
-                <label class="GalaxyLayer"><input type="checkbox" data-layer="nebulae" checked><span>Nebulae</span></label>
-                <label class="GalaxyLayer"><input type="checkbox" data-layer="clusters" checked><span>Star clusters</span></label>
-                <label class="GalaxyLayer"><input type="checkbox" data-layer="systems" checked><span>Star systems</span></label>
-                <p class="GalaxyPanelNote">Backdrop: NASA/JPL-Caltech, R. Hurt. Landmarks at true positions.</p>
+            <div class="GalaxySidebar">
+                <button type="button" class="GalaxySideButton" data-panel="GALAXY_LAYERS" aria-expanded="false">&#9776; Layers</button>
+                <div class="GalaxyPanel" id="GALAXY_LAYERS">
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="backdrop" checked><span>Milky Way backdrop</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="arms" checked><span>Arms &amp; structure</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="deepsky" checked><span>Nebulae &amp; clusters</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="galaxies" checked><span>Galaxies</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="systems" checked><span>Star systems</span></label>
+                    <p class="GalaxyPanelNote">{{ galaxy.credits }} Landmarks at true positions; far galaxies drawn closer.</p>
+                </div>
+                <button type="button" class="GalaxySideButton" data-panel="GALAXY_OBJECTS" aria-expanded="false">&#9673; In view</button>
+                <div class="GalaxyPanel GalaxyPanelScroll" id="GALAXY_OBJECTS">
+                    <div id="GALAXY_OBJECT_LIST"></div>
+                </div>
             </div>
             <div class="GalaxyReadout" id="GALAXY_READOUT"></div>
             <div class="GalaxyScaleNote" id="GALAXY_SCALE_NOTE">Local view · distances log-scaled, directions true</div>
+            <div class="GalaxyHint">Left-drag to move · right-drag to tilt · scroll to zoom</div>
             <div class="GalaxyControls">
                 <button type="button" data-action="zoom-out" title="Zoom out">&minus;</button>
                 <button type="button" data-action="overview" title="Whole galaxy">&#8982;</button>

@@ -6,8 +6,11 @@ from mysite.PredefinedSystems.SolarSystem import System as Solar
 from mysite.Types.DeckType import DeckClass
 from mysite.Types.CardType import CardClass
 from starsystems.galaxy import (
+    BACKGROUND_GALAXY_IMAGES,
     DEEP_SKY,
+    GALAXIES,
     GALAXY_PLACEMENT,
+    IMAGE_CREDITS,
     SUN_HEIGHT_ABOVE_PLANE_LY,
     SUN_TO_GALACTIC_CENTRE_LY,
 )
@@ -56,6 +59,9 @@ def universe_page(request) -> HttpResponse:
         "sunDistance": SUN_TO_GALACTIC_CENTRE_LY,
         "sunHeight": SUN_HEIGHT_ABOVE_PLANE_LY,
         "deepSky": DEEP_SKY,
+        "galaxies": GALAXIES,
+        "backgroundGalaxies": BACKGROUND_GALAXY_IMAGES,
+        "credits": IMAGE_CREDITS,
         "systems": [
             {
                 "name": card.name,
