@@ -169,15 +169,15 @@
 }
 
 .GalaxyMarker.Region {
-    color: #a8b0bf;
+    color: #d3d9e4;
     transform-origin: center
 }
 
 .GalaxyMarker.Region .GalaxyMarkerName {
     font-size: 1.25vmin;
     letter-spacing: .3em;
-    /* the NASA backdrop is bright in places, so labels carry their own shadow */
-    text-shadow: 0 0 .5vmin #000, 0 0 1.2vmin #000
+    /* the arms are bright now, so labels carry a heavier shadow of their own */
+    text-shadow: 0 0 .4vmin #000, 0 0 1vmin #000, 0 0 2vmin #000
 }
 
 .GalaxyMarker.Ring .GalaxyMarkerName {
@@ -396,4 +396,12 @@
     right: 2vmin;
     text-align: right;
     text-transform: uppercase
+}
+
+.GalaxyListRow.Static {
+    cursor: default
+}
+
+.GalaxyListRow.Static:hover {
+    color: var(--galaxy-ink-dim)
 }

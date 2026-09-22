@@ -82,30 +82,48 @@ DEEP_SKY = [
     {"name": "Local Bubble", "alias": "Local cavity", "kind": "structure", "l": 0.0, "b": 0.0, "d": 0.0, "radius": 500},
 ]
 
-# Galaxies. "display" is the distance we actually draw them at, in light-years:
-# the satellites sit at their true distance, but Andromeda and Triangulum are
-# pulled in so they stay in frame. Labels always state the true distance.
-# "image" is a file in static/Images/Galaxies/.
+# Galaxies, built as oriented 3D star discs rather than camera-facing images.
+# "display" is the distance we draw them at, in light-years: the satellites sit at
+# their true distance, Andromeda and Triangulum are pulled in so they stay in frame,
+# and labels always state the true distance. "size" is the real diameter.
+# Each one is drawn as its photograph on a plane whose normal points back at the
+# Sun, which is where the photograph was taken from, so the picture already carries
+# the galaxy's real tilt. "inclination" and "pa" (position angle of the major axis,
+# from celestial north) are kept as a record of that tilt; "imageScale" says how
+# much wider than the galaxy its frame is, and "roll" spins the plane in place.
 GALAXIES = [
-    # a galaxy being torn apart by the Milky Way: no photograph reads as itself at
-    # this scale, so it is drawn as a diffuse glow instead of a borrowed image
-    {"name": "Sagittarius Dwarf", "alias": "SagDEG", "kind": "satellite", "l": 5.57, "b": -14.17,
-     "d": 65_000, "display": 65_000, "image": None, "size": 22_000},
-    {"name": "Large Magellanic Cloud", "alias": "LMC", "kind": "satellite", "l": 280.47, "b": -32.89,
-     "d": 163_000, "display": 163_000, "image": "lmc.jpg", "size": 60_000},
-    {"name": "Small Magellanic Cloud", "alias": "SMC", "kind": "satellite", "l": 302.80, "b": -44.30,
-     "d": 200_000, "display": 200_000, "image": "smc.jpg", "size": 40_000},
-    {"name": "Andromeda Galaxy", "alias": "M31", "kind": "spiral", "l": 121.17, "b": -21.57,
-     "d": 2_537_000, "display": 420_000, "image": "m31.jpg", "size": 260_000},
-    {"name": "Triangulum Galaxy", "alias": "M33", "kind": "spiral", "l": 133.61, "b": -31.33,
-     "d": 2_730_000, "display": 520_000, "image": "m33.jpg", "size": 130_000},
+    # no photograph reads as itself at this size, so it stays a diffuse glow
+    {"name": "Sagittarius Dwarf", "alias": "SagDEG", "kind": "satellite", "type": "blob",
+     "l": 5.57, "b": -14.17, "d": 65_000, "display": 65_000, "size": 16_000,
+     "image": None, "colors": ["#ffe3c0", "#c9b5ff"]},
+    {"name": "Large Magellanic Cloud", "alias": "LMC", "kind": "satellite", "type": "irregular",
+     "l": 280.47, "b": -32.89, "d": 163_000, "display": 163_000, "size": 32_000,
+     "inclination": 35.0, "pa": 170.0, "image": "lmc.jpg", "imageScale": 1.8,
+     "colors": ["#fff0d6", "#9fc4ff"]},
+    {"name": "Small Magellanic Cloud", "alias": "SMC", "kind": "satellite", "type": "irregular",
+     "l": 302.80, "b": -44.30, "d": 200_000, "display": 200_000, "size": 18_000,
+     "inclination": 60.0, "pa": 45.0, "image": "smc.jpg", "imageScale": 1.8,
+     "colors": ["#ffeccf", "#a8c8ff"]},
+    {"name": "Andromeda Galaxy", "alias": "M31", "kind": "spiral", "type": "spiral",
+     "l": 121.17, "b": -21.57, "d": 2_537_000, "display": 840_000, "size": 152_000,
+     "inclination": 77.0, "pa": 38.0, "image": "m31.jpg", "imageScale": 1.9,
+     "colors": ["#ffd9a0", "#a9c7ff"]},
+    {"name": "Triangulum Galaxy", "alias": "M33", "kind": "spiral", "type": "spiral",
+     "l": 133.61, "b": -31.33, "d": 2_730_000, "display": 1_040_000, "size": 60_000,
+     "inclination": 56.0, "pa": 23.0, "image": "m33.jpg", "imageScale": 1.9,
+     "colors": ["#ffe6bb", "#93b9ff"]},
 ]
 
-# Decorative far-field galaxies: real photographs, but scattered rather than
-# placed, so they carry no names and no distances.
+# Direction of the celestial north pole in galactic coordinates, which is what the
+# position angles above are measured from.
+CELESTIAL_POLE_GALACTIC = {"l": 122.93192, "b": 27.12825}
+
+# Decorative far-field galaxies: real photographs on fixed, randomly oriented
+# planes - not billboards - scattered rather than placed, so they carry no names
+# and no distances.
 BACKGROUND_GALAXY_IMAGES = ["spiral1.jpg", "spiral2.jpg", "m33.jpg", "m31.jpg"]
 
 IMAGE_CREDITS = (
-    "Milky Way backdrop and galaxy images: NASA/JPL-Caltech (R. Hurt), "
-    "NASA/ESA Hubble, NASA/Spitzer. Andromeda: Adam Evans, CC BY 2.0."
+    "Milky Way backdrop: NASA/JPL-Caltech (R. Hurt). Far-field galaxy images: "
+    "NASA/ESA Hubble, NASA/Spitzer, Adam Evans (CC BY 2.0)."
 )

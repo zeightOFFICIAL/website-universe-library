@@ -35,12 +35,10 @@
             <div class="GalaxySidebar">
                 <button type="button" class="GalaxySideButton" data-panel="GALAXY_LAYERS" aria-expanded="false">&#9776; Layers</button>
                 <div class="GalaxyPanel" id="GALAXY_LAYERS">
-                    <label class="GalaxyLayer"><input type="checkbox" data-layer="backdrop" checked><span>Milky Way backdrop</span></label>
-                    <label class="GalaxyLayer"><input type="checkbox" data-layer="arms" checked><span>Arms &amp; structure</span></label>
-                    <label class="GalaxyLayer"><input type="checkbox" data-layer="deepsky" checked><span>Nebulae &amp; clusters</span></label>
-                    <label class="GalaxyLayer"><input type="checkbox" data-layer="galaxies" checked><span>Galaxies</span></label>
-                    <label class="GalaxyLayer"><input type="checkbox" data-layer="systems" checked><span>Star systems</span></label>
-                    <p class="GalaxyPanelNote">{{ galaxy.credits }} Landmarks at true positions; far galaxies drawn closer.</p>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="arms" checked><span>Arm &amp; galaxy labels</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="deepsky" checked><span>Nebula &amp; cluster labels</span></label>
+                    <label class="GalaxyLayer"><input type="checkbox" data-layer="systems" checked><span>Star system labels</span></label>
+                    <p class="GalaxyPanelNote">Backdrop, landmarks and galaxies are always drawn; these switch their labels. {{ galaxy.credits }} Landmarks at true positions; far galaxies drawn closer.</p>
                 </div>
                 <button type="button" class="GalaxySideButton" data-panel="GALAXY_OBJECTS" aria-expanded="false">&#9673; In view</button>
                 <div class="GalaxyPanel GalaxyPanelScroll" id="GALAXY_OBJECTS">

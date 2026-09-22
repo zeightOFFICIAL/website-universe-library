@@ -7,6 +7,7 @@ from mysite.Types.DeckType import DeckClass
 from mysite.Types.CardType import CardClass
 from starsystems.galaxy import (
     BACKGROUND_GALAXY_IMAGES,
+    CELESTIAL_POLE_GALACTIC,
     DEEP_SKY,
     GALAXIES,
     GALAXY_PLACEMENT,
@@ -60,6 +61,7 @@ def universe_page(request) -> HttpResponse:
         "sunHeight": SUN_HEIGHT_ABOVE_PLANE_LY,
         "deepSky": DEEP_SKY,
         "galaxies": GALAXIES,
+        "celestialPole": CELESTIAL_POLE_GALACTIC,
         "backgroundGalaxies": BACKGROUND_GALAXY_IMAGES,
         "credits": IMAGE_CREDITS,
         "systems": [
