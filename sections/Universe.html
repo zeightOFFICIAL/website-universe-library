@@ -5,12 +5,12 @@
         {{ head| safe}}
         <link rel="stylesheet" href="{% static 'Styles/UniverseStyles.css' %}" charset="UTF-8">
         <link rel="stylesheet" href="{% static 'Styles/GalaxyStyles.css' %}" charset="UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'Vendor/swiper-bundle.min.css' %}" charset="UTF-8">
         <script type="importmap">
             {
                 "imports": {
-                    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
-                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+                    "three": "{% static 'Vendor/three/three.module.js' %}",
+                    "three/addons/": "{% static 'Vendor/three/addons/' %}"
                 }
             }
         </script>
@@ -31,6 +31,11 @@
              data-backdrop="{% static 'Images/GalaxyBackdrop.jpg' %}"
              data-galaxies="{% static 'Images/Galaxies/' %}">
             <canvas id="GALAXY_CANVAS"></canvas>
+            <div class="GalaxyLoader" id="GALAXY_LOADER">
+                <p class="GalaxyLoaderTitle">Charting the galaxy</p>
+                <div class="GalaxyLoaderTrack"><span id="GALAXY_LOADER_BAR"></span></div>
+                <p class="GalaxyLoaderStep" id="GALAXY_LOADER_STEP">Loading imagery</p>
+            </div>
             <div id="GALAXY_LABELS" class="GalaxyLabels"></div>
             <div class="GalaxySidebar">
                 <button type="button" class="GalaxySideButton" data-panel="GALAXY_LAYERS" aria-expanded="false">&#9776; Layers</button>
@@ -56,7 +61,7 @@
             </div>
         </div>
         {{ galaxy|json_script:"GALAXY_DATA" }}
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <script src="{% static 'Vendor/swiper-bundle.min.js' %}"></script>
         <script src="{% static 'Scripts/CoreFunctions.js' %}"></script>
         <script src="{% static 'Scripts/UniverseScripts.js' %}"></script>
         <script type="module" src="{% static 'Scripts/Galaxy.js' %}"></script>

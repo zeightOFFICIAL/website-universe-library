@@ -39,6 +39,14 @@ const ARMS = [
 const ORION_SPUR = { name: "Orion Spur", crossing: 26.3, rMin: 23, rMax: 30.5 };
 
 /*
+ * The bar's axis, and it has to agree with the backdrop: the artwork's bar sits at
+ * 47 degrees in image coordinates and the plane is rotated 16 degrees, which puts
+ * it here. The core's boxy bulge is built along this axis, so if BACKDROP.rotation
+ * changes, this moves with it.
+ */
+const BAR_ANGLE = THREE.MathUtils.degToRad(117);
+
+/*
  * The backdrop is R. Hurt's face-on artist's concept (NASA/JPL-Caltech, public
  * domain). Its bar sits at 47 degrees in image coordinates; rotating the plane by
  * 16 degrees lines that up with the bar direction we use for the arm skeleton. It
@@ -54,15 +62,17 @@ const BACKDROP = {
     blur: 4.0,
     twist: THREE.MathUtils.degToRad(1.6),
     sampleSize: 448,
-    stars: 1050000,
+    stars: 2100000,
+    thickDisk: 260000,
+    halo: 110000,
     gas: 10000,
     knots: 3600,
     dust: 9000,
     // the named catalogue in DEEP_SKY carries the real, known objects; this is the
     // anonymous filler that keeps the rest of the disk from looking empty, so it
     // stays sparse - enough to say "these are everywhere", not enough to crowd
-    scatteredDeepSky: 1200,
-    blackHoles: 140,
+    scatteredDeepSky: 2000,
+    blackHoles: 70,
 };
 
 /*
@@ -71,6 +81,9 @@ const BACKDROP = {
  * them. STAR_TINTS are blended into each sampled pixel colour.
  */
 const INTER_ARM_TINT = new THREE.Color(1.0, 0.72, 0.5);
+const THICK_DISK_TINT = new THREE.Color(1.0, 0.78, 0.6);
+const HALO_TINT = new THREE.Color(1.0, 0.87, 0.72);
+const WHITE = new THREE.Color(1, 1, 1);
 
 const STAR_TINTS = [
     { color: new THREE.Color(0.62, 0.42, 1.0), weight: 0.42, amount: 0.5 },
@@ -348,11 +361,19 @@ const BACKDROP_FRAGMENT = /* glsl */ `
     uniform sampler2D uMap;
     uniform float uOpacity;
     uniform float uBias;
+    uniform float uCoreFade;
     varying vec2 vUv;
     void main() {
         vec3 c = texture2D(uMap, vUv, uBias).rgb;
-        float edge = 1.0 - smoothstep(0.42, 0.5, length(vUv - 0.5));
-        gl_FragColor = vec4(c * uOpacity * edge, 1.0);
+        float radius = length(vUv - 0.5);
+        float edge = 1.0 - smoothstep(0.42, 0.5, radius);
+        /*
+         * The artwork paints a bulge and we now build one in 3D, so up close the two
+         * stack and blow the centre out. Fade the painted one away as the camera
+         * approaches and let the real geometry carry it; the outer disk stays.
+         */
+        float coreMask = 1.0 - smoothstep(0.04, 0.2, radius);
+        gl_FragColor = vec4(c * uOpacity * edge * (1.0 - uCoreFade * coreMask * 0.93), 1.0);
     }
 `;
 
@@ -379,6 +400,7 @@ function buildBackdropVolume(texture) {
             uniforms: {
                 uMap: { value: texture },
                 uOpacity: { value: 0 },
+                uCoreFade: { value: 0 },
                 // mid-plane stays sharp, outer slices blur out into haze
                 uBias: { value: Math.pow(Math.abs(t), 0.75) * BACKDROP.blur },
             },
@@ -442,15 +464,19 @@ function imageSampler(image, n) {
     return { pixels, n, pick, total: sum };
 }
 
-// pixel index -> world position in the galaxy plane, plus disk radius in kly
-function pixelToPlane(index, n) {
+/*
+ * Pixel index -> world position in the galaxy plane, returning the disk radius in
+ * kly. The caller passes the vector in: this runs a million times per build, and
+ * allocating a fresh Vector3 each time was most of the build's cost.
+ */
+function pixelToPlane(index, n, target) {
     const ix = index % n;
     const iy = Math.floor(index / n);
     const x = ((ix + rand()) / n - 0.5) * BACKDROP.size;
     // the texture's v axis runs up the plane, so image row 0 is +Y
     const y = (0.5 - (iy + rand()) / n) * BACKDROP.size;
-    const p = new THREE.Vector3(x, y, 0).applyMatrix4(BACKDROP_MATRIX);
-    return { p, r: Math.hypot(x, y) };
+    target.set(x, y, 0).applyMatrix4(BACKDROP_MATRIX);
+    return Math.hypot(x, y);
 }
 
 function pixelColor(sampler, index) {
@@ -475,7 +501,8 @@ function pickTint() {
 function buildGalaxyFromImage(image) {
     const sampler = imageSampler(image, BACKDROP.sampleSize);
     const scattered = buildScatteredDeepSky(sampler);
-    const stars = new Layer(BACKDROP.stars);
+    const p = new THREE.Vector3();
+    const stars = new Layer(BACKDROP.stars + BACKDROP.thickDisk + BACKDROP.halo);
     const gas = new Layer(BACKDROP.gas);
     const knots = new Layer(BACKDROP.knots);
     const dust = new Layer(BACKDROP.dust);
@@ -486,9 +513,9 @@ function buildGalaxyFromImage(image) {
         const c = pixelColor(sampler, index);
         const peak = Math.max(c.r, c.g, c.b);
         if (peak < 0.04) continue;
-        const { p, r } = pixelToPlane(index, sampler.n);
+        const r = pixelToPlane(index, sampler.n, p);
         // thin disk, thickening into a round bulge towards the centre
-        const sigma = 0.1 + 0.014 * r + 2.2 * Math.exp(-r / 2.6);
+        const sigma = 0.13 + 0.019 * r + 2.2 * Math.exp(-r / 2.6);
         p.y += gauss() * sigma;
         // keep the pixel's hue, then pull it towards one of the house tints. The
         // bulge keeps the artwork's warm gold: violet over gold mixes to mud.
@@ -499,9 +526,13 @@ function buildGalaxyFromImage(image) {
         // a second cue for telling arm from gap up close: the sparse stars between
         // the arms are the old, redder population, the arms keep the blue-violet
         if (peak < 0.42) color.lerp(INTER_ARM_TINT, (0.42 - peak) * 1.6 * smoothstep(3.5, 11, r));
-        // fewer stars than the dense experiment, each a little bigger and brighter,
-        // which costs nothing: point cost is driven by sprite area, and these are tiny
-        const size = 1.6 + Math.pow(rand(), 3) * 3.4;
+        /*
+         * A wide size spread is what sells a star field: mostly small points with a
+         * rare bright one among them. A tighter distribution of the same count reads
+         * as uniform grain, which is why more stars alone never fixed the look. The
+         * fourth power keeps the big ones rare, so the cost barely moves.
+         */
+        const size = 1.35 + Math.pow(rand(), 4) * 5.0;
         /*
          * Density, not brightness. The star count is more than doubled while each
          * star's alpha drops to roughly 45% of what it was, so the total light in
@@ -509,18 +540,46 @@ function buildGalaxyFromImage(image) {
          * solid rather than as something you can see through. Raising alpha instead
          * just makes it glow, which is not the same thing.
          */
-        const alpha = (0.016 + Math.pow(rand(), 3) * 0.145) * (0.35 + 0.65 * peak);
+        const alpha = (0.008 + Math.pow(rand(), 3) * 0.0725) * (0.35 + 0.65 * peak);
         stars.add(p, color, size, alpha);
     }
 
     for (let i = 0; i < BACKDROP.gas; i++) {
         const index = sampler.pick();
         const c = pixelColor(sampler, index);
-        const { p, r } = pixelToPlane(index, sampler.n);
+        const r = pixelToPlane(index, sampler.n, p);
         if (r < 3.5) continue;
         p.y += gauss() * (0.45 + 0.016 * r + 1.6 * Math.exp(-r / 3));
         color.setRGB(c.r, c.g, c.b).lerp(STAR_TINTS[0].color, (0.3 + rand() * 0.2) * smoothstep(4, 12, r));
         gas.add(p, color, 26 + rand() * 40, 0.008 + rand() * 0.012);
+    }
+
+    /*
+     * The galaxy read flat because only the thin disk was ever built. The real thing
+     * has two more components stacked on it: a thick disk of older stars about five
+     * times taller, and a rounder stellar halo reaching far above and below. They are
+     * faint, they carry almost no structure, and they are what gives the galaxy
+     * volume from every angle instead of looking like a decal.
+     */
+    for (let i = 0; i < BACKDROP.thickDisk; i++) {
+        const index = sampler.pick();
+        const c = pixelColor(sampler, index);
+        const peak = Math.max(c.r, c.g, c.b);
+        if (peak < 0.05) continue;
+        const r = pixelToPlane(index, sampler.n, p);
+        p.y += gauss() * (2.2 + 0.03 * r);
+        // an older population: redder and smoother than the arms below it
+        color.setRGB(c.r, c.g, c.b).lerp(THICK_DISK_TINT, 0.55 + rand() * 0.3);
+        stars.add(p, color, 1.3 + Math.pow(rand(), 3) * 2.4, (0.01 + Math.pow(rand(), 3) * 0.06) * (0.4 + 0.6 * peak));
+    }
+
+    for (let i = 0; i < BACKDROP.halo; i++) {
+        // a flattened spheroid falling off with radius, out past the disk's rim
+        const dir = new THREE.Vector3(gauss(), gauss() * 0.75, gauss()).normalize();
+        const radius = 3 + Math.pow(rand(), 2.1) * 46;
+        p.copy(dir).multiplyScalar(radius);
+        color.copy(HALO_TINT).lerp(WHITE, rand() * 0.5);
+        stars.add(p, color, 1.2 + Math.pow(rand(), 3) * 1.8, 0.0075 + Math.pow(rand(), 3) * 0.05);
     }
 
     /*
@@ -536,7 +595,7 @@ function buildGalaxyFromImage(image) {
         const c = pixelColor(sampler, index);
         const peak = Math.max(c.r, c.g, c.b);
         if (peak > 0.3 || peak < 0.06) continue;
-        const { p, r } = pixelToPlane(index, sampler.n);
+        const r = pixelToPlane(index, sampler.n, p);
         if (r < 4 || r > 52) continue;
         p.y += gauss() * (0.1 + 0.008 * r);
         color.setRGB(0.02, 0.014, 0.012);
@@ -550,7 +609,7 @@ function buildGalaxyFromImage(image) {
         const index = sampler.pick();
         const c = pixelColor(sampler, index);
         if (!(c.r > 0.22 && c.r > c.b * 1.12 && c.r > c.g * 1.08)) continue;
-        const { p, r } = pixelToPlane(index, sampler.n);
+        const r = pixelToPlane(index, sampler.n, p);
         p.y += gauss() * (0.12 + 0.006 * r);
         color.setRGB(Math.min(c.r * 1.2, 1), c.g * 0.85, c.b * 0.95);
         knots.add(p, color, 1.8 + rand() * 3.0, 0.16 + rand() * 0.26);
@@ -560,14 +619,38 @@ function buildGalaxyFromImage(image) {
 }
 
 function buildBackdropStars() {
-    const layer = new Layer(15000);
+    const count = 26000;
+    const layer = new Layer(count);
     const white = new THREE.Color(1.0, 0.97, 0.93);
     const blue = new THREE.Color(0.62, 0.74, 1.0);
     const warm = new THREE.Color(1.0, 0.78, 0.58);
-    for (let i = 0; i < 15000; i++) {
+    for (let i = 0; i < count; i++) {
         const p = new THREE.Vector3(gauss(), gauss(), gauss()).normalize().multiplyScalar(2500);
         const pick = rand();
         layer.add(p, pick < 0.58 ? white : pick < 0.84 ? blue : warm, 1.0 + Math.pow(rand(), 4) * 2.0, 0.16 + Math.pow(rand(), 3) * 0.7);
+    }
+    return layer;
+}
+
+/*
+ * Far galaxies as dots. Most galaxies are far too distant to resolve, so they are
+ * points - but not star points: warmer, softer-edged and spread through the volume
+ * around us rather than pinned to one shell, which is what fills the space between
+ * the Milky Way and the named neighbours.
+ */
+function buildGalaxyDots() {
+    const count = 1600;
+    const layer = new Layer(count);
+    const color = new THREE.Color();
+    const amber = new THREE.Color(1.0, 0.86, 0.66);
+    const pale = new THREE.Color(0.86, 0.88, 1.0);
+    const red = new THREE.Color(1.0, 0.7, 0.62);
+    for (let i = 0; i < count; i++) {
+        const dir = new THREE.Vector3(gauss(), gauss() * 0.75, gauss()).normalize();
+        const p = dir.multiplyScalar(420 + Math.pow(rand(), 0.6) * 2000);
+        const pick = rand();
+        color.copy(pick < 0.5 ? amber : pick < 0.8 ? pale : red).lerp(new THREE.Color(1, 1, 1), rand() * 0.2);
+        layer.add(p, color, 1.8 + Math.pow(rand(), 2) * 3.0, 0.25 + Math.pow(rand(), 2) * 0.55);
     }
     return layer;
 }
@@ -578,26 +661,106 @@ function buildBackdropStars() {
  * thousands of stellar-mass black holes. At this zoom none of that resolves, so it
  * is drawn as a bright, clearly three-dimensional bulb rather than a flat blob.
  */
+/*
+ * The core, built for legibility rather than literal scale.
+ *
+ * The shapes are real ones: the Milky Way's bulge is a boxy, peanut-shaped bar seen
+ * end-on from here, not a ball, and at its heart sits a nuclear star cluster a few
+ * light-years wide holding millions of stars. Those are the concepts worth getting
+ * across. The sizes are not honest and cannot be: Sgr A*'s event horizon is about
+ * 0.08 AU, which at 1 unit = 1,000 ly is around 1e-11 units, so anything drawn for
+ * it is a pictogram by definition. What the drawing must not do is misrepresent the
+ * arrangement - bar, then dense cluster, then the black hole population inside it.
+ */
 function buildCore() {
     const group = new THREE.Group();
-    const points = new Layer(40000);
+    const points = new Layer(78000);
     const color = new THREE.Color();
-    for (let i = 0; i < 40000; i++) {
-        const dir = new THREE.Vector3(gauss(), gauss(), gauss()).normalize();
-        const r = 2.4 * Math.pow(rand(), 2.6);
-        const p = dir.multiplyScalar(r);
-        p.y *= 0.85;
-        const warmth = rand();
-        color.setRGB(1.0, THREE.MathUtils.lerp(0.72, 0.95, warmth), THREE.MathUtils.lerp(0.42, 0.82, warmth));
-        points.add(p, color, 1.0 + Math.pow(rand(), 2) * 1.5, 0.02 + Math.pow(rand(), 2) * 0.1);
+    const gold = new THREE.Color(1.0, 0.82, 0.55);
+    const amber = new THREE.Color(1.0, 0.68, 0.4);
+    const cream = new THREE.Color(1.0, 0.95, 0.85);
+    const p = new THREE.Vector3();
+
+    const barCos = Math.cos(BAR_ANGLE);
+    const barSin = Math.sin(BAR_ANGLE);
+    // along the bar, across it, and out of the plane
+    const place = (along, across, height) => {
+        p.set(along * barCos - across * barSin, height, along * barSin + across * barCos);
+        return p;
+    };
+
+    // the boxy bar-bulge: a superellipsoid, which is what gives it flat sides and
+    // square-ish corners instead of the taper of an ellipsoid
+    const A = 7.6;
+    const B = 2.9;
+    const C = 2.2;
+    const EXP = 2.9;
+    for (let i = 0; i < 52000; i++) {
+        let along = 0;
+        let across = 0;
+        let height = 0;
+        for (let tries = 0; tries < 12; tries++) {
+            along = (rand() * 2 - 1) * A;
+            across = (rand() * 2 - 1) * B;
+            height = (rand() * 2 - 1) * C;
+            const shape =
+                Math.pow(Math.abs(along / A), EXP) + Math.pow(Math.abs(across / B), EXP) + Math.pow(Math.abs(height / C), EXP);
+            if (shape <= 1) break;
+        }
+        // denser towards the middle
+        const pull = 0.35 + 0.65 * Math.pow(rand(), 0.45);
+        color.copy(rand() < 0.55 ? gold : amber).lerp(cream, Math.pow(rand(), 2) * 0.5);
+        points.add(place(along * pull, across * pull, height * pull), color, 1.1 + Math.pow(rand(), 3) * 1.9, 0.02 + Math.pow(rand(), 2) * 0.09);
     }
-    const material = pointsMaterial({ maxSize: 3.0, nearFade: 0.06, sharpness: 16 });
+
+    // the X: the peanut bulge's four diagonal lobes, a real feature of barred galaxies
+    for (let i = 0; i < 12000; i++) {
+        const armSign = rand() < 0.5 ? 1 : -1;
+        const upSign = rand() < 0.5 ? 1 : -1;
+        const t = 0.25 + Math.pow(rand(), 0.8) * 0.95;
+        const along = armSign * t * A * 0.85 + gauss() * 0.5;
+        const height = upSign * t * C * 0.85 + gauss() * 0.35;
+        color.copy(amber).lerp(gold, rand());
+        points.add(place(along, gauss() * 0.7, height), color, 1.1 + Math.pow(rand(), 3) * 1.6, 0.02 + Math.pow(rand(), 2) * 0.08);
+    }
+
+    // the nuclear star cluster: millions of stars inside a few light-years, drawn as
+    // a tight, bright knot so the jump in density is visible rather than implied
+    for (let i = 0; i < 14000; i++) {
+        const dir = new THREE.Vector3(gauss(), gauss() * 0.9, gauss()).normalize();
+        p.copy(dir).multiplyScalar(Math.pow(rand(), 2.2) * 0.85);
+        color.copy(cream).lerp(gold, rand() * 0.6);
+        points.add(p, color, 1.2 + Math.pow(rand(), 3) * 2.2, 0.05 + Math.pow(rand(), 2) * 0.2);
+    }
+
+    const material = pointsMaterial({ maxSize: 3.4, minSize: 1.1, nearFade: 0.06, sharpness: 16 });
     const cloud = new THREE.Points(points.geometry(), material);
     cloud.renderOrder = 5;
     cloud.frustumCulled = false;
     group.add(cloud);
 
-    // three dashed circles: a simple, readable outline of the dense nuclear region
+    /*
+     * Stellar-mass black holes. Models of the nuclear cluster expect thousands in the
+     * central few light-years; these are a token few dozen, drawn as accretion rings
+     * because a real one is far below a pixel here. A handful are drawn hotter, since
+     * only the accreting ones would show at all.
+     */
+    const holes = new Layer(BACKDROP.blackHoles);
+    const holeColor = new THREE.Color();
+    for (let i = 0; i < BACKDROP.blackHoles; i++) {
+        const dir = new THREE.Vector3(gauss(), gauss() * 0.8, gauss()).normalize();
+        p.copy(dir).multiplyScalar(0.25 + Math.pow(rand(), 0.7) * 1.5);
+        const hot = rand() < 0.25;
+        holeColor.setRGB(hot ? 0.75 : 0.95, hot ? 0.85 : 0.88, 1.0);
+        holes.add(p, holeColor, hot ? 15 + rand() * 9 : 10 + rand() * 6, hot ? 0.95 : 0.5 + rand() * 0.3);
+    }
+    const holeMaterial = pointsMaterial({ maxSize: 34, sharpness: 1, attenuate: 0, ring: true });
+    const holePoints = new THREE.Points(holes.geometry(), holeMaterial);
+    holePoints.renderOrder = 8;
+    holePoints.frustumCulled = false;
+    group.add(holePoints);
+
+    // three dashed circles outlining the dense nuclear region
     const shellMaterial = new THREE.LineDashedMaterial({
         color: 0xffd9a0,
         transparent: true,
@@ -621,32 +784,10 @@ function buildCore() {
         group.add(circle);
     }
 
-    /*
-     * Stellar-mass black holes. Models of the nuclear star cluster expect thousands
-     * in the central few light-years; these are a token population, drawn as small
-     * accretion rings because a real one is many orders of magnitude below a pixel
-     * here. They only appear once the camera is close enough to tell them apart.
-     */
-    const holes = new Layer(BACKDROP.blackHoles);
-    const holeColor = new THREE.Color();
-    for (let i = 0; i < BACKDROP.blackHoles; i++) {
-        const dir = new THREE.Vector3(gauss(), gauss(), gauss()).normalize();
-        const p = dir.multiplyScalar(1.5 * Math.pow(rand(), 0.7));
-        p.y *= 0.85;
-        const hot = rand();
-        holeColor.setRGB(THREE.MathUtils.lerp(0.75, 1.0, hot), THREE.MathUtils.lerp(0.72, 0.9, hot), 1.0);
-        holes.add(p, holeColor, 5 + rand() * 4, 0.55 + rand() * 0.45);
-    }
-    const holeMaterial = pointsMaterial({ maxSize: 22, sharpness: 1, attenuate: 0, ring: true });
-    const holePoints = new THREE.Points(holes.geometry(), holeMaterial);
-    holePoints.renderOrder = 8;
-    holePoints.frustumCulled = false;
-    group.add(holePoints);
-
     const shells = [
-        glowSprite(new THREE.Color(1.0, 0.88, 0.7), 3.4, 0.22),
-        glowSprite(new THREE.Color(0.95, 0.72, 0.45), 9, 0.13),
-        glowSprite(new THREE.Color(0.55, 0.42, 0.62), 18, 0.07),
+        glowSprite(new THREE.Color(1.0, 0.88, 0.7), 2.6, 0.2),
+        glowSprite(new THREE.Color(0.95, 0.72, 0.45), 7.5, 0.12),
+        glowSprite(new THREE.Color(0.55, 0.42, 0.62), 16, 0.06),
     ];
     for (const shell of shells) {
         shell.renderOrder = 6;
@@ -687,6 +828,7 @@ function buildArmOutlines() {
 function buildScatteredDeepSky(sampler) {
     const layer = new Layer(BACKDROP.scatteredDeepSky);
     const color = new THREE.Color();
+    const p = new THREE.Vector3();
     const nebula = new THREE.Color(DEEP_SKY_STYLE.nebula.color);
     const open = new THREE.Color(DEEP_SKY_STYLE.open.color);
     const globular = new THREE.Color(DEEP_SKY_STYLE.globular.color);
@@ -698,8 +840,7 @@ function buildScatteredDeepSky(sampler) {
         const roll = rand();
         if (roll < 0.12) {
             // halo globulars: a round, thick distribution around the whole galaxy
-            const dir = new THREE.Vector3(gauss(), gauss(), gauss()).normalize();
-            const p = dir.multiplyScalar(4 + Math.abs(gauss()) * 16);
+            p.set(gauss(), gauss(), gauss()).normalize().multiplyScalar(4 + Math.abs(gauss()) * 16);
             color.copy(globular);
             layer.add(p, color, 2.8 + rand() * 2.0, 0.4 + rand() * 0.22);
             continue;
@@ -708,7 +849,7 @@ function buildScatteredDeepSky(sampler) {
         const c = pixelColor(sampler, index);
         const peak = Math.max(c.r, c.g, c.b);
         if (peak < 0.09) continue;
-        const { p, r } = pixelToPlane(index, sampler.n);
+        const r = pixelToPlane(index, sampler.n, p);
         if (r < 3 || r > 50) continue;
         p.y += gauss() * (0.1 + 0.01 * r);
         const pink = c.r > c.b * 1.1;
@@ -757,8 +898,8 @@ function skyNorth(direction, pole) {
     return pole.clone().sub(direction.clone().multiplyScalar(pole.dot(direction))).normalize();
 }
 
-function galaxyPhoto(url, size, opacity, direction, pole, rollDeg = 0) {
-    const texture = new THREE.TextureLoader().load(url);
+function galaxyPhoto(url, size, opacity, direction, pole, rollDeg = 0, manager) {
+    const texture = new THREE.TextureLoader(manager).load(url);
     texture.colorSpace = THREE.SRGBColorSpace;
     const mesh = new THREE.Mesh(
         new THREE.PlaneGeometry(size, size),
@@ -782,8 +923,8 @@ function galaxyPhoto(url, size, opacity, direction, pole, rollDeg = 0) {
 
 // far-field galaxies get their own arbitrary orientation, since nothing says where
 // they should face, and they fade as they turn edge-on because a plane has no depth
-function orientedGalaxyQuad(url, size, opacity) {
-    const texture = new THREE.TextureLoader().load(url);
+function orientedGalaxyQuad(url, size, opacity, manager) {
+    const texture = new THREE.TextureLoader(manager).load(url);
     texture.colorSpace = THREE.SRGBColorSpace;
     const mesh = new THREE.Mesh(
         new THREE.PlaneGeometry(size, size),
@@ -800,7 +941,7 @@ function orientedGalaxyQuad(url, size, opacity) {
     return mesh;
 }
 
-function buildGalaxies(galaxies, backgroundImages, baseUrl, pole) {
+function buildGalaxies(galaxies, backgroundImages, baseUrl, pole, manager) {
     const group = new THREE.Group();
     const members = [];
     for (const g of galaxies) {
@@ -809,7 +950,7 @@ function buildGalaxies(galaxies, backgroundImages, baseUrl, pole) {
         // the galaxy fills part of its frame, so the plane is wider than the galaxy
         const size = (g.size / 1000) * (g.imageScale || 1.5);
         const node = g.image
-            ? galaxyPhoto(`${baseUrl}${g.image}`, size, 0.95, direction, pole, g.roll || 0)
+            ? galaxyPhoto(`${baseUrl}${g.image}`, size, 0.95, direction, pole, g.roll || 0, manager)
             : glowSprite(new THREE.Color(g.colors ? g.colors[0] : "#ffe3c0"), size * 0.6, 0.32);
         node.position.copy(center);
         node.renderOrder = 9;
@@ -820,11 +961,11 @@ function buildGalaxies(galaxies, backgroundImages, baseUrl, pole) {
     }
 
     const quads = [];
-    for (let i = 0; i < 18 && backgroundImages.length; i++) {
+    for (let i = 0; i < 30 && backgroundImages.length; i++) {
         const image = backgroundImages[Math.floor(rand() * backgroundImages.length)];
-        const quad = orientedGalaxyQuad(baseUrl + image, 60 + rand() * 190, 0.2 + rand() * 0.35);
+        const quad = orientedGalaxyQuad(baseUrl + image, 45 + rand() * 170, 0.42 + rand() * 0.5, manager);
         const dir = new THREE.Vector3(gauss(), gauss() * 0.7, gauss()).normalize();
-        quad.position.copy(dir.multiplyScalar(900 + rand() * 1100));
+        quad.position.copy(dir.multiplyScalar(600 + rand() * 1700));
         quad.renderOrder = 9;
         quad.userData.baseOpacity = quad.material.opacity;
         group.add(quad);
@@ -1083,6 +1224,21 @@ class GalaxyView {
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(50, 1, 0.01, 9000);
 
+        this.starFieldReady = false;
+        this.imagesReady = false;
+        this.loadingManager = new THREE.LoadingManager();
+        this.loadingManager.onProgress = (url, loaded, total) => {
+            // the star field is the slow half, so images only fill the first 60%
+            this.setLoaderProgress((loaded / Math.max(total, 1)) * 0.6);
+        };
+        this.loadingManager.onLoad = () => {
+            this.imagesReady = true;
+            this.maybeFinishLoading();
+        };
+        this.loadingManager.onError = (url) => {
+            this.setLoaderStep(`Missing ${url.split("/").pop()}`);
+        };
+
         this.controls = new OrbitControls(this.camera, this.canvas);
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.08;
@@ -1137,10 +1293,16 @@ class GalaxyView {
             dust: pointsMaterial({ maxSize: 320, nearFade: 2.5, sharpness: 2.2, blending: THREE.NormalBlending }),
             scattered: pointsMaterial({ maxSize: 11, minSize: 2.7, nearFade: 0.3, sharpness: 6 }),
             backdropStars: pointsMaterial({ maxSize: 4, sharpness: 18, attenuate: 0 }),
+            // softer falloff than a star, so these read as small fuzzy patches
+            galaxyDots: pointsMaterial({ maxSize: 5, sharpness: 5, attenuate: 0 }),
         };
         const backdropStars = new THREE.Points(buildBackdropStars().geometry(), this.materials.backdropStars);
         backdropStars.frustumCulled = false;
         this.scene.add(backdropStars);
+
+        const galaxyDots = new THREE.Points(buildGalaxyDots().geometry(), this.materials.galaxyDots);
+        galaxyDots.frustumCulled = false;
+        this.scene.add(galaxyDots);
 
         this.core = buildCore();
         this.scene.add(this.core.group);
@@ -1172,7 +1334,7 @@ class GalaxyView {
         const pole = DATA.celestialPole
             ? directionFromSun(DATA.celestialPole.l, DATA.celestialPole.b)
             : new THREE.Vector3(0, 1, 0);
-        this.galaxyGroup = buildGalaxies(this.galaxies, DATA.backgroundGalaxies || [], this.root.dataset.galaxies, pole);
+        this.galaxyGroup = buildGalaxies(this.galaxies, DATA.backgroundGalaxies || [], this.root.dataset.galaxies, pole, this.loadingManager);
         this.scene.add(this.galaxyGroup.group);
 
         this.localSystems = DATA.systems
@@ -1182,10 +1344,40 @@ class GalaxyView {
         this.local.group.renderOrder = 7;
         this.scene.add(this.local.group);
 
-        // the artwork drives both the backdrop and the star field, so everything that
-        // depends on it is built once the image arrives
-        new THREE.TextureLoader().load(this.root.dataset.backdrop, (texture) => {
+        /*
+         * The artwork drives both the backdrop and the star field, so everything that
+         * depends on it waits for the image. Sampling a million stars out of it blocks
+         * the main thread for a moment, so the loader is painted first and the build
+         * runs a frame later - otherwise the overlay would never appear.
+         */
+        new THREE.TextureLoader(this.loadingManager).load(this.root.dataset.backdrop, (texture) => {
             texture.colorSpace = THREE.SRGBColorSpace;
+            this.setLoaderStep("Building the star field");
+            /*
+             * Give the loader one paint before the build blocks the thread, but never
+             * depend on a frame arriving: a hidden tab suspends requestAnimationFrame
+             * entirely, and the galaxy would sit on the loading screen until the tab
+             * came back. The timeout wins in that case.
+             */
+            let started = false;
+            const start = () => {
+                if (started) return;
+                started = true;
+                try {
+                    this.buildStarField(texture);
+                } catch (error) {
+                    // never leave the loader claiming to be working when it is not
+                    this.setLoaderStep("Could not build the galaxy");
+                    throw error;
+                }
+            };
+            requestAnimationFrame(() => requestAnimationFrame(start));
+            setTimeout(start, 120);
+        });
+    }
+
+    buildStarField(texture) {
+        {
             this.backdrop = buildBackdropVolume(texture);
             this.scene.add(this.backdrop.group);
             const galaxy = buildGalaxyFromImage(texture.image);
@@ -1200,7 +1392,30 @@ class GalaxyView {
                 this.scene.add(points);
             }
             this.root.classList.add("Ready");
-        });
+            this.starFieldReady = true;
+            this.maybeFinishLoading();
+        }
+    }
+
+    /* ---------- loading ---------- */
+
+    setLoaderStep(text) {
+        const step = document.getElementById("GALAXY_LOADER_STEP");
+        if (step) step.textContent = text;
+    }
+
+    setLoaderProgress(fraction) {
+        const bar = document.getElementById("GALAXY_LOADER_BAR");
+        if (bar) bar.style.width = `${Math.round(THREE.MathUtils.clamp(fraction, 0, 1) * 100)}%`;
+    }
+
+    // the overlay lifts only when every image is in and the star field exists
+    maybeFinishLoading() {
+        if (!this.starFieldReady || !this.imagesReady) return;
+        this.setLoaderProgress(1);
+        this.setLoaderStep("Ready");
+        const loader = document.getElementById("GALAXY_LOADER");
+        if (loader) loader.classList.add("Done");
     }
 
     buildMarkers() {
@@ -1263,6 +1478,17 @@ class GalaxyView {
             maxDistance: 60,
             kind: "region",
             priority: 0.6,
+        });
+
+        add({
+            position: new THREE.Vector3(0, -this.core.shellRadius * 0.75, 0),
+            name: "Nuclear star cluster",
+            sub: "Millions of stars within a few light-years",
+            level: "galaxy",
+            layer: "arms",
+            maxDistance: 40,
+            kind: "region",
+            priority: 0.7,
         });
 
         const sun = DATA.systems.find((s) => s.placement.d === 0 && !s.placement.fictional);
@@ -1571,10 +1797,22 @@ class GalaxyView {
          * which keeps the exposure of the wide view untouched while giving the
          * close-up its contrast back.
          */
-        const closeGain = 1 - smoothstep(12, 70, cameraDistance);
-        this.materials.stars.uniforms.uGain.value = 1 + 2.4 * closeGain;
-        this.materials.knots.uniforms.uGain.value = 1 + 1.1 * closeGain;
-        this.materials.scattered.uniforms.uGain.value = 1 + 0.6 * closeGain;
+        /*
+         * Close in, attenuation inflates every sprite: stars reach their size cap and
+         * the haze blobs cover hundreds of pixels each, which is where the frame cost
+         * goes. Nothing is gained visually by letting them grow that far, so the caps
+         * tighten as the camera approaches. This is the cheapest lever on the worst
+         * case - the core close-up - and it leaves the wide view untouched.
+         */
+        const closeness = 1 - smoothstep(15, 60, cameraDistance);
+        this.materials.stars.uniforms.uMaxSize.value = THREE.MathUtils.lerp(6.0, 4.8, closeness);
+        this.materials.gas.uniforms.uMaxSize.value = THREE.MathUtils.lerp(900, 240, closeness);
+        this.materials.dust.uniforms.uMaxSize.value = THREE.MathUtils.lerp(320, 130, closeness);
+
+        const closeGain = 1 - smoothstep(10, 80, cameraDistance);
+        this.materials.stars.uniforms.uGain.value = 1 + 5.6 * closeGain;
+        this.materials.knots.uniforms.uGain.value = 1 + 2.0 * closeGain;
+        this.materials.scattered.uniforms.uGain.value = 1 + 1.0 * closeGain;
 
         /*
          * The backdrop stays visible at every angle, including edge-on, because the
@@ -1584,17 +1822,24 @@ class GalaxyView {
         if (this.backdrop) {
             // never switched off: it only dims as the camera closes in, where the
             // artwork runs out of resolution and the 3D field carries the detail
-            const closeFade = smoothstep(10, 34, cameraDistance);
+            const closeFade = smoothstep(2, 7, cameraDistance);
+            // hand the bulge over to the 3D core as the camera comes in
+            const coreFade = 1 - smoothstep(22, 65, cameraDistance);
             for (const m of this.backdrop.materials) {
                 m.uniforms.uOpacity.value = BACKDROP.opacity * m.userData.weight * closeFade;
+                m.uniforms.uCoreFade.value = coreFade;
             }
         }
 
         this.arms.group.visible = this.layerState.arms !== false && local < 0.99;
         this.arms.material.opacity = 0.22 * (1 - local);
         this.core.shellMaterial.opacity = 0.3 * (1 - local) * (this.layerState.arms !== false ? 1 : 0);
-        // individual black holes only make sense once they are further apart than a pixel
-        const holeFade = (1 - smoothstep(18, 46, cameraDistance)) * (1 - local);
+        /*
+         * Individual black holes only make sense in a window: too far and they are
+         * sub-pixel, too close and the camera is inside the cloud, where 140 rings
+         * of fixed screen size cover everything. They live between roughly 8 and 46.
+         */
+        const holeFade = smoothstep(4, 9, cameraDistance) * (1 - smoothstep(18, 46, cameraDistance)) * (1 - local);
         this.core.holePoints.visible = holeFade > 0.01;
         this.core.holeMaterial.uniforms.uOpacity.value = holeFade;
         /*
@@ -1627,10 +1872,15 @@ class GalaxyView {
         for (const quad of this.galaxyGroup.quads) {
             const toCamera = this.camera.position.clone().sub(quad.position).normalize();
             const facing = Math.abs(quad.getWorldDirection(SCRATCH_VECTOR).dot(toCamera));
-            quad.material.opacity =
-                quad.userData.baseOpacity *
-                smoothstep(0.12, 0.45, facing) *
-                diskTransmission(this.camera.position, quad.position);
+            /*
+              * Two things used to black these out: a steep edge-on fade and the full
+              * force of the dust column. They are meant to be scenery, so the fade
+              * now only bites when the plane is nearly edge-on, and the dust keeps a
+              * high floor for them - they sit far outside the disk, and a background
+              * galaxy that vanishes entirely just reads as a hole in the sky.
+              */
+            const transmission = Math.max(diskTransmission(this.camera.position, quad.position), 0.45);
+            quad.material.opacity = quad.userData.baseOpacity * smoothstep(0.05, 0.28, facing) * transmission;
         }
         /*
          * Named galaxies get the same treatment, and their labels go with them: a

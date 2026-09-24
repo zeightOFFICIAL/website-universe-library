@@ -405,3 +405,55 @@
 .GalaxyListRow.Static:hover {
     color: var(--galaxy-ink-dim)
 }
+
+/* loading overlay: sampling a million stars takes a beat on first open */
+
+.GalaxyLoader {
+    align-items: center;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
+    transition: opacity .5s;
+    z-index: 28
+}
+
+.GalaxyLoader.Done {
+    opacity: 0;
+    pointer-events: none
+}
+
+.GalaxyLoaderTitle {
+    color: var(--galaxy-ink);
+    font-family: var(--galaxy-font);
+    font-size: 1.8vmin;
+    letter-spacing: .4em;
+    margin: 0 0 2vmin;
+    text-transform: uppercase
+}
+
+.GalaxyLoaderTrack {
+    background: rgba(255, 255, 255, .12);
+    height: .35vmin;
+    overflow: hidden;
+    width: 26vmin
+}
+
+.GalaxyLoaderTrack span {
+    background: linear-gradient(90deg, #9ecbff, #ffd9a0);
+    display: block;
+    height: 100%;
+    transition: width .35s ease-out;
+    width: 0
+}
+
+.GalaxyLoaderStep {
+    color: var(--galaxy-ink-dim);
+    font-family: var(--galaxy-font);
+    font-size: 1.1vmin;
+    letter-spacing: .2em;
+    margin: 1.4vmin 0 0;
+    text-transform: uppercase
+}
